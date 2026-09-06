@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://puidkidflal4"]
+
+[ext_resource type="Texture2D" uid="uid://ckxbtw7cqsiwu" path="res://Sprites/Seasonal Tilesets/4 - Winter World/Background parts/3 - Big_mountain_BG.png" id="1_vcjce"]
+
+[node name="Node2D" type="Node2D" unique_id=2061918126]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=879680655]
+position = Vector2(224, 108)
+scale = Vector2(1.5555556, 1.0384616)
+texture = ExtResource("1_vcjce")

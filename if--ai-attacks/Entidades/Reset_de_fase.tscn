@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://n0mtpwjgprrh"]
+
+[ext_resource type="PackedScene" uid="uid://cqwwhfpc1ryqx" path="res://Entidades/Fim_de_fase.tscn" id="1_xss6f"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n87cn"]
+a = Vector2(304, 120)
+b = Vector2(-80, 120)
+
+[node name="Area2D" unique_id=1633922888 instance=ExtResource("1_xss6f")]
+collision_layer = 16
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=821300692]
+shape = SubResource("SegmentShape2D_n87cn")

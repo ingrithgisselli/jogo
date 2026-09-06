@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b4tdhg4sao8us"]
+
+[ext_resource type="Texture2D" uid="uid://6a11okypjq2y" path="res://Sprites/Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="1_a1a8k"]
+
+[node name="Node2D" type="Node2D" unique_id=391320584]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982351079]
+position = Vector2(224, 108.00001)
+scale = Vector2(1.5555556, 1.0384617)
+texture = ExtResource("1_a1a8k")

@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://bak2ec7ev1mg2"]
+
+[ext_resource type="Script" uid="uid://c2ij380dwi272" path="res://Scripts/jogador.gd" id="1_yv1tq"]
+[ext_resource type="Texture2D" uid="uid://bh22ig20hl76v" path="res://Sprites/1 - Penguin/Waddling (16 x 16).png" id="2_1t3xe"]
+[ext_resource type="Texture2D" uid="uid://d0dwb4tmdenoa" path="res://Sprites/1 - Penguin/Idle (16 x 16).png" id="2_qbtmm"]
+[ext_resource type="Texture2D" uid="uid://blgab064w21yh" path="res://Sprites/1 - Penguin/Falling (16 x 16).png" id="3_ys7n0"]
+[ext_resource type="Texture2D" uid="uid://ch5lsps5tjd04" path="res://Sprites/1 - Penguin/Jump (16 x 16).png" id="4_7cj8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38jbe"]
+atlas = ExtResource("2_1t3xe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26dl7"]
+atlas = ExtResource("2_1t3xe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imlql"]
+atlas = ExtResource("2_1t3xe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8beu"]
+atlas = ExtResource("2_1t3xe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yrsa"]
+atlas = ExtResource("2_1t3xe")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5avc0"]
+atlas = ExtResource("2_1t3xe")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ig1b"]
+atlas = ExtResource("3_ys7n0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdhex"]
+atlas = ExtResource("4_7cj8u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t3xe"]
+atlas = ExtResource("2_qbtmm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij8ri"]
+atlas = ExtResource("2_qbtmm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys7n0"]
+atlas = ExtResource("2_qbtmm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cj8u"]
+atlas = ExtResource("2_qbtmm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngd8o"]
+atlas = ExtResource("2_qbtmm")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38jbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26dl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imlql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8beu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yrsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5avc0")
+}],
+"loop": 0,
+"name": &"Andar",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ig1b")
+}],
+"loop": 1,
+"name": &"Caindo",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdhex")
+}],
+"loop": 1,
+"name": &"Pulando",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t3xe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij8ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys7n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cj8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngd8o")
+}],
+"loop": 1,
+"name": &"parado",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cj8u"]
+radius = 6.0
+height = 16.0
+
+[node name="Jogador" type="CharacterBody2D" unique_id=1296977925 groups=["Jogador"]]
+z_index = 1
+position = Vector2(208, 32)
+collision_layer = 2
+collision_mask = 41
+script = ExtResource("1_yv1tq")
+metadata/_edit_vertical_guides_ = [-384.0]
+
+[node name="Animação" type="AnimatedSprite2D" parent="." unique_id=1463381569]
+z_index = 1
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"Andar"
+autoplay = "parado"
+
+[node name="ColisãoJogador" type="CollisionShape2D" parent="." unique_id=1651223342]
+z_index = 1
+position = Vector2(8, 0)
+shape = SubResource("CapsuleShape2D_7cj8u")
