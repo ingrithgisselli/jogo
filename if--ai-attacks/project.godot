@@ -14,6 +14,10 @@ config/name="IF: AI Attacks"
 run/main_scene="uid://of7r21e31sfk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+GameState="*uid://8qkfalvx3i0i"
+
 [display]
 
 window/size/viewport_width=384

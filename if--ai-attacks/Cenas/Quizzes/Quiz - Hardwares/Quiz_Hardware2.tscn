@@ -1,10 +1,52 @@
 [gd_scene format=3 uid="uid://puidkidflal4"]
 
-[ext_resource type="Texture2D" uid="uid://ckxbtw7cqsiwu" path="res://Sprites/Seasonal Tilesets/4 - Winter World/Background parts/3 - Big_mountain_BG.png" id="1_vcjce"]
+[ext_resource type="Script" uid="uid://jkpx2617wo67" path="res://Cenas/Quizzes/Quiz - Hardwares/script_quiz_hardware_2.gd" id="1_vcjce"]
 
-[node name="Node2D" type="Node2D" unique_id=2061918126]
+[node name="Tela_Quiz_Hard2" type="Control" unique_id=2122265254]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vcjce")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=879680655]
-position = Vector2(224, 108)
-scale = Vector2(1.5555556, 1.0384616)
-texture = ExtResource("1_vcjce")
+[node name="Label" type="Label" parent="." unique_id=1673104156]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 24.0
+offset_right = 328.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 15
+text = "Qual a função da memória RAM?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2030203211]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 64.0
+offset_right = 282.0
+offset_bottom = 204.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=388687325]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Resfriar o processador"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=361955675]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Guardar dados temporários 
+enquanto o PC está ligado"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=2120092769]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Armazenar arquivos 
+permanentemente"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=71867428]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Processar gráficos 3D"

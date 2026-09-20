@@ -1,5 +1,51 @@
 [gd_scene format=3 uid="uid://det6u68dunxty"]
 
-[node name="Node2D" type="Node2D" unique_id=557373347]
+[ext_resource type="Script" uid="uid://ctteu26f0hfm" path="res://Cenas/Quizzes/Quiz - Hardwares/script_quiz_hardware_3.gd" id="1_g7bwg"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2042121425]
+[node name="Tela_Quiz_Hard3" type="Control" unique_id=932128356]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g7bwg")
+
+[node name="Label" type="Label" parent="." unique_id=1361672401]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 16.0
+offset_right = 344.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 15
+text = "O que conecta todos os componentes
+do computador entre si?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=607475596]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 88.0
+offset_right = 248.0
+offset_bottom = 200.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=1158416717]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Cooler"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=2119097506]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Monitor"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=311012746]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Gabinete"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=967324470]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Placa-mãe"

@@ -34,15 +34,19 @@ func _process(_delta: float) -> void:
 			
 
 func _on_interagir() -> void:
+	var jogadores := get_tree().get_nodes_in_group("Jogador")
+	if jogadores.size()>0:
+		GameState.posicao_jogador = jogadores[0].global_position
+		GameState.posicao_salva = true
 	_sorteio()
 
 func _sorteio() -> void:
-	var aleatorio_int:=randi_range(1,3)
-	if aleatorio_int==1:
+	var aleatorio:=randi_range(1,3)
+	if aleatorio==1:
 		call_deferred("carregar_quizHard1")
-	elif aleatorio_int==2:
+	elif aleatorio==2:
 		call_deferred("carregar_quizHard2")
-	elif aleatorio_int==3:
+	elif aleatorio==3:
 		call_deferred("carregar_quizHard3")
 			
 func carregar_quizHard1():
@@ -54,3 +58,7 @@ func carregar_quizHard2():
 func carregar_quizHard3():
 	get_tree().change_scene_to_file(cena_quizHard3)
 	
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://d23n0lsmci6p3"]
 
 [ext_resource type="Texture2D" uid="uid://dipirykf07u6b" path="res://Sprites/BotãoAcessar.png" id="1_pvmfw"]
-[ext_resource type="Script" uid="uid://cw6ai6wkb0u71" path="res://Entidades/colisaoBotao.gd" id="1_tg4ev"]
+[ext_resource type="Script" uid="uid://cw6ai6wkb0u71" path="res://Cenas/Quizzes/Botões/scriptBotaoFase1.gd" id="1_tg4ev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(24, 24)
 
-[node name="Colisão - Botão" type="Node2D" unique_id=2076580135]
+[node name="Botão Fase 1" type="Node2D" unique_id=2076580135]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1800032890]
 
@@ -15,6 +15,7 @@ unique_name_in_owner = true
 offset_right = 24.0
 offset_bottom = 24.0
 icon = ExtResource("1_pvmfw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=361096585]
 collision_layer = 32
