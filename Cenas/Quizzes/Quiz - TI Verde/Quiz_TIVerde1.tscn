@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://rq7ek64l17vl"]
+
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_02j86"]
+[ext_resource type="Script" uid="uid://cf52rckq1ql2m" path="res://Cenas/Quizzes/Quiz - TI Verde/script_quiz_ti_verde_1.gd" id="1_308d8"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="2_3axth"]
+
+[node name="Tela_Quiz_TIVerde1" type="Control" unique_id=93564385]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_02j86")
+script = ExtResource("1_308d8")
+
+[node name="Label" type="Label" parent="." unique_id=2145729833]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 383.0
+offset_bottom = 71.0
+text = "O que é \"TI verde\"?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1975575107]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 80.0
+offset_right = 362.0
+offset_bottom = 201.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=347892693]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Instalar softwares mais rápidos"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=1397951113]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Distribuir tecnologia para todas as classes"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=1168477614]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Reduzir o impacto ambiental do uso e descarte de tecnologia"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=631778191]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Desenvolver aplicativos educativos"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1097891065]
+z_index = -1
+position = Vector2(207.99998, 108.00001)
+scale = Vector2(0.3678099, 0.23275863)
+texture = ExtResource("2_3axth")

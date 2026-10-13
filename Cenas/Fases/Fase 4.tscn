@@ -1,0 +1,159 @@
+[gd_scene format=4 uid="uid://b2hy8534ukg0d"]
+
+[ext_resource type="Script" uid="uid://c7ijbns20d7kf" path="res://Cenas/Fases/script_fase4.gd" id="1_pxq7f"]
+[ext_resource type="PackedScene" uid="uid://cqwwhfpc1ryqx" path="res://Entidades/Fim_de_fase.tscn" id="2_1yh2y"]
+[ext_resource type="PackedScene" uid="uid://dmjkvpygybj2w" path="res://Cenas/Quizzes/Botões/Botão Fase 4.tscn" id="2_ag7k1"]
+[ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="3_35b2b"]
+[ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_ag7k1"]
+[ext_resource type="TileSet" uid="uid://c1osjjd753uh1" path="res://Sprites/Testes/Tiles(Azulejos)/GramaPadrão.tres" id="6_mpbxu"]
+[ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/screen_piscando_sheet.png" id="7_v7txi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpbxu"]
+size = Vector2(20, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qni8u"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(0, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m44bq"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(32, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w1ni"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(64, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me7r7"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(96, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26463"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(128, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0dy"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(160, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtjxs"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(192, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbuyj"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(224, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu0xy"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(256, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toc0i"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(288, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h1na"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(320, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6apu"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(352, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3xtc"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(384, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxxrf"]
+atlas = ExtResource("7_v7txi")
+region = Rect2(416, 0, 32, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_465nu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qni8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m44bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w1ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me7r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26463")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf0dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtjxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbuyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu0xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toc0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h1na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6apu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3xtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxrf")
+}],
+"loop": 1,
+"name": &"Computador",
+"speed": 12.0
+}]
+
+[node name="Fase 4" type="Node2D" unique_id=420359046]
+script = ExtResource("1_pxq7f")
+
+[node name="Botão Fase 4" parent="." unique_id=1873546290 instance=ExtResource("2_ag7k1")]
+position = Vector2(88, 32)
+
+[node name="Button" parent="Botão Fase 4/CanvasLayer" parent_id_path=PackedInt32Array(1873546290, 479153943) index="0" unique_id=1261027004]
+vertical_icon_alignment = 2
+
+[node name="Area2D" parent="Botão Fase 4" index="1" unique_id=2063695517]
+position = Vector2(0, 96)
+
+[node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_1yh2y")]
+position = Vector2(56, 8)
+
+[node name="CollisionShape2D" parent="FimdeFase" index="0" unique_id=821300692]
+position = Vector2(80, 80)
+shape = SubResource("RectangleShape2D_mpbxu")
+
+[node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("3_35b2b")]
+unique_name_in_owner = true
+position = Vector2(32, 120)
+
+[node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("4_ag7k1")]
+position = Vector2(-16, 120)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1942876537]
+position = Vector2(0, 96)
+tile_map_data = PackedByteArray("AAABAAMAAAAEAAEAAAACAAMAAAAEAAEAAAADAAMAAAAEAAEAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAAGAAMAAAAEAAEAAAAHAAMAAAAEAAEAAAAIAAMAAAAEAAEAAAAJAAMAAAAEAAEAAAAKAAMAAAAEAAEAAAALAAMAAAAEAAEAAAAMAAMAAAAEAAEAAAANAAMAAAAEAAEAAAAOAAMAAAAEAAEAAAAPAAMAAAAEAAEAAAAQAAMAAAAEAAEAAAARAAMAAAAEAAEAAAASAAMAAAAEAAEAAAATAAMAAAAEAAEAAAAUAAMAAAAEAAEAAAAVAAMAAAAEAAEAAAAWAAMAAAAEAAEAAAAXAAMAAAAFAAEAAAAAAAMAAAABAAMAAAA=")
+tile_set = ExtResource("6_mpbxu")
+
+[node name="Computador" type="AnimatedSprite2D" parent="." unique_id=175259067]
+position = Vector2(88, 132)
+scale = Vector2(1, 0.92307746)
+sprite_frames = SubResource("SpriteFrames_465nu")
+animation = &"Computador"
+autoplay = "Computador"
+
+[editable path="Botão Fase 4"]
+[editable path="FimdeFase"]

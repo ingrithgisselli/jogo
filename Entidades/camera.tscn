@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cj4vrwlgm7vfr"]
+
+[ext_resource type="Script" uid="uid://cd5g667jojkho" path="res://Scripts/camera.gd" id="1_epyiq"]
+
+[node name="Camera2D" type="Camera2D" unique_id=2032167798]
+limit_left = 0
+limit_bottom = 216
+position_smoothing_enabled = true
+script = ExtResource("1_epyiq")
