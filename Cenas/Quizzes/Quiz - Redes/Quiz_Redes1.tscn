@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://c8w7mq5vjnfrg"]
+
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_8x4wx"]
+[ext_resource type="Script" uid="uid://btlwc4qg3krpk" path="res://Cenas/Quizzes/Quiz - Redes/script_quiz_redes_1.gd" id="1_b1ddi"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="3_brs45"]
+
+[node name="Tela_Quiz_Redes1" type="Control" unique_id=1690078524]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8x4wx")
+script = ExtResource("1_b1ddi")
+
+[node name="Label" type="Label" parent="." unique_id=253701871]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 376.0
+offset_bottom = 71.0
+text = "Qual tecnologia permite conectar dispositivos
+a uma rede sem usar cabos?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=329396645]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 80.0
+offset_right = 252.0
+offset_bottom = 192.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=222689601]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = " WI-FI"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=1681770177]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Modem"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=423550430]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Bluetooth"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=2009837405]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Fibra óptica"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2145734444]
+z_index = -1
+position = Vector2(207.99998, 108.00001)
+scale = Vector2(0.3678099, 0.23275863)
+texture = ExtResource("3_brs45")
