@@ -1,91 +1,42 @@
 [gd_scene format=3 uid="uid://bak2ec7ev1mg2"]
 
 [ext_resource type="Script" uid="uid://c2ij380dwi272" path="res://Scripts/jogador.gd" id="1_yv1tq"]
-[ext_resource type="Texture2D" uid="uid://bh22ig20hl76v" path="res://Sprites/1 - Penguin/Waddling (16 x 16).png" id="2_1t3xe"]
-[ext_resource type="Texture2D" uid="uid://d0dwb4tmdenoa" path="res://Sprites/1 - Penguin/Idle (16 x 16).png" id="2_qbtmm"]
-[ext_resource type="Texture2D" uid="uid://blgab064w21yh" path="res://Sprites/1 - Penguin/Falling (16 x 16).png" id="3_ys7n0"]
-[ext_resource type="Texture2D" uid="uid://ch5lsps5tjd04" path="res://Sprites/1 - Penguin/Jump (16 x 16).png" id="4_7cj8u"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_38jbe"]
-atlas = ExtResource("2_1t3xe")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_26dl7"]
-atlas = ExtResource("2_1t3xe")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_imlql"]
-atlas = ExtResource("2_1t3xe")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8beu"]
-atlas = ExtResource("2_1t3xe")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8yrsa"]
-atlas = ExtResource("2_1t3xe")
-region = Rect2(64, 0, 16, 16)
+[ext_resource type="Texture2D" uid="uid://1qincln12lg8" path="res://Sprites/Autorais/Jogador/garota andando_0001.png" id="2_38jbe"]
+[ext_resource type="Texture2D" uid="uid://ceflpkbwbpp83" path="res://Sprites/Autorais/Jogador/garota andando_0002.png" id="3_26dl7"]
+[ext_resource type="Texture2D" uid="uid://d2u0wf4q3o5cd" path="res://Sprites/Autorais/Jogador/garota andando_0003.png" id="4_imlql"]
+[ext_resource type="Texture2D" uid="uid://dxexnlu1kx1gh" path="res://Sprites/Autorais/Jogador/garota andando_0004.png" id="5_f8beu"]
+[ext_resource type="Texture2D" uid="uid://biujidcyu0prn" path="res://Sprites/Autorais/Jogador/garota andando_0005.png" id="6_8yrsa"]
+[ext_resource type="Texture2D" uid="uid://dp7ypipbjfwe6" path="res://Sprites/Autorais/Jogador/garota_parada_sprite.png" id="7_ngd8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5avc0"]
-atlas = ExtResource("2_1t3xe")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ig1b"]
-atlas = ExtResource("3_ys7n0")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdhex"]
-atlas = ExtResource("4_7cj8u")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1t3xe"]
-atlas = ExtResource("2_qbtmm")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ij8ri"]
-atlas = ExtResource("2_qbtmm")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ys7n0"]
-atlas = ExtResource("2_qbtmm")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7cj8u"]
-atlas = ExtResource("2_qbtmm")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ngd8o"]
-atlas = ExtResource("2_qbtmm")
-region = Rect2(64, 0, 16, 16)
+atlas = ExtResource("2_38jbe")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_38jbe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_26dl7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_imlql")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f8beu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8yrsa")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_5avc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_26dl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_imlql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f8beu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8yrsa")
 }],
 "loop": 1,
 "name": &"Andar",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ig1b")
+"texture": ExtResource("6_8yrsa")
 }],
 "loop": 1,
 "name": &"Caindo",
@@ -93,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gdhex")
+"texture": ExtResource("2_38jbe")
 }],
 "loop": 1,
 "name": &"Pulando",
@@ -101,28 +52,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1t3xe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ij8ri")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ys7n0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7cj8u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ngd8o")
+"texture": ExtResource("7_ngd8o")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"parado",
-"speed": 7.0
+"speed": 1.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7cj8u"]
-radius = 6.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5avc0"]
+size = Vector2(18, 56)
 
 [node name="Jogador" type="CharacterBody2D" unique_id=1296977925 groups=["Jogador"]]
 z_index = 1
@@ -136,10 +74,10 @@ metadata/_edit_vertical_guides_ = [-384.0]
 z_index = 1
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-animation = &"Andar"
+animation = &"parado"
 autoplay = "parado"
 
 [node name="ColisãoJogador" type="CollisionShape2D" parent="." unique_id=1651223342]
 z_index = 1
-position = Vector2(8, 0)
-shape = SubResource("CapsuleShape2D_7cj8u")
+position = Vector2(7, 4)
+shape = SubResource("RectangleShape2D_5avc0")

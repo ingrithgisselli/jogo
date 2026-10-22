@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bv7m7yt62560b"]
+
+[ext_resource type="Script" uid="uid://d0rx07vlyg3p8" path="res://Cenas/Quizzes/Quiz - Redes/script_quiz_redes_2.gd" id="1_dqn0n"]
+
+[node name="Tela_Quiz_Redes2" type="Control" unique_id=692472184]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dqn0n")
+
+[node name="Label" type="Label" parent="." unique_id=2049826844]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 391.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 15
+text = "Qual a função de um firewall (\"Parede de fogo\")?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=976452047]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 80.0
+offset_right = 338.0
+offset_bottom = 192.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=1161242787]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Traduzir linguagens de programação"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=506398657]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Aumentar a memória RAM"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=1075600671]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Filtrar tráfego e bloquear acessos não autorizados"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=2129742051]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Armazenar arquivos na nuvem"

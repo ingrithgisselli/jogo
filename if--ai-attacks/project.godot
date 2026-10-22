@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="IF: AI Attacks"
+config/name="IF: AI Attacks 1.2"
 run/main_scene="uid://of7r21e31sfk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
@@ -63,6 +63,10 @@ Pular={
 2d_physics/layer_4="Fim de fase"
 2d_physics/layer_5="Reset de fase"
 2d_physics/layer_6="Colisão Botão"
+2d_physics/layer_7="Chefão"
+2d_physics/layer_8="Coletáveis"
+2d_physics/layer_9="Cabeça (Chefão)"
+2d_physics/layer_10="Dano (Chefão)"
 
 [physics]
 

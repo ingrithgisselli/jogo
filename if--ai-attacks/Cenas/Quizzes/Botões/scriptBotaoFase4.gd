@@ -58,7 +58,5 @@ func carregar_quizTIverde2():
 func carregar_quizTIverde3():
 	get_tree().change_scene_to_file(cena_quizTIverde3)
 	
-
-
 func _on_button_pressed() -> void:
-	pass # Replace with function body.
+	pass 

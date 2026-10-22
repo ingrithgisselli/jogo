@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://svtyctufdrt"]
 
 [ext_resource type="Script" uid="uid://d2qxxgnpxv6pu" path="res://Cenas/Quizzes/Quiz - Softwares/script_quiz_software_3.gd" id="1_7blqp"]
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_17d6i"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="3_la5lr"]
 
 [node name="Tela_Quiz_Soft3" type="Control" unique_id=2062470369]
 layout_mode = 3
@@ -9,15 +11,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_17d6i")
 script = ExtResource("1_7blqp")
 
 [node name="Label" type="Label" parent="." unique_id=1386610617]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 16.0
+offset_top = 24.0
 offset_right = 376.0
-offset_bottom = 63.0
-theme_override_font_sizes/font_size = 15
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 16
 text = "Como se chama o termo geral para programas
  criados para causar dano a um sistema?"
 horizontal_alignment = 1
@@ -33,23 +36,25 @@ theme_override_constants/separation = 8
 [node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=1141119572]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
 text = " Firmware"
 
 [node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=684357920]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
 text = "Freeware"
 
 [node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=658134758]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
 text = " Shareware"
 
 [node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=663862986]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 10
 text = "Malware"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1256035551]
+z_index = -1
+position = Vector2(207.99998, 108.00001)
+scale = Vector2(0.3678099, 0.23275863)
+texture = ExtResource("3_la5lr")

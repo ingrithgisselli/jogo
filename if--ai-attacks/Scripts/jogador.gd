@@ -1,4 +1,7 @@
 extends CharacterBody2D
+
+signal vida_alterada(nova_vida)
+
 enum Estado_Jogador{
 	parado,
 	andando,
@@ -8,9 +11,14 @@ enum Estado_Jogador{
 @onready var animação: AnimatedSprite2D = $Animação
 const SPEED = 90.0
 const JUMP_VELOCITY = -300.0
+@export var vida_maxima: int = 3
+var vida_atual: int
 var Status: Estado_Jogador
 
 func _ready() -> void:
+	vida_atual = vida_maxima
+	# Adiado para a interface já estar conectada ao sinal quando ele for emitido
+	call_deferred("emit_signal", "vida_alterada", vida_atual)
 	preparar_Estado_parado()
 
 func _physics_process(delta: float) -> void:
@@ -100,3 +108,19 @@ func movimentacao():
 		animação.flip_h=true
 	elif direction>0:
 		animação.flip_h=false
+
+#Sistema de vida
+func receber_dano(quantidade: int = 1) -> void:
+	if vida_atual <= 0:
+		return
+
+	vida_atual = clamp(vida_atual - quantidade, 0, vida_maxima)
+	
+	vida_alterada.emit(vida_atual)
+
+	if vida_atual <= 0:
+		morrer()
+
+func morrer() -> void:
+	print("O jogador morreu!")
+	get_tree().reload_current_scene()

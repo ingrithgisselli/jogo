@@ -1,0 +1,247 @@
+[gd_scene format=3 uid="uid://c7lv5dilppbhk"]
+
+[ext_resource type="Script" uid="uid://b5ophb2ij8cgj" path="res://Cenas/Fases/script_fase_final.gd" id="1_eysbh"]
+[ext_resource type="Script" uid="uid://c4w418u4jlvbr" path="res://Scripts/chefão.gd" id="2_kkrjb"]
+[ext_resource type="Script" uid="uid://dcl2c3i16d158" path="res://Scripts/texture_rect_jogador.gd" id="2_syye3"]
+[ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="2_ye3dl"]
+[ext_resource type="Script" uid="uid://dkrlfclkui7i3" path="res://Scripts/jogador(fase final).gd" id="3_0jpv8"]
+[ext_resource type="Script" uid="uid://36oabqspjlkd" path="res://Scripts/coletáveis.gd" id="3_lxw2d"]
+[ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_lxw2d"]
+[ext_resource type="Texture2D" uid="uid://iw00mnh1x4no" path="res://Sprites/Autorais/livro1 (1).png" id="5_25unv"]
+[ext_resource type="Texture2D" uid="uid://ddfnixc2ruf81" path="res://Sprites/Autorais/bateria1.png" id="5_lxw2d"]
+[ext_resource type="Script" uid="uid://brnw63olnau14" path="res://Scripts/texture_rect_chefao.gd" id="9_gogcb"]
+[ext_resource type="Texture2D" uid="uid://r0spdecs5t00" path="res://Sprites/Autorais/bateria2.png" id="11_cifgt"]
+[ext_resource type="Texture2D" uid="uid://xut30aaogkdr" path="res://Sprites/Autorais/bateria3.png" id="12_2snyo"]
+[ext_resource type="Texture2D" uid="uid://v50j1ar70uve" path="res://Sprites/Autorais/vida_1.png" id="12_gogcb"]
+[ext_resource type="Texture2D" uid="uid://dkbkkooir5whl" path="res://Sprites/Autorais/vida_2.png" id="13_d0a46"]
+[ext_resource type="Texture2D" uid="uid://b3x2lxi5y8pnc" path="res://Sprites/Autorais/bateria4.png" id="13_tjf6b"]
+[ext_resource type="Texture2D" uid="uid://ce2w2lmsvef32" path="res://Cenas/Fases/icon.svg" id="14_0uiyp"]
+[ext_resource type="Texture2D" uid="uid://b0khjux8oa364" path="res://Sprites/Autorais/bateria5.png" id="14_4iunj"]
+[ext_resource type="Texture2D" uid="uid://cpox78fep5ye2" path="res://Sprites/Autorais/vida_3.png" id="14_j4jos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvglf"]
+size = Vector2(32, 88.66666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53y5c"]
+size = Vector2(1272, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cj3rq"]
+size = Vector2(206, 25.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57s0e"]
+size = Vector2(60, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53y5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_0uiyp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4omdq"]
+size = Vector2(86.66672, 177.49992)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jjfc"]
+size = Vector2(86.66676, 16.250013)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5uj0"]
+size = Vector2(90.33609, 163.99992)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_53y5c"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_53y5c"]
+a = Vector2(8, 607)
+b = Vector2(8, 3)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_57s0e"]
+a = Vector2(117, 539)
+b = Vector2(117, -125)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4omdq"]
+a = Vector2(1115, -32)
+b = Vector2(-45, -31)
+
+[node name="Fase Final" type="Node2D" unique_id=1657055100]
+script = ExtResource("1_eysbh")
+
+[node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("2_ye3dl")]
+unique_name_in_owner = true
+position = Vector2(64, 504)
+scale = Vector2(1.5, 1.5)
+collision_mask = 873
+script = ExtResource("3_0jpv8")
+
+[node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
+scale = Vector2(1.5, 1.5)
+animation = &"Andar"
+
+[node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
+position = Vector2(8, 3.666687)
+shape = SubResource("RectangleShape2D_fvglf")
+
+[node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("4_lxw2d")]
+zoom = Vector2(0.3, 0.3)
+limit_right = 1280
+limit_bottom = 644
+limit_smoothed = true
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=1485334849]
+position = Vector2(3, -12)
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=1693392536]
+position = Vector2(633, 625.5)
+shape = SubResource("RectangleShape2D_53y5c")
+
+[node name="Polygon2D" type="Polygon2D" parent="floor" unique_id=1910802247]
+position = Vector2(373, 396)
+scale = Vector2(1, 0.4714287)
+color = Color(0.28093427, 0.18981016, 0.119364016, 1)
+polygon = PackedVector2Array(-376, 424.24225, 200, 424.24225, 896, 424.24225, 896, 509.09076, 896, 559.9998, -373, 573)
+
+[node name="plataforma" type="StaticBody2D" parent="." unique_id=191885415]
+position = Vector2(-1, -460)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma" unique_id=688070064]
+position = Vector2(645, 735.375)
+shape = SubResource("RectangleShape2D_cj3rq")
+
+[node name="Polygon2D" type="Polygon2D" parent="plataforma" unique_id=1410457628]
+position = Vector2(609.4443, 646.6787)
+scale = Vector2(0.17545372, 0.17857121)
+color = Color(0.28093427, 0.18981016, 0.119364016, 1)
+polygon = PackedVector2Array(-373, 433, 784, 433, 784, 573, 201.68652, 573, -373, 573)
+
+[node name="coletavel1" type="Area2D" parent="." unique_id=796550405]
+position = Vector2(-38, -16)
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("3_lxw2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="coletavel1" unique_id=128325901]
+position = Vector2(679.25, 98.499985)
+scale = Vector2(0.33984372, 0.35156277)
+texture = ExtResource("5_25unv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel1" unique_id=1005889543]
+position = Vector2(685, 88)
+shape = SubResource("RectangleShape2D_57s0e")
+
+[node name="coletavel2" type="Area2D" parent="." unique_id=57648863]
+position = Vector2(398, 121)
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("3_lxw2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="coletavel2" unique_id=1508827194]
+position = Vector2(679.25, 197.5)
+scale = Vector2(0.33984372, 0.35156277)
+texture = ExtResource("5_25unv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel2" unique_id=1884356626]
+position = Vector2(685, 190.00002)
+shape = SubResource("RectangleShape2D_57s0e")
+
+[node name="coletavel3" type="Area2D" parent="." unique_id=2021711910]
+position = Vector2(-487, 166)
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("3_lxw2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="coletavel3" unique_id=685258373]
+position = Vector2(747, 98)
+scale = Vector2(0.33984372, 0.35156277)
+texture = ExtResource("5_25unv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel3" unique_id=391126571]
+position = Vector2(752, 88.5)
+shape = SubResource("RectangleShape2D_57s0e")
+
+[node name="Chefão" type="CharacterBody2D" parent="." unique_id=693359797]
+unique_name_in_owner = true
+light_mask = 0
+position = Vector2(919, 117)
+scale = Vector2(1.2, 1)
+collision_layer = 64
+collision_mask = 3
+script = ExtResource("2_kkrjb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chefão" unique_id=828148492]
+scale = Vector2(0.68223745, 1.4218752)
+sprite_frames = SubResource("SpriteFrames_53y5c")
+frame_progress = 0.7068698
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão" unique_id=1988320137]
+position = Vector2(0, 2.2500534)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_4omdq")
+
+[node name="Cabeca" type="Area2D" parent="Chefão" unique_id=71650224]
+position = Vector2(4.9889088e-05, -87)
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão/Cabeca" unique_id=478658782]
+position = Vector2(0, 2.125)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_4jjfc")
+
+[node name="Dano" type="Area2D" parent="Chefão" unique_id=366712447]
+collision_layer = 512
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão/Dano" unique_id=1212668937]
+scale = Vector2(0.99999994, 0.9999999)
+shape = SubResource("RectangleShape2D_u5uj0")
+
+[node name="paredes" type="StaticBody2D" parent="." unique_id=1551197490]
+physics_material_override = SubResource("PhysicsMaterial_53y5c")
+
+[node name="esquerda" type="CollisionShape2D" parent="paredes" unique_id=2087979646]
+position = Vector2(-7, -1)
+shape = SubResource("SegmentShape2D_53y5c")
+
+[node name="direita" type="CollisionShape2D" parent="paredes" unique_id=490792136]
+position = Vector2(1155, 45)
+shape = SubResource("SegmentShape2D_57s0e")
+
+[node name="teto" type="StaticBody2D" parent="." unique_id=1790670471]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="teto" unique_id=1033344004]
+position = Vector2(45, -27)
+shape = SubResource("SegmentShape2D_4omdq")
+
+[node name="Interface - Vida (Chefão)" type="CanvasLayer" parent="." unique_id=2102683599]
+
+[node name="TextureRect (Chefão)" type="TextureRect" parent="Interface - Vida (Chefão)" unique_id=1109676676]
+offset_left = 319.0
+offset_top = 1.0
+offset_right = 319.0
+offset_bottom = 1.0
+scale = Vector2(0.3, 0.3)
+script = ExtResource("9_gogcb")
+imagens_baterias = Array[Texture2D]([null, ExtResource("5_lxw2d"), ExtResource("11_cifgt"), ExtResource("12_2snyo"), ExtResource("13_tjf6b"), ExtResource("14_4iunj")])
+
+[node name="Interface - Vida (Jogador)" type="CanvasLayer" parent="." unique_id=2085106904]
+
+[node name="TextureRect (Jogador)" type="TextureRect" parent="Interface - Vida (Jogador)" unique_id=1988132324]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 18.667
+expand_mode = 3
+script = ExtResource("2_syye3")
+imagens_de_vida = Array[Texture2D]([null, ExtResource("12_gogcb"), ExtResource("13_d0a46"), ExtResource("14_j4jos")])
+
+[connection signal="body_entered" from="coletavel1" to="coletavel1" method="_on_body_entered"]
+[connection signal="body_entered" from="coletavel2" to="coletavel2" method="_on_body_entered"]
+[connection signal="body_entered" from="coletavel3" to="coletavel3" method="_on_body_entered"]
+[connection signal="body_entered" from="Chefão/Cabeca" to="." method="_on_cabeca_body_entered"]
+
+[editable path="Jogador"]
+[editable path="Camera2D"]

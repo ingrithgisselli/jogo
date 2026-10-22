@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://nwcrys6dv7gf"]
 
-[ext_resource type="Texture2D" uid="uid://dipirykf07u6b" path="res://Sprites/BotãoAcessar.png" id="1_f1yc6"]
+[ext_resource type="Texture2D" uid="uid://dipirykf07u6b" path="res://Sprites/Sprites livres/BotãoAcessar.png" id="1_f1yc6"]
 [ext_resource type="Script" uid="uid://clk5a0uws1hx1" path="res://Cenas/Quizzes/Botões/scriptBotaoFase3.gd" id="2_mgns6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1yc6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgns6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgdjj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxs8o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0svxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgdjj"]
 size = Vector2(24, 24)
@@ -10,11 +20,17 @@ size = Vector2(24, 24)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1287570770]
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=761543601]
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=2052888251]
 unique_name_in_owner = true
 offset_right = 24.0
 offset_bottom = 24.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f1yc6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mgns6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lgdjj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fxs8o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0svxe")
 icon = ExtResource("1_f1yc6")
+icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=547851]
@@ -27,6 +43,5 @@ offset = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_lgdjj")
 debug_color = Color(0.6392157, 0.5254902, 0, 0.6666667)
 
-[connection signal="pressed" from="CanvasLayer/Button" to="Area2D" method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
