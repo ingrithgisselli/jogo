@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://puidkidflal4"]
+
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_bdhs6"]
+[ext_resource type="Script" uid="uid://jkpx2617wo67" path="res://Cenas/Quizzes/Quiz - Hardwares/script_quiz_hardware_2.gd" id="1_vcjce"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="3_1y163"]
+
+[node name="Tela_Quiz_Hard2" type="Control" unique_id=2122265254]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bdhs6")
+script = ExtResource("1_vcjce")
+
+[node name="Label" type="Label" parent="." unique_id=1673104156]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 16.0
+offset_right = 328.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 16
+text = "Qual a função da memória RAM?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2030203211]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 56.0
+offset_right = 308.0
+offset_bottom = 199.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=388687325]
+layout_mode = 2
+text = "Notificar o usuário de novas atualizações"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=361955675]
+layout_mode = 2
+text = "Guardar dados temporários 
+enquanto o PC está ligado"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=2120092769]
+layout_mode = 2
+text = "Armazenar arquivos 
+permanentemente"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=71867428]
+layout_mode = 2
+text = "Transferir dados para a tela do usuário"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1542724929]
+z_index = -1
+position = Vector2(207.99998, 108.00001)
+scale = Vector2(0.3678099, 0.23275863)
+texture = ExtResource("3_1y163")
