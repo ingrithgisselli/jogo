@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Mini script para evitar o piscar do tema claro -->
+    <script>
+        try {
+            const temaSalvo = localStorage.getItem('tema');
+            const prefereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+            const tema = temaSalvo || (prefereClaro ? 'light' : 'dark');
+            document.documentElement.dataset.theme = tema;
+        } catch (e) {}
+    </script>
+
+    <meta
+        name="description"
+        content="Conheça IF: AI Attacks, um jogo sobre tecnologia, lógica e inteligência artificial."
+    >
+
+    <meta name="theme-color" content="#0d0b0e">
+
+    <title>IF: AI Attacks</title>
+
+    <link rel="stylesheet" href="style2.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho e navegação -->
+    <header>
+        <nav aria-label="Navegação principal">
+
+            <a href="#inicio" class="logo">
+                IF: <span class="texto-destaque">AI</span> ATTACKS
+            </a>
+
+            <ul id="menu-principal">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#jogo">O Jogo</a></li>
+                <li><a href="#tutorial">Tutorial</a></li>
+                <li><a href="#documentacao">Documentação</a></li>
+                <li><a href="#codigos">Códigos-fonte</a></li>
+                <li><a href="#integrantes">Integrantes</a></li>
+            </ul>
+
+            <!-- Ações da navegação -->
+            <div class="nav-acoes">
+
+                <!-- Alternar entre tema claro e escuro -->
+                <button
+                    class="tema-toggle"
+                    id="tema-toggle"
+                    type="button"
+                    aria-label="Alternar tema claro e escuro"
+                    aria-pressed="false"
+                    title="Alternar tema"
+                >
+                    ☀
+                </button>
+
+                <!-- Menu para dispositivos móveis -->
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu-principal"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Seção inicial: Hero -->
+        <section id="inicio">
+
+            <h1>
+                IF: <span class="texto-destaque">AI</span> ATTACKS
+            </h1>
+
+            <p>
+                Uma aventura em um mundo onde a inteligência artificial
+                ameaça o funcionamento da escola.
+            </p>
+
+            <div class="hero-botoes">
+                <a href="#video" class="botao">
+                    Assistir ao vídeo
+                </a>
+
+                <a href="#jogo" class="botao botao-secundario">
+                    Conheça o jogo
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Seção do jogo -->
+        <section id="jogo">
+
+            <!-- Destaques -->
+            <div class="bloco-destaques">
+
+                <span class="rotulo-secao">SOBRE O JOGO</span>
+
+                <h2>Uma experiência além do código</h2>
+
+                <p class="descricao-destaques">
+                    Explore um universo tecnológico, enfrente desafios
+                    e descubra uma história em que cada decisão importa.
+                </p>
+
+                <ul class="lista-destaques">
+
+                    <li class="card-destaque">
+                        <h3>Gráficos Incríveis</h3>
+                        <p>
+                            Explore cenários com uma identidade visual
+                            marcante e uma atmosfera imersiva.
+                        </p>
+                    </li>
+
+                    <li class="card-destaque">
+                        <h3>Jogabilidade Fluida</h3>
+                        <p>
+                            Descubra mecânicas intuitivas e enfrente
+                            desafios que exigem estratégia.
+                        </p>
+                    </li>
+
+                    <li class="card-destaque">
+                        <h3>História Envolvente</h3>
+                        <p>
+                            Mergulhe em uma aventura tecnológica
+                            repleta de mistérios e descobertas.
+                        </p>
+                    </li>
+
+                    <li class="card-destaque">
+                        <h3>Trilha Sonora Única</h3>
+                        <p>
+                            Entre no clima da aventura com sons
+                            que acompanham a atmosfera do jogo.
+                        </p>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Apresentação do vídeo -->
+            <div class="video-jogo">
+
+                <div class="video-texto">
+
+                    <span class="rotulo-secao">VEJA EM AÇÃO</span>
+
+                    <h2>
+                        Entre no universo de IF:
+                        <span class="texto-destaque">AI</span> Attacks
+                    </h2>
+
+                    <p>
+                        Descubra o jogo, conheça os desafios e prepare-se
+                        para enfrentar uma inteligência artificial
+                        que ameaça a escola.
+                    </p>
+
+                    <a href="#video" class="botao">
+                        Assistir ao vídeo
+                    </a>
+
+                </div>
+
+                <div
+                    class="video-player"
+                    id="video"
+                    role="region"
+                    aria-label="Espaço reservado para o vídeo do jogo"
+                    tabindex="-1"
+                >
+                    <span>VÍDEO EM BREVE</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Tutorial -->
+        <section id="tutorial">
+
+            <span class="rotulo-secao">TUTORIAL</span>
+
+            <h2>Aprenda a jogar</h2>
+
+            <p class="descricao-tutorial">
+                Prepare-se para a missão. Siga os passos e descubra
+                como explorar o jogo e enfrentar os desafios.
+            </p>
+
+            <ol class="lista-tutorial">
+
+                <li class="passo-tutorial">
+                    <h3>Início</h3>
+                    <p>
+                        Entre no jogo, conheça o cenário e prepare-se
+                        para a missão.
+                    </p>
+                </li>
+
+                <li class="passo-tutorial">
+                    <h3>Controles</h3>
+                    <p>
+                        Aprenda os comandos necessários para movimentar
+                        seu personagem e interagir com o ambiente.
+                    </p>
+                </li>
+
+                <li class="passo-tutorial">
+                    <h3>Mecânicas</h3>
+                    <p>
+                        Explore as mecânicas disponíveis e use a lógica
+                        para superar os obstáculos.
+                    </p>
+                </li>
+
+                <li class="passo-tutorial">
+                    <h3>Objetivo final</h3>
+                    <p>
+                        Enfrente o desafio final e descubra se consegue
+                        proteger a escola.
+                    </p>
+                </li>
+
+            </ol>
+
+        </section>
+
+        <!-- Documentação e códigos-fonte -->
+        <section id="recursos">
+
+            <!-- Documentação -->
+            <div id="documentacao" class="bloco-recursos">
+
+                <span class="rotulo-secao">CONHECIMENTO</span>
+
+                <h2>Documentação</h2>
+
+                <ul class="lista-recursos">
+
+                    <li class="card-recurso" style="grid-column: 1 / -1;">
+                        <h3>Documentação Completa do Projeto</h3>
+                        <p>
+                            Baixe o manual, o relatório técnico e os requisitos do sistema
+                            reunidos em um único arquivo PDF para consulta completa.
+                        </p>
+                        <a
+                            class="botao"
+                            href="docs/documentacao-completa.pdf"
+                            download
+                        >
+                            Baixar PDF
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Códigos-fonte -->
+            <div id="codigos" class="bloco-recursos">
+
+                <span class="rotulo-secao">DESENVOLVIMENTO</span>
+
+                <h2>Códigos-fonte</h2>
+
+                <ul class="lista-recursos">
+
+                    <li class="card-recurso">
+                        <h3>Código do Jogo</h3>
+                        <p>
+                            Explore os arquivos e a lógica de programação
+                            que dão vida ao IF: AI Attacks.
+                        </p>
+                        <a
+                            class="botao"
+                            href="https://github.com/if-ai-attacks/jogo"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver no GitHub
+                        </a>
+                    </li>
+
+                    <li class="card-recurso">
+                        <h3>Código do Site</h3>
+                        <p>
+                            Consulte a estrutura HTML, os estilos CSS
+                            e os recursos JavaScript deste site.
+                        </p>
+                        <a
+                            class="botao"
+                            href="https://github.com/if-ai-attacks/site"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver no GitHub
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- Integrantes do projeto -->
+        <section id="integrantes">
+
+            <span class="rotulo-secao">QUEM ESTÁ POR TRÁS</span>
+
+            <h2>Nossa equipe</h2>
+
+            <p class="descricao-integrantes">
+                Conheça as pessoas que transformaram essa ideia
+                em um projeto de tecnologia.
+            </p>
+
+            <ul class="lista-integrantes">
+
+                <li class="card-integrante">
+                    <img 
+                        src="images/aisha.jpg" 
+                        alt="Foto de Aisha, integrante da equipe de desenvolvimento" 
+                        class="avatar-integrante"
+                        width="88" 
+                        height="88"
+                    >
+
+                    <h3>Aisha</h3>
+                    <p class="funcao-integrante">Desenvolvimento</p>
+                    <p>
+                        Participa da construção e implementação
+                        das funcionalidades do projeto.
+                    </p>
+                </li>
+
+                <li class="card-integrante">
+                    <img 
+                        src="felipe.jpeg" 
+                        alt="Foto de Felipe, integrante da equipe de design e planejamento" 
+                        class="avatar-integrante"
+                        width="88" 
+                        height="88"
+                    >
+
+                    <h3>Felipe</h3>
+                    <p class="funcao-integrante">Programação</p>
+                    <p>
+                        Responsável por estruturar a lógica e dar
+                         vida ao funcionamento técnico da aplicação
+                    </p>
+                </li>
+
+                <li class="card-integrante">
+                    <img 
+                        src="images/grazielly.jpg" 
+                        alt="Foto de Grazielly, integrante da equipe de programação" 
+                        class="avatar-integrante"
+                        width="88" 
+                        height="88"
+                    >
+
+                    <h3>Grazielly</h3>
+                    <p class="funcao-integrante">Programação</p>
+                    <p>
+                        Colabora na lógica e na estrutura
+                        técnica do projeto.
+                    </p>
+                </li>
+
+                <li class="card-integrante">
+                    <img 
+                        src="gisselli.jpeg" 
+                        alt="Foto de Gisselli, integrante da equipe de desenvolvimento web" 
+                        class="avatar-integrante"
+                        width="88" 
+                        height="88"
+                    >
+
+                    <h3>Gisselli</h3>
+                    <p class="funcao-integrante">Desenvolvimento web</p>
+                    <p>
+                        Trabalha na estrutura, no estilo
+                        e na experiência visual do site.
+                    </p>
+                </li>
+
+                <li class="card-integrante">
+                    <img 
+                        src="enzo.jpeg" 
+                        alt="Foto de enzo, integrante da equipe de testes e qualidade" 
+                        class="avatar-integrante"
+                        width="88" 
+                        height="88"
+                    >
+
+                    <h3>Enzo</h3>
+                    <p class="funcao-integrante">Design Gráfico</p>
+                    <p>
+                        Responsável pela criação dos cenários e
+                         da maioria dos sprites que dão vida ao visual do jogo
+                    </p>
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+
+        <a href="#inicio" class="logo-footer">
+            IF: <span class="texto-destaque">AI</span> Attacks
+        </a>
+
+        <p>
+            Projeto acadêmico desenvolvido por estudantes.
+        </p>
+
+        <a href="#inicio" class="voltar-topo">
+            Voltar ao topo ↑
+        </a>
+
+    </footer>
+
+</body>
+</html>
