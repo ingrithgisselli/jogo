@@ -65,8 +65,8 @@ Pular={
 2d_physics/layer_6="Colisão Botão"
 2d_physics/layer_7="Chefão"
 2d_physics/layer_8="Coletáveis"
-2d_physics/layer_9="Cabeça (Chefão)"
-2d_physics/layer_10="Dano (Chefão)"
+2d_physics/layer_9="Cabeça (Inimgos)"
+2d_physics/layer_10="Dano (Inimigos)"
 
 [physics]
 

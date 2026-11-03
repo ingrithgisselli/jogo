@@ -5,11 +5,36 @@
 [ext_resource type="PackedScene" uid="uid://dmjkvpygybj2w" path="res://Cenas/Quizzes/Botões/Botão Fase 4.tscn" id="2_ag7k1"]
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="3_35b2b"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_ag7k1"]
+[ext_resource type="Texture2D" uid="uid://svwnxbp5gie7" path="res://Sprites/Autorais/Portão/portao_aberto.png" id="6_jbsrh"]
 [ext_resource type="TileSet" uid="uid://c1osjjd753uh1" path="res://Sprites/Testes/Tiles(Azulejos)/GramaPadrão.tres" id="6_mpbxu"]
-[ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/screen_piscando_sheet.png" id="7_v7txi"]
+[ext_resource type="Texture2D" uid="uid://diqfgqfifni1a" path="res://Sprites/Autorais/Portão/Portão_fechado.png" id="7_7jyrn"]
+[ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="7_v7txi"]
+[ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="10_7jyrn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2740"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jbsrh")
+}],
+"loop": 1,
+"name": &"Aberto",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7jyrn")
+}],
+"loop": 1,
+"name": &"Fechado",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpbxu"]
-size = Vector2(20, 98)
+size = Vector2(32, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3beny"]
+size = Vector2(9, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qni8u"]
 atlas = ExtResource("7_v7txi")
@@ -67,7 +92,7 @@ region = Rect2(384, 0, 32, 26)
 atlas = ExtResource("7_v7txi")
 region = Rect2(416, 0, 32, 26)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_465nu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jyrn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -115,6 +140,14 @@ animations = [{
 "loop": 1,
 "name": &"Computador",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7jyrn")
+}],
+"loop": 1,
+"name": &"Desligado",
+"speed": 1.0
 }]
 
 [node name="Fase 4" type="Node2D" unique_id=420359046]
@@ -129,18 +162,6 @@ vertical_icon_alignment = 2
 [node name="Area2D" parent="Botão Fase 4" index="1" unique_id=2063695517]
 position = Vector2(0, 96)
 
-[node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_1yh2y")]
-position = Vector2(56, 8)
-proxima_fase = "Fase Final"
-
-[node name="CollisionShape2D" parent="FimdeFase" index="0" unique_id=821300692]
-position = Vector2(80, 80)
-shape = SubResource("RectangleShape2D_mpbxu")
-
-[node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("3_35b2b")]
-unique_name_in_owner = true
-position = Vector2(24, 96)
-
 [node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("4_ag7k1")]
 position = Vector2(-16, 120)
 zoom = Vector2(1, 1)
@@ -150,12 +171,41 @@ position = Vector2(0, 96)
 tile_map_data = PackedByteArray("AAABAAMAAAAEAAEAAAACAAMAAAAEAAEAAAADAAMAAAAEAAEAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAAGAAMAAAAEAAEAAAAHAAMAAAAEAAEAAAAIAAMAAAAEAAEAAAAJAAMAAAAEAAEAAAAKAAMAAAAEAAEAAAALAAMAAAAEAAEAAAAMAAMAAAAEAAEAAAANAAMAAAAEAAEAAAAOAAMAAAAEAAEAAAAPAAMAAAAEAAEAAAAQAAMAAAAEAAEAAAARAAMAAAAEAAEAAAASAAMAAAAEAAEAAAATAAMAAAAEAAEAAAAUAAMAAAAEAAEAAAAVAAMAAAAEAAEAAAAWAAMAAAAEAAEAAAAXAAMAAAAFAAEAAAAAAAMAAAABAAMAAAA=")
 tile_set = ExtResource("6_mpbxu")
 
-[node name="Computador" type="AnimatedSprite2D" parent="." unique_id=175259067]
+[node name="Portão" type="AnimatedSprite2D" parent="." unique_id=1890268353]
+unique_name_in_owner = true
+position = Vector2(152, 112)
+sprite_frames = SubResource("SpriteFrames_w2740")
+animation = &"Fechado"
+autoplay = "Fechado"
+
+[node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_1yh2y")]
+position = Vector2(56, 16)
+proxima_fase = "Fase Final"
+
+[node name="CollisionShape2D" parent="FimdeFase" index="0" unique_id=821300692]
+position = Vector2(85, 98)
+shape = SubResource("RectangleShape2D_mpbxu")
+
+[node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("3_35b2b")]
+unique_name_in_owner = true
+position = Vector2(50, 88)
+
+[node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
+position = Vector2(-4, 12)
+scale = Vector2(0.625, 0.625)
+
+[node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
+position = Vector2(-4.5, 12)
+shape = SubResource("RectangleShape2D_3beny")
+
+[node name="Computador" type="AnimatedSprite2D" parent="." unique_id=1400400366]
+unique_name_in_owner = true
 position = Vector2(88, 132)
-scale = Vector2(1, 0.92307746)
-sprite_frames = SubResource("SpriteFrames_465nu")
+scale = Vector2(1, 0.9230769)
+sprite_frames = SubResource("SpriteFrames_7jyrn")
 animation = &"Computador"
 autoplay = "Computador"
 
 [editable path="Botão Fase 4"]
 [editable path="FimdeFase"]
+[editable path="Jogador"]

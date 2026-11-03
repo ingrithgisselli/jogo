@@ -2,16 +2,53 @@
 
 [ext_resource type="Script" uid="uid://b4kq2ygtwcyn6" path="res://Cenas/Fases/script_fase1.gd" id="1_ky2au"]
 [ext_resource type="PackedScene" uid="uid://d23n0lsmci6p3" path="res://Cenas/Quizzes/Botões/Botão Fase 1.tscn" id="2_t8lq2"]
+[ext_resource type="Texture2D" uid="uid://svwnxbp5gie7" path="res://Sprites/Autorais/Portão/portao_aberto.png" id="3_of7d1"]
 [ext_resource type="PackedScene" uid="uid://cqwwhfpc1ryqx" path="res://Entidades/Fim_de_fase.tscn" id="3_qni8u"]
+[ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="3_vu0xy"]
+[ext_resource type="Texture2D" uid="uid://diqfgqfifni1a" path="res://Sprites/Autorais/Portão/Portão_fechado.png" id="4_bw2to"]
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="4_m44bq"]
 [ext_resource type="TileSet" uid="uid://c1osjjd753uh1" path="res://Sprites/Testes/Tiles(Azulejos)/GramaPadrão.tres" id="5_6w1ni"]
-[ext_resource type="TileSet" uid="uid://c8bey6del16kl" path="res://Sprites/Testes/Tiles(Azulejos)/DecoraçãoPadrão.tres" id="6_me7r7"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="7_26463"]
 [ext_resource type="Texture2D" uid="uid://by0xvaj4pk8ax" path="res://Sprites/Testes/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="8_nf0dy"]
-[ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/screen_piscando_sheet.png" id="9_t8lq2"]
+[ext_resource type="Texture2D" uid="uid://bct6tosxa6jf2" path="res://Sprites/Autorais/Inimigos/IA/Aluno infectado/Inimigo1_andando.png" id="9_qni8u"]
+[ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="9_t8lq2"]
+[ext_resource type="Script" uid="uid://ciqy5nq6sb1r3" path="res://Scripts/aluno_infectado.gd" id="10_toc0i"]
+[ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="11_bw2to"]
+[ext_resource type="Script" uid="uid://cb2kuohjhrqdm" path="res://Scripts/drone.gd" id="12_7h1na"]
+[ext_resource type="Texture2D" uid="uid://c8b3t2y5ln7tt" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_1.png" id="13_c6apu"]
+[ext_resource type="Texture2D" uid="uid://c70tkpb0plo4t" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_2.png" id="14_q3xtc"]
+[ext_resource type="Texture2D" uid="uid://sybs0ygei6cq" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_3.png" id="15_rxxrf"]
+[ext_resource type="Texture2D" uid="uid://d08mbg6jo34px" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_4.png" id="16_jh83d"]
+[ext_resource type="Texture2D" uid="uid://bub5j7wuq0uu6" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_5.png" id="17_d0o4l"]
+[ext_resource type="Texture2D" uid="uid://bkutsxa3yr725" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_6.png" id="18_of7d1"]
+[ext_resource type="Texture2D" uid="uid://b33v0e4s04lf4" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_1.png" id="19_jh83d"]
+[ext_resource type="Texture2D" uid="uid://dgsbansf8bdfw" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_2.png" id="20_d0o4l"]
+[ext_resource type="Texture2D" uid="uid://cl2frl3rm442u" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_3.png" id="21_of7d1"]
+[ext_resource type="Texture2D" uid="uid://c37v8l0ww3nqm" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_4.png" id="22_bw2to"]
+[ext_resource type="Texture2D" uid="uid://db2651faeuxg6" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_5.png" id="23_p6ysy"]
+[ext_resource type="Texture2D" uid="uid://dtvh8cb68t64" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_6.png" id="24_vdmgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adq5k"]
-size = Vector2(20, 130)
+size = Vector2(32, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_of7d1")
+}],
+"loop": 1,
+"name": &"Aberto",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bw2to")
+}],
+"loop": 1,
+"name": &"Fechado",
+"speed": 1.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8lq2"]
 size = Vector2(9, 40)
@@ -171,6 +208,14 @@ animations = [{
 "loop": 1,
 "name": &"Computador",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_bw2to")
+}],
+"loop": 1,
+"name": &"Desligado",
+"speed": 1.0
 }]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbuyj"]
@@ -183,22 +228,136 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf0dy"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh83d"]
+atlas = ExtResource("9_qni8u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0o4l"]
+atlas = ExtResource("9_qni8u")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of7d1"]
+atlas = ExtResource("9_qni8u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw2to"]
+atlas = ExtResource("9_qni8u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6ysy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh83d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0o4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of7d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw2to")
+}],
+"loop": 1,
+"name": &"Movimentação",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cifgt"]
+size = Vector2(10, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdmgx"]
+size = Vector2(12.000004, 2.5000017)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6faqc"]
+size = Vector2(12, 33.000008)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bw2to"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_c6apu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_q3xtc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rxxrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jh83d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_d0o4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_of7d1")
+}],
+"loop": 1,
+"name": &"Movimentação",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_jh83d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_d0o4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_of7d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bw2to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_p6ysy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vdmgx")
+}],
+"loop": 1,
+"name": &"Perseguindo",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_toc0i"]
+radius = 10.770329
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6apu"]
+radius = 1.0296326
+height = 21.990051
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3xtc"]
+radius = 9.999966
+height = 24.0
+
 [node name="IF - AI Attacks" type="Node2D" unique_id=1955772460]
 script = ExtResource("1_ky2au")
 metadata/_edit_vertical_guides_ = [48.0, 88.0]
 metadata/_edit_horizontal_guides_ = [-160.0, 112.0]
 
 [node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("3_qni8u")]
-position = Vector2(24, 88)
+position = Vector2(-525, -186)
 proxima_fase = "Fase 2"
 
 [node name="CollisionShape2D" parent="FimdeFase" index="0" unique_id=821300692]
-position = Vector2(656, 8)
+position = Vector2(656, 43.5)
 shape = SubResource("RectangleShape2D_adq5k")
+
+[node name="Portão" type="AnimatedSprite2D" parent="." unique_id=2047123597]
+unique_name_in_owner = true
+position = Vector2(142, -144)
+sprite_frames = SubResource("SpriteFrames_4kxuq")
+animation = &"Aberto"
+autoplay = "Fechado"
+
+[node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("3_vu0xy")]
 
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("4_m44bq")]
 unique_name_in_owner = true
-position = Vector2(32, 96)
+position = Vector2(33, -148)
 
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 position = Vector2(-4, 12)
@@ -214,10 +373,6 @@ shape = SubResource("RectangleShape2D_t8lq2")
 position = Vector2(18, -480)
 tile_map_data = PackedByteArray("AAD//yYAAAABAAMAAAAAACYAAAACAAMAAAABACYAAAACAAMAAAACACYAAAACAAMAAAADACYAAAACAAMAAAAEACYAAAACAAMAAAAGACQAAAABAAMAAAAHACQAAAACAAMAAAAIACQAAAACAAMAAAAJACQAAAACAAMAAAAKACQAAAACAAMAAAALACQAAAACAAMAAAAMACQAAAACAAMAAAANACQAAAACAAMAAAAOACQAAAACAAMAAAARACEAAAABAAMAAAASACEAAAACAAMAAAATACEAAAACAAMAAAAUACEAAAACAAMAAAAVACEAAAACAAMAAAAWACEAAAACAAMAAAD//ycAAAADAAUAAAD//ygAAAADAAUAAAAGACYAAAADAAMAAAARACMAAAADAAUAAAARACQAAAADAAMAAAAFACYAAAACAAMAAAAQACQAAAACAAMAAAAPACQAAAACAAMAAAAGACUAAAADAAUAAAARACIAAAADAAUAAAD//ykAAAADAAUAAAD//yoAAAADAAUAAAD//ysAAAADAAUAAAAAACsAAAAEAAQAAAABACsAAAAEAAQAAAACACsAAAAEAAQAAAADACsAAAAEAAQAAAAEACsAAAAEAAQAAAAFACsAAAAEAAQAAAAGACsAAAAEAAQAAAAHACsAAAAEAAQAAAAIACsAAAAEAAQAAAAJACsAAAAEAAQAAAAKACsAAAAEAAQAAAALACsAAAAEAAQAAAAMACsAAAAEAAQAAAANACsAAAAEAAQAAAAOACsAAAAEAAQAAAAPACsAAAAEAAQAAAAQACsAAAAEAAQAAAARACsAAAAEAAQAAAAWACsAAAAEAAQAAAASACsAAAAEAAQAAAATACsAAAAEAAQAAAAUACsAAAAEAAQAAAAVACsAAAAEAAQAAAAWACIAAAAEAAQAAAAWACMAAAAEAAYAAAAWACgAAAACAAMAAAAWACkAAAAEAAQAAAAWACoAAAAEAAQAAAAMACgAAAAEAAQAAAAMACcAAAAEAAQAAAAMACYAAAAEAAQAAAAMACUAAAAEAAQAAAALACUAAAAEAAQAAAAKACUAAAAEAAQAAAAJACUAAAAEAAQAAAAIACUAAAAEAAQAAAAHACUAAAAEAAQAAAAHACYAAAAEAAQAAAAHACcAAAAEAAQAAAAGACcAAAAEAAQAAAAFACcAAAAEAAQAAAAEACcAAAAEAAQAAAADACcAAAAEAAQAAAACACcAAAAEAAQAAAABACcAAAAEAAQAAAAAACcAAAAEAAQAAAAAACgAAAAEAAQAAAAAACkAAAAEAAQAAAAAACoAAAAEAAQAAAABACoAAAAEAAQAAAABACkAAAAEAAQAAAABACgAAAAEAAQAAAACACgAAAAEAAQAAAACACkAAAAEAAQAAAACACoAAAAEAAQAAAADACoAAAAEAAQAAAADACkAAAAEAAQAAAADACgAAAAEAAQAAAAEACgAAAAEAAQAAAAEACkAAAAEAAQAAAAEACoAAAAEAAQAAAAFACoAAAAEAAQAAAAFACkAAAAEAAQAAAAFACgAAAAEAAQAAAAGACgAAAAEAAQAAAAGACkAAAAEAAQAAAAGACoAAAAEAAQAAAAHACoAAAAEAAQAAAAHACkAAAAEAAQAAAAHACgAAAAEAAQAAAAIACgAAAAEAAQAAAAIACcAAAAEAAQAAAAIACYAAAAEAAQAAAAJACYAAAAEAAQAAAAJACcAAAAEAAQAAAAJACgAAAAEAAQAAAAJACkAAAAEAAQAAAAIACkAAAAEAAQAAAAIACoAAAAEAAQAAAAJACoAAAAEAAQAAAAKACoAAAAEAAQAAAAKACkAAAAEAAQAAAAKACgAAAAEAAQAAAAKACcAAAAEAAQAAAAKACYAAAAEAAQAAAALACYAAAAEAAQAAAALACcAAAAEAAQAAAALACgAAAAEAAQAAAALACkAAAAEAAQAAAALACoAAAAEAAQAAAAMACoAAAAEAAQAAAAMACkAAAAEAAQAAAANACkAAAAEAAQAAAANACgAAAAEAAQAAAANACcAAAAEAAQAAAANACYAAAAEAAQAAAANACUAAAAEAAQAAAAOACUAAAAEAAQAAAAOACYAAAAEAAQAAAAOACcAAAAEAAQAAAAOACgAAAAEAAQAAAAOACkAAAAEAAQAAAAOACoAAAAEAAQAAAANACoAAAAEAAQAAAAPACoAAAAEAAQAAAAPACkAAAAEAAQAAAAPACgAAAAEAAQAAAAPACcAAAAEAAQAAAAPACYAAAAEAAQAAAAPACUAAAAEAAQAAAAQACUAAAAEAAQAAAAQACYAAAAEAAQAAAAQACcAAAAEAAQAAAAQACgAAAAEAAQAAAAQACkAAAAEAAQAAAAQACoAAAAEAAQAAAARACoAAAAEAAQAAAARACkAAAAEAAQAAAARACgAAAAEAAQAAAARACcAAAAEAAQAAAARACYAAAAEAAQAAAARACUAAAAEAAQAAAASACUAAAAEAAQAAAASACQAAAAEAAQAAAASACMAAAAEAAQAAAASACIAAAAEAAQAAAATACIAAAAEAAQAAAATACMAAAAEAAQAAAATACQAAAAFAAUAAAATACUAAAAFAAUAAAATACYAAAAFAAUAAAASACYAAAAEAAQAAAASACcAAAAEAAQAAAASACgAAAAEAAQAAAASACkAAAAEAAQAAAASACoAAAAEAAQAAAATACoAAAAEAAQAAAATACkAAAAEAAQAAAATACgAAAAFAAMAAAATACcAAAAFAAUAAAAUACMAAAAEAAYAAAAUACIAAAAEAAQAAAAVACIAAAAEAAQAAAAVACMAAAAEAAYAAAAVACgAAAACAAMAAAAUACgAAAACAAMAAAAUACkAAAAEAAQAAAAUACoAAAAEAAQAAAAVACoAAAAEAAQAAAAVACkAAAAEAAQAAAAXACEAAAACAAMAAAAYACEAAAACAAMAAAAZACEAAAACAAMAAAAaACEAAAACAAMAAAAbACEAAAACAAMAAAAcACEAAAACAAMAAAAdACEAAAAHAAMAAAAdACIAAAAFAAUAAAAdACMAAAAFAAUAAAAdACgAAAAFAAMAAAAdACkAAAAEAAUAAAAdACoAAAAEAAUAAAAdACsAAAAEAAUAAAAXACsAAAAEAAQAAAAYACsAAAAEAAQAAAAZACsAAAAEAAQAAAAaACsAAAAEAAQAAAAbACsAAAAEAAUAAAAcACsAAAAEAAUAAAAZACMAAAAEAAYAAAAZACIAAAAEAAQAAAAYACIAAAAEAAQAAAAXACIAAAAEAAQAAAAXACMAAAAEAAYAAAAXACgAAAACAAMAAAAXACkAAAAEAAQAAAAXACoAAAAEAAQAAAAYACoAAAAEAAQAAAAYACkAAAAEAAQAAAAYACgAAAACAAMAAAAYACMAAAAEAAYAAAAZACgAAAACAAMAAAAZACkAAAAEAAQAAAAZACoAAAAEAAQAAAAaACoAAAAEAAQAAAAaACkAAAAEAAQAAAAaACgAAAADAAMAAAAaACMAAAAEAAQAAAAaACIAAAAEAAQAAAAbACIAAAAEAAQAAAAbACMAAAAEAAQAAAAbACgAAAAEAAQAAAAbACkAAAAEAAQAAAAbACoAAAAEAAUAAAAcACoAAAAEAAUAAAAcACkAAAAEAAUAAAAcACgAAAAEAAQAAAAcACMAAAAEAAQAAAAcACIAAAAEAAQAAAAdACwAAAAEAAUAAAAdAC4AAAAEAAYAAAAdAC0AAAAEAAUAAAD//y4AAAAFAAYAAFD//ywAAAADAAUAAAD//y0AAAADAAUAAAAAAC4AAAAEAAYAAAABAC4AAAAEAAYAAAACAC4AAAAEAAYAAAADAC4AAAAEAAYAAAAEAC4AAAAEAAYAAAAFAC4AAAAEAAYAAAAGAC4AAAAEAAYAAAAHAC4AAAAEAAYAAAAIAC4AAAAEAAYAAAAJAC4AAAAEAAYAAAAKAC4AAAAEAAYAAAALAC4AAAAEAAYAAAAMAC4AAAAEAAYAAAANAC4AAAAEAAYAAAAOAC4AAAAEAAYAAAAPAC4AAAAEAAYAAAAQAC4AAAAEAAYAAAARAC4AAAAEAAYAAAASAC4AAAAEAAYAAAATAC4AAAAEAAYAAAAUAC4AAAAEAAYAAAAVAC4AAAAEAAYAAAAWAC4AAAAEAAYAAAAXAC4AAAAEAAYAAAAYAC4AAAAEAAYAAAAZAC4AAAAEAAYAAAAaAC4AAAAEAAYAAAAbAC4AAAAEAAYAAAAcAC4AAAAEAAYAAAAMAC0AAAAEAAQAAAAMACwAAAAEAAQAAAALACwAAAAEAAQAAAAKACwAAAAEAAQAAAAJACwAAAAEAAQAAAAIACwAAAAEAAQAAAAHACwAAAAEAAQAAAAGACwAAAAEAAQAAAAFACwAAAAEAAQAAAAEACwAAAAEAAQAAAADACwAAAAEAAQAAAACACwAAAAEAAQAAAABACwAAAAEAAQAAAAAACwAAAAEAAQAAAAAAC0AAAAEAAQAAAABAC0AAAAEAAQAAAACAC0AAAAEAAQAAAADAC0AAAAEAAQAAAAEAC0AAAAEAAQAAAAFAC0AAAAEAAQAAAAGAC0AAAAEAAQAAAAHAC0AAAAEAAQAAAAIAC0AAAAEAAQAAAAJAC0AAAAEAAQAAAAKAC0AAAAEAAQAAAALAC0AAAAEAAQAAAANACwAAAAEAAQAAAANAC0AAAAEAAQAAAAOAC0AAAAEAAQAAAAOACwAAAAEAAQAAAAPACwAAAAEAAQAAAAPAC0AAAAEAAQAAAAQAC0AAAAEAAQAAAAQACwAAAAEAAQAAAARACwAAAAEAAQAAAARAC0AAAAEAAQAAAASAC0AAAAEAAQAAAASACwAAAAEAAQAAAATACwAAAAEAAQAAAATAC0AAAAEAAQAAAAUAC0AAAAEAAQAAAAUACwAAAAEAAQAAAAVACwAAAAEAAQAAAAVAC0AAAAEAAQAAAAWAC0AAAAEAAQAAAAWACwAAAAEAAQAAAAXACwAAAAEAAQAAAAXAC0AAAAEAAQAAAAYAC0AAAAEAAQAAAAYACwAAAAEAAQAAAAZACwAAAAEAAQAAAAZAC0AAAAEAAQAAAAaAC0AAAAEAAQAAAAaACwAAAAEAAQAAAAbACwAAAAEAAQAAAAbAC0AAAAEAAQAAAAcAC0AAAAEAAQAAAAcACwAAAAEAAQAAAAWAB8AAAADAAEAAAAWACAAAAADAAIAAAAXAB8AAAAEAAEAAAAXACAAAAAEAAIAAAAYAB8AAAAFAAEAAAAYACAAAAAFAAIAAAAWAB0AAAADAAEAAAAWAB4AAAADAAIAAAAXAB0AAAAEAAEAAAAXAB4AAAAEAAIAAAAYAB0AAAAFAAEAAAAYAB4AAAAFAAIAAAAWABsAAAADAAEAAAAWABwAAAADAAIAAAAXABsAAAAEAAEAAAAXABwAAAAEAAIAAAAYABsAAAAFAAEAAAAYABwAAAAFAAIAAAAWABkAAAADAAEAAAAWABoAAAADAAIAAAAXABkAAAAEAAEAAAAXABoAAAAEAAIAAAAYABkAAAAFAAEAAAAYABoAAAAFAAIAAAASABcAAAANAAMAAAARABcAAAAMAAMAAAAQABcAAAAMAAMAAAAPABcAAAAMAAMAAAAOABcAAAAMAAMAAAANABcAAAAMAAMAAAAMABcAAAAMAAMAAAALABcAAAAMAAMAAAAKABcAAAAMAAMAAAAJABcAAAAMAAMAAAAIABcAAAAMAAMAAAAHABcAAAAMAAMAAAAGABcAAAAMAAMAAAAFABcAAAAMAAMAAAAEABcAAAAMAAMAAAADABcAAAAMAAMAAAACABcAAAAMAAMAAAABABcAAAAMAAMAAAAAABcAAAAMAAMAAAD//xcAAAAJAAMAAAAKACIAAAADAAEAAAAKACMAAAADAAIAAAALACIAAAAEAAEAAAALACMAAAAEAAIAAAAMACIAAAAFAAEAAAAMACMAAAAFAAIAAAAeACgAAAAGAAMAAAAfACgAAAAGAAMAAAAgACgAAAAGAAMAAAAhACgAAAAGAAMAAAAiACgAAAAGAAMAAAAjACgAAAAGAAMAAAAkACgAAAAGAAMAAAAlACgAAAAGAAMAAAAmACgAAAAGAAMAAAAnACgAAAAGAAMAAAAoACgAAAAGAAMAAAApACgAAAAGAAMAAAAqACgAAAAHAAMAAAAqACkAAAAFAAUAAAAqACoAAAAFAAUAAAAqACsAAAAFAAUAAAAqACwAAAAFAAUAAAAqAC0AAAAFAAUAAAAqAC4AAAAFAAYAAAAeAC4AAAAEAAYAAAAfAC4AAAAEAAYAAAAgAC4AAAAEAAYAAAAhAC4AAAAEAAYAAAAiAC4AAAAEAAYAAAAjAC4AAAAEAAYAAAAkAC4AAAAEAAYAAAAlAC4AAAAEAAYAAAAmAC4AAAAEAAYAAAAnAC4AAAAEAAYAAAAoAC4AAAAEAAYAAAApAC4AAAAEAAYAAAAkACsAAAAEAAUAAAAkACoAAAAEAAUAAAAkACkAAAAEAAUAAAAjACkAAAAEAAUAAAAiACkAAAAEAAUAAAAhACkAAAAEAAUAAAAgACkAAAAEAAUAAAAfACkAAAAEAAUAAAAeACkAAAAEAAUAAAAeACoAAAAEAAUAAAAeACsAAAAEAAUAAAAeACwAAAAEAAUAAAAeAC0AAAAEAAUAAAAfAC0AAAAEAAUAAAAfACwAAAAEAAUAAAAfACsAAAAEAAUAAAAfACoAAAAEAAUAAAAgACoAAAAEAAUAAAAgACsAAAAEAAUAAAAgACwAAAAEAAUAAAAgAC0AAAAEAAUAAAAhAC0AAAAEAAUAAAAhACwAAAAEAAUAAAAhACsAAAAEAAUAAAAhACoAAAAEAAUAAAAiACoAAAAEAAUAAAAiACsAAAAEAAUAAAAiACwAAAAEAAUAAAAiAC0AAAAEAAUAAAAjAC0AAAAEAAUAAAAjACwAAAAEAAUAAAAjACsAAAAEAAUAAAAjACoAAAAEAAUAAAAkACwAAAAEAAUAAAAkAC0AAAAEAAUAAAAlAC0AAAAEAAUAAAAlACwAAAAEAAUAAAAlACsAAAAEAAUAAAAlACoAAAAEAAUAAAAlACkAAAAEAAUAAAAmACkAAAAEAAUAAAAmACoAAAAEAAUAAAAmACsAAAAEAAUAAAAmACwAAAAEAAUAAAAmAC0AAAAEAAUAAAAnAC0AAAAEAAUAAAAnACwAAAAEAAUAAAAnACsAAAAEAAUAAAAnACoAAAAEAAUAAAAnACkAAAAEAAUAAAAoACkAAAAEAAUAAAAoACoAAAAEAAUAAAAoACsAAAAEAAUAAAAoACwAAAAEAAUAAAAoAC0AAAAEAAUAAAApAC0AAAAEAAUAAAApACwAAAAEAAUAAAApACsAAAAEAAUAAAApACoAAAAEAAUAAAApACkAAAAEAAUAAAAfACMAAAAPAAMAAAAhACUAAAAPAAMAAAA=")
 tile_set = ExtResource("5_6w1ni")
-
-[node name="Decoração" type="TileMapLayer" parent="Tiles" unique_id=1895684109]
-tile_map_data = PackedByteArray("AAAIAAUAAAADAAUAAAAEAAcAAAABAAUAAAAFAAcAAAABAAUAAAAeAAIAAAABAAUAAAAdAAIAAAABAAUAAAAcAAIAAAABAAUAAAAWAAIAAAABAAUAAAAVAAIAAAABAAUAAAAUAAIAAAABAAUAAAADAAcAAAABAAUAAAABAPj/AAAPAAIAAAAHAPj/AAARAAIAAAACAPj/AAAQAAIAAAADAPj/AAAQAAIAAAAEAPj/AAAQAAIAAAAFAPj/AAAQAAIAAAAGAPj/AAAQAAIAAAAJAPj/AAADAAUAABAKAPf/AAABAAEAAAAIAPf/AAABAAEAAAAAAPf/AAABAAEAAAATAPf/AAABAAEAAAAZAP3/AAABAAEAAAAYAPv/AAABAAEAAAAOAPX/AgAAAAAAAAAXAAEAAAABAAEAAAALAAMAAAABAAUAAAAMAAMAAAABAAUAAAANAAMAAAABAAUAAAALAPj/AAAFAAUAAAAMAPj/AAAGAAUAAAANAPj/AAAGAAUAAAAOAPj/AAAGAAUAAAAPAPj/AAAGAAUAAAAQAPj/AAAGAAUAAAARAPj/AAAGAAUAAAASAPj/AAAHAAUAAAAPAAQAAAABAAEAAAAQAAMAAAABAAEAAAAQAAQAAAABAAEAAAAqAAkAAAADAAUAAAADAAQAAgAIAAAAAAA=")
-tile_set = ExtResource("6_me7r7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=42887675]
 
@@ -240,14 +395,16 @@ tile_map_data = PackedByteArray("AAAbAAkAAAADAAUAAAAcAAkAAAAEAAQAAAAdAAkAAAAEAAQ
 tile_set = SubResource("TileSet_4kxuq")
 
 [node name="Computador" type="AnimatedSprite2D" parent="." unique_id=635862555]
-position = Vector2(136, 84)
+unique_name_in_owner = true
+position = Vector2(72, -124)
 scale = Vector2(1, 0.9230769)
 sprite_frames = SubResource("SpriteFrames_ky2au")
 animation = &"Computador"
 autoplay = "Computador"
-frame_progress = 0.29615194
 
 [node name="Botão Fase 1" parent="." unique_id=2076580135 instance=ExtResource("2_t8lq2")]
+unique_name_in_owner = true
+position = Vector2(-64, -205)
 
 [node name="Button" parent="Botão Fase 1/CanvasLayer" parent_id_path=PackedInt32Array(2076580135, 1800032890) index="0" unique_id=1164459905]
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kbuyj")
@@ -260,6 +417,82 @@ vertical_icon_alignment = 2
 [node name="Area2D" parent="Botão Fase 1" index="1" unique_id=361096585]
 position = Vector2(136, 80)
 
+[node name="Aluno Infectado" type="CharacterBody2D" parent="." unique_id=718143660]
+position = Vector2(200, 31)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("10_toc0i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Aluno Infectado" unique_id=1370501653]
+position = Vector2(13.084201, 0)
+scale = Vector2(0.625, 0.815)
+sprite_frames = SubResource("SpriteFrames_p6ysy")
+animation = &"Movimentação"
+autoplay = "Movimentação"
+frame_progress = 0.2342488
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aluno Infectado" unique_id=1066633105]
+position = Vector2(15, 1.5)
+shape = SubResource("RectangleShape2D_cifgt")
+
+[node name="Cabeca" type="Area2D" parent="Aluno Infectado" unique_id=85417882]
+position = Vector2(15, -19)
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aluno Infectado/Cabeca" unique_id=9605739]
+position = Vector2(-9.536743e-07, 1.9073486e-06)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_vdmgx")
+
+[node name="Dano" type="Area2D" parent="Aluno Infectado" unique_id=1755785140]
+collision_layer = 512
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aluno Infectado/Dano" unique_id=1075358379]
+position = Vector2(15, 2.5)
+scale = Vector2(0.99999994, 0.9999999)
+shape = SubResource("RectangleShape2D_6faqc")
+
+[node name="Drone" type="CharacterBody2D" parent="." unique_id=773422474]
+position = Vector2(111, -6)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("12_7h1na")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Drone" unique_id=2131982251]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(0.767, 1)
+sprite_frames = SubResource("SpriteFrames_bw2to")
+animation = &"Perseguindo"
+autoplay = "Movimentação"
+offset = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone" unique_id=285716377]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_toc0i")
+
+[node name="Cabeca" type="Area2D" parent="Drone" unique_id=1208027620]
+position = Vector2(1, -15)
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone/Cabeca" unique_id=1182675619]
+position = Vector2(0, 1.9073486e-06)
+rotation = -1.5407094
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("CapsuleShape2D_c6apu")
+
+[node name="Dano" type="Area2D" parent="Drone" unique_id=1909154772]
+position = Vector2(0, -2)
+collision_layer = 512
+collision_mask = 66
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Drone/Dano" unique_id=1209624781]
+rotation = -1.568172
+shape = SubResource("CapsuleShape2D_q3xtc")
+
 [editable path="FimdeFase"]
+[editable path="Interface - Vida (Jogador)"]
 [editable path="Jogador"]
 [editable path="Botão Fase 1"]

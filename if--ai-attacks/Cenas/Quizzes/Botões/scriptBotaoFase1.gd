@@ -30,7 +30,9 @@ func _process(_delta: float) -> void:
 	if botao.visible:
 		atualizar_posicao_botao()
 		if Input.is_action_just_pressed("Acessar"):
+			
 			_on_interagir()
+			
 			
 
 func _on_interagir() -> void:

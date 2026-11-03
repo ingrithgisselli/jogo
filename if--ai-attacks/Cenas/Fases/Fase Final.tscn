@@ -2,31 +2,23 @@
 
 [ext_resource type="Script" uid="uid://b5ophb2ij8cgj" path="res://Cenas/Fases/script_fase_final.gd" id="1_eysbh"]
 [ext_resource type="Script" uid="uid://c4w418u4jlvbr" path="res://Scripts/chefão.gd" id="2_kkrjb"]
-[ext_resource type="Script" uid="uid://dcl2c3i16d158" path="res://Scripts/texture_rect_jogador.gd" id="2_syye3"]
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="2_ye3dl"]
 [ext_resource type="Script" uid="uid://dkrlfclkui7i3" path="res://Scripts/jogador(fase final).gd" id="3_0jpv8"]
 [ext_resource type="Script" uid="uid://36oabqspjlkd" path="res://Scripts/coletáveis.gd" id="3_lxw2d"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_lxw2d"]
-[ext_resource type="Texture2D" uid="uid://iw00mnh1x4no" path="res://Sprites/Autorais/livro1 (1).png" id="5_25unv"]
-[ext_resource type="Texture2D" uid="uid://ddfnixc2ruf81" path="res://Sprites/Autorais/bateria1.png" id="5_lxw2d"]
-[ext_resource type="Script" uid="uid://brnw63olnau14" path="res://Scripts/texture_rect_chefao.gd" id="9_gogcb"]
-[ext_resource type="Texture2D" uid="uid://r0spdecs5t00" path="res://Sprites/Autorais/bateria2.png" id="11_cifgt"]
-[ext_resource type="Texture2D" uid="uid://xut30aaogkdr" path="res://Sprites/Autorais/bateria3.png" id="12_2snyo"]
-[ext_resource type="Texture2D" uid="uid://v50j1ar70uve" path="res://Sprites/Autorais/vida_1.png" id="12_gogcb"]
-[ext_resource type="Texture2D" uid="uid://dkbkkooir5whl" path="res://Sprites/Autorais/vida_2.png" id="13_d0a46"]
-[ext_resource type="Texture2D" uid="uid://b3x2lxi5y8pnc" path="res://Sprites/Autorais/bateria4.png" id="13_tjf6b"]
+[ext_resource type="Texture2D" uid="uid://d338pqufjmegy" path="res://Sprites/Autorais/coletáveis/livro1 (1).png" id="6_cifgt"]
+[ext_resource type="PackedScene" uid="uid://cbnb32k3gxco6" path="res://Interfaces/interface___vida_(chefão).tscn" id="9_fvglf"]
+[ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="10_0jpv8"]
 [ext_resource type="Texture2D" uid="uid://ce2w2lmsvef32" path="res://Cenas/Fases/icon.svg" id="14_0uiyp"]
-[ext_resource type="Texture2D" uid="uid://b0khjux8oa364" path="res://Sprites/Autorais/bateria5.png" id="14_4iunj"]
-[ext_resource type="Texture2D" uid="uid://cpox78fep5ye2" path="res://Sprites/Autorais/vida_3.png" id="14_j4jos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvglf"]
 size = Vector2(32, 88.66666)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_53y5c"]
-size = Vector2(1272, 59)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cifgt"]
+size = Vector2(1266, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cj3rq"]
-size = Vector2(206, 25.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53y5c"]
+size = Vector2(285, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57s0e"]
 size = Vector2(60, 53)
@@ -46,10 +38,10 @@ animations = [{
 size = Vector2(86.66672, 177.49992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jjfc"]
-size = Vector2(86.66676, 16.250013)
+size = Vector2(92.50006, 16.250013)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5uj0"]
-size = Vector2(90.33609, 163.99992)
+size = Vector2(90.33609, 155.99997)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_53y5c"]
 
@@ -78,6 +70,7 @@ script = ExtResource("3_0jpv8")
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 scale = Vector2(1.5, 1.5)
 animation = &"Andar"
+frame_progress = 0.0
 
 [node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
 position = Vector2(8, 3.666687)
@@ -94,8 +87,8 @@ position = Vector2(3, -12)
 collision_mask = 66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=1693392536]
-position = Vector2(633, 625.5)
-shape = SubResource("RectangleShape2D_53y5c")
+position = Vector2(632, 631)
+shape = SubResource("RectangleShape2D_cifgt")
 
 [node name="Polygon2D" type="Polygon2D" parent="floor" unique_id=1910802247]
 position = Vector2(373, 396)
@@ -103,19 +96,19 @@ scale = Vector2(1, 0.4714287)
 color = Color(0.28093427, 0.18981016, 0.119364016, 1)
 polygon = PackedVector2Array(-376, 424.24225, 200, 424.24225, 896, 424.24225, 896, 509.09076, 896, 559.9998, -373, 573)
 
-[node name="plataforma" type="StaticBody2D" parent="." unique_id=191885415]
-position = Vector2(-1, -460)
-collision_mask = 2
+[node name="floor2" type="StaticBody2D" parent="." unique_id=977515408]
+position = Vector2(68, -344)
+collision_mask = 66
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma" unique_id=688070064]
-position = Vector2(645, 735.375)
-shape = SubResource("RectangleShape2D_cj3rq")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2" unique_id=987546160]
+position = Vector2(587.5, 594)
+shape = SubResource("RectangleShape2D_53y5c")
 
-[node name="Polygon2D" type="Polygon2D" parent="plataforma" unique_id=1410457628]
-position = Vector2(609.4443, 646.6787)
-scale = Vector2(0.17545372, 0.17857121)
+[node name="Polygon2D" type="Polygon2D" parent="floor2" unique_id=1708682120]
+position = Vector2(528.8365, 530.8138)
+scale = Vector2(0.22562896, 0.12772459)
 color = Color(0.28093427, 0.18981016, 0.119364016, 1)
-polygon = PackedVector2Array(-373, 433, 784, 433, 784, 573, 201.68652, 573, -373, 573)
+polygon = PackedVector2Array(-376, 424.24225, 200, 424.24225, 896, 424.24225, 896, 509.09076, 887.6863, 570.6059, -373, 573)
 
 [node name="coletavel1" type="Area2D" parent="." unique_id=796550405]
 position = Vector2(-38, -16)
@@ -126,7 +119,7 @@ script = ExtResource("3_lxw2d")
 [node name="Sprite2D" type="Sprite2D" parent="coletavel1" unique_id=128325901]
 position = Vector2(679.25, 98.499985)
 scale = Vector2(0.33984372, 0.35156277)
-texture = ExtResource("5_25unv")
+texture = ExtResource("6_cifgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel1" unique_id=1005889543]
 position = Vector2(685, 88)
@@ -141,7 +134,7 @@ script = ExtResource("3_lxw2d")
 [node name="Sprite2D" type="Sprite2D" parent="coletavel2" unique_id=1508827194]
 position = Vector2(679.25, 197.5)
 scale = Vector2(0.33984372, 0.35156277)
-texture = ExtResource("5_25unv")
+texture = ExtResource("6_cifgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel2" unique_id=1884356626]
 position = Vector2(685, 190.00002)
@@ -156,7 +149,7 @@ script = ExtResource("3_lxw2d")
 [node name="Sprite2D" type="Sprite2D" parent="coletavel3" unique_id=685258373]
 position = Vector2(747, 98)
 scale = Vector2(0.33984372, 0.35156277)
-texture = ExtResource("5_25unv")
+texture = ExtResource("6_cifgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel3" unique_id=391126571]
 position = Vector2(752, 88.5)
@@ -182,16 +175,17 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_4omdq")
 
 [node name="Cabeca" type="Area2D" parent="Chefão" unique_id=71650224]
-position = Vector2(4.9889088e-05, -87)
+position = Vector2(-0.83333445, -88)
 collision_layer = 256
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão/Cabeca" unique_id=478658782]
-position = Vector2(0, 2.125)
+position = Vector2(0.8333435, 0)
 scale = Vector2(0.9999992, 0.9999992)
 shape = SubResource("RectangleShape2D_4jjfc")
 
 [node name="Dano" type="Area2D" parent="Chefão" unique_id=366712447]
+position = Vector2(0, 4)
 collision_layer = 512
 collision_mask = 66
 
@@ -216,27 +210,9 @@ shape = SubResource("SegmentShape2D_57s0e")
 position = Vector2(45, -27)
 shape = SubResource("SegmentShape2D_4omdq")
 
-[node name="Interface - Vida (Chefão)" type="CanvasLayer" parent="." unique_id=2102683599]
+[node name="Interface - Vida (Chefão)" parent="." unique_id=1926878642 instance=ExtResource("9_fvglf")]
 
-[node name="TextureRect (Chefão)" type="TextureRect" parent="Interface - Vida (Chefão)" unique_id=1109676676]
-offset_left = 319.0
-offset_top = 1.0
-offset_right = 319.0
-offset_bottom = 1.0
-scale = Vector2(0.3, 0.3)
-script = ExtResource("9_gogcb")
-imagens_baterias = Array[Texture2D]([null, ExtResource("5_lxw2d"), ExtResource("11_cifgt"), ExtResource("12_2snyo"), ExtResource("13_tjf6b"), ExtResource("14_4iunj")])
-
-[node name="Interface - Vida (Jogador)" type="CanvasLayer" parent="." unique_id=2085106904]
-
-[node name="TextureRect (Jogador)" type="TextureRect" parent="Interface - Vida (Jogador)" unique_id=1988132324]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 24.0
-offset_bottom = 18.667
-expand_mode = 3
-script = ExtResource("2_syye3")
-imagens_de_vida = Array[Texture2D]([null, ExtResource("12_gogcb"), ExtResource("13_d0a46"), ExtResource("14_j4jos")])
+[node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("10_0jpv8")]
 
 [connection signal="body_entered" from="coletavel1" to="coletavel1" method="_on_body_entered"]
 [connection signal="body_entered" from="coletavel2" to="coletavel2" method="_on_body_entered"]
@@ -245,3 +221,5 @@ imagens_de_vida = Array[Texture2D]([null, ExtResource("12_gogcb"), ExtResource("
 
 [editable path="Jogador"]
 [editable path="Camera2D"]
+[editable path="Interface - Vida (Chefão)"]
+[editable path="Interface - Vida (Jogador)"]

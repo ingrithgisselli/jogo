@@ -6,7 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://d2u0wf4q3o5cd" path="res://Sprites/Autorais/Jogador/garota andando_0003.png" id="4_imlql"]
 [ext_resource type="Texture2D" uid="uid://dxexnlu1kx1gh" path="res://Sprites/Autorais/Jogador/garota andando_0004.png" id="5_f8beu"]
 [ext_resource type="Texture2D" uid="uid://biujidcyu0prn" path="res://Sprites/Autorais/Jogador/garota andando_0005.png" id="6_8yrsa"]
-[ext_resource type="Texture2D" uid="uid://dp7ypipbjfwe6" path="res://Sprites/Autorais/Jogador/garota_parada_sprite.png" id="7_ngd8o"]
+[ext_resource type="Texture2D" uid="uid://b7elv5srpf43i" path="res://Sprites/Autorais/Jogador/garota pulando_0003 (1).png" id="7_8yrsa"]
+[ext_resource type="Texture2D" uid="uid://6ffh7ie88nto" path="res://Sprites/Autorais/Jogador/garota pulando_0002(2).png" id="8_5avc0"]
+[ext_resource type="Texture2D" uid="uid://bqpib1w4tqliq" path="res://Sprites/Autorais/Jogador/garota pulando_0001 (1).png" id="9_4ig1b"]
+[ext_resource type="Texture2D" uid="uid://dhehesbl1qvxo" path="res://Sprites/Autorais/Jogador/garota pulando_0005 (3).png" id="10_gdhex"]
+[ext_resource type="Texture2D" uid="uid://bi6rspu5f64wg" path="res://Sprites/Autorais/Jogador/IA/Garota_dano.png" id="10_m63b5"]
+[ext_resource type="Texture2D" uid="uid://cq5wnsqjcxwpj" path="res://Sprites/Autorais/Jogador/garota pulando_0004 (2).png" id="11_lfqv7"]
+[ext_resource type="Texture2D" uid="uid://c8rsb00hh687f" path="res://Sprites/Autorais/Jogador/garota parada_0001.png" id="12_lfqv7"]
+[ext_resource type="Texture2D" uid="uid://c6gqpse5th888" path="res://Sprites/Autorais/Jogador/garota parada_0002.png" id="13_m63b5"]
+[ext_resource type="Texture2D" uid="uid://c8nqiyxkfqyxh" path="res://Sprites/Autorais/Jogador/garota parada_0003.png" id="14_d5u7h"]
+[ext_resource type="Texture2D" uid="uid://crxi4ow3uplmk" path="res://Sprites/Autorais/Jogador/garota parada_0004.png" id="15_8jru2"]
+[ext_resource type="Texture2D" uid="uid://b20dbwfpydsdy" path="res://Sprites/Autorais/Jogador/garota parada_0005.png" id="16_rxgf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5avc0"]
 atlas = ExtResource("2_38jbe")
@@ -36,31 +46,66 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_8yrsa")
-}],
-"loop": 1,
-"name": &"Caindo",
-"speed": 1.0
+"texture": ExtResource("7_8yrsa")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_38jbe")
-}],
-"loop": 1,
-"name": &"Pulando",
-"speed": 1.0
+"texture": ExtResource("8_5avc0")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ngd8o")
+"texture": ExtResource("10_gdhex")
 }],
 "loop": 0,
-"name": &"parado",
+"name": &"Caindo",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_m63b5")
+}],
+"loop": 0,
+"name": &"Dano",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4ig1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5avc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8yrsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lfqv7")
+}],
+"loop": 0,
+"name": &"Pulando",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_lfqv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_m63b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_d5u7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8jru2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rxgf2")
+}],
+"loop": 1,
+"name": &"parado",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5avc0"]
-size = Vector2(18, 56)
+size = Vector2(26, 56)
 
 [node name="Jogador" type="CharacterBody2D" unique_id=1296977925 groups=["Jogador"]]
 z_index = 1
@@ -74,10 +119,11 @@ metadata/_edit_vertical_guides_ = [-384.0]
 z_index = 1
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-animation = &"parado"
+animation = &"Dano"
 autoplay = "parado"
+frame_progress = 1.0
 
 [node name="ColisãoJogador" type="CollisionShape2D" parent="." unique_id=1651223342]
 z_index = 1
-position = Vector2(7, 4)
+position = Vector2(11, 4)
 shape = SubResource("RectangleShape2D_5avc0")

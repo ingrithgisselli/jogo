@@ -26,7 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
-		velocity += (get_gravity() * delta)*0.8
+		velocity += (get_gravity() * delta)*0.9
 		
 	match Status:
 		Estado_Jogador.parado:
@@ -113,9 +113,12 @@ func movimentacao():
 
 #Sistema de vida
 func receber_dano(quantidade: int = 1) -> void:
+	
 	if vida_atual <= 0:
 		return
-
+	
+	animação.play("Dano")
+	
 	vida_atual = clamp(vida_atual - quantidade, 0, vida_maxima)
 	
 	vida_alterada.emit(vida_atual)
