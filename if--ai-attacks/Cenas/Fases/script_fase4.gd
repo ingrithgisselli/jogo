@@ -13,3 +13,4 @@ func _ready() -> void:
 		jogador.global_position = GameState.posicao_jogador
 		animação.play("Aberto")
 		computador.play("Desligado")
+		

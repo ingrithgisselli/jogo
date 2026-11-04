@@ -10,23 +10,10 @@
 [ext_resource type="TileSet" uid="uid://c1osjjd753uh1" path="res://Sprites/Testes/Tiles(Azulejos)/GramaPadrão.tres" id="5_6w1ni"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="7_26463"]
 [ext_resource type="Texture2D" uid="uid://by0xvaj4pk8ax" path="res://Sprites/Testes/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="8_nf0dy"]
-[ext_resource type="Texture2D" uid="uid://bct6tosxa6jf2" path="res://Sprites/Autorais/Inimigos/IA/Aluno infectado/Inimigo1_andando.png" id="9_qni8u"]
 [ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="9_t8lq2"]
-[ext_resource type="Script" uid="uid://ciqy5nq6sb1r3" path="res://Scripts/aluno_infectado.gd" id="10_toc0i"]
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="11_bw2to"]
-[ext_resource type="Script" uid="uid://cb2kuohjhrqdm" path="res://Scripts/drone.gd" id="12_7h1na"]
-[ext_resource type="Texture2D" uid="uid://c8b3t2y5ln7tt" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_1.png" id="13_c6apu"]
-[ext_resource type="Texture2D" uid="uid://c70tkpb0plo4t" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_2.png" id="14_q3xtc"]
-[ext_resource type="Texture2D" uid="uid://sybs0ygei6cq" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_3.png" id="15_rxxrf"]
-[ext_resource type="Texture2D" uid="uid://d08mbg6jo34px" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_4.png" id="16_jh83d"]
-[ext_resource type="Texture2D" uid="uid://bub5j7wuq0uu6" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_5.png" id="17_d0o4l"]
-[ext_resource type="Texture2D" uid="uid://bkutsxa3yr725" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_6.png" id="18_of7d1"]
-[ext_resource type="Texture2D" uid="uid://b33v0e4s04lf4" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_1.png" id="19_jh83d"]
-[ext_resource type="Texture2D" uid="uid://dgsbansf8bdfw" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_2.png" id="20_d0o4l"]
-[ext_resource type="Texture2D" uid="uid://cl2frl3rm442u" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_3.png" id="21_of7d1"]
-[ext_resource type="Texture2D" uid="uid://c37v8l0ww3nqm" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_4.png" id="22_bw2to"]
-[ext_resource type="Texture2D" uid="uid://db2651faeuxg6" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_5.png" id="23_p6ysy"]
-[ext_resource type="Texture2D" uid="uid://dtvh8cb68t64" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_6.png" id="24_vdmgx"]
+[ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="13_26463"]
+[ext_resource type="PackedScene" uid="uid://bvui201s4ldp8" path="res://Entidades/drone.tscn" id="14_nf0dy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adq5k"]
 size = Vector2(32, 59)
@@ -228,111 +215,6 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf0dy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jh83d"]
-atlas = ExtResource("9_qni8u")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0o4l"]
-atlas = ExtResource("9_qni8u")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_of7d1"]
-atlas = ExtResource("9_qni8u")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bw2to"]
-atlas = ExtResource("9_qni8u")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p6ysy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jh83d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d0o4l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_of7d1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bw2to")
-}],
-"loop": 1,
-"name": &"Movimentação",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cifgt"]
-size = Vector2(10, 37)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdmgx"]
-size = Vector2(12.000004, 2.5000017)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6faqc"]
-size = Vector2(12, 33.000008)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bw2to"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_c6apu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_q3xtc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_rxxrf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_jh83d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_d0o4l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_of7d1")
-}],
-"loop": 1,
-"name": &"Movimentação",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_jh83d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_d0o4l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_of7d1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_bw2to")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_p6ysy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_vdmgx")
-}],
-"loop": 1,
-"name": &"Perseguindo",
-"speed": 6.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_toc0i"]
-radius = 10.770329
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6apu"]
-radius = 1.0296326
-height = 21.990051
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3xtc"]
-radius = 9.999966
-height = 24.0
-
 [node name="IF - AI Attacks" type="Node2D" unique_id=1955772460]
 script = ExtResource("1_ky2au")
 metadata/_edit_vertical_guides_ = [48.0, 88.0]
@@ -357,7 +239,7 @@ autoplay = "Fechado"
 
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("4_m44bq")]
 unique_name_in_owner = true
-position = Vector2(33, -148)
+position = Vector2(394, -3)
 
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 position = Vector2(-4, 12)
@@ -417,82 +299,15 @@ vertical_icon_alignment = 2
 [node name="Area2D" parent="Botão Fase 1" index="1" unique_id=361096585]
 position = Vector2(136, 80)
 
-[node name="Aluno Infectado" type="CharacterBody2D" parent="." unique_id=718143660]
-position = Vector2(200, 31)
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("10_toc0i")
+[node name="Aluno Infectado" parent="." unique_id=1911551078 instance=ExtResource("13_26463")]
+position = Vector2(625, 129)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Aluno Infectado" unique_id=1370501653]
-position = Vector2(13.084201, 0)
-scale = Vector2(0.625, 0.815)
-sprite_frames = SubResource("SpriteFrames_p6ysy")
-animation = &"Movimentação"
-autoplay = "Movimentação"
-frame_progress = 0.2342488
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aluno Infectado" unique_id=1066633105]
-position = Vector2(15, 1.5)
-shape = SubResource("RectangleShape2D_cifgt")
-
-[node name="Cabeca" type="Area2D" parent="Aluno Infectado" unique_id=85417882]
-position = Vector2(15, -19)
-collision_layer = 256
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aluno Infectado/Cabeca" unique_id=9605739]
-position = Vector2(-9.536743e-07, 1.9073486e-06)
-scale = Vector2(0.9999992, 0.9999992)
-shape = SubResource("RectangleShape2D_vdmgx")
-
-[node name="Dano" type="Area2D" parent="Aluno Infectado" unique_id=1755785140]
-collision_layer = 512
-collision_mask = 66
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aluno Infectado/Dano" unique_id=1075358379]
-position = Vector2(15, 2.5)
-scale = Vector2(0.99999994, 0.9999999)
-shape = SubResource("RectangleShape2D_6faqc")
-
-[node name="Drone" type="CharacterBody2D" parent="." unique_id=773422474]
+[node name="Drone" parent="." unique_id=723138746 instance=ExtResource("14_nf0dy")]
 position = Vector2(111, -6)
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("12_7h1na")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Drone" unique_id=2131982251]
-position = Vector2(3.8146973e-06, 0)
-scale = Vector2(0.767, 1)
-sprite_frames = SubResource("SpriteFrames_bw2to")
-animation = &"Perseguindo"
-autoplay = "Movimentação"
-offset = Vector2(0, -3)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone" unique_id=285716377]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_toc0i")
-
-[node name="Cabeca" type="Area2D" parent="Drone" unique_id=1208027620]
-position = Vector2(1, -15)
-collision_layer = 256
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone/Cabeca" unique_id=1182675619]
-position = Vector2(0, 1.9073486e-06)
-rotation = -1.5407094
-scale = Vector2(0.9999992, 0.9999992)
-shape = SubResource("CapsuleShape2D_c6apu")
-
-[node name="Dano" type="Area2D" parent="Drone" unique_id=1909154772]
-position = Vector2(0, -2)
-collision_layer = 512
-collision_mask = 66
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Drone/Dano" unique_id=1209624781]
-rotation = -1.568172
-shape = SubResource("CapsuleShape2D_q3xtc")
 
 [editable path="FimdeFase"]
 [editable path="Interface - Vida (Jogador)"]
 [editable path="Jogador"]
 [editable path="Botão Fase 1"]
+[editable path="Aluno Infectado"]
+[editable path="Drone"]

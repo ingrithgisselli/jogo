@@ -3,7 +3,7 @@ extends Area2D
 var coletado := false
 
 func _ready() -> void:
-	# Garante a conexão do sinal caso não esteja feito no editor
+	
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
 

@@ -10,6 +10,7 @@ var quizzes := {
 var posicao_jogador := Vector2.ZERO
 var posicao_salva := false
 
+
 func marcar_correto(fase: String, quiz: String) -> void:
 	quizzes[fase][quiz] = true
 

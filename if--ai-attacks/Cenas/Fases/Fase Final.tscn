@@ -35,7 +35,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4omdq"]
-size = Vector2(86.66672, 177.49992)
+size = Vector2(86.66672, 166.00003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jjfc"]
 size = Vector2(92.50006, 16.250013)
@@ -170,7 +170,7 @@ sprite_frames = SubResource("SpriteFrames_53y5c")
 frame_progress = 0.7068698
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão" unique_id=1988320137]
-position = Vector2(0, 2.2500534)
+position = Vector2(0, 8)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_4omdq")
 
@@ -180,7 +180,7 @@ collision_layer = 256
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão/Cabeca" unique_id=478658782]
-position = Vector2(0.8333435, 0)
+position = Vector2(1.0192394e-05, 1)
 scale = Vector2(0.9999992, 0.9999992)
 shape = SubResource("RectangleShape2D_4jjfc")
 

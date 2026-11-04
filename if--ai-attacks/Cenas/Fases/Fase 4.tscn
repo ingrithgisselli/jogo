@@ -160,26 +160,26 @@ position = Vector2(88, 32)
 vertical_icon_alignment = 2
 
 [node name="Area2D" parent="Botão Fase 4" index="1" unique_id=2063695517]
-position = Vector2(0, 96)
+position = Vector2(-1, 151)
 
 [node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("4_ag7k1")]
 position = Vector2(-16, 120)
 zoom = Vector2(1, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1942876537]
-position = Vector2(0, 96)
+position = Vector2(0, 150)
 tile_map_data = PackedByteArray("AAABAAMAAAAEAAEAAAACAAMAAAAEAAEAAAADAAMAAAAEAAEAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAAGAAMAAAAEAAEAAAAHAAMAAAAEAAEAAAAIAAMAAAAEAAEAAAAJAAMAAAAEAAEAAAAKAAMAAAAEAAEAAAALAAMAAAAEAAEAAAAMAAMAAAAEAAEAAAANAAMAAAAEAAEAAAAOAAMAAAAEAAEAAAAPAAMAAAAEAAEAAAAQAAMAAAAEAAEAAAARAAMAAAAEAAEAAAASAAMAAAAEAAEAAAATAAMAAAAEAAEAAAAUAAMAAAAEAAEAAAAVAAMAAAAEAAEAAAAWAAMAAAAEAAEAAAAXAAMAAAAFAAEAAAAAAAMAAAABAAMAAAA=")
 tile_set = ExtResource("6_mpbxu")
 
 [node name="Portão" type="AnimatedSprite2D" parent="." unique_id=1890268353]
 unique_name_in_owner = true
-position = Vector2(152, 112)
+position = Vector2(155, 167)
 sprite_frames = SubResource("SpriteFrames_w2740")
 animation = &"Fechado"
 autoplay = "Fechado"
 
 [node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_1yh2y")]
-position = Vector2(56, 16)
+position = Vector2(59, 70)
 proxima_fase = "Fase Final"
 
 [node name="CollisionShape2D" parent="FimdeFase" index="0" unique_id=821300692]
@@ -200,7 +200,7 @@ shape = SubResource("RectangleShape2D_3beny")
 
 [node name="Computador" type="AnimatedSprite2D" parent="." unique_id=1400400366]
 unique_name_in_owner = true
-position = Vector2(88, 132)
+position = Vector2(87, 186)
 scale = Vector2(1, 0.9230769)
 sprite_frames = SubResource("SpriteFrames_7jyrn")
 animation = &"Computador"

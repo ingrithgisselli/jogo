@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://c7qx6is5p5pe4" path="res://Sprites/Testes/Seasonal Tilesets/2 - Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="10_ttj7m"]
 [ext_resource type="Texture2D" uid="uid://dcqtcmy2tjibk" path="res://Sprites/Testes/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="11_000ar"]
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="16_uk4ov"]
+[ext_resource type="PackedScene" uid="uid://bvui201s4ldp8" path="res://Entidades/drone.tscn" id="17_pc7je"]
+[ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="18_lnbsg"]
+[ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="19_lnbsg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk4ov"]
 size = Vector2(9, 40)
@@ -287,6 +290,12 @@ scale = Vector2(1, 0.9230769)
 sprite_frames = SubResource("SpriteFrames_uk4ov")
 animation = &"Computador"
 autoplay = "Computador"
+
+[node name="Drone" parent="." unique_id=723138746 instance=ExtResource("17_pc7je")]
+
+[node name="Aluno Infectado" parent="." unique_id=1911551078 instance=ExtResource("18_lnbsg")]
+
+[node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("19_lnbsg")]
 
 [editable path="Jogador"]
 [editable path="Botão Fase 2"]

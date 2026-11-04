@@ -1,20 +1,21 @@
 extends Control
 
-@onready var botao_jogar = $CenterContainer/VBoxContainer/Iniciar
+@onready var botao_iniciar: TextureButton = $CenterContainer/VBoxContainer/Iniciar
+@onready var botao_sair: TextureButton = $CenterContainer/VBoxContainer/Sair
 
+func _ready() -> void:
+	botao_iniciar.pressed.connect(_on_iniciar_pressed)
+	botao_sair.pressed.connect(_on_sair_pressed)
 
-func _ready():
-	botao_jogar.pressed.connect(_on_jogar_pressed)
 	
-	botao_jogar.grab_focus() 
-	botao_jogar.button_down.connect(func(): $BotaoJogar/Label.position.y += 2)
-	botao_jogar.button_up.connect(func(): $BotaoJogar/Label.position.y -= 2)
+	for b in [botao_iniciar, botao_sair]:
+		b.mouse_entered.connect(func(): b.modulate = Color(1.2, 1.2, 1.2))
+		b.mouse_exited.connect(func(): b.modulate = Color.WHITE)
 
-func _on_jogar_pressed():
+	botao_iniciar.grab_focus() 
+
+func _on_iniciar_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/Fases/Fase 1.tscn")
 
-func _on_opcoes_pressed():
-	get_tree().change_scene_to_file("res://cenas/opcoes.tscn")
-
-func _on_sair_pressed():
+func _on_sair_pressed() -> void:
 	get_tree().quit()
