@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="9_t8lq2"]
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="11_bw2to"]
 [ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="13_26463"]
-[ext_resource type="PackedScene" uid="uid://bvui201s4ldp8" path="res://Entidades/drone.tscn" id="14_nf0dy"]
+[ext_resource type="PackedScene" uid="uid://bvui201s4ldp8" path="res://Entidades/drone1.tscn" id="14_nf0dy"]
+[ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="15_nf0dy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adq5k"]
 size = Vector2(32, 59)
@@ -38,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8lq2"]
-size = Vector2(9, 40)
+size = Vector2(10, 35)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mti6b"]
 a = Vector2(0, -256)
@@ -215,6 +216,25 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf0dy"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvglf"]
+size = Vector2(20, 2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vkxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuyj"]
+size = Vector2(2.8275871, 40.51179)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ysnsd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttj7m"]
+size = Vector2(23.5, 14.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf0dy"]
+size = Vector2(1.524657, 30.999125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_000ar"]
+size = Vector2(16.723373, 23.99731)
+
 [node name="IF - AI Attacks" type="Node2D" unique_id=1955772460]
 script = ExtResource("1_ky2au")
 metadata/_edit_vertical_guides_ = [48.0, 88.0]
@@ -239,14 +259,16 @@ autoplay = "Fechado"
 
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("4_m44bq")]
 unique_name_in_owner = true
-position = Vector2(394, -3)
+position = Vector2(168, -35)
 
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 position = Vector2(-4, 12)
 scale = Vector2(0.625, 0.625)
+animation = &"parado"
+frame_progress = 0.0
 
 [node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
-position = Vector2(-4.5, 12)
+position = Vector2(-3, 14.5)
 shape = SubResource("RectangleShape2D_t8lq2")
 
 [node name="Tiles" type="Node2D" parent="." unique_id=87942727]
@@ -281,7 +303,7 @@ unique_name_in_owner = true
 position = Vector2(72, -124)
 scale = Vector2(1, 0.9230769)
 sprite_frames = SubResource("SpriteFrames_ky2au")
-animation = &"Computador"
+animation = &"Desligado"
 autoplay = "Computador"
 
 [node name="Botão Fase 1" parent="." unique_id=2076580135 instance=ExtResource("2_t8lq2")]
@@ -300,14 +322,69 @@ vertical_icon_alignment = 2
 position = Vector2(136, 80)
 
 [node name="Aluno Infectado" parent="." unique_id=1911551078 instance=ExtResource("13_26463")]
-position = Vector2(625, 129)
+position = Vector2(250, 68)
 
-[node name="Drone" parent="." unique_id=723138746 instance=ExtResource("14_nf0dy")]
-position = Vector2(111, -6)
+[node name="CollisionShape2D" parent="Aluno Infectado/Cabeca" parent_id_path=PackedInt32Array(1911551078, 17085440) index="0" unique_id=1325959417]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_fvglf")
+
+[node name="Drone1" parent="." unique_id=723138746 instance=ExtResource("14_nf0dy")]
+position = Vector2(243, 0)
+
+[node name="AnimatedSprite2D" parent="Drone1" index="0" unique_id=713126763]
+animation = &"Perseguindo"
+
+[node name="CollisionShape2D" parent="Drone1" index="1" unique_id=157029059]
+position = Vector2(-3, 0)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CircleShape2D_3vkxb")
+
+[node name="Cabeca" parent="Drone1" index="2" unique_id=1269244974]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" parent="Drone1/Cabeca" index="0" unique_id=1117970408]
+position = Vector2(-1.7333832, -0.052167892)
+shape = SubResource("RectangleShape2D_kbuyj")
+
+[node name="Dano" parent="Drone1" index="3" unique_id=75229500]
+position = Vector2(0, 0)
+rotation = 0.6808164
+
+[node name="CollisionShape2D2" parent="Drone1/Dano" index="0" unique_id=1622593696]
+position = Vector2(-1.0723184, 3.442398)
+rotation = 1.8325961
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_ysnsd")
+
+[node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("15_nf0dy")]
+position = Vector2(110, -160)
+
+[node name="CollisionShape2D" parent="Drone2" index="1" unique_id=1497866238]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ttj7m")
+
+[node name="Cabeca" parent="Drone2" index="2" unique_id=1330305859]
+position = Vector2(0, -17)
+rotation = 0.0008219984
+
+[node name="CollisionShape2D" parent="Drone2/Cabeca" index="0" unique_id=561217321]
+position = Vector2(-0.49951172, 0.25082397)
+rotation = -1.5707964
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_nf0dy")
+
+[node name="Dano" parent="Drone2" index="3" unique_id=1362073846]
+position = Vector2(0, -7)
+
+[node name="CollisionShape2D2" parent="Drone2/Dano" index="0" unique_id=12869090]
+position = Vector2(-0.0004272461, 0.6382828)
+shape = SubResource("RectangleShape2D_000ar")
 
 [editable path="FimdeFase"]
 [editable path="Interface - Vida (Jogador)"]
 [editable path="Jogador"]
 [editable path="Botão Fase 1"]
 [editable path="Aluno Infectado"]
-[editable path="Drone"]
+[editable path="Drone1"]
+[editable path="Drone2"]

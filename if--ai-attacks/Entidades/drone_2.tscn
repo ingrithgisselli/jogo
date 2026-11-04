@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://1y1s74x2v2k6"]
+
+[ext_resource type="Script" uid="uid://duetlvlaj4iwt" path="res://Cenas/Fases/drone2.gd" id="1_1qa2b"]
+[ext_resource type="Texture2D" uid="uid://c8b3t2y5ln7tt" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_1.png" id="2_8rfke"]
+[ext_resource type="Texture2D" uid="uid://c70tkpb0plo4t" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_2.png" id="3_rfh7t"]
+[ext_resource type="Texture2D" uid="uid://sybs0ygei6cq" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_3.png" id="4_c0h1x"]
+[ext_resource type="Texture2D" uid="uid://d08mbg6jo34px" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_4.png" id="5_pyyip"]
+[ext_resource type="Texture2D" uid="uid://bub5j7wuq0uu6" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_5.png" id="6_87b3y"]
+[ext_resource type="Texture2D" uid="uid://bkutsxa3yr725" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_6.png" id="7_ha56e"]
+[ext_resource type="Texture2D" uid="uid://b33v0e4s04lf4" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_1.png" id="8_85agc"]
+[ext_resource type="Texture2D" uid="uid://dgsbansf8bdfw" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_2.png" id="9_ycd8x"]
+[ext_resource type="Texture2D" uid="uid://cl2frl3rm442u" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_3.png" id="10_ud2ep"]
+[ext_resource type="Texture2D" uid="uid://c37v8l0ww3nqm" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_4.png" id="11_38x2l"]
+[ext_resource type="Texture2D" uid="uid://db2651faeuxg6" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_5.png" id="12_r7w7r"]
+[ext_resource type="Texture2D" uid="uid://dtvh8cb68t64" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone2_hover_6.png" id="13_2bruv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bw2to"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8rfke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rfh7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c0h1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pyyip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_87b3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ha56e")
+}],
+"loop": 1,
+"name": &"Movimentação",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_85agc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ycd8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ud2ep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_38x2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_r7w7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2bruv")
+}],
+"loop": 1,
+"name": &"Perseguindo",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_toc0i"]
+radius = 10.770329
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6apu"]
+radius = 1.0296326
+height = 21.990051
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3xtc"]
+radius = 9.999966
+height = 24.0
+
+[node name="Drone2" type="CharacterBody2D" unique_id=292160013]
+script = ExtResource("1_1qa2b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775588090]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(0.767, 1)
+sprite_frames = SubResource("SpriteFrames_bw2to")
+animation = &"Movimentação"
+autoplay = "Movimentação"
+frame_progress = 0.0837615
+offset = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1497866238]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_toc0i")
+
+[node name="Cabeca" type="Area2D" parent="." unique_id=1330305859]
+position = Vector2(1, -15)
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabeca" unique_id=561217321]
+position = Vector2(0, 1.9073486e-06)
+rotation = -1.5407094
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("CapsuleShape2D_c6apu")
+
+[node name="Dano" type="Area2D" parent="." unique_id=1362073846]
+position = Vector2(0, -2)
+collision_layer = 512
+collision_mask = 66
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dano" unique_id=12869090]
+position = Vector2(0, -1)
+rotation = -1.568172
+shape = SubResource("CapsuleShape2D_q3xtc")

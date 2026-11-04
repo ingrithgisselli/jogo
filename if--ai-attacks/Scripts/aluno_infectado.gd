@@ -5,13 +5,13 @@ signal derrotado
 @export var velocidade := 40.0
 @export var forca_quique := 250.0
 @export var intervalo_dano := 1.0
-@export var pausa_ao_virar := 0.6      # segundos parado antes de virar
-@export var margem_borda := 1.0        # px do sensor para dentro da ponta do corpo
-@export var nome_animacao := "Movimentação2"   
+@export var pausa_ao_virar := 0.6 # segundos parado antes de virar
+@export var margem_borda := 1.0 # px do sensor para dentro da ponta do corpo
+@export var nome_animacao := "Movimentação2" # nome da animação no seu SpriteFrames
 
 const TEMPO_ENTRE_VIRADAS := 0.3
 
-var direcao := 1                       
+var direcao := 1 # 1 = direita, -1 = esquerda
 var jogador: CharacterBody2D
 var ja_foi_derrotado := false
 var tempo_ate_dano := 0.0
@@ -26,16 +26,23 @@ var tempo_parado := 0.0
 
 
 func _ready() -> void:
+	if GameState.inimigo_derrotado(self):
+		queue_free()
+		return
+
 	add_to_group("Inimigo")
+
 	jogador = get_tree().get_first_node_in_group("Jogador") as CharacterBody2D
+
 	if jogador == null:
 		push_error("Inimigo: não encontrei o nó do grupo 'Jogador' na cena!")
 
 	cabeca.body_entered.connect(_on_cabeca_body_entered)
 	corpo_dano.body_entered.connect(_on_dano_body_entered)
 
-	if animacao.sprite_frames.has_animation("Movimentação2"):
-		animacao.play("Movimentação2")
+	if animacao.sprite_frames.has_animation(nome_animacao):
+		animacao.play(nome_animacao)
+
 	_atualizar_lado()
 
 
@@ -45,6 +52,7 @@ func _physics_process(delta: float) -> void:
 
 	if tempo_ate_dano > 0.0:
 		tempo_ate_dano -= delta
+
 	if tempo_para_virar > 0.0:
 		tempo_para_virar -= delta
 
@@ -52,24 +60,26 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if tempo_parado > 0.0:
-		
+		# Parado na ponta, esperando para virar
 		tempo_parado -= delta
 		velocity.x = 0.0
+
 		if tempo_parado <= 0.0:
 			_virar()
 			animacao.play(nome_animacao)
+
 	else:
 		velocity.x = direcao * velocidade
 
 	move_and_slide()
 
-
+	# Chegou na ponta ou numa parede: para e começa a contagem da pausa
 	if is_on_floor() and tempo_parado <= 0.0 and tempo_para_virar <= 0.0:
 		if is_on_wall() or not detector_chao.is_colliding():
 			tempo_parado = pausa_ao_virar
-			animacao.pause()   
+			animacao.pause() # congela a animação enquanto espera
 
-	
+	# Dano contínuo enquanto o jogador continuar encostado
 	if is_instance_valid(jogador) and corpo_dano.overlaps_body(jogador):
 		_tentar_causar_dano()
 
@@ -81,15 +91,16 @@ func _virar() -> void:
 
 
 func _atualizar_lado() -> void:
-	animacao.flip_h = direcao < 0                 
+	animacao.flip_h = direcao < 0 # inverta se o seu sprite olhar para a esquerda
 	_posicionar_detector()
 	detector_chao.force_raycast_update()
 
 
-
+# Coloca o sensor na borda da frente do corpo, para ele percorrer a plataforma inteira
 func _posicionar_detector() -> void:
 	var forma := colisao.shape
 	var meia_largura := 8.0
+
 	if forma is RectangleShape2D:
 		meia_largura = forma.size.x / 2.0
 	elif forma is CapsuleShape2D or forma is CircleShape2D:
@@ -106,7 +117,8 @@ func _on_dano_body_entered(body: Node2D) -> void:
 func _tentar_causar_dano() -> void:
 	if ja_foi_derrotado or tempo_ate_dano > 0.0:
 		return
-	
+
+	# Jogador caindo por cima do inimigo: não leva dano (é o pisão)
 	if jogador.velocity.y > 0.0 and jogador.global_position.y < global_position.y:
 		return
 
@@ -119,17 +131,20 @@ func _on_cabeca_body_entered(body: Node2D) -> void:
 		return
 
 	if jogador.velocity.y > 0.0:
-		jogador.velocity.y = -forca_quique   
+		jogador.velocity.y = -forca_quique # quique para cima
 		_derrotar()
 	else:
-		_tentar_causar_dano()               
+		_tentar_causar_dano() # bateu de baixo para cima
 
 
 func _derrotar() -> void:
 	ja_foi_derrotado = true
+	GameState.registrar_derrota(self)
 	derrotado.emit()
+
 	velocity = Vector2.ZERO
 	tempo_parado = 0.0
+
 	cabeca.set_deferred("monitoring", false)
 	corpo_dano.set_deferred("monitoring", false)
 	colisao.set_deferred("disabled", true)
@@ -137,4 +152,5 @@ func _derrotar() -> void:
 	if animacao.sprite_frames.has_animation("destruido"):
 		animacao.play("destruido")
 		await animacao.animation_finished
+
 	queue_free()

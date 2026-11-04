@@ -11,7 +11,7 @@ enum Estado_Jogador{
 }
 @onready var animação: AnimatedSprite2D = $Animação
 const SPEED = 300
-const JUMP_VELOCITY = -800.0
+const JUMP_VELOCITY = -1000.0
 const delay := 1.0                 
 const TEMPO_DANO := 0.35           
 const INVULNERABILIDADE := 1.5     
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		tempo_invulneravel -= delta
 
 	if not is_on_floor():
-		velocity += (get_gravity() * delta)
+		velocity += (get_gravity() * delta)*2
 
 	match Status:
 		Estado_Jogador.parado:

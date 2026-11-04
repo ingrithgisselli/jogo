@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvui201s4ldp8"]
 
-[ext_resource type="Script" uid="uid://cb2kuohjhrqdm" path="res://Scripts/drone.gd" id="1_ydl74"]
+[ext_resource type="Script" uid="uid://cb2kuohjhrqdm" path="res://Scripts/drone1.gd" id="1_ydl74"]
 [ext_resource type="Texture2D" uid="uid://c8b3t2y5ln7tt" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_1.png" id="2_fwjug"]
 [ext_resource type="Texture2D" uid="uid://c70tkpb0plo4t" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_2.png" id="3_tf7kn"]
 [ext_resource type="Texture2D" uid="uid://sybs0ygei6cq" path="res://Sprites/Autorais/Inimigos/IA/Drone/drone_hover_3.png" id="4_i8hbm"]

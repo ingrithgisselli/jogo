@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 signal derrotado
 
-@export var velocidade_horizontal := 50.0   
-@export var velocidade_vertical := 40.0     
+@export var velocidade_horizontal := 70.0 # um pouco menor que a do jogador (90)
+@export var velocidade_vertical := 40.0 # lenta, para o jogador conseguir ficar acima dele
 @export var altura_acima_do_jogador := 10.0
 @export var forca_quique := 250.0
 @export var intervalo_dano := 1.0
@@ -19,8 +19,14 @@ var tempo := 0.0
 
 
 func _ready() -> void:
+	if GameState.inimigo_derrotado(self):
+		queue_free()
+		return
+
 	add_to_group("Drone")
+
 	jogador = get_tree().get_first_node_in_group("Jogador") as CharacterBody2D
+
 	if jogador == null:
 		push_error("Drone: não encontrei o nó do grupo 'Jogador' na cena!")
 
@@ -36,6 +42,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	tempo += delta
+
 	if tempo_ate_dano > 0.0:
 		tempo_ate_dano -= delta
 
@@ -43,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 
-	
+	# Persegue o jogador, pairando com um leve balanço
 	var balanco := sin(tempo * 4.0) * 3.0
 	var alvo := jogador.global_position + Vector2(0.0, -altura_acima_do_jogador + balanco)
 	var diferenca := alvo - global_position
@@ -52,11 +59,11 @@ func _physics_process(delta: float) -> void:
 	velocity.y = clampf(diferenca.y * 4.0, -velocidade_vertical, velocidade_vertical)
 
 	if absf(diferenca.x) > 4.0:
-		animacao.flip_h = diferenca.x < 0.0  
+		animacao.flip_h = diferenca.x < 0.0 # inverta se o seu sprite olhar para a esquerda
 
 	move_and_slide()
 
-	
+	# Dano contínuo enquanto o jogador continuar encostado
 	if corpo_dano.overlaps_body(jogador):
 		_tentar_causar_dano()
 
@@ -69,7 +76,8 @@ func _on_dano_body_entered(body: Node2D) -> void:
 func _tentar_causar_dano() -> void:
 	if ja_foi_derrotado or tempo_ate_dano > 0.0:
 		return
-	
+
+	# Jogador caindo por cima do drone: não leva dano (é o pisão)
 	if jogador.velocity.y > 0.0 and jogador.global_position.y < global_position.y:
 		return
 
@@ -82,20 +90,24 @@ func _on_cabeca_body_entered(body: Node2D) -> void:
 		return
 
 	if jogador.velocity.y > 0.0:
-		jogador.velocity.y = -forca_quique   
+		jogador.velocity.y = -forca_quique # quique para cima
 		_derrotar()
 	else:
-		_tentar_causar_dano()               
+		_tentar_causar_dano() # bateu de baixo para cima
 
 
 func _derrotar() -> void:
 	ja_foi_derrotado = true
+	GameState.registrar_derrota(self)
 	derrotado.emit()
+
 	velocity = Vector2.ZERO
+
 	cabeca.set_deferred("monitoring", false)
 	corpo_dano.set_deferred("monitoring", false)
 
 	if animacao.sprite_frames.has_animation("destruido"):
 		animacao.play("destruido")
 		await animacao.animation_finished
+
 	queue_free()

@@ -4,8 +4,9 @@ extends Node2D
 @onready var jogador := %Jogador
 @onready var animação: AnimatedSprite2D = %Portão
 @onready var computador: AnimatedSprite2D = %Computador
+@onready var liberado
 func _ready() -> void:
-	var liberado := GameState.algum_quiz_correto("fase3")
+	liberado = GameState.algum_quiz_correto("fase3")
 	area_proxima_fase.visible = liberado
 	area_proxima_fase.monitoring = liberado
 	

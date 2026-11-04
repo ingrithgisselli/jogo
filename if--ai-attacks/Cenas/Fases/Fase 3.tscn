@@ -18,8 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="14_1tjw3"]
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="17_oocjn"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="18_bo77s"]
-[ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="19_77ic8"]
-[ext_resource type="PackedScene" uid="uid://bvui201s4ldp8" path="res://Entidades/drone.tscn" id="20_gqm55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vg1yf"]
 animations = [{
@@ -314,10 +312,6 @@ animation = &"Computador"
 autoplay = "Computador"
 
 [node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("18_bo77s")]
-
-[node name="Aluno Infectado" parent="." unique_id=1911551078 instance=ExtResource("19_77ic8")]
-
-[node name="Drone" parent="." unique_id=723138746 instance=ExtResource("20_gqm55")]
 
 [editable path="Jogador"]
 [editable path="Botão Fase 3"]

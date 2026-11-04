@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal derrotado
 signal vida_alterada(nova_vida)
 
-const SPEED := 200.0
+const SPEED := 150.0
 const VIDA_MAXIMA := 5
 const FORCA_MOLA := 600.0
 const INTERVALO_DANO := 1.0

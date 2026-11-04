@@ -16,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c7qx6is5p5pe4" path="res://Sprites/Testes/Seasonal Tilesets/2 - Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="10_ttj7m"]
 [ext_resource type="Texture2D" uid="uid://dcqtcmy2tjibk" path="res://Sprites/Testes/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="11_000ar"]
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="16_uk4ov"]
-[ext_resource type="PackedScene" uid="uid://bvui201s4ldp8" path="res://Entidades/drone.tscn" id="17_pc7je"]
-[ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="18_lnbsg"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="19_lnbsg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk4ov"]
@@ -179,7 +177,7 @@ shape = SubResource("RectangleShape2D_uk4ov")
 unique_name_in_owner = true
 position = Vector2(144, 168)
 sprite_frames = SubResource("SpriteFrames_owxbo")
-animation = &"Fechado"
+animation = &"Aberto"
 autoplay = "Fechado"
 
 [node name="Botão Fase 2" parent="." unique_id=129619615 instance=ExtResource("2_4d2fh")]
@@ -288,12 +286,9 @@ unique_name_in_owner = true
 position = Vector2(72, 188.00002)
 scale = Vector2(1, 0.9230769)
 sprite_frames = SubResource("SpriteFrames_uk4ov")
-animation = &"Computador"
+animation = &"Desligado"
 autoplay = "Computador"
-
-[node name="Drone" parent="." unique_id=723138746 instance=ExtResource("17_pc7je")]
-
-[node name="Aluno Infectado" parent="." unique_id=1911551078 instance=ExtResource("18_lnbsg")]
+frame_progress = 0.6338962
 
 [node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("19_lnbsg")]
 
