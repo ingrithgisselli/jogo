@@ -177,22 +177,19 @@ size = Vector2(20, 2)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vkxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbuyj"]
-size = Vector2(2.6007462, 19.930805)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtjxs"]
-size = Vector2(2.8280087, 19.0919)
+size = Vector2(2.319416, 20.963663)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ysnsd"]
 radius = 10.816668
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ttj7m"]
-size = Vector2(23.5, 12.375)
+size = Vector2(26, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c6apu"]
-size = Vector2(1.9897232, 29.999958)
+size = Vector2(2.006359, 27.998291)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_000ar"]
-size = Vector2(12.997326, 17.997276)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amqvc"]
+size = Vector2(14.965813, 27.99992)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h1na"]
 size = Vector2(9, 34)
@@ -311,14 +308,9 @@ shape = SubResource("CircleShape2D_3vkxb")
 position = Vector2(0, -12)
 
 [node name="CollisionShape2D" parent="Drone1/Cabeca" index="0" unique_id=1117970408]
-position = Vector2(-4.9999847, 0)
+position = Vector2(-4.4838257, 0.14155579)
+rotation = -1.5690652
 shape = SubResource("RectangleShape2D_kbuyj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Drone1/Cabeca" index="1" unique_id=1188540849]
-position = Vector2(10.250137, 7.2498517)
-rotation = -0.7853982
-scale = Vector2(0.9999992, 0.9999992)
-shape = SubResource("RectangleShape2D_qtjxs")
 
 [node name="Dano" parent="Drone1" index="3" unique_id=75229500]
 position = Vector2(0, 0)
@@ -332,9 +324,13 @@ shape = SubResource("CircleShape2D_ysnsd")
 
 [node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("15_nf0dy")]
 position = Vector2(479, 128)
+velocidade_horizontal = 60.0
+
+[node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
+frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="Drone2" index="1" unique_id=1497866238]
-position = Vector2(0, -7.1875)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_ttj7m")
 
 [node name="Cabeca" parent="Drone2" index="2" unique_id=1330305859]
@@ -342,21 +338,21 @@ position = Vector2(0, -17)
 rotation = 0.0008219984
 
 [node name="CollisionShape2D" parent="Drone2/Cabeca" index="0" unique_id=561217321]
-position = Vector2(-3.0517578e-05, 0.006385803)
+position = Vector2(0, 0.00831604)
 rotation = -1.5707964
-scale = Vector2(1.0000004, 1.0000004)
+scale = Vector2(1.0000011, 1.0000011)
 shape = SubResource("RectangleShape2D_c6apu")
 
 [node name="Dano" parent="Drone2" index="3" unique_id=1362073846]
 position = Vector2(203, 12)
 
 [node name="CollisionShape2D2" parent="Drone2/Dano" index="0" unique_id=12869090]
-position = Vector2(-203.00131, -17.498688)
-shape = SubResource("RectangleShape2D_000ar")
+position = Vector2(-202.99615, -19.482933)
+shape = SubResource("RectangleShape2D_amqvc")
 
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("4_m44bq")]
 unique_name_in_owner = true
-position = Vector2(8, 272)
+position = Vector2(2, 295)
 
 [node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
 position = Vector2(9, 3)
@@ -389,7 +385,6 @@ shape = SubResource("RectangleShape2D_toc0i")
 position = Vector2(62.5, 25.75)
 shape = SubResource("RectangleShape2D_mti6b")
 one_way_collision = true
-one_way_collision_margin = 20.0
 
 [editable path="FimdeFase"]
 [editable path="Interface - Vida (Jogador)"]

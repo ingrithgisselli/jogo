@@ -2,9 +2,9 @@ extends Area2D
 
 @onready var botao := %Button
 @export var offset := Vector2(0, 0)
-@export var cena_quizTIverde1 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_ti_verde_1.tscn"
-@export var cena_quizTIverde2 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_ti_verde_2.tscn"
-@export var cena_quizTIverde3 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_ti_verde_3.tscn"
+@export var cena_quizTIverde1 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_TIVerde1.tscn"
+@export var cena_quizTIverde2 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_TIVerde2.tscn"
+@export var cena_quizTIverde3 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_TIVerde3.tscn"
 
 func _ready() -> void:
 	await get_tree().process_frame

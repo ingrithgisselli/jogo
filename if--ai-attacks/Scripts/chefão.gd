@@ -10,8 +10,8 @@ const INTERVALO_DANO := 1.0
 const INVULNERABILIDADE := 1.0
 const EVITAR_DANO := 0.4   # evita dano logo depois de ser pisado
 
-@export var nome_animacao_andar := "Andar"      # nome no seu SpriteFrames
-@export var nome_animacao_derrota := "destruido"
+@export var nome_animacao_andar := "Máquina"      # nome no seu SpriteFrames
+@export var nome_animacao_derrota := "Danificado"
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var vida := VIDA_MAXIMA
@@ -41,7 +41,7 @@ func _ready() -> void:
 		corpo_dano.body_entered.connect(_on_dano_body_entered)
 
 	if animacao and animacao.sprite_frames.has_animation(nome_animacao_andar):
-		animacao.play(nome_animacao_andar)
+		animacao.play("Máquina")
 
 	
 	call_deferred("emit_signal", "vida_alterada", vida)
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		if absf(diferenca_x) > 2.0:
 			velocity.x = signf(diferenca_x) * SPEED
 			if animacao:
-				animacao.flip_h = diferenca_x < 0.0   
+				animacao.flip_h = diferenca_x > 0.0   
 		else:
 			velocity.x = 0.0
 	else:
@@ -157,7 +157,8 @@ func _derrotar() -> void:
 	if colisao:
 		colisao.set_deferred("disabled", true)
 
-	if animacao and animacao.sprite_frames.has_animation(nome_animacao_derrota):
-		animacao.play(nome_animacao_derrota)
-		await animacao.animation_finished
+	if animacao and animacao.sprite_frames.has_animation("Danificado"):
+		animacao.play("Danificado")
+		await get_tree().create_timer(INVULNERABILIDADE).timeout
+		animacao.visible=false
 	queue_free()

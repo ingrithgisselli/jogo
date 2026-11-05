@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 signal derrotado
 
-@export var velocidade := 40.0
+@export var velocidade := 60.0
 @export var forca_quique := 250.0
 @export var intervalo_dano := 1.0
-@export var pausa_ao_virar := 0.6 # segundos parado antes de virar
-@export var margem_borda := 1.0 # px do sensor para dentro da ponta do corpo
-@export var nome_animacao := "Movimentação2" # nome da animação no seu SpriteFrames
+@export var pausa_ao_virar := 0.3 
+@export var margem_borda := 1.0 
+@export var nome_animacao := "Movimentação2" 
 
 const TEMPO_ENTRE_VIRADAS := 0.3
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4l50l362khnm" path="res://Cenas/Quizzes/Quiz - Softwares/script_quiz_software_2.gd" id="1_33aq2"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_o0753"]
-[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="3_wi18x"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="3_wi18x"]
 
 [node name="Tela_Quiz_Soft2" type="Control" unique_id=1339657020]
 layout_mode = 3
@@ -49,7 +49,7 @@ text = "Roda exclusivamente no Linux"
 [node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=134602109]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-text = "Totalemnete gratuito, mas possui restrições"
+text = "Totalmente gratuito, mas possui restrições"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=318950287]
 z_index = -1

@@ -1,7 +1,4 @@
 extends TextureRect
-
-
-
 @export var imagens_de_vida: Array[Texture2D]
 
 func _ready() -> void:

@@ -7,9 +7,13 @@
 [ext_resource type="Script" uid="uid://36oabqspjlkd" path="res://Scripts/coletáveis.gd" id="3_lxw2d"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_lxw2d"]
 [ext_resource type="Texture2D" uid="uid://d338pqufjmegy" path="res://Sprites/Autorais/coletáveis/livro1 (1).png" id="6_cifgt"]
+[ext_resource type="Texture2D" uid="uid://dj1u5w6vk8so1" path="res://Sprites/Autorais/Inimigos/boss_final_comandante_damage.png" id="8_gogcb"]
+[ext_resource type="Texture2D" uid="uid://c7a6tq3pnr756" path="res://Sprites/Autorais/Inimigos/boss_final_andando.png" id="9_d0a46"]
 [ext_resource type="PackedScene" uid="uid://cbnb32k3gxco6" path="res://Interfaces/interface___vida_(chefão).tscn" id="9_fvglf"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="10_0jpv8"]
-[ext_resource type="Texture2D" uid="uid://ce2w2lmsvef32" path="res://Cenas/Fases/icon.svg" id="14_0uiyp"]
+[ext_resource type="Texture2D" uid="uid://dblf4cskflc1a" path="res://Sprites/Autorais/Inimigos/boss_final_andando_2 (2).png" id="10_0uiyp"]
+[ext_resource type="Texture2D" uid="uid://n5kc8wrynk5i" path="res://Sprites/Autorais/Inimigos/boss_final_andando_3.png" id="11_j4jos"]
+[ext_resource type="Texture2D" uid="uid://62wc3gdg0y4w" path="res://Sprites/Autorais/Inimigos/boss_final_andando_4.png" id="12_cifgt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvglf"]
 size = Vector2(32, 88.66666)
@@ -23,19 +27,31 @@ size = Vector2(285, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57s0e"]
 size = Vector2(60, 53)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_53y5c"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wufts"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_0uiyp")
+"texture": ExtResource("8_gogcb")
 }],
 "loop": 1,
-"name": &"Robô",
-"speed": 5.0
+"name": &"Danificado",
+"speed": 1.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_d0a46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0uiyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j4jos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cifgt")
+}],
 "loop": 1,
-"name": &"new_animation",
+"name": &"Máquina",
 "speed": 5.0
 }]
 
@@ -168,9 +184,11 @@ collision_mask = 3
 script = ExtResource("2_kkrjb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chefão" unique_id=828148492]
-scale = Vector2(0.68223745, 1.4218752)
-sprite_frames = SubResource("SpriteFrames_53y5c")
-animation = &"new_animation"
+position = Vector2(4.1666603, 4.000001)
+scale = Vector2(0.8335433, 1.5234377)
+sprite_frames = SubResource("SpriteFrames_wufts")
+animation = &"Máquina"
+frame_progress = 0.41957155
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão" unique_id=1988320137]
 position = Vector2(0, 8)

@@ -68,6 +68,11 @@ func _physics_process(delta: float) -> void:
 		_tentar_causar_dano()
 
 
+# Pisão: jogador parado ou caindo, e acima do drone
+func _jogador_esta_por_cima() -> bool:
+	return jogador.velocity.y >= 0.0 and jogador.global_position.y < global_position.y
+
+
 func _on_dano_body_entered(body: Node2D) -> void:
 	if body == jogador:
 		_tentar_causar_dano()
@@ -77,8 +82,8 @@ func _tentar_causar_dano() -> void:
 	if ja_foi_derrotado or tempo_ate_dano > 0.0:
 		return
 
-	# Jogador caindo por cima do drone: não leva dano (é o pisão)
-	if jogador.velocity.y > 0.0 and jogador.global_position.y < global_position.y:
+	# Jogador por cima do drone: não leva dano (é o pisão)
+	if _jogador_esta_por_cima():
 		return
 
 	jogador.receber_dano()
@@ -89,7 +94,7 @@ func _on_cabeca_body_entered(body: Node2D) -> void:
 	if ja_foi_derrotado or body != jogador:
 		return
 
-	if jogador.velocity.y > 0.0:
+	if _jogador_esta_por_cima():
 		jogador.velocity.y = -forca_quique # quique para cima
 		_derrotar()
 	else:
