@@ -1,0 +1,1429 @@
+/* ========================================
+   1. FONTES E VARIÁVEIS
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Special+Elite&display=swap');
+
+:root {
+    /* Cores da identidade visual inspiradas no jogo */
+    --cor-fundo: #0b080e;
+    --cor-vinho: #5a1226;
+    --cor-vermelho: #d92b43;
+
+    /* Cores de papel e terminais */
+    --cor-papel: #e2d4bc;
+    --cor-papel-escuro: #c2b399;
+    --cor-papel-card: #eee4d0;
+
+    /* Cores de texto */
+    --cor-texto: #f5f0e8;
+    --cor-texto-secundario: #b9b2b5;
+    --cor-texto-escuro: #1a1416;
+
+    /* Fontes */
+    --fonte-titulo: 'Special Elite', monospace;
+    --fonte-texto: 'Inter', sans-serif;
+
+    /* Medidas */
+    --largura-maxima: 1200px;
+    --altura-header: 80px;
+    --espaco-secao: 100px 8%;
+
+    /* Variáveis funcionais: tema escuro */
+    --fundo-pagina: var(--cor-fundo);
+    --fundo-header: var(--cor-fundo);
+    --fundo-hero: var(--cor-fundo);
+    --fundo-footer: var(--cor-fundo);
+    --fundo-menu: var(--cor-fundo);
+    --fundo-card-recurso: rgba(11, 8, 14, 0.55);
+
+    --texto-principal: var(--cor-texto);
+    --texto-secundario: var(--cor-texto-secundario);
+    --texto-marca: var(--cor-papel);
+
+    --borda-header: rgba(226, 212, 188, 0.15);
+    --borda-controle: rgba(226, 212, 188, 0.35);
+    --borda-menu: rgba(226, 212, 188, 0.25);
+    --borda-recurso: rgba(226, 212, 188, 0.25);
+
+    /* Variáveis para botão secundário e foco (Tema Escuro) */
+    --cor-secundario-bg: transparent;
+    --cor-secundario-borda: var(--cor-papel);
+    --cor-secundario-texto: var(--cor-papel);
+    --cor-secundario-hover-bg: var(--cor-papel);
+    --cor-secundario-hover-borda: var(--cor-papel);
+    --cor-secundario-hover-texto: var(--cor-texto-escuro);
+    --cor-foco-outline: var(--cor-papel);
+
+    /* Gradiente completo controlado pelo tema */
+    --gradiente-hero: linear-gradient(
+        110deg,
+        rgba(11, 8, 14, 0.95) 0%,
+        rgba(90, 18, 38, 0.8) 55%,
+        rgba(11, 8, 14, 0.92) 100%
+    );
+
+    /* Cor de foco */
+    --cor-foco: var(--cor-vermelho);
+
+    color-scheme: dark;
+}
+
+/* ========================================
+   TEMA CLARO
+======================================== */
+
+:root[data-theme="light"] {
+    --fundo-pagina: #f1d9b1;
+    --fundo-header: #dac6a9;
+    --fundo-hero: #eee4d5;
+    --fundo-footer: #d3c19c;
+    --fundo-menu: #f3ede4;
+    --fundo-card-recurso: rgba(255, 255, 255, 0.45);
+
+    --texto-principal: #1a1416;
+    --texto-secundario: #55494c;
+    --texto-marca: #5a1226;
+
+    --borda-header: rgba(26, 20, 22, 0.18);
+    --borda-controle: rgba(90, 18, 38, 0.35);
+    --borda-menu: rgba(26, 20, 22, 0.20);
+    --borda-recurso: rgba(90, 18, 38, 0.25);
+
+    --cor-secundario-bg: transparent;
+    --cor-secundario-borda: #5a1226;
+    --cor-secundario-texto: #5a1226;
+    --cor-secundario-hover-bg: #5a1226;
+    --cor-secundario-hover-borda: #5a1226;
+    --cor-secundario-hover-texto: #f5f0e8;
+    --cor-foco-outline: #8c1d3a;
+
+    --gradiente-hero: linear-gradient(
+        110deg,
+        rgba(245, 240, 232, 0.98) 0%,
+        rgba(226, 212, 188, 0.92) 55%,
+        rgba(238, 228, 213, 0.98) 100%
+    );
+
+    --cor-foco: #8c1d3a;
+
+    color-scheme: light;
+}
+
+/* ========================================
+   2. RESET BÁSICO
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--altura-header);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    font-family: var(--fonte-texto);
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: var(--texto-principal);
+    background-color: var(--fundo-pagina);
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--cor-foco);
+    outline-offset: 4px;
+}
+
+/* ========================================
+   3. HEADER E NAVEGAÇÃO
+======================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: var(--altura-header);
+    padding: 0 5%;
+
+    background-color: var(--fundo-header);
+    border-bottom: 1px solid var(--borda-header);
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+nav {
+    position: relative;
+
+    max-width: var(--largura-maxima);
+    min-height: var(--altura-header);
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Logo */
+nav > a {
+    flex-shrink: 0;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.35rem;
+    color: var(--texto-marca);
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+}
+
+nav > a:hover {
+    color: var(--cor-vermelho);
+}
+
+/* Menu desktop */
+nav ul#menu-principal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+nav ul a {
+    display: inline-block;
+    padding: 8px 0;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--texto-secundario);
+
+    transition: color 0.3s ease;
+}
+
+nav ul a:hover {
+    color: var(--cor-vermelho);
+}
+
+/* Grupo de botões de navegação */
+.nav-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Botões do tema e do menu */
+.tema-toggle,
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+
+    background: transparent;
+    border: 1px solid var(--borda-controle);
+    border-radius: 4px;
+
+    color: var(--texto-marca);
+    font-family: var(--fonte-texto);
+    font-size: 1.35rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.tema-toggle:hover,
+.menu-toggle:hover {
+    background-color: var(--cor-vinho);
+    border-color: var(--cor-vinho);
+    color: var(--cor-papel);
+}
+
+/* Hambúrguer escondido no desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* ========================================
+   4. HERO — INÍCIO
+======================================== */
+
+#inicio {
+    min-height: calc(100vh - var(--altura-header));
+    min-height: calc(100svh - var(--altura-header));
+
+    padding: var(--espaco-secao);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-color: var(--fundo-hero);
+    
+    /* Gradiente suave combinado com a imagem do cenário */
+    background-image: linear-gradient(rgba(11, 8, 14, 0.45), rgba(11, 8, 14, 0.45)), url('cenario-principal.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transition: background-color 0.25s ease;
+}
+
+/* Ajuste especial para telas de celular */
+@media (max-width: 768px) {
+    #inicio {
+        background-position: center center;
+        padding: 2rem 1.5rem;
+    }
+}
+
+#inicio h1 {
+    max-width: 900px;
+    margin-bottom: 24px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 1.1;
+    font-weight: 400;
+
+    color: var(--texto-marca);
+    text-transform: uppercase;
+
+    overflow-wrap: break-word;
+}
+
+#inicio p {
+    max-width: 620px;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.8;
+    color: var(--texto-secundario);
+}
+
+.texto-destaque {
+    color: var(--cor-vermelho);
+}
+
+/* Botões do hero */
+.hero-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+/* ========================================
+   5. TÍTULOS E RÓTULOS DAS SEÇÕES
+======================================== */
+
+section h2 {
+    margin-bottom: 20px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.rotulo-secao {
+    display: inline-block;
+    margin-bottom: 18px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   6. DESTAQUES — FUNDO DE PAPEL
+======================================== */
+
+.bloco-destaques {
+    padding: var(--espaco-secao);
+
+    color: var(--cor-texto-escuro);
+    background-color: var(--cor-papel);
+}
+
+.bloco-destaques .rotulo-secao {
+    color: var(--cor-vinho);
+}
+
+.bloco-destaques h2 {
+    color: var(--cor-texto-escuro);
+}
+
+.bloco-destaques .descricao-destaques {
+    max-width: 680px;
+    margin-bottom: 48px;
+
+    color: var(--cor-texto-escuro);
+    line-height: 1.8;
+}
+
+/* ========================================
+   7. GRID DE CARDS DE DESTAQUES
+======================================== */
+
+.lista-destaques {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+    gap: 24px;
+}
+
+.card-destaque {
+    min-width: 0;
+    padding: 28px 24px;
+
+    background-color: var(--cor-papel-card);
+    border: 1px solid var(--cor-papel-escuro);
+    border-radius: 4px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card-destaque:hover {
+    transform: translateY(-4px);
+    border-color: var(--cor-vinho);
+    box-shadow: 0 10px 24px rgba(26, 20, 22, 0.12);
+}
+
+.card-destaque h3 {
+    margin-bottom: 14px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.4;
+
+    color: var(--cor-vinho);
+}
+
+.card-destaque p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--cor-texto-escuro);
+}
+
+/* ========================================
+   8. VÍDEO — TEXTO E PLAYER
+======================================== */
+
+.video-jogo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+
+    padding: var(--espaco-secao);
+
+    color: var(--cor-texto);
+    background-color: var(--cor-vinho);
+}
+
+.video-texto {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.video-jogo .rotulo-secao {
+    color: var(--cor-papel);
+}
+
+.video-jogo h2 {
+    color: var(--cor-papel);
+}
+
+.video-jogo .texto-destaque {
+    color: #ff8a9a;
+}
+
+.video-texto h2 {
+    margin-bottom: 20px;
+}
+
+.video-jogo p {
+    max-width: 680px;
+    color: var(--cor-papel);
+    line-height: 1.8;
+}
+
+.video-texto p {
+    margin-bottom: 28px;
+}
+
+.video-player {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: #120e14;
+    border: 1px solid rgba(226, 212, 188, 0.25);
+    border-radius: 6px;
+
+    color: var(--cor-papel);
+    font-family: var(--fonte-titulo);
+    text-align: center;
+}
+
+.video-player span {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+}
+
+/* ========================================
+   9. BOTÕES REUTILIZÁVEIS
+======================================== */
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: 13px 24px;
+
+    border: 1px solid var(--cor-vermelho);
+    border-radius: 4px;
+
+    background-color: var(--cor-vermelho);
+    color: var(--cor-texto);
+
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.botao:hover {
+    background-color: var(--cor-vinho);
+    border-color: var(--cor-vinho);
+    transform: translateY(-2px);
+}
+
+.video-jogo .botao:hover,
+.bloco-recursos .botao:hover {
+    background-color: var(--cor-papel);
+    border-color: var(--cor-papel);
+    color: var(--cor-texto-escuro);
+}
+
+.botao-secundario {
+    background-color: var(--cor-secundario-bg);
+    border-color: var(--cor-secundario-borda);
+    color: var(--cor-secundario-texto);
+}
+
+.botao-secundario:hover {
+    background-color: var(--cor-secundario-hover-bg);
+    border-color: var(--cor-secundario-hover-borda);
+    color: var(--cor-secundario-hover-texto);
+}
+
+.botao:focus-visible {
+    outline: 2px solid var(--cor-foco-outline);
+    outline-offset: 4px;
+}
+
+/* ========================================
+   10. TUTORIAL — FUNDO DE PAPEL
+======================================== */
+
+#tutorial {
+    padding: var(--espaco-secao);
+
+    background-color: var(--cor-papel);
+    color: var(--cor-texto-escuro);
+}
+
+#tutorial > .rotulo-secao {
+    color: var(--cor-vinho);
+}
+
+#tutorial > h2 {
+    color: var(--cor-texto-escuro);
+}
+
+#tutorial .descricao-tutorial {
+    max-width: 680px;
+    margin-bottom: 48px;
+
+    color: var(--cor-texto-escuro);
+    line-height: 1.8;
+}
+
+/* ========================================
+   11. CARDS DO TUTORIAL
+======================================== */
+
+.lista-tutorial {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+    gap: 24px;
+
+    list-style: none;
+    counter-reset: passo;
+}
+
+.passo-tutorial {
+    min-width: 0;
+    counter-increment: passo;
+
+    padding: 28px 24px;
+
+    background-color: var(--cor-papel-card);
+    border: 1px solid var(--cor-papel-escuro);
+    border-radius: 4px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.passo-tutorial::before {
+    content: counter(passo, decimal-leading-zero);
+
+    display: block;
+    margin-bottom: 22px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 2rem;
+    color: var(--cor-vermelho);
+}
+
+.passo-tutorial:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(26, 20, 22, 0.12);
+}
+
+.passo-tutorial h3 {
+    margin-bottom: 12px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--cor-vinho);
+}
+
+.passo-tutorial p {
+    color: var(--cor-texto-escuro);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+/* ========================================
+   11B. BASTIDORES
+======================================== */
+
+#bastidores {
+    padding: var(--espaco-secao);
+
+    background-color: #120e14;
+    color: var(--cor-texto);
+}
+
+#bastidores > .rotulo-secao {
+    color: #ff8a9a;
+}
+
+#bastidores > h2 {
+    color: var(--cor-papel);
+}
+
+.descricao-bastidores {
+    max-width: 680px;
+    margin-bottom: 56px;
+
+    color: var(--cor-papel);
+    line-height: 1.8;
+}
+
+.bloco-bastidores {
+    min-width: 0;
+}
+
+.bloco-bastidores + .bloco-bastidores {
+    margin-top: 72px;
+}
+
+.bloco-bastidores h3 {
+    margin-bottom: 14px;
+
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--cor-papel);
+}
+
+.bloco-bastidores > p {
+    max-width: 680px;
+    margin-bottom: 28px;
+
+    color: var(--cor-texto-secundario);
+    line-height: 1.8;
+}
+
+/* Abas de código */
+
+.abas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.aba {
+    min-height: 44px;
+    padding: 10px 18px;
+
+    background: transparent;
+    border: 1px solid rgba(226, 212, 188, 0.35);
+    border-radius: 4px;
+
+    color: var(--cor-papel);
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.aba:hover {
+    border-color: var(--cor-papel);
+}
+
+.aba[aria-selected="true"] {
+    background-color: var(--cor-papel);
+    border-color: var(--cor-papel);
+    color: var(--cor-texto-escuro);
+}
+
+.aba:focus-visible,
+.painel-codigo:focus-visible,
+.carrossel:focus-visible,
+.carrossel-botao:focus-visible,
+.ponto:focus-visible {
+    outline: 2px solid var(--cor-papel);
+    outline-offset: 4px;
+}
+
+.painel-codigo[hidden] {
+    display: none;
+}
+
+.painel-codigo pre {
+    overflow-x: auto;
+    padding: 24px;
+
+    background-color: #0b080e;
+    border: 1px solid rgba(226, 212, 188, 0.25);
+    border-radius: 6px;
+
+    font-family: ui-monospace, Consolas, "Courier New", monospace;
+    font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--cor-papel);
+}
+
+.painel-codigo .c-comentario {
+    color: #8c8186;
+}
+
+.painel-codigo mark {
+    padding: 2px 6px;
+
+    background-color: rgba(217, 43, 67, 0.35);
+    border-radius: 3px;
+    color: inherit;
+}
+
+.legenda-codigo {
+    margin-top: 14px;
+
+    color: var(--cor-papel);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Carrossel de sprites */
+
+.carrossel {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.carrossel-janela {
+    overflow: hidden;
+
+    background-color: #241d26;
+    border: 1px solid rgba(226, 212, 188, 0.25);
+    border-radius: 6px;
+}
+
+.carrossel-faixa {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.carrossel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.carrossel-slide figure {
+    margin: 0;
+}
+
+.carrossel-imagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 4 / 3;
+    background-color: #1a141c;
+}
+
+.carrossel-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.carrossel figcaption {
+    padding: 18px 22px;
+
+    border-top: 1px solid rgba(226, 212, 188, 0.25);
+    color: var(--cor-papel);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.carrossel figcaption strong {
+    display: block;
+    margin-bottom: 4px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+
+.carrossel-controles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-top: 16px;
+}
+
+.carrossel-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    background: transparent;
+    border: 1px solid rgba(226, 212, 188, 0.35);
+    border-radius: 4px;
+
+    color: var(--cor-papel);
+    font-size: 1.3rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.carrossel-botao:hover {
+    background-color: var(--cor-papel);
+    color: var(--cor-texto-escuro);
+}
+
+.carrossel-pontos {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ponto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.ponto::before {
+    content: "";
+
+    width: 12px;
+    height: 12px;
+
+    border: 2px solid var(--cor-papel);
+    border-radius: 50%;
+
+    transition: background-color 0.3s ease;
+}
+
+.ponto[aria-current="true"]::before {
+    background-color: var(--cor-papel);
+}
+
+/* ========================================
+   12. DOCUMENTAÇÃO
+======================================== */
+
+#recursos {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 40px;
+
+    padding: var(--espaco-secao);
+
+    background-color: var(--cor-vinho);
+    color: var(--cor-texto);
+}
+
+.bloco-recursos {
+    min-width: 0;
+}
+
+.bloco-recursos .rotulo-secao {
+    color: var(--cor-papel);
+}
+
+.bloco-recursos h2 {
+    color: var(--cor-papel);
+}
+
+.lista-recursos {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(200px, 1fr)
+    );
+    gap: 18px;
+
+    list-style: none;
+}
+
+.card-recurso {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 24px;
+
+    background-color: var(--fundo-card-recurso);
+    border: 1px solid var(--borda-recurso);
+    border-radius: 4px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.25s ease;
+}
+
+.card-largo {
+    grid-column: 1 / -1;
+}
+
+.card-recurso:hover {
+    transform: translateY(-4px);
+    border-color: var(--cor-papel);
+}
+
+.card-recurso h3 {
+    margin-bottom: 12px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--cor-papel);
+}
+
+.card-recurso p {
+    margin-bottom: 24px;
+
+    color: var(--cor-papel);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.card-recurso .botao {
+    margin-top: auto;
+}
+
+/* ========================================
+   13. INTEGRANTES
+======================================== */
+
+#integrantes {
+    padding: var(--espaco-secao);
+
+    background-color: var(--cor-papel);
+    color: var(--cor-texto-escuro);
+}
+
+#integrantes > .rotulo-secao {
+    color: var(--cor-vinho);
+}
+
+#integrantes > h2 {
+    color: var(--cor-texto-escuro);
+}
+
+.descricao-integrantes {
+    max-width: 680px;
+    margin-bottom: 48px;
+
+    color: var(--cor-texto-escuro);
+    line-height: 1.8;
+}
+
+.lista-integrantes {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(200px, 1fr)
+    );
+    gap: 24px;
+
+    list-style: none;
+}
+
+.card-integrante {
+    min-width: 0;
+    padding: 28px 22px;
+
+    background-color: var(--cor-papel-card);
+    border: 1px solid var(--cor-papel-escuro);
+    border-radius: 4px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card-integrante:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(26, 20, 22, 0.12);
+}
+
+.avatar-integrante {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 22px;
+
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--cor-papel-escuro);
+}
+
+.card-integrante h3 {
+    margin-bottom: 6px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--cor-vinho);
+}
+
+.card-integrante p {
+    color: var(--cor-texto-escuro);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.card-integrante .funcao-integrante {
+    margin-bottom: 12px;
+
+    color: var(--cor-vinho);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* ========================================
+   14. RODAPÉ
+======================================== */
+
+.rodape {
+    --rodape-fundo: #120e14;
+    --rodape-titulo: #8a7c85;
+    --rodape-texto: #a89da5;
+    --rodape-destaque: #e2d4bc;
+    --rodape-linha: rgba(226, 212, 188, 0.25);
+
+    padding: 56px 8% 40px;
+
+    background-color: var(--rodape-fundo);
+    font-family: var(--fonte-texto);
+}
+
+.rodape-conteudo {
+    display: grid;
+    grid-template-columns: auto repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 48px;
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 48px;
+}
+
+.rodape-logo {
+    display: block;
+    justify-self: center;
+}
+
+.rodape-logo img {
+    display: block;
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+}
+
+nav.rodape-coluna {
+    position: static;
+    display: block;
+    min-height: 0;
+    max-width: none;
+    margin: 0;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 28px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--rodape-titulo);
+}
+
+.rodape-coluna ul {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.rodape-coluna a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--rodape-texto);
+    overflow-wrap: anywhere;
+
+    transition: color 0.3s ease;
+}
+
+.rodape-coluna a i {
+    flex-shrink: 0;
+    width: 1.2em;
+    text-align: center;
+}
+
+.rodape-coluna a:hover {
+    color: var(--rodape-destaque);
+}
+
+.rodape a:focus-visible {
+    outline: 2px solid var(--rodape-destaque);
+    outline-offset: 4px;
+}
+
+.rodape-base {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 36px;
+
+    border-top: 1px solid var(--rodape-linha);
+    text-align: center;
+}
+
+.rodape-base p {
+    font-size: 0.9rem;
+    color: var(--rodape-texto);
+}
+
+.rodape-base p + p {
+    margin-top: 44px;
+}
+
+@media (max-width: 900px) {
+    .rodape-conteudo {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 36px 28px;
+    }
+    .rodape-logo {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .rodape {
+        padding: 40px 6% 32px;
+    }
+    .rodape-conteudo {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+        text-align: center;
+    }
+    .rodape-coluna ul {
+        align-items: center;
+    }
+    .rodape-coluna h3 {
+        margin-bottom: 20px;
+    }
+    .rodape-base p + p {
+        margin-top: 28px;
+    }
+}
+
+/* ========================================
+   15A. MENU HAMBÚRGUER
+======================================== */
+
+@media (max-width: 1100px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul#menu-principal {
+        display: none;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 12px 6%;
+        margin: 0;
+
+        background-color: var(--fundo-menu);
+        border-bottom: 1px solid var(--borda-menu);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+
+        z-index: 1000;
+        list-style: none;
+    }
+
+    nav ul#menu-principal.aberto {
+        display: flex;
+    }
+
+    nav ul#menu-principal li {
+        width: 100%;
+    }
+
+    nav ul#menu-principal a {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 8px;
+    }
+}
+
+/* ========================================
+   15. RESPONSIVIDADE — TABLETS
+======================================== */
+
+@media (max-width: 900px) {
+    :root {
+        --espaco-secao: 64px 6%;
+    }
+
+    .video-jogo {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    #recursos {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+}
+
+/* ========================================
+   16. RESPONSIVIDADE — CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+    :root {
+        --espaco-secao: 48px 5%;
+    }
+
+    #inicio {
+        min-height: calc(100svh - var(--altura-header));
+    }
+
+    #inicio h1 {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-botoes {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-botoes .botao {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .lista-destaques,
+    .lista-tutorial,
+    .lista-recursos,
+    .lista-integrantes {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card-destaque,
+    .passo-tutorial,
+    .card-recurso,
+    .card-integrante {
+        padding: 20px;
+    }
+
+    .video-jogo {
+        gap: 24px;
+    }
+
+    .video-player {
+        width: 100%;
+        min-width: 0;
+    }
+
+    nav > a {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .nav-acoes {
+        gap: 6px;
+    }
+
+    .tema-toggle,
+    .menu-toggle {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+}
+
+/* ========================================
+   17. ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
