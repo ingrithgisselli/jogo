@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://kiclhhhgdsqt"]
+
+[ext_resource type="Texture2D" uid="uid://b7nsivrl04kfb" path="res://Sprites/Autorais/Mesa/mesa.png" id="1_4j4pg"]
+
+[node name="Mesa" type="Sprite2D" unique_id=766262295]
+texture = ExtResource("1_4j4pg")

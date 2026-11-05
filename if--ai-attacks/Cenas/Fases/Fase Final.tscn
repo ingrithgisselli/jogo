@@ -30,7 +30,12 @@ animations = [{
 "texture": ExtResource("14_0uiyp")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"Robô",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -69,8 +74,6 @@ script = ExtResource("3_0jpv8")
 
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 scale = Vector2(1.5, 1.5)
-animation = &"Andar"
-frame_progress = 0.0
 
 [node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
 position = Vector2(8, 3.666687)
@@ -167,7 +170,7 @@ script = ExtResource("2_kkrjb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chefão" unique_id=828148492]
 scale = Vector2(0.68223745, 1.4218752)
 sprite_frames = SubResource("SpriteFrames_53y5c")
-frame_progress = 0.7068698
+animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão" unique_id=1988320137]
 position = Vector2(0, 8)

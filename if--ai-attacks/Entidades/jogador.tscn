@@ -104,8 +104,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5avc0"]
-size = Vector2(26, 56)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nf0dy"]
+radius = 6.0
+height = 32.0
 
 [node name="Jogador" type="CharacterBody2D" unique_id=1296977925 groups=["Jogador"]]
 z_index = 1
@@ -118,12 +119,12 @@ metadata/_edit_vertical_guides_ = [-384.0]
 [node name="Animação" type="AnimatedSprite2D" parent="." unique_id=1463381569]
 z_index = 1
 position = Vector2(8, 0)
+scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-animation = &"Dano"
+animation = &"parado"
 autoplay = "parado"
-frame_progress = 1.0
 
 [node name="ColisãoJogador" type="CollisionShape2D" parent="." unique_id=1651223342]
 z_index = 1
-position = Vector2(11, 4)
-shape = SubResource("RectangleShape2D_5avc0")
+position = Vector2(10, 4)
+shape = SubResource("CapsuleShape2D_nf0dy")

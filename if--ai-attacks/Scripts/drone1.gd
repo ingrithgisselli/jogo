@@ -106,8 +106,4 @@ func _derrotar() -> void:
 	cabeca.set_deferred("monitoring", false)
 	corpo_dano.set_deferred("monitoring", false)
 
-	if animacao.sprite_frames.has_animation("destruido"):
-		animacao.play("destruido")
-		await animacao.animation_finished
-
 	queue_free()

@@ -207,9 +207,7 @@ func receber_dano(quantidade: int = 1) -> void:
 
 func morrer() -> void:
 	set_physics_process(false)
-	animação.visible = false
-
-	print("O jogador morreu!")
-
+	animação.play("Dano")
 	await get_tree().create_timer(delay).timeout
+	animação.visible = false
 	get_tree().reload_current_scene()

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6yru83hdshdv" path="res://Sprites/Autorais/Botão/botão.png" id="2_qif5a"]
 [ext_resource type="FontFile" uid="uid://bluqgeseptqwb" path="res://Sprites/Sprites livres/Fontes/Fonte Pixelada.ttf" id="3_c1dlh"]
 [ext_resource type="Texture2D" uid="uid://crsh01ru7yevj" path="res://Sprites/IA/titulo_letras_v2.png" id="4_qif5a"]
+[ext_resource type="Texture2D" uid="uid://g1lymenj7pqi" path="res://Sprites/Autorais/Fases/fase_boss_fina_backl.png" id="5_c1dlh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7eip"]
 load_path = "res://.godot/imported/botão.png-42bcaf3915c0f796f382e85bbd66449d.ctex"
@@ -90,7 +91,23 @@ text = "Sair"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1400952248]
+[node name="Título" type="Sprite2D" parent="." unique_id=1400952248]
 position = Vector2(208, 56)
 scale = Vector2(0.7883895, 0.7983871)
 texture = ExtResource("4_qif5a")
+
+[node name="Fundo" type="ParallaxBackground" parent="." unique_id=712428314]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fundo" unique_id=1533022736]
+texture_repeat = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Fundo/ParallaxLayer" unique_id=778785340]
+position = Vector2(149, 122)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_c1dlh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Fundo/ParallaxLayer" unique_id=621619459]
+position = Vector2(494, 122)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_c1dlh")
+flip_h = true
