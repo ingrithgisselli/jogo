@@ -47,6 +47,8 @@ func _physics_process(delta: float) -> void:
 	if tempo_invulneravel > 0.0:
 		tempo_invulneravel -= delta
 
+	atualizar_piscada()
+
 	if not is_on_floor():
 		velocity += (get_gravity() * delta)
 
@@ -188,6 +190,14 @@ func movimentacao():
 		animação.flip_h = false
 
 
+# Pisca enquanto o jogador estiver invulnerável
+func atualizar_piscada() -> void:
+	if tempo_invulneravel > 0.0 and vida_atual > 0:
+		animação.modulate.a = 0.4 if int(tempo_invulneravel * 12.0) % 2 == 0 else 1.0
+	else:
+		animação.modulate.a = 1.0
+
+
 # Sistema de vida
 
 func receber_dano(quantidade: int = 1) -> void:
@@ -207,6 +217,7 @@ func receber_dano(quantidade: int = 1) -> void:
 
 func morrer() -> void:
 	set_physics_process(false)
+	animação.modulate.a = 1.0
 	animação.play("Dano")
 	await get_tree().create_timer(delay).timeout
 	animação.visible = false

@@ -24,14 +24,16 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 2.0
-offset_top = 48.0
+offset_top = 45.0
 offset_right = 2.0
-offset_bottom = 48.0
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1947457143]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = -10
 
 [node name="Iniciar" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2057062573]
@@ -60,6 +62,34 @@ scale = Vector2(1.1291016, 1.1284043)
 theme_override_fonts/font = ExtResource("3_c1dlh")
 theme_override_font_sizes/font_size = 16
 text = "Iniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=729646594]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_stretch_ratio = 8.69
+texture_normal = SubResource("CompressedTexture2D_u7eip")
+texture_pressed = ExtResource("2_qif5a")
+texture_hover = ExtResource("2_qif5a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Tutorial" unique_id=978363584]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = 8.999999
+offset_right = 5.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1291016, 1.1284043)
+theme_override_fonts/font = ExtResource("3_c1dlh")
+text = "Tutorial"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -93,7 +123,7 @@ vertical_alignment = 1
 
 [node name="Título" type="Sprite2D" parent="." unique_id=1400952248]
 position = Vector2(208, 56)
-scale = Vector2(0.7883895, 0.7983871)
+scale = Vector2(0.75, 0.76)
 texture = ExtResource("4_qif5a")
 
 [node name="Fundo" type="ParallaxBackground" parent="." unique_id=712428314]

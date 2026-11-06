@@ -10,8 +10,8 @@ enum Estado_Jogador{
 	dano
 }
 @onready var animação: AnimatedSprite2D = $Animação
-const SPEED = 300
-const JUMP_VELOCITY = -1000.0
+const SPEED = 120
+const JUMP_VELOCITY = -400.0
 const delay := 1.0                 
 const TEMPO_DANO := 0.35           
 const INVULNERABILIDADE := 1.5     
@@ -33,9 +33,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if tempo_invulneravel > 0.0:
 		tempo_invulneravel -= delta
+	atualizar_piscada()
 
 	if not is_on_floor():
-		velocity += (get_gravity() * delta)*2
+		velocity += (get_gravity() * delta)
 
 	match Status:
 		Estado_Jogador.parado:
@@ -145,6 +146,13 @@ func movimentacao():
 	elif direction>0:
 		animação.flip_h=false
 
+# Pisca enquanto o jogador estiver invulnerável
+func atualizar_piscada() -> void:
+	if tempo_invulneravel > 0.0 and vida_atual > 0:
+		animação.modulate.a = 0.4 if int(tempo_invulneravel * 12.0) % 2 == 0 else 1.0
+	else:
+		animação.modulate.a = 1.0
+
 
 func receber_dano(quantidade: int = 1) -> void:
 	if vida_atual <= 0 or tempo_invulneravel > 0.0:
@@ -162,6 +170,7 @@ func receber_dano(quantidade: int = 1) -> void:
 
 func morrer() -> void:
 	set_physics_process(false)
+	animação.modulate.a = 1.0
 	animação.play("Dano")
 	await get_tree().create_timer(delay).timeout
 	animação.visible=false

@@ -41,7 +41,7 @@ size = Vector2(32, 59)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mti6b"]
 a = Vector2(4, -229)
-b = Vector2(-1, 84)
+b = Vector2(5, 87)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jumgw"]
 a = Vector2(704, 160)
@@ -232,18 +232,17 @@ shape = SubResource("RectangleShape2D_adq5k")
 position = Vector2(-133, 178)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=669794433]
-position = Vector2(129, 53)
+position = Vector2(129, 51)
 shape = SubResource("SegmentShape2D_mti6b")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=374514306]
 shape = SubResource("SegmentShape2D_jumgw")
 
 [node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("7_26463")]
-position = Vector2(193, 251)
+position = Vector2(225, 127)
 zoom = Vector2(0.9, 0.9)
-limit_left = 4
 limit_top = 0
-limit_right = 568
+limit_right = 576
 limit_bottom = 384
 limit_smoothed = true
 
@@ -360,7 +359,7 @@ shape = SubResource("RectangleShape2D_7h1na")
 
 [node name="Fundo" type="Sprite2D" parent="." unique_id=1639994606]
 z_index = -8
-position = Vector2(283, 207)
+position = Vector2(288, 208)
 scale = Vector2(2, 2)
 texture = ExtResource("14_qtjxs")
 

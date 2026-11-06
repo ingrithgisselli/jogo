@@ -24,5 +24,4 @@ func take_damage(amount: int = 1):
 		die()
 
 func die():
-	print("O jogador morreu!")
 	get_tree().reload_current_scene()
