@@ -5,7 +5,7 @@ extends Area2D
 @export var cena_quizTIverde1 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_TIVerde1.tscn"
 @export var cena_quizTIverde2 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_TIVerde2.tscn"
 @export var cena_quizTIverde3 = "res://Cenas/Quizzes/Quiz - TI Verde/Quiz_TIVerde3.tscn"
-
+@export var acesso: AudioStream
 func _ready() -> void:
 	await get_tree().process_frame
 	botao.visible = false
@@ -36,6 +36,7 @@ func _on_interagir() -> void:
 	var jogadores := get_tree().get_nodes_in_group("Jogador")
 	if jogadores.size()>0:
 		GameState.salvar_antes_do_quiz(jogadores[0])
+	ConfigAudio.tocar_efeito(acesso)
 	_sorteio()
 	
 func _sorteio() -> void:

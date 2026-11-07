@@ -22,7 +22,8 @@ var vida_atual: int
 var Status: Estado_Jogador
 var tempo_dano := 0.0
 var tempo_invulneravel := 0.0
-
+@export var som_pulo: AudioStream
+@export var som_dano: AudioStream
 func _ready() -> void:
 	add_to_group("Jogador")
 	vida_atual = vida_maxima
@@ -64,7 +65,7 @@ func preparar_Estado_pulando():
 	Status = Estado_Jogador.pulando
 	animação.play("Pulando")
 	velocity.y=JUMP_VELOCITY
-
+	ConfigAudio.tocar_efeito(som_pulo)
 func preparar_Estado_caindo():
 	Status = Estado_Jogador.caindo
 	animação.play("Caindo")
@@ -146,7 +147,6 @@ func movimentacao():
 	elif direction>0:
 		animação.flip_h=false
 
-# Pisca enquanto o jogador estiver invulnerável
 func atualizar_piscada() -> void:
 	if tempo_invulneravel > 0.0 and vida_atual > 0:
 		animação.modulate.a = 0.4 if int(tempo_invulneravel * 12.0) % 2 == 0 else 1.0
@@ -160,7 +160,7 @@ func receber_dano(quantidade: int = 1) -> void:
 
 	vida_atual = clamp(vida_atual - quantidade, 0, vida_maxima)
 	vida_alterada.emit(vida_atual)
-
+	ConfigAudio.tocar_efeito(som_dano)
 	if vida_atual <= 0:
 		morrer()
 		return

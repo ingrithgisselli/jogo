@@ -12,7 +12,8 @@ const delay := 1.0
 }
 
 @export var resposta_certa: String = "B"
-
+@export var certo: AudioStream
+@export var errado: AudioStream
 var travado := false
 
 func _ready() -> void:
@@ -26,12 +27,14 @@ func _on_resposta_selecionada(opcao: String) -> void:
 	var botao: Button = botoes[opcao]
 
 	if opcao == resposta_certa:
+		ConfigAudio.tocar_efeito(certo)
 		travado = true
 		_piscar(botao, acerto)
 		await get_tree().create_timer(delay).timeout
 		get_tree().change_scene_to_file("res://Cenas/Fases/Menu.tscn")
 		
 	else:
+		ConfigAudio.tocar_efeito(errado)
 		_piscar(botao, erro)
 
 func _piscar(botao: Button, cor: Color) -> void:

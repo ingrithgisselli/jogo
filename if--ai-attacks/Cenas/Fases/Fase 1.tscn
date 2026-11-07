@@ -9,13 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="4_m44bq"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="7_26463"]
 [ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="9_t8lq2"]
+[ext_resource type="AudioStream" uid="uid://g8o1tv47dp36" path="res://Sons/acesso-clique.mp3" id="11_7h1na"]
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="11_bw2to"]
 [ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="13_26463"]
+[ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="13_c6apu"]
 [ext_resource type="PackedScene" uid="uid://bvui201s4ldp8" path="res://Entidades/drone1.tscn" id="14_nf0dy"]
 [ext_resource type="Texture2D" uid="uid://bfwmyj47l3xa2" path="res://Sprites/Autorais/Fases/cenario1_V2_back.png" id="14_qtjxs"]
 [ext_resource type="Texture2D" uid="uid://3a53wwgktmgy" path="res://Sprites/Autorais/Fases/cenario1_V2_front.png" id="15_kbuyj"]
 [ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="15_nf0dy"]
 [ext_resource type="PackedScene" uid="uid://kiclhhhgdsqt" path="res://Entidades/mesa.tscn" id="16_qtjxs"]
+[ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="17_q3xtc"]
+[ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="18_rxxrf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
 animations = [{
@@ -286,10 +290,12 @@ vertical_icon_alignment = 2
 
 [node name="Area2D" parent="Botão Fase 1" index="1" unique_id=361096585]
 position = Vector2(136, 80)
+acesso = ExtResource("11_7h1na")
 
 [node name="Aluno Infectado" parent="." unique_id=1911551078 instance=ExtResource("13_26463")]
 position = Vector2(454, 207)
 scale = Vector2(1.2, 1.2)
+destruido = ExtResource("13_c6apu")
 
 [node name="CollisionShape2D" parent="Aluno Infectado/Cabeca" parent_id_path=PackedInt32Array(1911551078, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -298,6 +304,7 @@ shape = SubResource("RectangleShape2D_fvglf")
 [node name="Aluno Infectado2" parent="." unique_id=547664296 instance=ExtResource("13_26463")]
 position = Vector2(302, 302)
 scale = Vector2(1.2, 1.2)
+destruido = ExtResource("13_c6apu")
 
 [node name="CollisionShape2D" parent="Aluno Infectado2/Cabeca" parent_id_path=PackedInt32Array(547664296, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -305,6 +312,7 @@ shape = SubResource("RectangleShape2D_fvglf")
 
 [node name="Drone1" parent="." unique_id=723138746 instance=ExtResource("14_nf0dy")]
 position = Vector2(364, 178)
+destruido = ExtResource("13_c6apu")
 
 [node name="AnimatedSprite2D" parent="Drone1" index="0" unique_id=713126763]
 animation = &"Perseguindo"
@@ -336,6 +344,7 @@ shape = SubResource("CircleShape2D_ysnsd")
 [node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("15_nf0dy")]
 position = Vector2(479, 128)
 velocidade_horizontal = 60.0
+destruido = ExtResource("13_c6apu")
 
 [node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -364,6 +373,8 @@ shape = SubResource("RectangleShape2D_amqvc")
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("4_m44bq")]
 unique_name_in_owner = true
 position = Vector2(2, 295)
+som_pulo = ExtResource("17_q3xtc")
+som_dano = ExtResource("18_rxxrf")
 
 [node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
 position = Vector2(9, 3)

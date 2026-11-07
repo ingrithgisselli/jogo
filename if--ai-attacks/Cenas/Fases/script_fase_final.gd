@@ -3,6 +3,7 @@ extends Node2D
 signal fim
 
 const TOTAL_COLETAVEIS := 3
+const delay:= 3
 
 var coletaveis_restantes := TOTAL_COLETAVEIS
 var chefao_derrotado := false
@@ -43,4 +44,5 @@ func _verificar_finalizacao() -> void:
 
 
 func iniciar_finalizacao() -> void:
-	print("Você ganhou")
+	await get_tree().create_timer(delay).timeout
+	get_tree().change_scene_to_file("res://Cenas/finalização.tscn")

@@ -14,9 +14,14 @@ config/name="IF: AI Attacks"
 run/main_scene="uid://dr7wm7317vlcg"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://bfb4kffeaqivs"
+
 [autoload]
 
 GameState="*uid://8qkfalvx3i0i"
+ConfigAudio="*uid://vkj8tkfeyhyy"
 
 [display]
 

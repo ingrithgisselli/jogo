@@ -7,14 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="3_e76wi"]
 [ext_resource type="Texture2D" uid="uid://diqfgqfifni1a" path="res://Sprites/Autorais/Portão/Portão_fechado.png" id="3_oocjn"]
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="4_1tjw3"]
+[ext_resource type="AudioStream" uid="uid://g8o1tv47dp36" path="res://Sons/acesso-clique.mp3" id="5_ilwsp"]
 [ext_resource type="PackedScene" uid="uid://kiclhhhgdsqt" path="res://Entidades/mesa.tscn" id="9_e76wi"]
 [ext_resource type="Texture2D" uid="uid://chbe1cavjkwtx" path="res://Sprites/Autorais/Fases/fase3_back.png" id="12_e76wi"]
 [ext_resource type="Texture2D" uid="uid://djaid5wqsb1sn" path="res://Sprites/Autorais/Fases/fase3_front.png" id="13_1tjw3"]
 [ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="14_1tjw3"]
 [ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="15_8tw1y"]
+[ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="15_bo77s"]
 [ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="15_kvpy2"]
+[ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="16_77ic8"]
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="17_oocjn"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="18_bo77s"]
+[ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="18_gqm55"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vg1yf"]
 animations = [{
@@ -177,10 +181,6 @@ size = Vector2(32, 37.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo77s"]
 size = Vector2(96, 31)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_8tw1y"]
-a = Vector2(-48, -19.5)
-b = Vector2(-48, -15.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77ic8"]
 size = Vector2(16, 79)
 
@@ -271,6 +271,9 @@ position = Vector2(496, 71)
 [node name="Button" parent="Botão Fase 3/CanvasLayer" parent_id_path=PackedInt32Array(406969556, 1287570770) index="0" unique_id=2052888251]
 vertical_icon_alignment = 2
 
+[node name="Area2D" parent="Botão Fase 3" index="1" unique_id=547851]
+acesso = ExtResource("5_ilwsp")
+
 [node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_e76wi")]
 position = Vector2(-66, 104)
 proxima_fase = "Fase 4"
@@ -344,10 +347,6 @@ shape = SubResource("RectangleShape2D_vg1yf")
 position = Vector2(160, 207.5)
 shape = SubResource("RectangleShape2D_bo77s")
 
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=1317074583]
-position = Vector2(160, 207.5)
-shape = SubResource("SegmentShape2D_8tw1y")
-
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=777113597]
 position = Vector2(200, 183.5)
 shape = SubResource("RectangleShape2D_77ic8")
@@ -399,6 +398,8 @@ one_way_collision_margin = 5.0
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("4_1tjw3")]
 unique_name_in_owner = true
 position = Vector2(61, 272)
+som_pulo = ExtResource("15_bo77s")
+som_dano = ExtResource("16_77ic8")
 
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 position = Vector2(-4, 12)
@@ -410,6 +411,10 @@ shape = SubResource("RectangleShape2D_oocjn")
 [node name="Aluno Infectado2" parent="." unique_id=481408413 instance=ExtResource("15_kvpy2")]
 position = Vector2(72, 122)
 velocidade = 70.0
+destruido = ExtResource("18_gqm55")
+
+[node name="DetectorChao" parent="Aluno Infectado2" index="0" unique_id=1095845786]
+position = Vector2(17, 19)
 
 [node name="CollisionShape2D" parent="Aluno Infectado2/Cabeca" parent_id_path=PackedInt32Array(481408413, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -418,6 +423,7 @@ shape = SubResource("RectangleShape2D_we8qw")
 [node name="Aluno Infectado4" parent="." unique_id=1911551078 instance=ExtResource("15_kvpy2")]
 position = Vector2(265, 275)
 scale = Vector2(1.2, 1.2)
+destruido = ExtResource("18_gqm55")
 
 [node name="DetectorChao" parent="Aluno Infectado4" index="0" unique_id=1095845786]
 position = Vector2(35.000008, 19.166677)
@@ -429,9 +435,10 @@ shape = SubResource("RectangleShape2D_sj7qm")
 [node name="Aluno Infectado3" parent="." unique_id=1093821772 instance=ExtResource("15_kvpy2")]
 position = Vector2(104, 167)
 scale = Vector2(1.2, 1.2)
+destruido = ExtResource("18_gqm55")
 
 [node name="DetectorChao" parent="Aluno Infectado3" index="0" unique_id=1095845786]
-position = Vector2(25.83333, 19.166664)
+position = Vector2(20.83333, 19.166664)
 
 [node name="CollisionShape2D" parent="Aluno Infectado3/Cabeca" parent_id_path=PackedInt32Array(1093821772, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -440,6 +447,7 @@ shape = SubResource("RectangleShape2D_ni728")
 [node name="Aluno Infectado6" parent="." unique_id=724493440 instance=ExtResource("15_kvpy2")]
 position = Vector2(521, 226.99998)
 scale = Vector2(0.8, 0.8)
+destruido = ExtResource("18_gqm55")
 
 [node name="DetectorChao" parent="Aluno Infectado6" index="0" unique_id=1095845786]
 position = Vector2(34.999985, 21.250023)
@@ -452,6 +460,7 @@ shape = SubResource("RectangleShape2D_fr6yi")
 [node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("15_8tw1y")]
 position = Vector2(356, 247)
 velocidade_horizontal = 60.0
+destruido = ExtResource("18_gqm55")
 
 [node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -491,6 +500,7 @@ shape = SubResource("SegmentShape2D_ni728")
 position = Vector2(358, 85)
 velocidade_horizontal = 60.0
 velocidade_vertical = 35.0
+destruido = ExtResource("18_gqm55")
 
 [node name="AnimatedSprite2D" parent="Drone3" index="0" unique_id=775588090]
 frame_progress = 0.0

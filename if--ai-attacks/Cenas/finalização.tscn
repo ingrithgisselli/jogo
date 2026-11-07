@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://di3tuksuwa3lb"]
+
+[ext_resource type="Script" uid="uid://6wapj6qjxq18" path="res://Scripts/voltarMenu.gd" id="1_h43s2"]
+[ext_resource type="Texture2D" uid="uid://bqpib1w4tqliq" path="res://Sprites/Autorais/Jogador/garota pulando_0001 (1).png" id="2_83tau"]
+[ext_resource type="Texture2D" uid="uid://6ffh7ie88nto" path="res://Sprites/Autorais/Jogador/garota pulando_0002(2).png" id="3_slr7n"]
+[ext_resource type="FontFile" uid="uid://bluqgeseptqwb" path="res://Sprites/Sprites livres/Fontes/Fonte Pixelada.ttf" id="3_vm4y4"]
+[ext_resource type="Script" uid="uid://cfmo870w22egn" path="res://Scripts/resetarGameState.gd" id="3_xbkxt"]
+[ext_resource type="Texture2D" uid="uid://cq5wnsqjcxwpj" path="res://Sprites/Autorais/Jogador/garota pulando_0004 (2).png" id="4_uoeyt"]
+[ext_resource type="Texture2D" uid="uid://b7elv5srpf43i" path="res://Sprites/Autorais/Jogador/garota pulando_0003 (1).png" id="5_xbkxt"]
+[ext_resource type="Script" uid="uid://d2k5x1ibuhmaw" path="res://Scripts/animação_fim.gd" id="8_uoeyt"]
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="10_q7o8q"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="11_7tgfg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mm1bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_83tau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_slr7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uoeyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xbkxt")
+}],
+"loop": 1,
+"name": &"Animação Fim",
+"speed": 7.0
+}]
+
+[node name="Finalização" type="Control" unique_id=1662655528]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_h43s2")
+
+[node name="AnimaçãoFim" type="AnimatedSprite2D" parent="." unique_id=14652687]
+position = Vector2(192, 120)
+sprite_frames = SubResource("SpriteFrames_mm1bc")
+animation = &"Animação Fim"
+frame_progress = 0.16348991
+script = ExtResource("8_uoeyt")
+
+[node name="Label" type="Label" parent="." unique_id=1083155404]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 311.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1291016, 1.1284043)
+theme = ExtResource("10_q7o8q")
+theme_override_fonts/font = ExtResource("3_vm4y4")
+theme_override_font_sizes/font_size = 16
+text = "Você livrou o instituto do ataque da IA! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1365504554]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 15.999999
+offset_right = 303.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1291016, 1.1284043)
+theme = ExtResource("10_q7o8q")
+theme_override_fonts/font = ExtResource("3_vm4y4")
+theme_override_font_sizes/font_size = 16
+text = "Fim de jogo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1367271262]
+z_index = -1
+position = Vector2(193, 107.99999)
+scale = Vector2(0.33802053, 0.23275863)
+texture = ExtResource("11_7tgfg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1589240857]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 176.0
+offset_right = 244.0
+offset_bottom = 285.0
+theme_override_constants/separation = 8
+
+[node name="Voltar Menu" type="Button" parent="VBoxContainer" unique_id=1155881988]
+layout_mode = 2
+theme = ExtResource("10_q7o8q")
+theme_override_font_sizes/font_size = 16
+text = "Voltar ao Menu"
+script = ExtResource("3_xbkxt")

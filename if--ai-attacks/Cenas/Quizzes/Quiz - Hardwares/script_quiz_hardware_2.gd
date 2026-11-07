@@ -15,7 +15,8 @@ const delay := 1.0
 @export var fase_id: String = "fase1"
 @export var quiz_id: String = "hardware2"
 @export_file("*.tscn") var proxima_cena: String = "res://Cenas/Fases/Fase 1.tscn"
-
+@export var certo: AudioStream
+@export var errado: AudioStream
 var travado := false
 
 func _ready() -> void:
@@ -29,12 +30,14 @@ func _on_resposta_selecionada(opcao: String) -> void:
 	var botao: Button = botoes[opcao]
 
 	if opcao == resposta_certa:
+		ConfigAudio.tocar_efeito(certo)
 		travado = true
 		_piscar(botao, acerto)
 		GameState.marcar_correto(fase_id, quiz_id)
 		await get_tree().create_timer(delay).timeout
 		get_tree().change_scene_to_file(proxima_cena)
 	else:
+		ConfigAudio.tocar_efeito(errado)
 		_piscar(botao, erro)
 
 func _piscar(botao: Button, cor: Color) -> void:

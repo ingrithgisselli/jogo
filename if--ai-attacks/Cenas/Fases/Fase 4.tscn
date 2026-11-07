@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqwwhfpc1ryqx" path="res://Entidades/Fim_de_fase.tscn" id="2_1yh2y"]
 [ext_resource type="PackedScene" uid="uid://dmjkvpygybj2w" path="res://Cenas/Quizzes/Botões/Botão Fase 4.tscn" id="2_ag7k1"]
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="3_35b2b"]
+[ext_resource type="AudioStream" uid="uid://g8o1tv47dp36" path="res://Sons/acesso-clique.mp3" id="3_b3gdq"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_ag7k1"]
 [ext_resource type="Texture2D" uid="uid://svwnxbp5gie7" path="res://Sprites/Autorais/Portão/portao_aberto.png" id="6_jbsrh"]
 [ext_resource type="Texture2D" uid="uid://diqfgqfifni1a" path="res://Sprites/Autorais/Portão/Portão_fechado.png" id="7_7jyrn"]
@@ -14,7 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="10_7jyrn"]
 [ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="13_fibiv"]
 [ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="14_181gx"]
+[ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="14_gt4wy"]
+[ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="15_3ccdc"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="15_amqvc"]
+[ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="18_c0ygr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w2740"]
 animations = [{
@@ -201,13 +205,9 @@ size = Vector2(161, 66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y588"]
 size = Vector2(32, 16)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_c0ygr"]
-a = Vector2(-15, -11)
-b = Vector2(-15, -7)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_amqvc"]
 a = Vector2(-15, -11)
-b = Vector2(-15, -7)
+b = Vector2(-15, -9)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3beny"]
 a = Vector2(-15, -95)
@@ -257,6 +257,7 @@ vertical_icon_alignment = 2
 
 [node name="Area2D" parent="Botão Fase 4" index="1" unique_id=2063695517]
 position = Vector2(-1, 151)
+acesso = ExtResource("3_b3gdq")
 
 [node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("4_ag7k1")]
 position = Vector2(128, 168)
@@ -375,29 +376,9 @@ position = Vector2(444, 246)
 shape = SubResource("RectangleShape2D_1y588")
 one_way_collision_margin = 5.0
 
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=922997552]
-position = Vector2(444, 248)
-shape = SubResource("SegmentShape2D_c0ygr")
-one_way_collision_margin = 5.0
-
-[node name="CollisionShape2D23" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=1299512113]
-position = Vector2(415, 226)
-shape = SubResource("SegmentShape2D_c0ygr")
-one_way_collision_margin = 5.0
-
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=473894042]
-position = Vector2(474, 248)
-shape = SubResource("SegmentShape2D_c0ygr")
-one_way_collision_margin = 5.0
-
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=1455456867]
 position = Vector2(247, 226)
 shape = SubResource("SegmentShape2D_amqvc")
-one_way_collision_margin = 5.0
-
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=1857384932]
-position = Vector2(368, 298)
-shape = SubResource("SegmentShape2D_c0ygr")
 one_way_collision_margin = 5.0
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=433266018]
@@ -408,6 +389,8 @@ one_way_collision_margin = 5.0
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("3_35b2b")]
 unique_name_in_owner = true
 position = Vector2(31, 281)
+som_pulo = ExtResource("14_gt4wy")
+som_dano = ExtResource("15_3ccdc")
 
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 position = Vector2(-4, 12)
@@ -422,6 +405,7 @@ shape = SubResource("RectangleShape2D_w3ld2")
 position = Vector2(39, 120)
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
+destruido = ExtResource("18_c0ygr")
 
 [node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -451,6 +435,7 @@ shape = SubResource("RectangleShape2D_4dlp6")
 position = Vector2(192, 108)
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
+destruido = ExtResource("18_c0ygr")
 
 [node name="AnimatedSprite2D" parent="Drone3" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -480,6 +465,7 @@ shape = SubResource("RectangleShape2D_6q3ox")
 position = Vector2(321, 104)
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
+destruido = ExtResource("18_c0ygr")
 
 [node name="AnimatedSprite2D" parent="Drone4" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -507,6 +493,7 @@ shape = SubResource("RectangleShape2D_oieac")
 
 [node name="Aluno Infectado2" parent="." unique_id=1911551078 instance=ExtResource("13_fibiv")]
 position = Vector2(328, 299)
+destruido = ExtResource("18_c0ygr")
 
 [node name="CollisionShape2D" parent="Aluno Infectado2/Cabeca" parent_id_path=PackedInt32Array(1911551078, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -514,6 +501,10 @@ shape = SubResource("RectangleShape2D_181gx")
 
 [node name="Aluno Infectado3" parent="." unique_id=1378215391 instance=ExtResource("13_fibiv")]
 position = Vector2(427, 204)
+destruido = ExtResource("18_c0ygr")
+
+[node name="DetectorChao" parent="Aluno Infectado3" index="0" unique_id=1095845786]
+position = Vector2(20, 20)
 
 [node name="CollisionShape2D" parent="Aluno Infectado3/Cabeca" parent_id_path=PackedInt32Array(1378215391, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -523,6 +514,10 @@ shape = SubResource("RectangleShape2D_3ccdc")
 position = Vector2(352, 270.00003)
 scale = Vector2(0.8, 0.8)
 velocidade = 70.0
+destruido = ExtResource("18_c0ygr")
+
+[node name="DetectorChao" parent="Aluno Infectado" index="0" unique_id=1095845786]
+position = Vector2(21.249985, 19.999947)
 
 [node name="CollisionShape2D" parent="Aluno Infectado/Cabeca" parent_id_path=PackedInt32Array(1464170861, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0.25)
@@ -532,6 +527,10 @@ shape = SubResource("RectangleShape2D_ycbqq")
 [node name="Aluno Infectado4" parent="." unique_id=1024548064 instance=ExtResource("13_fibiv")]
 position = Vector2(380, 199)
 scale = Vector2(0.8, 0.8)
+destruido = ExtResource("18_c0ygr")
+
+[node name="DetectorChao" parent="Aluno Infectado4" index="0" unique_id=1095845786]
+position = Vector2(19.999985, 20.000004)
 
 [node name="CollisionShape2D" parent="Aluno Infectado4/Cabeca" parent_id_path=PackedInt32Array(1024548064, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0.25)
@@ -541,6 +540,7 @@ shape = SubResource("RectangleShape2D_kylbs")
 [node name="Aluno Infectado5" parent="." unique_id=115303600 instance=ExtResource("13_fibiv")]
 position = Vector2(68, 200)
 scale = Vector2(0.8, 0.8)
+destruido = ExtResource("18_c0ygr")
 
 [node name="CollisionShape2D" parent="Aluno Infectado5/Cabeca" parent_id_path=PackedInt32Array(115303600, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0.25)
@@ -550,6 +550,7 @@ shape = SubResource("RectangleShape2D_kylbs")
 [node name="Aluno Infectado7" parent="." unique_id=1319680654 instance=ExtResource("13_fibiv")]
 position = Vector2(240, 199)
 scale = Vector2(0.8, 0.8)
+destruido = ExtResource("18_c0ygr")
 
 [node name="CollisionShape2D" parent="Aluno Infectado7/Cabeca" parent_id_path=PackedInt32Array(1319680654, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0.25)
@@ -559,6 +560,7 @@ shape = SubResource("RectangleShape2D_kylbs")
 [node name="Aluno Infectado6" parent="." unique_id=1208337393 instance=ExtResource("13_fibiv")]
 position = Vector2(211, 199)
 scale = Vector2(0.8, 0.8)
+destruido = ExtResource("18_c0ygr")
 
 [node name="CollisionShape2D" parent="Aluno Infectado6/Cabeca" parent_id_path=PackedInt32Array(1208337393, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0.25)
@@ -567,6 +569,7 @@ shape = SubResource("RectangleShape2D_kylbs")
 
 [node name="Aluno Infectado8" parent="." unique_id=400686499 instance=ExtResource("13_fibiv")]
 position = Vector2(14, 81)
+destruido = ExtResource("18_c0ygr")
 
 [node name="CollisionShape2D" parent="Aluno Infectado8/Cabeca" parent_id_path=PackedInt32Array(400686499, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -575,6 +578,7 @@ shape = SubResource("RectangleShape2D_hlawk")
 [node name="Aluno Infectado9" parent="." unique_id=75988293 instance=ExtResource("13_fibiv")]
 position = Vector2(173.00002, 69)
 scale = Vector2(0.9, 0.9)
+destruido = ExtResource("18_c0ygr")
 
 [node name="CollisionShape2D" parent="Aluno Infectado9/Cabeca" parent_id_path=PackedInt32Array(75988293, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -583,6 +587,7 @@ shape = SubResource("RectangleShape2D_3ccdc")
 [node name="Aluno Infectado10" parent="." unique_id=1567279170 instance=ExtResource("13_fibiv")]
 position = Vector2(316.00003, 68)
 scale = Vector2(0.9, 0.9)
+destruido = ExtResource("18_c0ygr")
 
 [node name="CollisionShape2D" parent="Aluno Infectado10/Cabeca" parent_id_path=PackedInt32Array(1567279170, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)

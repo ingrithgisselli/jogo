@@ -3,13 +3,15 @@ extends Control
 @onready var botao_iniciar: TextureButton = $CenterContainer/VBoxContainer/Iniciar
 @onready var botao_sair: TextureButton = $CenterContainer/VBoxContainer/Sair
 @onready var botao_tutorial: TextureButton = $CenterContainer/VBoxContainer/Tutorial
-
+@onready var botao_som = $CenterContainer/VBoxContainer/Som
+@onready var painel_som = $PanelContainer
+	
 func _ready() -> void:
 	botao_iniciar.pressed.connect(_on_iniciar_pressed)
 	botao_sair.pressed.connect(_on_sair_pressed)
 	botao_tutorial.pressed.connect(_on_tutorial_pressed)
-	
-	for b in [botao_iniciar, botao_sair, botao_tutorial]:
+	botao_som.pressed.connect(painel_som.abrir)
+	for b in [botao_iniciar, botao_sair, botao_tutorial, botao_som]:
 		b.mouse_entered.connect(func(): b.modulate = Color(1.2, 1.2, 1.2))
 		b.mouse_exited.connect(func(): b.modulate = Color.WHITE)
 

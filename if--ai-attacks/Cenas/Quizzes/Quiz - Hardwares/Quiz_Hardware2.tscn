@@ -3,6 +3,8 @@
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_bdhs6"]
 [ext_resource type="Script" uid="uid://jkpx2617wo67" path="res://Cenas/Quizzes/Quiz - Hardwares/script_quiz_hardware_2.gd" id="1_vcjce"]
 [ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="3_1y163"]
+[ext_resource type="AudioStream" uid="uid://df37y6yf42npk" path="res://Sons/certo.mp3" id="3_8rma3"]
+[ext_resource type="AudioStream" uid="uid://barknp1l745uf" path="res://Sons/errado.mp3" id="4_jc7ak"]
 
 [node name="Tela_Quiz_Hard2" type="Control" unique_id=2122265254]
 layout_mode = 3
@@ -13,6 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bdhs6")
 script = ExtResource("1_vcjce")
+certo = ExtResource("3_8rma3")
+errado = ExtResource("4_jc7ak")
 
 [node name="Label" type="Label" parent="." unique_id=1673104156]
 layout_mode = 0

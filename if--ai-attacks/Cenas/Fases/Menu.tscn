@@ -5,6 +5,10 @@
 [ext_resource type="FontFile" uid="uid://bluqgeseptqwb" path="res://Sprites/Sprites livres/Fontes/Fonte Pixelada.ttf" id="3_c1dlh"]
 [ext_resource type="Texture2D" uid="uid://crsh01ru7yevj" path="res://Sprites/IA/titulo_letras_v2.png" id="4_qif5a"]
 [ext_resource type="Texture2D" uid="uid://g1lymenj7pqi" path="res://Sprites/Autorais/Fases/fase_boss_fina_backl.png" id="5_c1dlh"]
+[ext_resource type="Script" uid="uid://5qrnp7mtc6je" path="res://Scripts/panel_som.gd" id="6_yo4js"]
+[ext_resource type="Texture2D" uid="uid://qldxbi6nqfmk" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(apagado).jpg" id="7_2yl6p"]
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="7_mpp33"]
+[ext_resource type="Script" uid="uid://cfmo870w22egn" path="res://Scripts/resetarGameState.gd" id="8_mpp33"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7eip"]
 load_path = "res://.godot/imported/botão.png-42bcaf3915c0f796f382e85bbd66449d.ctex"
@@ -93,6 +97,34 @@ text = "Tutorial"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Som" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2032970151]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_stretch_ratio = 8.69
+texture_normal = SubResource("CompressedTexture2D_u7eip")
+texture_pressed = ExtResource("2_qif5a")
+texture_hover = ExtResource("2_qif5a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Som" unique_id=134895862]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = 8.999999
+offset_right = 5.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1291016, 1.1284043)
+theme_override_fonts/font = ExtResource("3_c1dlh")
+text = "Som"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Sair" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=177968559]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
@@ -141,3 +173,78 @@ position = Vector2(494, 122)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("5_c1dlh")
 flip_h = true
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1192402052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = 24.0
+offset_right = -78.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+script = ExtResource("6_yo4js")
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer" unique_id=129811647]
+position = Vector2(96.99999, 107.99999)
+scale = Vector2(0.18038535, 0.23922414)
+texture = ExtResource("7_2yl6p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=877319389]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.8, 0.8)
+
+[node name="Som" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1694536530]
+layout_mode = 2
+theme = ExtResource("7_mpp33")
+theme_override_font_sizes/font_size = 20
+text = "Som"
+horizontal_alignment = 1
+
+[node name="Música de Fundo" type="Label" parent="PanelContainer/VBoxContainer" unique_id=388495834]
+layout_mode = 2
+theme = ExtResource("7_mpp33")
+theme_override_font_sizes/font_size = 16
+text = "Música de Fundo"
+horizontal_alignment = 1
+
+[node name="HSliderMúsica" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=819434473]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+max_value = 1.0
+step = 0.05
+
+[node name="Sons" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1085646642]
+layout_mode = 2
+theme = ExtResource("7_mpp33")
+theme_override_font_sizes/font_size = 16
+text = "Efeitos sonoros"
+horizontal_alignment = 1
+
+[node name="HSliderEfeitos" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=1009563431]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Música" type="AudioStreamPlayer2D" parent="PanelContainer/VBoxContainer" unique_id=1450869188]
+unique_name_in_owner = true
+bus = &"Música"
+
+[node name="Efeitos" type="AudioStreamPlayer2D" parent="PanelContainer/VBoxContainer" unique_id=1109959354]
+unique_name_in_owner = true
+volume_db = -80.0
+bus = &"Efeitos"
+
+[node name="Voltar" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1884885899]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("7_mpp33")
+theme_override_font_sizes/font_size = 16
+text = "Voltar"
+script = ExtResource("8_mpp33")

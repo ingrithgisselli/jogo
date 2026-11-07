@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c7ln8ird5x2yg" path="res://Cenas/Fases/Tutorial/script_quiz_tutorial.gd" id="1_ac4pq"]
 [ext_resource type="PackedScene" uid="uid://det6u68dunxty" path="res://Cenas/Quizzes/Quiz - Hardwares/Quiz_Hardware3.tscn" id="2_al6aj"]
+[ext_resource type="AudioStream" uid="uid://df37y6yf42npk" path="res://Sons/certo.mp3" id="2_ldp1v"]
+[ext_resource type="AudioStream" uid="uid://barknp1l745uf" path="res://Sons/errado.mp3" id="3_a2nqn"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="3_b67hb"]
 [ext_resource type="FontFile" uid="uid://cirw5ooj6rct3" path="res://Sprites/Sprites livres/Fontes/m5x7.ttf" id="4_0l2ve"]
 
@@ -9,6 +11,8 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ac4pq")
+certo = ExtResource("2_ldp1v")
+errado = ExtResource("3_a2nqn")
 
 [node name="Tutorial" parent="." unique_id=932128356 instance=ExtResource("2_al6aj")]
 layout_mode = 1

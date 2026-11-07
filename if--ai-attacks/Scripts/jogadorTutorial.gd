@@ -11,14 +11,15 @@ enum Estado_Jogador {
 }
 
 @onready var animação: AnimatedSprite2D = $Animação
-
+@export var som_pulo: AudioStream
+@export var som_dano: AudioStream
 const SPEED = 120
 const JUMP_VELOCITY = -400.0
-const delay := 1.0 # espera antes de reiniciar a fase ao morrer
-const TEMPO_DANO := 0.35 # tempo sem controle depois de levar dano
-const INVULNERABILIDADE := 1.5 # tempo sem poder levar dano de novo
-const RECUO_X := 200.0 # empurrão para trás ao levar dano
-const RECUO_Y := -250.0 # pulinho ao levar dano
+const delay := 1.0 
+const TEMPO_DANO := 0.35 
+const INVULNERABILIDADE := 1.5 
+const RECUO_X := 200.0
+const RECUO_Y := -250.0 
 
 @export var vida_maxima: int = 3
 
@@ -33,7 +34,7 @@ func _ready() -> void:
 	vida_atual = vida_maxima
 
 
-	# Adiado para a interface já estar conectada ao sinal quando ele for emitido
+
 	call_deferred("emit_signal", "vida_alterada", vida_atual)
 
 	preparar_Estado_parado()
@@ -81,7 +82,7 @@ func preparar_Estado_pulando():
 	Status = Estado_Jogador.pulando
 	animação.play("Pulando")
 	velocity.y = JUMP_VELOCITY
-
+	ConfigAudio.tocar_efeito(som_pulo)
 
 func preparar_Estado_caindo():
 	Status = Estado_Jogador.caindo
@@ -93,7 +94,7 @@ func preparar_Estado_dano():
 	tempo_dano = TEMPO_DANO
 	animação.play("Dano")
 
-	# Empurra o jogador para trás (oposto ao lado para onde ele olha)
+	
 	var sentido := 1.0 if animação.flip_h else -1.0
 	velocity = Vector2(sentido * RECUO_X, RECUO_Y)
 
@@ -145,7 +146,7 @@ func Estado_pulando():
 func Estado_caindo():
 	movimentacao()
 
-	# Subindo de novo (ex.: quique ao pisar num inimigo): volta para a animação de pulo
+	
 	if velocity.y < 0.0:
 		Status = Estado_Jogador.pulando
 		animação.play("Pulando")
@@ -160,7 +161,7 @@ func Estado_caindo():
 
 
 func Estado_dano(delta: float):
-	# Sem controle: só desacelera o empurrão
+	
 	velocity.x = move_toward(velocity.x, 0.0, RECUO_X * 4.0 * delta)
 
 	tempo_dano -= delta
@@ -186,7 +187,7 @@ func movimentacao():
 		animação.flip_h = false
 
 
-# Pisca enquanto o jogador estiver invulnerável
+
 func atualizar_piscada() -> void:
 	if tempo_invulneravel > 0.0 and vida_atual > 0:
 		animação.modulate.a = 0.4 if int(tempo_invulneravel * 12.0) % 2 == 0 else 1.0
@@ -194,15 +195,13 @@ func atualizar_piscada() -> void:
 		animação.modulate.a = 1.0
 
 
-# Sistema de vida
-
 func receber_dano(quantidade: int = 1) -> void:
 	if vida_atual <= 0 or tempo_invulneravel > 0.0:
 		return
 
 	vida_atual = clamp(vida_atual - quantidade, 0, vida_maxima)
 	vida_alterada.emit(vida_atual)
-
+	ConfigAudio.tocar_efeito(som_dano)
 	if vida_atual <= 0:
 		morrer()
 		return

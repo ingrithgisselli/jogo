@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="1_ij88c"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="2_imanv"]
 [ext_resource type="Script" uid="uid://y0knyiaunkxi" path="res://Scripts/jogadorTutorial.gd" id="2_s2yj2"]
+[ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="3_nkawg"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="3_s2yj2"]
+[ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="4_f7xno"]
 [ext_resource type="Texture2D" uid="uid://qldxbi6nqfmk" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(apagado).jpg" id="4_wubr0"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="5_85dcy"]
 [ext_resource type="FontFile" uid="uid://cirw5ooj6rct3" path="res://Sprites/Sprites livres/Fontes/m5x7.ttf" id="6_ij88c"]
@@ -14,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://kiclhhhgdsqt" path="res://Entidades/mesa.tscn" id="10_44k3o"]
 [ext_resource type="PackedScene" uid="uid://d23n0lsmci6p3" path="res://Cenas/Quizzes/Botões/Botão Fase 1.tscn" id="11_2rth8"]
 [ext_resource type="Script" uid="uid://cs544sywq3yyw" path="res://Cenas/Fases/Tutorial/scriptBotaoTutorial.gd" id="12_wakly"]
+[ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="12_xpj5r"]
+[ext_resource type="AudioStream" uid="uid://g8o1tv47dp36" path="res://Sons/acesso-clique.mp3" id="18_44k3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54vre"]
 size = Vector2(9, 34)
@@ -166,6 +170,8 @@ unique_name_in_owner = true
 z_index = 2
 position = Vector2(15, 189)
 script = ExtResource("2_s2yj2")
+som_pulo = ExtResource("3_nkawg")
+som_dano = ExtResource("4_f7xno")
 
 [node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
 position = Vector2(9, 3)
@@ -299,6 +305,7 @@ position = Vector2(182, 179)
 script = ExtResource("8_imanv")
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
+destruido = ExtResource("12_xpj5r")
 
 [node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -357,6 +364,7 @@ position = Vector2(136, 57)
 script = ExtResource("12_wakly")
 offset = Vector2(0, 0)
 quiz_tutorial = "res://Cenas/Fases/Tutorial/Quiz Tutorial.tscn"
+acesso = ExtResource("18_44k3o")
 
 [editable path="Jogador"]
 [editable path="Interface - Vida (Jogador)"]

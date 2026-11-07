@@ -6,12 +6,15 @@
 [ext_resource type="Script" uid="uid://dkrlfclkui7i3" path="res://Scripts/jogador(fase final).gd" id="3_0jpv8"]
 [ext_resource type="Script" uid="uid://36oabqspjlkd" path="res://Scripts/coletáveis.gd" id="3_lxw2d"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_lxw2d"]
+[ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="4_otrbr"]
+[ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="5_jnf7k"]
 [ext_resource type="Texture2D" uid="uid://d338pqufjmegy" path="res://Sprites/Autorais/coletáveis/livro1 (1).png" id="6_cifgt"]
 [ext_resource type="Texture2D" uid="uid://dj1u5w6vk8so1" path="res://Sprites/Autorais/Inimigos/boss_final_comandante_damage.png" id="8_gogcb"]
 [ext_resource type="Texture2D" uid="uid://c7a6tq3pnr756" path="res://Sprites/Autorais/Inimigos/boss_final_andando.png" id="9_d0a46"]
 [ext_resource type="PackedScene" uid="uid://cbnb32k3gxco6" path="res://Interfaces/interface___vida_(chefão).tscn" id="9_fvglf"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="10_0jpv8"]
 [ext_resource type="Texture2D" uid="uid://dblf4cskflc1a" path="res://Sprites/Autorais/Inimigos/boss_final_andando_2 (2).png" id="10_0uiyp"]
+[ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="10_n3rir"]
 [ext_resource type="Texture2D" uid="uid://n5kc8wrynk5i" path="res://Sprites/Autorais/Inimigos/boss_final_andando_3.png" id="11_j4jos"]
 [ext_resource type="Texture2D" uid="uid://62wc3gdg0y4w" path="res://Sprites/Autorais/Inimigos/boss_final_andando_4.png" id="12_cifgt"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="15_4iunj"]
@@ -68,8 +71,6 @@ size = Vector2(88.00008, 125.16532)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(79.99999, 12.666653)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_2snyo"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
 size = Vector2(288, 31.999994)
 
@@ -100,6 +101,8 @@ position = Vector2(39, 233)
 scale = Vector2(0.4, 0.4)
 collision_mask = 873
 script = ExtResource("3_0jpv8")
+som_pulo = ExtResource("4_otrbr")
+som_dano = ExtResource("5_jnf7k")
 
 [node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
 scale = Vector2(1.5, 1.5)
@@ -177,6 +180,7 @@ scale = Vector2(0.5, 0.417)
 collision_layer = 64
 collision_mask = 3
 script = ExtResource("2_kkrjb")
+destruido = ExtResource("10_n3rir")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chefão" unique_id=828148492]
 position = Vector2(4.1666603, 4.000001)
@@ -274,14 +278,6 @@ texture = ExtResource("16_cifgt")
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_4kxuq")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fundo/Plataforma3/StaticBody2D" unique_id=1235591570]
-position = Vector2(38.666668, 14.666672)
-shape = SubResource("SegmentShape2D_2snyo")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Fundo/Plataforma3/StaticBody2D" unique_id=62449642]
-position = Vector2(-38.666668, 14.666672)
-shape = SubResource("SegmentShape2D_2snyo")
-
 [node name="Chão" type="Sprite2D" parent="Fundo" unique_id=1889609212]
 texture = ExtResource("17_2snyo")
 
@@ -303,6 +299,7 @@ shape = SubResource("RectangleShape2D_tjf6b")
 position = Vector2(357, 125)
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
+destruido = ExtResource("10_n3rir")
 
 [node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -332,6 +329,7 @@ shape = SubResource("RectangleShape2D_4dlp6")
 position = Vector2(195, 111)
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
+destruido = ExtResource("10_n3rir")
 
 [node name="AnimatedSprite2D" parent="Drone4" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -362,6 +360,7 @@ position = Vector2(48, 196)
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
 forca_quique = 400.0
+destruido = ExtResource("10_n3rir")
 
 [node name="AnimatedSprite2D" parent="Drone3" index="0" unique_id=775588090]
 frame_progress = 0.0
@@ -389,9 +388,10 @@ shape = SubResource("RectangleShape2D_4dlp6")
 
 [node name="Aluno Infectado2" parent="." unique_id=1911551078 instance=ExtResource("19_2snyo")]
 position = Vector2(54, 118)
+destruido = ExtResource("10_n3rir")
 
 [node name="DetectorChao" parent="Aluno Infectado2" index="0" unique_id=1095845786]
-position = Vector2(22, 19)
+position = Vector2(20, 20)
 
 [node name="CollisionShape2D" parent="Aluno Infectado2/Cabeca" parent_id_path=PackedInt32Array(1911551078, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
@@ -399,9 +399,10 @@ shape = SubResource("RectangleShape2D_4iunj")
 
 [node name="Aluno Infectado3" parent="." unique_id=1874493251 instance=ExtResource("19_2snyo")]
 position = Vector2(295, 119)
+destruido = ExtResource("10_n3rir")
 
 [node name="DetectorChao" parent="Aluno Infectado3" index="0" unique_id=1095845786]
-position = Vector2(22, 19)
+position = Vector2(20, 20)
 
 [node name="CollisionShape2D" parent="Aluno Infectado3/Cabeca" parent_id_path=PackedInt32Array(1874493251, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)

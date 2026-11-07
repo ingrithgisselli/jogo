@@ -2,7 +2,7 @@ extends Area2D
 @onready var botao := %Button
 @export var offset := Vector2(0, 0)
 @export var quiz_tutorial = "res://Cenas/Fases/Tutorial/Quiz Tutorial.tscn"
-
+@export var acesso: AudioStream
 func _ready() -> void:
 	await get_tree().process_frame
 	botao.visible = false
@@ -27,10 +27,12 @@ func _process(_delta: float) -> void:
 	if botao.visible:
 		atualizar_posicao_botao()
 	if Input.is_action_just_pressed("Acessar"):
+		
 		_on_interagir()
 		
 func _on_interagir() -> void:
 	var jogadores := get_tree().get_nodes_in_group("Jogador")
+	ConfigAudio.tocar_efeito(acesso)
 	_tutorial()
 	
 func _tutorial() -> void:
