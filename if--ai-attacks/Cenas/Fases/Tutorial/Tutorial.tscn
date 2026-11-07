@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="1_ij88c"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="2_imanv"]
+[ext_resource type="Script" uid="uid://y0knyiaunkxi" path="res://Scripts/jogadorTutorial.gd" id="2_s2yj2"]
 [ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="3_s2yj2"]
 [ext_resource type="Texture2D" uid="uid://qldxbi6nqfmk" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(apagado).jpg" id="4_wubr0"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="5_85dcy"]
@@ -164,6 +165,7 @@ animations = [{
 unique_name_in_owner = true
 z_index = 2
 position = Vector2(15, 189)
+script = ExtResource("2_s2yj2")
 
 [node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
 position = Vector2(9, 3)
@@ -172,13 +174,16 @@ shape = SubResource("RectangleShape2D_54vre")
 [node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("2_imanv")]
 
 [node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("3_s2yj2")]
+position = Vector2(188, 109)
 zoom = Vector2(1, 1)
+limit_left = -3
 limit_top = 0
-limit_right = 416
+limit_right = 380
+limit_bottom = 218
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952114184]
-position = Vector2(206.49997, 108)
-scale = Vector2(0.3721541, 0.23922415)
+position = Vector2(189, 108)
+scale = Vector2(0.34150618, 0.23922415)
 texture = ExtResource("4_wubr0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=416868705]
@@ -199,14 +204,14 @@ shape = SubResource("SegmentShape2D_4c0hn")
 [node name="Label" type="Label" parent="Movimento" unique_id=51817783]
 z_index = 3
 offset_left = 12.0
-offset_top = 88.0
+offset_top = 79.0
 offset_right = 239.0
-offset_bottom = 143.0
+offset_bottom = 134.0
 theme = ExtResource("5_85dcy")
 theme_override_fonts/font = ExtResource("6_ij88c")
 theme_override_font_sizes/font_size = 12
 text = "Movimentação (teclas):
-A e D ou Direcionais (Setas);
+A e D ou Direcionais (Setas) ;
 Pulo: Espaço.
 "
 
@@ -214,44 +219,48 @@ Pulo: Espaço.
 
 [node name="Label" type="Label" parent="Pause" unique_id=288500151]
 z_index = 3
-offset_left = 13.0
-offset_top = 72.0
-offset_right = 240.0
-offset_bottom = 127.0
+offset_left = 12.0
+offset_top = 50.0
+offset_right = 239.0
+offset_bottom = 105.0
 theme = ExtResource("5_85dcy")
 theme_override_fonts/font = ExtResource("6_ij88c")
 theme_override_font_sizes/font_size = 12
-text = "Menu de pause: P ou Esc.
+text = "Menu de pause (não configurado): P ou Esc .
 "
 
 [node name="Acessar computadores" type="CanvasLayer" parent="." unique_id=985952497]
 
 [node name="Label" type="Label" parent="Acessar computadores" unique_id=1914846826]
 z_index = 3
-offset_left = 282.0
-offset_top = 11.0
-offset_right = 509.0
-offset_bottom = 66.0
+offset_left = 206.0
+offset_top = 107.0
+offset_right = 433.0
+offset_bottom = 162.0
 theme = ExtResource("5_85dcy")
 theme_override_fonts/font = ExtResource("6_ij88c")
 theme_override_font_sizes/font_size = 12
 text = "Acessar computadores:
-Tecla Enter ou Mouse/Touchpad.
+Tecla Enter ou 
+Mouse/Touchpad.
 "
+horizontal_alignment = 1
 
 [node name="Inimigos" type="CanvasLayer" parent="." unique_id=1525005650]
 
 [node name="Label" type="Label" parent="Inimigos" unique_id=762412354]
 z_index = 3
-offset_left = 13.0
-offset_top = 56.0
-offset_right = 240.0
-offset_bottom = 111.0
+offset_left = 70.0
+offset_top = 122.0
+offset_right = 297.0
+offset_bottom = 177.0
 theme = ExtResource("5_85dcy")
 theme_override_fonts/font = ExtResource("6_ij88c")
 theme_override_font_sizes/font_size = 12
-text = "Inimigos: Pule em cima para derrotá-los.
+text = "Inimigos: Pule em cima
+ para derrotá-los.
 "
+horizontal_alignment = 1
 
 [node name="Corações" type="CanvasLayer" parent="." unique_id=433243409]
 
@@ -272,19 +281,21 @@ Ao perder os três, a fase reinicia.
 
 [node name="Label" type="Label" parent="Checkpoint" unique_id=1247199576]
 z_index = 3
-offset_left = 237.0
-offset_top = 46.0
-offset_right = 703.0
-offset_bottom = 101.0
+offset_left = -95.0
+offset_top = 20.0
+offset_right = 371.0
+offset_bottom = 75.0
 theme = ExtResource("5_85dcy")
 theme_override_fonts/font = ExtResource("6_ij88c")
 theme_override_font_sizes/font_size = 12
-text = "*Finzalizar o quiz em uma fase garante um 
-ponto de salvamento no computador; 
-Se morrer, volta com o progresso salvo.*"
+text = "* Finzalizar o quiz em uma fase
+garante um ponto de salvamento 
+no computador. *"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("7_nkawg")]
-position = Vector2(210, 179)
+position = Vector2(182, 179)
 script = ExtResource("8_imanv")
 velocidade_horizontal = 0.0
 velocidade_vertical = 0.0
@@ -315,7 +326,7 @@ shape = SubResource("RectangleShape2D_tomqh")
 
 [node name="Computador" type="AnimatedSprite2D" parent="." unique_id=1676401891]
 unique_name_in_owner = true
-position = Vector2(372, 180.00003)
+position = Vector2(320, 180.00002)
 scale = Vector2(1, 0.9230769)
 sprite_frames = SubResource("SpriteFrames_gdk6b")
 animation = &"Desligado"
@@ -327,9 +338,13 @@ scale = Vector2(1, 1.0833334)
 
 [node name="Botão Tutorial" parent="." unique_id=2076580135 instance=ExtResource("11_2rth8")]
 unique_name_in_owner = true
-position = Vector2(236, 109)
+position = Vector2(185, 109)
 
 [node name="Button" parent="Botão Tutorial/CanvasLayer" parent_id_path=PackedInt32Array(2076580135, 1800032890) index="0" unique_id=1164459905]
+offset_left = 1.0
+offset_top = -11.0
+offset_right = 25.0
+offset_bottom = 13.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8g6s1")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_07xr6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_37vwh")
@@ -344,5 +359,6 @@ offset = Vector2(0, 0)
 quiz_tutorial = "res://Cenas/Fases/Tutorial/Quiz Tutorial.tscn"
 
 [editable path="Jogador"]
+[editable path="Interface - Vida (Jogador)"]
 [editable path="Drone2"]
 [editable path="Botão Tutorial"]

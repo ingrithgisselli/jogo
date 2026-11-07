@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2qxxgnpxv6pu" path="res://Cenas/Quizzes/Quiz - Softwares/script_quiz_software_3.gd" id="1_7blqp"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_17d6i"]
-[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="3_la5lr"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="3_la5lr"]
 
 [node name="Tela_Quiz_Soft3" type="Control" unique_id=2062470369]
 layout_mode = 3
@@ -16,9 +16,9 @@ script = ExtResource("1_7blqp")
 
 [node name="Label" type="Label" parent="." unique_id=1386610617]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 27.0
 offset_top = 24.0
-offset_right = 376.0
+offset_right = 363.0
 offset_bottom = 71.0
 theme_override_font_sizes/font_size = 16
 text = "Como se chama o termo geral para programas
@@ -27,9 +27,9 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1210799839]
 layout_mode = 0
-offset_left = 152.0
+offset_left = 145.0
 offset_top = 80.0
-offset_right = 252.0
+offset_right = 245.0
 offset_bottom = 192.0
 theme_override_constants/separation = 8
 
@@ -53,8 +53,8 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 text = "Malware"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1256035551]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1269137086]
 z_index = -1
-position = Vector2(207.99998, 108.00001)
-scale = Vector2(0.3678099, 0.23275863)
+position = Vector2(190.99026, 108.00001)
+scale = Vector2(0.33802053, 0.23275863)
 texture = ExtResource("3_la5lr")

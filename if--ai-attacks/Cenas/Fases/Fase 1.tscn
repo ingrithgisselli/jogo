@@ -206,6 +206,17 @@ size = Vector2(40.5, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
 size = Vector2(163, 8.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtjxs"]
+size = Vector2(16.5, 48.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0d2nc"]
+radius = 18.501823
+height = 84.0054
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kbuyj"]
+radius = 18.501823
+height = 122.99243
+
 [node name="Fase 1" type="Node2D" unique_id=1955772460]
 script = ExtResource("1_ky2au")
 metadata/_edit_vertical_guides_ = [48.0, 88.0]
@@ -236,6 +247,7 @@ position = Vector2(129, 51)
 shape = SubResource("SegmentShape2D_mti6b")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=374514306]
+position = Vector2(2, -2)
 shape = SubResource("SegmentShape2D_jumgw")
 
 [node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("7_26463")]
@@ -384,6 +396,20 @@ shape = SubResource("RectangleShape2D_toc0i")
 position = Vector2(62.5, 25.75)
 shape = SubResource("RectangleShape2D_mti6b")
 one_way_collision = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=93907722]
+position = Vector2(140.75, -34.75)
+shape = SubResource("RectangleShape2D_qtjxs")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=1860282665]
+position = Vector2(55.5, -89.49999)
+rotation = -1.5689411
+shape = SubResource("CapsuleShape2D_0d2nc")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Fundo/StaticBody2D" unique_id=2124049051]
+position = Vector2(115.5, -79.50001)
+rotation = -1.5689411
+shape = SubResource("CapsuleShape2D_kbuyj")
 
 [editable path="FimdeFase"]
 [editable path="Interface - Vida (Jogador)"]

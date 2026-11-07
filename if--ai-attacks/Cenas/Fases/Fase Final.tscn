@@ -63,7 +63,7 @@ size = Vector2(75.33336, 139.08873)
 size = Vector2(74.000046, 10.5231085)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5uj0"]
-size = Vector2(85.99998, 137.15587)
+size = Vector2(88.00008, 125.16532)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(79.99999, 12.666653)
@@ -206,17 +206,17 @@ collision_layer = 512
 collision_mask = 66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão/Dano" unique_id=1212668937]
-position = Vector2(1, 9.422058)
+position = Vector2(-6.1035156e-05, 15.417114)
 scale = Vector2(0.99999994, 0.99999976)
 shape = SubResource("RectangleShape2D_u5uj0")
 
 [node name="Interface - Vida (Chefão)" parent="." unique_id=1926878642 instance=ExtResource("9_fvglf")]
 
 [node name="TextureRect (Chefão)" parent="Interface - Vida (Chefão)" index="0" unique_id=850769749]
-offset_left = 330.0
-offset_top = 0.0
-offset_right = 330.0
-offset_bottom = 0.0
+offset_left = 296.0
+offset_top = 188.0
+offset_right = 296.0
+offset_bottom = 188.0
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.8, 0.8)
 
@@ -226,9 +226,9 @@ offset_transform_scale = Vector2(0.8, 0.8)
 
 [node name="Label" type="Label" parent="Objetivo" unique_id=1177481290]
 z_index = 3
-offset_left = 135.0
+offset_left = 8.0
 offset_top = 200.0
-offset_right = 362.0
+offset_right = 235.0
 offset_bottom = 223.0
 theme = ExtResource("15_4iunj")
 theme_override_fonts/font = ExtResource("15_tjf6b")

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c7ln8ird5x2yg" path="res://Cenas/Fases/Tutorial/script_quiz_tutorial.gd" id="1_ac4pq"]
 [ext_resource type="PackedScene" uid="uid://det6u68dunxty" path="res://Cenas/Quizzes/Quiz - Hardwares/Quiz_Hardware3.tscn" id="2_al6aj"]
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="3_b67hb"]
+[ext_resource type="FontFile" uid="uid://cirw5ooj6rct3" path="res://Sprites/Sprites livres/Fontes/m5x7.ttf" id="4_0l2ve"]
 
 [node name="Quiz_tutorial" type="Control" unique_id=51624755]
 layout_mode = 3
@@ -13,18 +15,41 @@ layout_mode = 1
 script = null
 
 [node name="Label" parent="Tutorial" index="0" unique_id=1361672401]
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 336.0
+offset_bottom = 79.0
 text = "1+1= ?"
 
-[node name="BotãoA" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="0" unique_id=1158416717]
+[node name="VBoxContainer" parent="Tutorial" index="1" unique_id=607475596]
+offset_left = 152.0
+offset_right = 240.0
+
+[node name="BotãoA" parent="Tutorial/VBoxContainer" index="0" unique_id=1158416717]
 text = "1"
 
-[node name="BotãoB" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="1" unique_id=2119097506]
+[node name="BotãoB" parent="Tutorial/VBoxContainer" index="1" unique_id=2119097506]
 text = "2"
 
-[node name="BotãoC" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="2" unique_id=311012746]
+[node name="BotãoC" parent="Tutorial/VBoxContainer" index="2" unique_id=311012746]
 text = "3"
 
-[node name="BotãoD" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="3" unique_id=967324470]
+[node name="BotãoD" parent="Tutorial/VBoxContainer" index="3" unique_id=967324470]
 text = "4"
+
+[node name="Botões" type="CanvasLayer" parent="Tutorial" unique_id=491798574]
+
+[node name="Label" type="Label" parent="Tutorial/Botões" unique_id=1801632286]
+z_index = 3
+offset_left = 16.0
+offset_top = 76.0
+offset_right = 243.0
+offset_bottom = 131.0
+theme = ExtResource("3_b67hb")
+theme_override_fonts/font = ExtResource("4_0l2ve")
+theme_override_font_sizes/font_size = 12
+text = "Selecione: Mouse/Touchpad 
+ou Direcional + Enter
+"
 
 [editable path="Tutorial"]

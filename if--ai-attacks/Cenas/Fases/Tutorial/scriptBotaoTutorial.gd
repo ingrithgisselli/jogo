@@ -31,8 +31,6 @@ func _process(_delta: float) -> void:
 		
 func _on_interagir() -> void:
 	var jogadores := get_tree().get_nodes_in_group("Jogador")
-	if jogadores.size()>0:
-		GameState.salvar_antes_do_quiz(jogadores[0])
 	_tutorial()
 	
 func _tutorial() -> void:

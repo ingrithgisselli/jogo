@@ -181,4 +181,6 @@ func _derrotar() -> void:
 		_tocar_danificado()
 		await get_tree().create_timer(INVULNERABILIDADE).timeout
 		animacao.visible = false
+		await get_tree().create_timer(INVULNERABILIDADE).timeout
+		get_tree().change_scene_to_file("res://Cenas/Fases/Menu.tscn")
 	queue_free()

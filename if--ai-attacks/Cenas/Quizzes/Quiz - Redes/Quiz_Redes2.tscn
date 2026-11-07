@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0rx07vlyg3p8" path="res://Cenas/Quizzes/Quiz - Redes/script_quiz_redes_2.gd" id="1_dqn0n"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_xwa65"]
-[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="2_0iph6"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="2_0iph6"]
 
 [node name="Tela_Quiz_Redes2" type="Control" unique_id=692472184]
 layout_mode = 3
@@ -16,19 +16,19 @@ script = ExtResource("1_dqn0n")
 
 [node name="Label" type="Label" parent="." unique_id=2049826844]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 24.0
-offset_right = 391.0
-offset_bottom = 71.0
+offset_left = 22.0
+offset_top = 25.0
+offset_right = 373.0
+offset_bottom = 72.0
 text = "Qual a função de um firewall (Parede de fogo)?"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=976452047]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 72.0
-offset_right = 340.0
-offset_bottom = 191.0
+offset_left = 72.0
+offset_top = 71.0
+offset_right = 324.0
+offset_bottom = 190.0
 theme_override_constants/separation = 8
 
 [node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=1161242787]
@@ -51,8 +51,8 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 text = "Armazenar arquivos na nuvem"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1999700008]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2089143868]
 z_index = -1
-position = Vector2(207.99998, 108.00001)
-scale = Vector2(0.3678099, 0.23275863)
+position = Vector2(190.99026, 108.00001)
+scale = Vector2(0.33802053, 0.23275863)
 texture = ExtResource("2_0iph6")

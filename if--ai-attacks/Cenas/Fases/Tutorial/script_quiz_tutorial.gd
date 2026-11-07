@@ -29,7 +29,7 @@ func _on_resposta_selecionada(opcao: String) -> void:
 		travado = true
 		_piscar(botao, acerto)
 		await get_tree().create_timer(delay).timeout
-		get_tree().change_scene_to_file("res://Cenas/Fases/Tutorial/Tutorial.tscn")
+		get_tree().change_scene_to_file("res://Cenas/Fases/Menu.tscn")
 		
 	else:
 		_piscar(botao, erro)

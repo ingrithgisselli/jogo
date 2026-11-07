@@ -122,7 +122,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Título" type="Sprite2D" parent="." unique_id=1400952248]
-position = Vector2(208, 56)
+position = Vector2(195, 56)
 scale = Vector2(0.75, 0.76)
 texture = ExtResource("4_qif5a")
 

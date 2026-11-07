@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="1_264qh"]
 [ext_resource type="Script" uid="uid://ddtqg83idd8du" path="res://Cenas/Quizzes/Quiz - TI Verde/script_quiz_ti_verde_3.gd" id="1_f0vyj"]
-[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/tela computador(verde).jpg" id="2_eu0tk"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="2_eu0tk"]
 
 [node name="Tela_Quiz_TIVerde3" type="Control" unique_id=1638798988]
 layout_mode = 3
@@ -16,10 +16,10 @@ script = ExtResource("1_f0vyj")
 
 [node name="Label" type="Label" parent="." unique_id=992015814]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 16.0
-offset_right = 391.0
-offset_bottom = 63.0
+offset_left = 20.0
+offset_top = 17.0
+offset_right = 371.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 16
 text = "Qual prática ajuda a reduzir o impacto
 ambiental do uso de eletrônicos?"
@@ -27,10 +27,10 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1604108322]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 355.0
-offset_bottom = 210.0
+offset_left = 57.0
+offset_top = 78.0
+offset_right = 332.0
+offset_bottom = 208.0
 theme_override_constants/separation = 8
 
 [node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=164506935]
@@ -53,8 +53,8 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 text = " Trocar de equipamento frequentemente"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2116233519]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1739146596]
 z_index = -1
-position = Vector2(207.99998, 108.00001)
-scale = Vector2(0.3678099, 0.23275863)
+position = Vector2(190.99026, 108.00001)
+scale = Vector2(0.33802053, 0.23275863)
 texture = ExtResource("2_eu0tk")
