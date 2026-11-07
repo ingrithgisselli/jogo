@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ympxf548emnc"]
+
+[ext_resource type="Script" uid="uid://c7ln8ird5x2yg" path="res://Cenas/Fases/Tutorial/script_quiz_tutorial.gd" id="1_ac4pq"]
+[ext_resource type="PackedScene" uid="uid://det6u68dunxty" path="res://Cenas/Quizzes/Quiz - Hardwares/Quiz_Hardware3.tscn" id="2_al6aj"]
+
+[node name="Quiz_tutorial" type="Control" unique_id=51624755]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ac4pq")
+
+[node name="Tutorial" parent="." unique_id=932128356 instance=ExtResource("2_al6aj")]
+layout_mode = 1
+script = null
+
+[node name="Label" parent="Tutorial" index="0" unique_id=1361672401]
+text = "1+1= ?"
+
+[node name="BotãoA" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="0" unique_id=1158416717]
+text = "1"
+
+[node name="BotãoB" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="1" unique_id=2119097506]
+text = "2"
+
+[node name="BotãoC" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="2" unique_id=311012746]
+text = "3"
+
+[node name="BotãoD" parent="Tutorial/VBoxContainer" parent_id_path=PackedInt32Array(932128356, 607475596) index="3" unique_id=967324470]
+text = "4"
+
+[editable path="Tutorial"]

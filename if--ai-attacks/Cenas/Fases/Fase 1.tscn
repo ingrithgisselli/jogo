@@ -249,7 +249,7 @@ limit_smoothed = true
 [node name="Computador" type="AnimatedSprite2D" parent="." unique_id=635862555]
 unique_name_in_owner = true
 z_index = -2
-position = Vector2(412, 298.00003)
+position = Vector2(412, 299)
 scale = Vector2(1, 0.9230769)
 sprite_frames = SubResource("SpriteFrames_ky2au")
 animation = &"Desligado"

@@ -18,6 +18,6 @@ func _ready() -> void:
 func _on_iniciar_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/Fases/Fase 1.tscn")
 func _on_tutorial_pressed() -> void:
-	get_tree().change_scene_to_file("res://Cenas/Fases/Tutorial.tscn")
+	get_tree().change_scene_to_file("res://Cenas/Fases/Tutorial/Tutorial.tscn")
 func _on_sair_pressed() -> void:
 	get_tree().quit()

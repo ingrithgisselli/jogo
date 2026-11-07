@@ -1,0 +1,348 @@
+[gd_scene format=3 uid="uid://bjbpg1qbc5rcm"]
+
+[ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="1_ij88c"]
+[ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="2_imanv"]
+[ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="3_s2yj2"]
+[ext_resource type="Texture2D" uid="uid://qldxbi6nqfmk" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(apagado).jpg" id="4_wubr0"]
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="5_85dcy"]
+[ext_resource type="FontFile" uid="uid://cirw5ooj6rct3" path="res://Sprites/Sprites livres/Fontes/m5x7.ttf" id="6_ij88c"]
+[ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="7_nkawg"]
+[ext_resource type="Texture2D" uid="uid://bb1c8wkbn1jpu" path="res://Sprites/Sprites livres/Computadores/IA/screen_piscando_sheet.png" id="8_f7xno"]
+[ext_resource type="Script" uid="uid://bb07m53eueb3s" path="res://Cenas/Fases/Tutorial/drone_tutorial.gd" id="8_imanv"]
+[ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="9_xpj5r"]
+[ext_resource type="PackedScene" uid="uid://kiclhhhgdsqt" path="res://Entidades/mesa.tscn" id="10_44k3o"]
+[ext_resource type="PackedScene" uid="uid://d23n0lsmci6p3" path="res://Cenas/Quizzes/Botões/Botão Fase 1.tscn" id="11_2rth8"]
+[ext_resource type="Script" uid="uid://cs544sywq3yyw" path="res://Cenas/Fases/Tutorial/scriptBotaoTutorial.gd" id="12_wakly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54vre"]
+size = Vector2(9, 34)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4kxuq"]
+a = Vector2(-554.8776, 434.73874)
+b = Vector2(552.19073, 434.73874)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4c0hn"]
+a = Vector2(552.19073, -426.37836)
+b = Vector2(552.19073, 434.73874)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osf8t"]
+size = Vector2(23.5, 17.359375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vopd2"]
+size = Vector2(2.006359, 27.998291)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tomqh"]
+size = Vector2(15.99995, 25.99992)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qni8u"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(0, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m44bq"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(32, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w1ni"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(64, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me7r7"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(96, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26463"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(128, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0dy"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(160, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtjxs"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(192, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbuyj"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(224, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu0xy"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(256, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toc0i"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(288, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h1na"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(320, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6apu"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(352, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3xtc"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(384, 0, 32, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxxrf"]
+atlas = ExtResource("8_f7xno")
+region = Rect2(416, 0, 32, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gdk6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qni8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m44bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w1ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me7r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26463")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf0dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtjxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbuyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu0xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toc0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h1na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6apu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3xtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxxrf")
+}],
+"loop": 1,
+"name": &"Computador",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xpj5r")
+}],
+"loop": 1,
+"name": &"Desligado",
+"speed": 1.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8g6s1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07xr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37vwh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1qfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f7urr"]
+
+[node name="Tutorial" type="Node2D" unique_id=253951331]
+
+[node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("1_ij88c")]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(15, 189)
+
+[node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
+position = Vector2(9, 3)
+shape = SubResource("RectangleShape2D_54vre")
+
+[node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("2_imanv")]
+
+[node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("3_s2yj2")]
+zoom = Vector2(1, 1)
+limit_top = 0
+limit_right = 416
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952114184]
+position = Vector2(206.49997, 108)
+scale = Vector2(0.3721541, 0.23922415)
+texture = ExtResource("4_wubr0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=416868705]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1934208434]
+shape = SubResource("SegmentShape2D_4kxuq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=1060572114]
+position = Vector2(-1081.5411, -3.33786e-06)
+shape = SubResource("SegmentShape2D_4c0hn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=757945270]
+position = Vector2(-9.404625, -4.18018)
+shape = SubResource("SegmentShape2D_4c0hn")
+
+[node name="Movimento" type="CanvasLayer" parent="." unique_id=2130691308]
+
+[node name="Label" type="Label" parent="Movimento" unique_id=51817783]
+z_index = 3
+offset_left = 12.0
+offset_top = 88.0
+offset_right = 239.0
+offset_bottom = 143.0
+theme = ExtResource("5_85dcy")
+theme_override_fonts/font = ExtResource("6_ij88c")
+theme_override_font_sizes/font_size = 12
+text = "Movimentação (teclas):
+A e D ou Direcionais (Setas);
+Pulo: Espaço.
+"
+
+[node name="Pause" type="CanvasLayer" parent="." unique_id=889324599]
+
+[node name="Label" type="Label" parent="Pause" unique_id=288500151]
+z_index = 3
+offset_left = 13.0
+offset_top = 72.0
+offset_right = 240.0
+offset_bottom = 127.0
+theme = ExtResource("5_85dcy")
+theme_override_fonts/font = ExtResource("6_ij88c")
+theme_override_font_sizes/font_size = 12
+text = "Menu de pause: P ou Esc.
+"
+
+[node name="Acessar computadores" type="CanvasLayer" parent="." unique_id=985952497]
+
+[node name="Label" type="Label" parent="Acessar computadores" unique_id=1914846826]
+z_index = 3
+offset_left = 282.0
+offset_top = 11.0
+offset_right = 509.0
+offset_bottom = 66.0
+theme = ExtResource("5_85dcy")
+theme_override_fonts/font = ExtResource("6_ij88c")
+theme_override_font_sizes/font_size = 12
+text = "Acessar computadores:
+Tecla Enter ou Mouse/Touchpad.
+"
+
+[node name="Inimigos" type="CanvasLayer" parent="." unique_id=1525005650]
+
+[node name="Label" type="Label" parent="Inimigos" unique_id=762412354]
+z_index = 3
+offset_left = 13.0
+offset_top = 56.0
+offset_right = 240.0
+offset_bottom = 111.0
+theme = ExtResource("5_85dcy")
+theme_override_fonts/font = ExtResource("6_ij88c")
+theme_override_font_sizes/font_size = 12
+text = "Inimigos: Pule em cima para derrotá-los.
+"
+
+[node name="Corações" type="CanvasLayer" parent="." unique_id=433243409]
+
+[node name="Label" type="Label" parent="Corações" unique_id=1569108324]
+z_index = 3
+offset_left = 61.0
+offset_top = 6.0
+offset_right = 374.0
+offset_bottom = 61.0
+theme = ExtResource("5_85dcy")
+theme_override_fonts/font = ExtResource("6_ij88c")
+theme_override_font_sizes/font_size = 12
+text = "Vida: Encostar nos inimigos diminui os corações ; 
+Ao perder os três, a fase reinicia.
+"
+
+[node name="Checkpoint" type="CanvasLayer" parent="." unique_id=549839429]
+
+[node name="Label" type="Label" parent="Checkpoint" unique_id=1247199576]
+z_index = 3
+offset_left = 237.0
+offset_top = 46.0
+offset_right = 703.0
+offset_bottom = 101.0
+theme = ExtResource("5_85dcy")
+theme_override_fonts/font = ExtResource("6_ij88c")
+theme_override_font_sizes/font_size = 12
+text = "*Finzalizar o quiz em uma fase garante um 
+ponto de salvamento no computador; 
+Se morrer, volta com o progresso salvo.*"
+
+[node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("7_nkawg")]
+position = Vector2(210, 179)
+script = ExtResource("8_imanv")
+velocidade_horizontal = 0.0
+velocidade_vertical = 0.0
+
+[node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="Drone2" index="1" unique_id=1497866238]
+position = Vector2(0, -8.3203125)
+shape = SubResource("RectangleShape2D_osf8t")
+
+[node name="Cabeca" parent="Drone2" index="2" unique_id=1330305859]
+position = Vector2(0, -17)
+rotation = 0.0008219984
+
+[node name="CollisionShape2D" parent="Drone2/Cabeca" index="0" unique_id=561217321]
+position = Vector2(0, 0.00831604)
+rotation = -1.5707964
+scale = Vector2(1.0000011, 1.0000011)
+shape = SubResource("RectangleShape2D_vopd2")
+
+[node name="Dano" parent="Drone2" index="3" unique_id=1362073846]
+position = Vector2(203, 12)
+
+[node name="CollisionShape2D2" parent="Drone2/Dano" index="0" unique_id=12869090]
+position = Vector2(-202.99738, -18.999992)
+shape = SubResource("RectangleShape2D_tomqh")
+
+[node name="Computador" type="AnimatedSprite2D" parent="." unique_id=1676401891]
+unique_name_in_owner = true
+position = Vector2(372, 180.00003)
+scale = Vector2(1, 0.9230769)
+sprite_frames = SubResource("SpriteFrames_gdk6b")
+animation = &"Desligado"
+autoplay = "Computador"
+
+[node name="Mesa" parent="Computador" unique_id=766262295 instance=ExtResource("10_44k3o")]
+position = Vector2(0, 16.25)
+scale = Vector2(1, 1.0833334)
+
+[node name="Botão Tutorial" parent="." unique_id=2076580135 instance=ExtResource("11_2rth8")]
+unique_name_in_owner = true
+position = Vector2(236, 109)
+
+[node name="Button" parent="Botão Tutorial/CanvasLayer" parent_id_path=PackedInt32Array(2076580135, 1800032890) index="0" unique_id=1164459905]
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8g6s1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_07xr6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_37vwh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h1qfm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f7urr")
+vertical_icon_alignment = 2
+
+[node name="Area2D" parent="Botão Tutorial" index="1" unique_id=361096585]
+position = Vector2(136, 57)
+script = ExtResource("12_wakly")
+offset = Vector2(0, 0)
+quiz_tutorial = "res://Cenas/Fases/Tutorial/Quiz Tutorial.tscn"
+
+[editable path="Jogador"]
+[editable path="Drone2"]
+[editable path="Botão Tutorial"]

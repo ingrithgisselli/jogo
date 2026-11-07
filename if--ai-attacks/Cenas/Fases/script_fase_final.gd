@@ -38,10 +38,9 @@ func _verificar_finalizacao() -> void:
 
 	if coletaveis_restantes == 0 and chefao_derrotado:
 		finalizacao = true
-		print("Objetivos concluídos! A cutscene pode começar.")
 		fim.emit()
 		iniciar_finalizacao()
 
 
 func iniciar_finalizacao() -> void:
-	print("A lógica da cutscene será adicionada aqui.")
+	print("Você ganhou")
