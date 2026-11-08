@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bocx36ixvc72t" path="res://Sprites/Autorais/Fases/fase_boss_final_front.png" id="17_2snyo"]
 [ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="18_cifgt"]
 [ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="19_2snyo"]
+[ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="25_jnf7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvglf"]
 size = Vector2(21.500008, 80.500015)
@@ -407,6 +408,8 @@ position = Vector2(20, 20)
 [node name="CollisionShape2D" parent="Aluno Infectado3/Cabeca" parent_id_path=PackedInt32Array(1874493251, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_4iunj")
+
+[node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("25_jnf7k")]
 
 [connection signal="body_entered" from="coletavel1" to="coletavel1" method="_on_body_entered"]
 [connection signal="body_entered" from="coletavel2" to="coletavel2" method="_on_body_entered"]

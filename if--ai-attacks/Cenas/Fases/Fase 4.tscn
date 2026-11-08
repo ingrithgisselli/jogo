@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="15_3ccdc"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="15_amqvc"]
 [ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="18_c0ygr"]
+[ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="20_gt4wy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w2740"]
 animations = [{
@@ -592,6 +593,8 @@ destruido = ExtResource("18_c0ygr")
 [node name="CollisionShape2D" parent="Aluno Infectado10/Cabeca" parent_id_path=PackedInt32Array(1567279170, 17085440) index="0" unique_id=1325959417]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_3ccdc")
+
+[node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("20_gt4wy")]
 
 [editable path="Botão Fase 4"]
 [editable path="FimdeFase"]

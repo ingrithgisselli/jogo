@@ -1,5 +1,5 @@
 extends PanelContainer
-
+signal fechado
 @onready var slider_musica: HSlider = %HSliderMúsica
 @onready var slider_efeitos: HSlider = %HSliderEfeitos
 @onready var botao_voltar: Button = %Voltar
@@ -28,7 +28,7 @@ func abrir() -> void:
 func fechar() -> void:
 	ConfigAudio.salvar()
 	hide()
-
+	fechado.emit()
 
 # Prévia da música: só toca se ela ainda não estiver tocando
 func _on_musica_solto(_mudou: bool) -> void:

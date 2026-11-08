@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bdievx7rkdhsq" path="res://Sprites/Sprites livres/Computadores/screen.png" id="17_oocjn"]
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="18_bo77s"]
 [ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="18_gqm55"]
+[ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="20_bo77s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vg1yf"]
 animations = [{
@@ -535,6 +536,8 @@ shape = SubResource("SegmentShape2D_sj7qm")
 position = Vector2(-228, -18)
 rotation = -1.568172
 shape = SubResource("SegmentShape2D_ni728")
+
+[node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("20_bo77s")]
 
 [editable path="Botão Fase 3"]
 [editable path="FimdeFase"]

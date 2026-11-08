@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cs544sywq3yyw" path="res://Cenas/Fases/Tutorial/scriptBotaoTutorial.gd" id="12_wakly"]
 [ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="12_xpj5r"]
 [ext_resource type="AudioStream" uid="uid://g8o1tv47dp36" path="res://Sons/acesso-clique.mp3" id="18_44k3o"]
+[ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="19_f7xno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54vre"]
 size = Vector2(9, 34)
@@ -232,7 +233,7 @@ offset_bottom = 105.0
 theme = ExtResource("5_85dcy")
 theme_override_fonts/font = ExtResource("6_ij88c")
 theme_override_font_sizes/font_size = 12
-text = "Menu de pause (não configurado): P ou Esc .
+text = "Menu de pause: P ou Esc.
 "
 
 [node name="Acessar computadores" type="CanvasLayer" parent="." unique_id=985952497]
@@ -365,6 +366,10 @@ script = ExtResource("12_wakly")
 offset = Vector2(0, 0)
 quiz_tutorial = "res://Cenas/Fases/Tutorial/Quiz Tutorial.tscn"
 acesso = ExtResource("18_44k3o")
+
+[node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("19_f7xno")]
+visible = false
+cena_menu = "uid://dr7wm7317vlcg"
 
 [editable path="Jogador"]
 [editable path="Interface - Vida (Jogador)"]

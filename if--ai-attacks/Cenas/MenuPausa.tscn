@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c61kpeahxe5of"]
+
+[ext_resource type="Texture2D" uid="uid://qldxbi6nqfmk" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(apagado).jpg" id="1_6057t"]
+[ext_resource type="Script" uid="uid://dary25nyfgs65" path="res://Scripts/menu_pausa.gd" id="1_rm6qt"]
+[ext_resource type="PackedScene" uid="uid://bcdd7qx41jlun" path="res://Cenas/PainelSom.tscn" id="2_48axk"]
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="3_2g5cw"]
+[ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="5_w5dd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2g5cw"]
+
+[node name="MenuPausa" type="CanvasLayer" unique_id=59307149]
+layer = 10
+script = ExtResource("1_rm6qt")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=716487452]
+unique_name_in_owner = true
+position = Vector2(192, 108.00001)
+scale = Vector2(0.3362522, 0.23275863)
+texture = ExtResource("1_6057t")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=604386904]
+offset_left = 168.0
+offset_top = 80.0
+offset_right = 214.0
+offset_bottom = 148.0
+
+[node name="Caixa" type="PanelContainer" parent="CenterContainer" unique_id=240235112]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2g5cw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Caixa" unique_id=707199181]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="Retomar" type="Button" parent="CenterContainer/Caixa/VBoxContainer" unique_id=440664188]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_2g5cw")
+text = "Retomar"
+
+[node name="BotaoSom" type="Button" parent="CenterContainer/Caixa/VBoxContainer" unique_id=251749205]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_2g5cw")
+text = "Som"
+
+[node name="VoltarMenu" type="Button" parent="CenterContainer/Caixa/VBoxContainer" unique_id=586467582]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_2g5cw")
+text = "Menu"
+
+[node name="Label" type="Label" parent="." unique_id=1219578477]
+offset_left = 136.0
+offset_top = 24.0
+offset_right = 244.0
+offset_bottom = 43.0
+offset_transform_enabled = true
+theme = ExtResource("3_2g5cw")
+theme_override_font_sizes/font_size = 21
+text = "Jogo pausado"
+
+[node name="Aviso" type="Label" parent="." unique_id=580687440]
+offset_left = 16.0
+offset_top = 176.0
+offset_right = 376.0
+offset_bottom = 199.0
+theme = ExtResource("3_2g5cw")
+theme_override_font_sizes/font_size = 10
+text = "Aviso: Se voltar ao menu, perderá todo o progresso atual."
+horizontal_alignment = 1
+
+[node name="PainelSom" parent="." unique_id=892975516 instance=ExtResource("2_48axk")]
+unique_name_in_owner = true
+offset_transform_enabled = true
+
+[node name="Sprite2D" parent="PainelSom" index="0" unique_id=1327313658]
+texture = ExtResource("5_w5dd7")
+
+[editable path="PainelSom"]

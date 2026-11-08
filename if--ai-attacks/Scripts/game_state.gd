@@ -23,15 +23,18 @@ func salvar_antes_do_quiz(jogador: CharacterBody2D) -> void:
 	posicao_salva = true
 	vida_jogador = jogador.vida_atual
 	inimigos_derrotados = _derrotados_na_fase.duplicate()
-
+	
 func iniciar_fase() -> void:
 	_derrotados_na_fase = inimigos_derrotados.duplicate()
 	
 func registrar_derrota(inimigo: Node) -> void:
+	var chave := _chave_inimigo(inimigo)
 	_derrotados_na_fase[_chave_inimigo(inimigo)] = true
-	
+	print("CHECANDO: ", chave, " -> ", inimigos_derrotados.has(chave))
 func inimigo_derrotado(inimigo: Node) -> bool:
-	return inimigos_derrotados.has(_chave_inimigo(inimigo))
+	var chave := _chave_inimigo(inimigo)
+	print("CHECANDO: ", chave, " -> ", inimigos_derrotados.has(chave))
+	return inimigos_derrotados.has(chave)
 	
 func _chave_inimigo(inimigo: Node) -> String:
 	var raiz: Node = inimigo.owner
