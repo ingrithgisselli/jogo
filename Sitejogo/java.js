@@ -75,7 +75,7 @@ function atualizarEstadoBotao(tema) {
     const metaTema = document.querySelector('meta[name="theme-color"]');
 
     if (metaTema) {
-        metaTema.setAttribute('content', temaClaro ? '#f5f0e8' : '#0d0b0e');
+        metaTema.setAttribute('content', temaClaro ? '#e6e8f5' : '#080716');
     }
 }
 
@@ -219,3 +219,50 @@ document.querySelectorAll('[data-carrossel]').forEach((carrossel) => {
 
     ir(0);
 });
+
+
+/* ========================================
+   5. STORYBOARD — IMAGEM AMPLIADA
+======================================== */
+
+const lightbox = document.querySelector('#lightbox');
+
+if (lightbox) {
+    const imagemGrande = lightbox.querySelector('img');
+    const legenda = lightbox.querySelector('.lightbox-legenda');
+
+    document.querySelectorAll('.storyboard-botao').forEach((botao) => {
+        const miniatura = botao.querySelector('img');
+
+        // Se a imagem não existir, mostra o nome no lugar.
+        const marcar = () => botao.classList.add('sem-imagem');
+
+        if (miniatura.complete && miniatura.naturalWidth === 0) {
+            marcar();
+        }
+
+        miniatura.addEventListener('error', marcar);
+
+        // Abre a imagem em tamanho grande.
+        botao.addEventListener('click', () => {
+            if (botao.classList.contains('sem-imagem')) return;
+
+            imagemGrande.src = miniatura.src;
+            imagemGrande.alt = miniatura.alt;
+            legenda.textContent = botao.dataset.legenda;
+
+            lightbox.showModal();
+        });
+    });
+
+    lightbox.querySelector('.lightbox-fechar').addEventListener('click', () => {
+        lightbox.close();
+    });
+
+    // Clicar fora da imagem (no fundo escuro) também fecha.
+    lightbox.addEventListener('click', (evento) => {
+        if (evento.target === lightbox) {
+            lightbox.close();
+        }
+    });
+}
