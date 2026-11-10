@@ -2,23 +2,25 @@
    1. FONTES E VARIÁVEIS
 ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Special+Elite&display=swap');
-
 :root {
     /* Cores da identidade visual inspiradas no jogo */
-    --cor-fundo: #0b080e;
-    --cor-vinho: #5a1226;
-    --cor-vermelho: #d92b43;
+    --cor-fundo: #1a1324;
+    --cor-bordo: #4b2a40;           /* roxo bordô (cor do cenário do jogo) */
+    --cor-roxo: #2e2238;           /* roxo escuro do céu */
+    --cor-roxo-claro: #d6b4e8;     /* roxo para textos sobre fundo escuro */
+    --cor-verde: #0a5c3a;          /* verde escuro (botões, bordas) */
+    --cor-verde-fundo: #0f2a1d;    /* verde bem escuro para seções */
+    --cor-verde-claro: #4cc38a;    /* verde para textos sobre fundo escuro */
 
     /* Cores de papel e terminais */
-    --cor-papel: #e2d4bc;
-    --cor-papel-escuro: #c2b399;
-    --cor-papel-card: #eee4d0;
+    --cor-papel: #ece3ee;
+    --cor-papel-escuro: #b9bfdc;
+    --cor-papel-card: #eef0f9;
 
     /* Cores de texto */
-    --cor-texto: #f5f0e8;
-    --cor-texto-secundario: #b9b2b5;
-    --cor-texto-escuro: #1a1416;
+    --cor-texto: #f6f0f8;
+    --cor-texto-secundario: #b9aac6;
+    --cor-texto-escuro: #12121f;
 
     /* Fontes */
     --fonte-titulo: 'Special Elite', monospace;
@@ -35,16 +37,16 @@
     --fundo-hero: var(--cor-fundo);
     --fundo-footer: var(--cor-fundo);
     --fundo-menu: var(--cor-fundo);
-    --fundo-card-recurso: rgba(11, 8, 14, 0.55);
+    --fundo-card-recurso: rgba(26, 19, 36, 0.55);
 
     --texto-principal: var(--cor-texto);
     --texto-secundario: var(--cor-texto-secundario);
     --texto-marca: var(--cor-papel);
-    
-    --borda-header: rgba(226, 212, 188, 0.15);
-    --borda-controle: rgba(226, 212, 188, 0.35);
-    --borda-menu: rgba(226, 212, 188, 0.25);
-    --borda-recurso: rgba(226, 212, 188, 0.25);
+
+    --borda-header: rgba(236, 227, 238, 0.15);
+    --borda-controle: rgba(236, 227, 238, 0.35);
+    --borda-menu: rgba(236, 227, 238, 0.25);
+    --borda-recurso: rgba(236, 227, 238, 0.25);
 
     /* Variáveis para botão secundário e foco (Tema Escuro) */
     --cor-secundario-bg: transparent;
@@ -58,15 +60,14 @@
     /* Gradiente completo controlado pelo tema */
     --gradiente-hero: linear-gradient(
         110deg,
-        rgba(11, 8, 14, 0.95) 0%,
-        rgba(90, 18, 38, 0.8) 55%,
-        rgba(11, 8, 14, 0.92) 100%
+        rgba(26, 19, 36, 0.78) 0%,
+        rgba(75, 42, 64, 0.40) 55%,
+        rgba(26, 19, 36, 0.60) 100%
     );
-    .link-jogo {
-    margin-top: 1rem;
-}
-    /* Cor de foco */
-    --cor-foco: var(--cor-vermelho);
+
+    /* Cor de foco e de realce (textos em destaque) */
+    --cor-foco: var(--cor-verde-claro);
+    --cor-realce: var(--cor-verde-claro);
 
     color-scheme: dark;
 }
@@ -76,38 +77,39 @@
 ======================================== */
 
 :root[data-theme="light"] {
-    --fundo-pagina: #f1d9b1;
-    --fundo-header: #dac6a9;
-    --fundo-hero: #eee4d5;
-    --fundo-footer: #d3c19c;
-    --fundo-menu: #f3ede4;
+    --fundo-pagina: #e6e8f5;
+    --fundo-header: #cdd2ea;
+    --fundo-hero: #eef0f9;
+    --fundo-footer: #c4c9e3;
+    --fundo-menu: #f3f4fb;
     --fundo-card-recurso: rgba(255, 255, 255, 0.45);
 
-    --texto-principal: #1a1416;
-    --texto-secundario: #55494c;
-    --texto-marca: #5a1226;
+    --texto-principal: #12121f;
+    --texto-secundario: #4a4d6e;
+    --texto-marca: #4b2a40;
 
-    --borda-header: rgba(26, 20, 22, 0.18);
-    --borda-controle: rgba(90, 18, 38, 0.35);
-    --borda-menu: rgba(26, 20, 22, 0.20);
-    --borda-recurso: rgba(90, 18, 38, 0.25);
+    --borda-header: rgba(18, 18, 31, 0.18);
+    --borda-controle: rgba(16, 42, 94, 0.35);
+    --borda-menu: rgba(18, 18, 31, 0.20);
+    --borda-recurso: rgba(16, 42, 94, 0.25);
 
     --cor-secundario-bg: transparent;
-    --cor-secundario-borda: #5a1226;
-    --cor-secundario-texto: #5a1226;
-    --cor-secundario-hover-bg: #5a1226;
-    --cor-secundario-hover-borda: #5a1226;
-    --cor-secundario-hover-texto: #f5f0e8;
-    --cor-foco-outline: #8c1d3a;
+    --cor-secundario-borda: #4b2a40;
+    --cor-secundario-texto: #4b2a40;
+    --cor-secundario-hover-bg: #4b2a40;
+    --cor-secundario-hover-borda: #4b2a40;
+    --cor-secundario-hover-texto: #f6f0f8;
+    --cor-foco-outline: #0b6e49;
 
     --gradiente-hero: linear-gradient(
         110deg,
-        rgba(245, 240, 232, 0.98) 0%,
-        rgba(226, 212, 188, 0.92) 55%,
-        rgba(238, 228, 213, 0.98) 100%
+        rgba(240, 242, 251, 0.90) 0%,
+        rgba(236, 227, 238, 0.60) 55%,
+        rgba(236, 238, 248, 0.85) 100%
     );
 
-    --cor-foco: #8c1d3a;
+    --cor-foco: #0b6e49;
+    --cor-realce: var(--cor-verde);
 
     color-scheme: light;
 }
@@ -210,7 +212,7 @@ nav > a {
 }
 
 nav > a:hover {
-    color: var(--cor-vermelho);
+    color: var(--cor-realce);
 }
 
 /* Menu desktop */
@@ -233,7 +235,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-    color: var(--cor-vermelho);
+    color: var(--cor-realce);
 }
 
 /* Grupo de botões de navegação */
@@ -276,8 +278,8 @@ nav ul a:hover {
 
 .tema-toggle:hover,
 .menu-toggle:hover {
-    background-color: var(--cor-vinho);
-    border-color: var(--cor-vinho);
+    background-color: var(--cor-bordo);
+    border-color: var(--cor-bordo);
     color: var(--cor-papel);
 }
 
@@ -304,7 +306,9 @@ nav ul a:hover {
     background-color: var(--fundo-hero);
     
     /* Gradiente suave combinado com a imagem do cenário */
-    background-image: linear-gradient(rgba(11, 8, 14, 0.45), rgba(11, 8, 14, 0.45)), url('cenario-principal.jpeg');
+    background-image: var(--gradiente-hero),
+        url('cenario%20principal.jpeg'),   /* nome com espaço (%20) */
+        url('cenario-principal.jpeg')      /* nome sem espaço (use só um dos dois) */;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -344,7 +348,7 @@ nav ul a:hover {
 }
 
 .texto-destaque {
-    color: var(--cor-vermelho);
+    color: var(--cor-realce);
 }
 
 /* Botões do hero */
@@ -390,7 +394,7 @@ section h2 {
 }
 
 .bloco-destaques .rotulo-secao {
-    color: var(--cor-vinho);
+    color: var(--cor-bordo);
 }
 
 .bloco-destaques h2 {
@@ -399,60 +403,10 @@ section h2 {
 
 .bloco-destaques .descricao-destaques {
     max-width: 680px;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
 
     color: var(--cor-texto-escuro);
     line-height: 1.8;
-}
-
-/* ========================================
-   7. GRID DE CARDS DE DESTAQUES
-======================================== */
-
-.lista-destaques {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(220px, 1fr)
-    );
-    gap: 24px;
-}
-
-.card-destaque {
-    min-width: 0;
-    padding: 28px 24px;
-
-    background-color: var(--cor-papel-card);
-    border: 1px solid var(--cor-papel-escuro);
-    border-radius: 4px;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.card-destaque:hover {
-    transform: translateY(-4px);
-    border-color: var(--cor-vinho);
-    box-shadow: 0 10px 24px rgba(26, 20, 22, 0.12);
-}
-
-.card-destaque h3 {
-    margin-bottom: 14px;
-
-    font-family: var(--fonte-titulo);
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.4;
-
-    color: var(--cor-vinho);
-}
-
-.card-destaque p {
-    font-size: 0.92rem;
-    line-height: 1.8;
-    color: var(--cor-texto-escuro);
 }
 
 /* ========================================
@@ -468,7 +422,7 @@ section h2 {
     padding: var(--espaco-secao);
 
     color: var(--cor-texto);
-    background-color: var(--cor-vinho);
+    background-color: var(--cor-verde-fundo);
 }
 
 .video-texto {
@@ -488,7 +442,7 @@ section h2 {
 }
 
 .video-jogo .texto-destaque {
-    color: #ff8a9a;
+    color: #6fe0a8;
 }
 
 .video-texto h2 {
@@ -516,8 +470,8 @@ section h2 {
 
     padding: 20px;
 
-    background-color: #120e14;
-    border: 1px solid rgba(226, 212, 188, 0.25);
+    background-color: #140e1c;
+    border: 1px solid rgba(236, 227, 238, 0.25);
     border-radius: 6px;
 
     color: var(--cor-papel);
@@ -542,10 +496,10 @@ section h2 {
     min-height: 44px;
     padding: 13px 24px;
 
-    border: 1px solid var(--cor-vermelho);
+    border: 1px solid var(--cor-verde);
     border-radius: 4px;
 
-    background-color: var(--cor-vermelho);
+    background-color: var(--cor-verde);
     color: var(--cor-texto);
 
     font-family: var(--fonte-texto);
@@ -560,8 +514,8 @@ section h2 {
 }
 
 .botao:hover {
-    background-color: var(--cor-vinho);
-    border-color: var(--cor-vinho);
+    background-color: var(--cor-bordo);
+    border-color: var(--cor-bordo);
     transform: translateY(-2px);
 }
 
@@ -601,7 +555,7 @@ section h2 {
 }
 
 #tutorial > .rotulo-secao {
-    color: var(--cor-vinho);
+    color: var(--cor-bordo);
 }
 
 #tutorial > h2 {
@@ -655,12 +609,12 @@ section h2 {
 
     font-family: var(--fonte-titulo);
     font-size: 2rem;
-    color: var(--cor-vermelho);
+    color: var(--cor-verde);
 }
 
 .passo-tutorial:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(26, 20, 22, 0.12);
+    box-shadow: 0 10px 24px rgba(18, 18, 31, 0.12);
 }
 
 .passo-tutorial h3 {
@@ -669,7 +623,7 @@ section h2 {
     font-family: var(--fonte-titulo);
     font-size: 1.25rem;
     font-weight: 400;
-    color: var(--cor-vinho);
+    color: var(--cor-bordo);
 }
 
 .passo-tutorial p {
@@ -685,24 +639,16 @@ section h2 {
 #bastidores {
     padding: var(--espaco-secao);
 
-    background-color: #120e14;
+    background-color: #140e1c;
     color: var(--cor-texto);
 }
 
 #bastidores > .rotulo-secao {
-    color: #ff8a9a;
+    color: var(--cor-roxo-claro);
 }
 
 #bastidores > h2 {
     color: var(--cor-papel);
-}
-
-.descricao-bastidores {
-    max-width: 680px;
-    margin-bottom: 56px;
-
-    color: var(--cor-papel);
-    line-height: 1.8;
 }
 
 .bloco-bastidores {
@@ -744,7 +690,7 @@ section h2 {
     padding: 10px 18px;
 
     background: transparent;
-    border: 1px solid rgba(226, 212, 188, 0.35);
+    border: 1px solid rgba(236, 227, 238, 0.35);
     border-radius: 4px;
 
     color: var(--cor-papel);
@@ -787,8 +733,8 @@ section h2 {
     overflow-x: auto;
     padding: 24px;
 
-    background-color: #0b080e;
-    border: 1px solid rgba(226, 212, 188, 0.25);
+    background-color: #1a1324;
+    border: 1px solid rgba(236, 227, 238, 0.25);
     border-radius: 6px;
 
     font-family: ui-monospace, Consolas, "Courier New", monospace;
@@ -798,13 +744,13 @@ section h2 {
 }
 
 .painel-codigo .c-comentario {
-    color: #8c8186;
+    color: #9b8baa;
 }
 
 .painel-codigo mark {
     padding: 2px 6px;
 
-    background-color: rgba(217, 43, 67, 0.35);
+    background-color: rgba(185, 110, 150, 0.35);
     border-radius: 3px;
     color: inherit;
 }
@@ -820,15 +766,15 @@ section h2 {
 /* Carrossel de sprites */
 
 .carrossel {
-    max-width: 760px;
+    max-width: 380px;
     margin: 0 auto;
 }
 
 .carrossel-janela {
     overflow: hidden;
 
-    background-color: #241d26;
-    border: 1px solid rgba(226, 212, 188, 0.25);
+    background-color: #2a1f36;
+    border: 1px solid rgba(236, 227, 238, 0.25);
     border-radius: 6px;
 }
 
@@ -851,8 +797,8 @@ section h2 {
     align-items: center;
     justify-content: center;
 
-    aspect-ratio: 4 / 3;
-    background-color: #1a141c;
+    aspect-ratio: 1 / 1;
+    background-color: #1f1729;
 }
 
 .carrossel-imagem img {
@@ -865,7 +811,7 @@ section h2 {
 .carrossel figcaption {
     padding: 18px 22px;
 
-    border-top: 1px solid rgba(226, 212, 188, 0.25);
+    border-top: 1px solid rgba(236, 227, 238, 0.25);
     color: var(--cor-papel);
     font-size: 0.95rem;
     line-height: 1.6;
@@ -898,7 +844,7 @@ section h2 {
     height: 44px;
 
     background: transparent;
-    border: 1px solid rgba(226, 212, 188, 0.35);
+    border: 1px solid rgba(236, 227, 238, 0.35);
     border-radius: 4px;
 
     color: var(--cor-papel);
@@ -963,7 +909,7 @@ section h2 {
 
     padding: var(--espaco-secao);
 
-    background-color: var(--cor-vinho);
+    background-color: var(--cor-bordo);
     color: var(--cor-texto);
 }
 
@@ -1051,7 +997,7 @@ section h2 {
 }
 
 #integrantes > .rotulo-secao {
-    color: var(--cor-vinho);
+    color: var(--cor-bordo);
 }
 
 #integrantes > h2 {
@@ -1092,7 +1038,7 @@ section h2 {
 
 .card-integrante:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(26, 20, 22, 0.12);
+    box-shadow: 0 10px 24px rgba(18, 18, 31, 0.12);
 }
 
 .avatar-integrante {
@@ -1112,7 +1058,7 @@ section h2 {
     font-family: var(--fonte-titulo);
     font-size: 1.25rem;
     font-weight: 400;
-    color: var(--cor-vinho);
+    color: var(--cor-bordo);
 }
 
 .card-integrante p {
@@ -1124,7 +1070,7 @@ section h2 {
 .card-integrante .funcao-integrante {
     margin-bottom: 12px;
 
-    color: var(--cor-vinho);
+    color: var(--cor-bordo);
     font-size: 0.8rem;
     font-weight: 700;
 }
@@ -1134,147 +1080,30 @@ section h2 {
 ======================================== */
 
 .rodape {
-    --rodape-fundo: #120e14;
-    --rodape-titulo: #8a7c85;
-    --rodape-texto: #a89da5;
-    --rodape-destaque: #e2d4bc;
-    --rodape-linha: rgba(226, 212, 188, 0.25);
-
-    padding: 56px 8% 40px;
-
-    background-color: var(--rodape-fundo);
-    font-family: var(--fonte-texto);
-}
-
-.rodape-conteudo {
-    display: grid;
-    grid-template-columns: auto repeat(3, minmax(0, 1fr));
-    align-items: start;
-    gap: 48px;
-
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-bottom: 48px;
-}
-
-.rodape-logo {
-    display: block;
-    justify-self: center;
-}
-
-.rodape-logo img {
-    display: block;
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-}
-
-nav.rodape-coluna {
-    position: static;
-    display: block;
-    min-height: 0;
-    max-width: none;
-    margin: 0;
-}
-
-.rodape-coluna h3 {
-    margin-bottom: 28px;
-
-    font-family: var(--fonte-titulo);
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: var(--rodape-titulo);
-}
-
-.rodape-coluna ul {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-.rodape-coluna a {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 8px;
-
-    padding: 0;
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: var(--rodape-texto);
-    overflow-wrap: anywhere;
-
-    transition: color 0.3s ease;
-}
-
-.rodape-coluna a i {
-    flex-shrink: 0;
-    width: 1.2em;
-    text-align: center;
-}
-
-.rodape-coluna a:hover {
-    color: var(--rodape-destaque);
-}
-
-.rodape a:focus-visible {
-    outline: 2px solid var(--rodape-destaque);
-    outline-offset: 4px;
+    padding: 40px 8%;
+    background-color: #140e1c;
 }
 
 .rodape-base {
     max-width: 1000px;
     margin: 0 auto;
-    padding-top: 36px;
-
-    border-top: 1px solid var(--rodape-linha);
     text-align: center;
 }
 
 .rodape-base p {
     font-size: 0.9rem;
-    color: var(--rodape-texto);
+    color: #b9aac6;
 }
 
 .rodape-base p + p {
-    margin-top: 44px;
-}
-
-@media (max-width: 900px) {
-    .rodape-conteudo {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 36px 28px;
-    }
-    .rodape-logo {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (max-width: 600px) {
-    .rodape {
-        padding: 40px 6% 32px;
-    }
-    .rodape-conteudo {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 36px;
-        text-align: center;
-    }
-    .rodape-coluna ul {
-        align-items: center;
-    }
-    .rodape-coluna h3 {
-        margin-bottom: 20px;
-    }
-    .rodape-base p + p {
-        margin-top: 28px;
-    }
+    margin-top: 8px;
 }
 
 /* ========================================
    15A. MENU HAMBÚRGUER
 ======================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
     .menu-toggle {
         display: flex;
     }
@@ -1372,14 +1201,12 @@ nav.rodape-coluna {
         min-height: 48px;
     }
 
-    .lista-destaques,
     .lista-tutorial,
     .lista-recursos,
     .lista-integrantes {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .card-destaque,
     .passo-tutorial,
     .card-recurso,
     .card-integrante {
@@ -1428,4 +1255,257 @@ nav.rodape-coluna {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+
+/* ========================================
+   18. TUTORIAL COM TECLAS
+======================================== */
+
+kbd {
+    display: inline-block;
+    min-width: 2.2em;
+    padding: 6px 10px;
+
+    background-color: var(--cor-papel);
+    border: 1px solid var(--cor-papel-escuro);
+    border-bottom-width: 4px;
+    border-radius: 6px;
+
+    font-family: ui-monospace, Consolas, "Courier New", monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--cor-texto-escuro);
+    text-align: center;
+}
+
+.lista-teclas li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--cor-texto-escuro);
+}
+
+.lista-teclas kbd + kbd {
+    margin-left: -2px;
+}
+
+.lista-teclas .icone {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+}
+
+/* ========================================
+   19. CARROSSEL — IMAGEM AUSENTE
+======================================== */
+
+.carrossel-imagem {
+    position: relative;
+}
+
+.carrossel-imagem.sem-imagem img {
+    display: none;
+}
+
+.carrossel-imagem.sem-imagem::after {
+    content: attr(data-rotulo);
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    color: var(--cor-papel);
+}
+
+/* ========================================
+   20. STORYBOARD E LIGHTBOX
+======================================== */
+
+.storyboard-titulo {
+    margin-bottom: 20px;
+
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    color: var(--cor-bordo);
+}
+
+.storyboard-titulo span {
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--cor-texto-escuro);
+    opacity: 0.7;
+}
+
+.storyboard-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.storyboard-botao {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    overflow: hidden;
+
+    background-color: var(--cor-papel-escuro);
+    border: 3px solid var(--cor-bordo);
+    border-radius: 10px;
+    cursor: zoom-in;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.storyboard-botao img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.storyboard-botao:hover,
+.storyboard-botao:focus-visible {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.storyboard-botao.sem-imagem {
+    cursor: default;
+}
+
+.storyboard-botao.sem-imagem img {
+    display: none;
+}
+
+.storyboard-botao.sem-imagem::after {
+    content: attr(data-rotulo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    color: var(--cor-bordo);
+}
+
+.storyboard-legenda {
+    display: block;
+    margin-top: 10px;
+
+    font-weight: 600;
+    text-align: center;
+    color: var(--cor-texto-escuro);
+}
+
+/* Lightbox (usa o <dialog> nativo) */
+
+.lightbox {
+    width: min(92vw, 1100px);
+    max-height: 92vh;
+    margin: auto;
+    padding: 0;
+
+    background-color: #140e1c;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.lightbox[open] {
+    animation: lightbox-entrar 0.3s ease;
+}
+
+.lightbox::backdrop {
+    background-color: rgba(5, 4, 16, 0.85);
+    backdrop-filter: blur(4px);
+}
+
+.lightbox-conteudo {
+    position: relative;
+    padding: 16px;
+}
+
+.lightbox-conteudo img {
+    display: block;
+    width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.lightbox-legenda {
+    margin-top: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: #f6f0f8;
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+
+    font-size: 1.1rem;
+    color: #f6f0f8;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #f6f0f8;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.lightbox-fechar:hover {
+    background-color: var(--cor-bordo);
+}
+
+@keyframes lightbox-entrar {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lightbox[open] { animation: none; }
+    .storyboard-botao { transition: none; }
+}
+
+/* Botão "Jogar agora" */
+.link-jogo {
+    margin-bottom: 48px;
+}
+
+
+/* ========================================
+   20B. SEÇÕES ESCURAS (azul e verde)
+   Nestas seções redefinimos as variáveis de "papel" para tons
+   escuros e o texto para claro. Todo o resto do CSS continua igual.
+======================================== */
+
+.bloco-destaques,
+#tutorial,
+#integrantes {
+    --cor-texto-escuro: #efe6f2;
+    --cor-bordo: #e9d995;
+    --cor-papel: #231a2f;
+    --cor-papel-card: #2f2340;
+    --cor-papel-escuro: #4a3a5c;
+}
+
+#tutorial {
+    --cor-papel: #2c1a2b;
+    --cor-papel-card: #3a2338;
+    --cor-papel-escuro: #5a3a54;
+    --cor-bordo: #e9d995;
+    --cor-verde: #4cc38a;
+}
+
+.bloco-destaques .botao:hover {
+    background-color: var(--cor-verde-claro);
+    border-color: var(--cor-verde-claro);
+    color: #04140e;
+}
+
+/* Texto do hero legível sobre a imagem do jogo (tema escuro) */
+:root:not([data-theme="light"]) #inicio h1,
+:root:not([data-theme="light"]) #inicio p {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
 }
