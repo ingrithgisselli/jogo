@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://rq7ek64l17vl"]
+
+[ext_resource type="Script" uid="uid://cf52rckq1ql2m" path="res://Cenas/Quizzes/Quiz - TI Verde/script_quiz_ti_verde_1.gd" id="1_308d8"]
+
+[node name="Tela_Quiz_TIVerde1" type="Control" unique_id=93564385]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_308d8")
+
+[node name="Label" type="Label" parent="." unique_id=2145729833]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 383.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 15
+text = "O que é \"TI verde\"?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1975575107]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 80.0
+offset_right = 358.0
+offset_bottom = 192.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=347892693]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Instalar softwares mais rápidos"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=1397951113]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = " Aumentar a velocidade da internet"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=1168477614]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Reduzir o impacto ambiental do uso e descarte de tecnologia"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=631778191]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Criar softwares educativos"

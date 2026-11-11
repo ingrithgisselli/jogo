@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://dr7wm7317vlcg"]
+
+[ext_resource type="Script" uid="uid://ep4dar5xcf4h" path="res://Cenas/Fases/menu.gd" id="1_u7eip"]
+[ext_resource type="Texture2D" uid="uid://6yru83hdshdv" path="res://Sprites/Autorais/Botão/botão.png" id="2_qif5a"]
+[ext_resource type="FontFile" uid="uid://bluqgeseptqwb" path="res://Sprites/Sprites livres/Fontes/Fonte Pixelada.ttf" id="3_c1dlh"]
+[ext_resource type="Texture2D" uid="uid://crsh01ru7yevj" path="res://Sprites/IA/titulo_letras_v2.png" id="4_qif5a"]
+[ext_resource type="Texture2D" uid="uid://g1lymenj7pqi" path="res://Sprites/Autorais/Fases/fase_boss_fina_backl.png" id="5_c1dlh"]
+[ext_resource type="PackedScene" uid="uid://bd5ml5jpadjwf" path="res://Cenas/Fases/PainelSom.tscn" id="6_762mq"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="7_mpp33"]
+[ext_resource type="AudioStream" uid="uid://bcbwq45sllclt" path="res://Sons/música de fundo (menu).mp3" id="8_2yl6p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7eip"]
+load_path = "res://.godot/imported/botão.png-42bcaf3915c0f796f382e85bbd66449d.ctex"
+
+[node name="Menu" type="Control" unique_id=192259142]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u7eip")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1422803034]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 45.0
+offset_right = 2.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1947457143]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = -10
+
+[node name="Iniciar" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2057062573]
+custom_minimum_size = Vector2(64, 48)
+layout_mode = 2
+size_flags_stretch_ratio = 8.69
+texture_normal = SubResource("CompressedTexture2D_u7eip")
+texture_pressed = ExtResource("2_qif5a")
+texture_hover = ExtResource("2_qif5a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Iniciar" unique_id=2120055846]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = 8.999999
+offset_right = 6.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1291016, 1.1284043)
+theme_override_fonts/font = ExtResource("3_c1dlh")
+theme_override_font_sizes/font_size = 16
+text = "Iniciar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=729646594]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_stretch_ratio = 8.69
+texture_normal = SubResource("CompressedTexture2D_u7eip")
+texture_pressed = ExtResource("2_qif5a")
+texture_hover = ExtResource("2_qif5a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Tutorial" unique_id=978363584]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = 8.999999
+offset_right = 5.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1291016, 1.1284043)
+theme_override_fonts/font = ExtResource("3_c1dlh")
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Som" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=2032970151]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_stretch_ratio = 8.69
+texture_normal = SubResource("CompressedTexture2D_u7eip")
+texture_pressed = ExtResource("2_qif5a")
+texture_hover = ExtResource("2_qif5a")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Som" unique_id=134895862]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = 8.999999
+offset_right = 5.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1291016, 1.1284043)
+theme_override_fonts/font = ExtResource("3_c1dlh")
+text = "Som"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Título" type="Sprite2D" parent="." unique_id=1400952248]
+position = Vector2(195, 56)
+scale = Vector2(0.75, 0.76)
+texture = ExtResource("4_qif5a")
+
+[node name="Fundo" type="ParallaxBackground" parent="." unique_id=712428314]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fundo" unique_id=1533022736]
+texture_repeat = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Fundo/ParallaxLayer" unique_id=778785340]
+position = Vector2(149, 122)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_c1dlh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Fundo/ParallaxLayer" unique_id=621619459]
+position = Vector2(494, 122)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_c1dlh")
+flip_h = true
+
+[node name="PanelContainer" parent="." unique_id=867842043 instance=ExtResource("6_762mq")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 136.0
+offset_top = 40.0
+offset_right = 276.0
+offset_bottom = 209.99998
+grow_horizontal = 1
+grow_vertical = 1
+offset_transform_enabled = true
+
+[node name="Sprite2D" parent="PanelContainer" index="0" unique_id=982439568]
+position = Vector2(70.00001, 81.75)
+scale = Vector2(0.12784591, 0.19019395)
+
+[node name="Música" parent="PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(867842043, 1322303789) index="5" unique_id=79493572]
+volume_db = -80.0
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("7_mpp33")]
+musica = ExtResource("8_2yl6p")
+
+[editable path="PanelContainer"]

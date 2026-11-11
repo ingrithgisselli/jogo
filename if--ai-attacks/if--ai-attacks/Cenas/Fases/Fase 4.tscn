@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b2hy8534ukg0d"]
+
+[ext_resource type="Script" uid="uid://c7ijbns20d7kf" path="res://Cenas/Fases/script_fase4.gd" id="1_pxq7f"]
+[ext_resource type="PackedScene" uid="uid://cqwwhfpc1ryqx" path="res://Entidades/Fim_de_fase.tscn" id="2_1yh2y"]
+[ext_resource type="PackedScene" uid="uid://dmjkvpygybj2w" path="res://Cenas/Quizzes/Botões/Botão Fase 4.tscn" id="2_ag7k1"]
+[ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="3_35b2b"]
+[ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_ag7k1"]
+
+[node name="Fase 4" type="Node2D" unique_id=420359046]
+script = ExtResource("1_pxq7f")
+
+[node name="Botão Fase 4" parent="." unique_id=1873546290 instance=ExtResource("2_ag7k1")]
+
+[node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_1yh2y")]
+
+[node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("3_35b2b")]
+
+[node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("4_ag7k1")]
+
+[editable path="Botão Fase 4"]

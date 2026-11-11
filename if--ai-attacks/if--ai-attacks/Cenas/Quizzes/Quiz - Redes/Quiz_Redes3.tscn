@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cvk8ob8esgcau"]
+
+[ext_resource type="Script" uid="uid://oadjakrcfkp6" path="res://Cenas/Quizzes/Quiz - Redes/script_quiz_redes_3.gd" id="1_pskxq"]
+
+[node name="Tela_Quiz_Redes3" type="Control" unique_id=2095827043]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pskxq")
+
+[node name="Label" type="Label" parent="." unique_id=2082901061]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 383.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 15
+text = "Como se chama o endereço numérico que
+ identifica um dispositivo em uma rede?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=863122066]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 80.0
+offset_right = 252.0
+offset_bottom = 192.0
+theme_override_constants/separation = 8
+
+[node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=960764690]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "HTML"
+
+[node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=701752524]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "DNS"
+
+[node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=831507474]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "URL"
+
+[node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=609429361]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "IP"
