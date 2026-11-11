@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="17_q3xtc"]
 [ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="18_rxxrf"]
 [ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="21_c6apu"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="22_rxxrf"]
+[ext_resource type="AudioStream" uid="uid://dcbxglm12jl3" path="res://Sons/múisca de fundo(fases).mp3" id="23_jh83d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4kxuq"]
 animations = [{
@@ -345,6 +347,7 @@ shape = SubResource("CircleShape2D_ysnsd")
 [node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("15_nf0dy")]
 position = Vector2(479, 128)
 velocidade_horizontal = 60.0
+altura_acima_do_jogador = 15.0
 destruido = ExtResource("13_c6apu")
 
 [node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
@@ -424,6 +427,10 @@ rotation = -1.5689411
 shape = SubResource("CapsuleShape2D_kbuyj")
 
 [node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("21_c6apu")]
+visible = false
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("22_rxxrf")]
+musica = ExtResource("23_jh83d")
 
 [editable path="FimdeFase"]
 [editable path="Interface - Vida (Jogador)"]

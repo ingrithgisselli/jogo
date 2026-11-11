@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://bfb4kffeaqivs"
 
 GameState="*uid://8qkfalvx3i0i"
 ConfigAudio="*uid://vkj8tkfeyhyy"
+MusicaFundo="*uid://chrqwe5jyphsy"
 
 [display]
 

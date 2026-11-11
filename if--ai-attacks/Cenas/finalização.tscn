@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b7elv5srpf43i" path="res://Sprites/Autorais/Jogador/garota pulando_0003 (1).png" id="5_xbkxt"]
 [ext_resource type="Script" uid="uid://d2k5x1ibuhmaw" path="res://Scripts/animação_fim.gd" id="8_uoeyt"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="10_q7o8q"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="11_2r3u3"]
 [ext_resource type="Texture2D" uid="uid://clscer4rle50k" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(verde).jpg" id="11_7tgfg"]
+[ext_resource type="AudioStream" uid="uid://b6cr1euqfd8id" path="res://Sons/finalização.mp3" id="12_of4fv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mm1bc"]
 animations = [{
@@ -79,7 +81,7 @@ scale = Vector2(1.1291016, 1.1284043)
 theme = ExtResource("10_q7o8q")
 theme_override_fonts/font = ExtResource("3_vm4y4")
 theme_override_font_sizes/font_size = 16
-text = "Fim de jogo"
+text = "Fim de jogo !"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -103,3 +105,6 @@ theme = ExtResource("10_q7o8q")
 theme_override_font_sizes/font_size = 16
 text = "Voltar ao Menu"
 script = ExtResource("3_xbkxt")
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("11_2r3u3")]
+musica = ExtResource("12_of4fv")

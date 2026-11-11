@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="15_amqvc"]
 [ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="18_c0ygr"]
 [ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="20_gt4wy"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="21_c0ygr"]
+[ext_resource type="AudioStream" uid="uid://dcbxglm12jl3" path="res://Sons/múisca de fundo(fases).mp3" id="22_tpsap"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w2740"]
 animations = [{
@@ -39,9 +41,6 @@ animations = [{
 "name": &"Fechado",
 "speed": 1.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpbxu"]
-size = Vector2(32, 60)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qni8u"]
 atlas = ExtResource("7_v7txi")
@@ -247,6 +246,9 @@ size = Vector2(18.333351, 2.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlawk"]
 size = Vector2(18.333351, 2.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ge1r"]
+size = Vector2(32, 58)
+
 [node name="Fase 4" type="Node2D" unique_id=420359046]
 script = ExtResource("1_pxq7f")
 
@@ -278,14 +280,6 @@ autoplay = "Fechado"
 z_index = -7
 position = Vector2(35, 288)
 texture = ExtResource("6_jbsrh")
-
-[node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_1yh2y")]
-position = Vector2(328, 8)
-proxima_fase = "Fase Final"
-
-[node name="CollisionShape2D" parent="FimdeFase" index="0" unique_id=821300692]
-position = Vector2(85, 98)
-shape = SubResource("RectangleShape2D_mpbxu")
 
 [node name="Computador" type="AnimatedSprite2D" parent="." unique_id=1400400366]
 unique_name_in_owner = true
@@ -389,7 +383,7 @@ one_way_collision_margin = 5.0
 
 [node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("3_35b2b")]
 unique_name_in_owner = true
-position = Vector2(31, 281)
+position = Vector2(25, 287)
 som_pulo = ExtResource("14_gt4wy")
 som_dano = ExtResource("15_3ccdc")
 
@@ -429,7 +423,7 @@ shape = SubResource("RectangleShape2D_csfsk")
 position = Vector2(203, 12)
 
 [node name="CollisionShape2D2" parent="Drone2/Dano" index="0" unique_id=12869090]
-position = Vector2(-202.99738, -18.999992)
+position = Vector2(-203, -18)
 shape = SubResource("RectangleShape2D_4dlp6")
 
 [node name="Drone3" parent="." unique_id=1227559193 instance=ExtResource("14_181gx")]
@@ -489,7 +483,7 @@ shape = SubResource("RectangleShape2D_csfsk")
 position = Vector2(203, 12)
 
 [node name="CollisionShape2D2" parent="Drone4/Dano" index="0" unique_id=12869090]
-position = Vector2(-203.00064, -18.75)
+position = Vector2(-203, -18)
 shape = SubResource("RectangleShape2D_oieac")
 
 [node name="Aluno Infectado2" parent="." unique_id=1911551078 instance=ExtResource("13_fibiv")]
@@ -595,9 +589,20 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_3ccdc")
 
 [node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("20_gt4wy")]
+visible = false
+
+[node name="FimdeFase" parent="." unique_id=1633922888 instance=ExtResource("2_1yh2y")]
+position = Vector2(330, 73)
+proxima_fase = "Fase Final"
+
+[node name="CollisionShape2D" parent="FimdeFase" index="0" unique_id=821300692]
+position = Vector2(81, 33)
+shape = SubResource("RectangleShape2D_2ge1r")
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("21_c0ygr")]
+musica = ExtResource("22_tpsap")
 
 [editable path="Botão Fase 4"]
-[editable path="FimdeFase"]
 [editable path="Jogador"]
 [editable path="Drone2"]
 [editable path="Drone3"]
@@ -612,3 +617,4 @@ shape = SubResource("RectangleShape2D_3ccdc")
 [editable path="Aluno Infectado8"]
 [editable path="Aluno Infectado9"]
 [editable path="Aluno Infectado10"]
+[editable path="FimdeFase"]

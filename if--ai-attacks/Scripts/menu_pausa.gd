@@ -23,11 +23,10 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("Pausa"):
 		return
-
 	if visible:
-		# Com o painel de som aberto, o Esc fecha só o painel
-		if not painel_som.visible:
-			retomar()
+		if painel_som.visible:
+			return          # o Esc fecha só o painel, que trata o próprio evento
+		retomar()
 	else:
 		pausar()
 	get_viewport().set_input_as_handled()
@@ -60,3 +59,4 @@ func voltar_ao_menu() -> void:
 	get_tree().paused = false          # sem isso o menu principal abriria pausado
 	GameState.resetar()                # perde todo o progresso
 	get_tree().change_scene_to_file(cena_menu)
+	

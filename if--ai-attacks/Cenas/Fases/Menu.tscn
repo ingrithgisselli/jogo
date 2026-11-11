@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://crsh01ru7yevj" path="res://Sprites/IA/titulo_letras_v2.png" id="4_qif5a"]
 [ext_resource type="Texture2D" uid="uid://g1lymenj7pqi" path="res://Sprites/Autorais/Fases/fase_boss_fina_backl.png" id="5_c1dlh"]
 [ext_resource type="PackedScene" uid="uid://bd5ml5jpadjwf" path="res://Cenas/Fases/PainelSom.tscn" id="6_762mq"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="7_mpp33"]
+[ext_resource type="AudioStream" uid="uid://bcbwq45sllclt" path="res://Sons/música de fundo (menu).mp3" id="8_2yl6p"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7eip"]
 load_path = "res://.godot/imported/botão.png-42bcaf3915c0f796f382e85bbd66449d.ctex"
@@ -159,5 +161,11 @@ offset_transform_enabled = true
 [node name="Sprite2D" parent="PanelContainer" index="0" unique_id=982439568]
 position = Vector2(70.00001, 81.75)
 scale = Vector2(0.12784591, 0.19019395)
+
+[node name="Música" parent="PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(867842043, 1322303789) index="5" unique_id=79493572]
+volume_db = -80.0
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("7_mpp33")]
+musica = ExtResource("8_2yl6p")
 
 [editable path="PanelContainer"]

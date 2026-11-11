@@ -3,7 +3,7 @@ extends Node2D
 signal fim
 
 const TOTAL_COLETAVEIS := 3
-const delay:= 3
+const delay:= 2
 
 var coletaveis_restantes := TOTAL_COLETAVEIS
 var chefao_derrotado := false

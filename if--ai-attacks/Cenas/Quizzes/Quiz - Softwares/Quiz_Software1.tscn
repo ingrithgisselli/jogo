@@ -39,12 +39,12 @@ theme_override_constants/separation = 8
 
 [node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=186720739]
 layout_mode = 2
-text = "Placa-mãe"
+text = "Windows"
 
 [node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=765913343]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-text = "Explorador de arquivos"
+text = "Navegador"
 
 [node name="BotãoC" type="Button" parent="VBoxContainer" unique_id=361442614]
 custom_minimum_size = Vector2(100, 20)
@@ -54,7 +54,7 @@ text = "Sistema operacional"
 [node name="BotãoD" type="Button" parent="VBoxContainer" unique_id=73219030]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-text = "Navegador"
+text = "Codificador"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=758124104]
 z_index = -1

@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="12_xpj5r"]
 [ext_resource type="AudioStream" uid="uid://g8o1tv47dp36" path="res://Sons/acesso-clique.mp3" id="18_44k3o"]
 [ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="19_f7xno"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="20_44k3o"]
+[ext_resource type="AudioStream" uid="uid://bcbwq45sllclt" path="res://Sons/música de fundo (menu).mp3" id="21_2rth8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54vre"]
 size = Vector2(9, 34)
@@ -370,6 +372,9 @@ acesso = ExtResource("18_44k3o")
 [node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("19_f7xno")]
 visible = false
 cena_menu = "uid://dr7wm7317vlcg"
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("20_44k3o")]
+musica = ExtResource("21_2rth8")
 
 [editable path="Jogador"]
 [editable path="Interface - Vida (Jogador)"]

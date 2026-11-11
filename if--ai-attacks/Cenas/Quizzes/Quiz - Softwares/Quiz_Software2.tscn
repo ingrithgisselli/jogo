@@ -38,7 +38,7 @@ theme_override_constants/separation = 8
 [node name="BotãoA" type="Button" parent="VBoxContainer" unique_id=779171865]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-text = "Operar apenas em modo online"
+text = "Opera apenas em modo online"
 
 [node name="BotãoB" type="Button" parent="VBoxContainer" unique_id=587317100]
 custom_minimum_size = Vector2(100, 20)

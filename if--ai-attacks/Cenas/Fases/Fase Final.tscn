@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="4_otrbr"]
 [ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="5_jnf7k"]
 [ext_resource type="Texture2D" uid="uid://d338pqufjmegy" path="res://Sprites/Autorais/coletáveis/livro1 (1).png" id="6_cifgt"]
+[ext_resource type="AudioStream" uid="uid://df37y6yf42npk" path="res://Sons/certo.mp3" id="8_a2ihd"]
 [ext_resource type="Texture2D" uid="uid://dj1u5w6vk8so1" path="res://Sprites/Autorais/Inimigos/boss_final_comandante_damage.png" id="8_gogcb"]
 [ext_resource type="Texture2D" uid="uid://c7a6tq3pnr756" path="res://Sprites/Autorais/Inimigos/boss_final_andando.png" id="9_d0a46"]
 [ext_resource type="PackedScene" uid="uid://cbnb32k3gxco6" path="res://Interfaces/interface___vida_(chefão).tscn" id="9_fvglf"]
@@ -25,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="18_cifgt"]
 [ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="19_2snyo"]
 [ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="25_jnf7k"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="26_w17d5"]
+[ext_resource type="AudioStream" uid="uid://cm4qtayqlcjmq" path="res://Sons/música de fundo(chefão).mp3" id="27_a2ihd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvglf"]
 size = Vector2(21.500008, 80.500015)
@@ -128,6 +131,7 @@ scale = Vector2(0.3, 0.3)
 collision_layer = 128
 collision_mask = 2
 script = ExtResource("3_lxw2d")
+coleta = ExtResource("8_a2ihd")
 
 [node name="Sprite2D" type="Sprite2D" parent="coletavel1" unique_id=128325901]
 position = Vector2(679.25, 98.499985)
@@ -145,6 +149,7 @@ scale = Vector2(0.3, 0.3)
 collision_layer = 128
 collision_mask = 2
 script = ExtResource("3_lxw2d")
+coleta = ExtResource("8_a2ihd")
 
 [node name="Sprite2D" type="Sprite2D" parent="coletavel2" unique_id=1508827194]
 position = Vector2(679.25, 197.5)
@@ -162,6 +167,7 @@ scale = Vector2(0.3, 0.3)
 collision_layer = 128
 collision_mask = 2
 script = ExtResource("3_lxw2d")
+coleta = ExtResource("8_a2ihd")
 
 [node name="Sprite2D" type="Sprite2D" parent="coletavel3" unique_id=685258373]
 position = Vector2(747, 98)
@@ -323,7 +329,7 @@ shape = SubResource("RectangleShape2D_csfsk")
 position = Vector2(203, 12)
 
 [node name="CollisionShape2D2" parent="Drone2/Dano" index="0" unique_id=12869090]
-position = Vector2(-202.99738, -18.999992)
+position = Vector2(-203, -18)
 shape = SubResource("RectangleShape2D_4dlp6")
 
 [node name="Drone4" parent="." unique_id=853893462 instance=ExtResource("18_cifgt")]
@@ -353,7 +359,7 @@ shape = SubResource("RectangleShape2D_csfsk")
 position = Vector2(203, 12)
 
 [node name="CollisionShape2D2" parent="Drone4/Dano" index="0" unique_id=12869090]
-position = Vector2(-202.99738, -18.999992)
+position = Vector2(-203, -18)
 shape = SubResource("RectangleShape2D_4dlp6")
 
 [node name="Drone3" parent="." unique_id=407698454 instance=ExtResource("18_cifgt")]
@@ -384,7 +390,7 @@ shape = SubResource("RectangleShape2D_csfsk")
 position = Vector2(203, 12)
 
 [node name="CollisionShape2D2" parent="Drone3/Dano" index="0" unique_id=12869090]
-position = Vector2(-202.99738, -18.999992)
+position = Vector2(-203, -17.999992)
 shape = SubResource("RectangleShape2D_4dlp6")
 
 [node name="Aluno Infectado2" parent="." unique_id=1911551078 instance=ExtResource("19_2snyo")]
@@ -410,6 +416,10 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_4iunj")
 
 [node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("25_jnf7k")]
+visible = false
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("26_w17d5")]
+musica = ExtResource("27_a2ihd")
 
 [connection signal="body_entered" from="coletavel1" to="coletavel1" method="_on_body_entered"]
 [connection signal="body_entered" from="coletavel2" to="coletavel2" method="_on_body_entered"]
