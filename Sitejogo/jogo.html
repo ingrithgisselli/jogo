@@ -20,7 +20,7 @@
         content="Conheça IF: AI Attacks, um jogo sobre tecnologia, lógica e inteligência artificial."
     >
 
-    <meta name="theme-color" content="#0d0b0e">
+    <meta name="theme-color" content="#1a1324">
 
     <title>IF: AI Attacks</title>
 
@@ -28,8 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Ícones do rodapé (Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Special+Elite&amp;display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="jogo.css">
     <script src="java.js" defer></script>
@@ -42,7 +41,7 @@
         <nav aria-label="Navegação principal">
 
             <a href="#inicio" class="logo">
-                IF: <span class="texto-destaque">AI</span> Attacks
+                IF: <span class="texto-destaque">AI</span> ATTACKS
             </a>
 
             <ul id="menu-principal">
@@ -88,10 +87,10 @@
 
     <main>
 
-        <section id="inicio" style="background-image: var(--gradiente-hero), url('cenario\ principal.jpeg'); background-size: cover; background-position: center;">
+        <section id="inicio">
 
             <h1>
-                IF: <span class="texto-destaque">AI</span> Attacks
+                IF: <span class="texto-destaque">AI</span> ATTACKS
             </h1>
 
             <p>
@@ -119,21 +118,57 @@
 
                 <span class="rotulo-secao">SOBRE O JOGO</span>
 
-                <h2>A Invasão ao Instituto e o Ataque da IA </h2>
+                <h2>A Invasão ao Instituto e o Ataque da IA</h2>
 
                 <p class="descricao-destaques">
-                        Após uma revolução global liderada pelas Inteligências Artificiais, 
-                        o mundo passou a ser governado por máquinas.
-                        Nesse cenário de resistência, um protagonista decide invadir as 
-                        ruínas do Instituto Federal e eliminar a ameaça digital.
-                        Para tal, é preciso responder perguntas relacionadas à informática, desviar e enfrentar
-                        drones malignos e alunos infectados com a IA! 
+                    Após uma revolução global liderada pelas Inteligências Artificiais,
+                    o mundo passou a ser governado por máquinas. Nesse cenário de
+                    resistência, um protagonista decide invadir as ruínas do Instituto
+                    Federal e eliminar a ameaça digital. Para isso, é preciso responder
+                    perguntas de informática, desviar e enfrentar drones malignos e
+                    alunos infectados com a IA!
                 </p>
+
                 <p class="link-jogo">
-                <a href="https://felipe-sampa.itch.io/if-ai-attacks" class="botao" target="_blank" rel="noopener noreferrer">
-                Jogar agora
-    </a>
-</p>
+                    <a href="https://felipe-sampa.itch.io/if-ai-attacks" class="botao" target="_blank" rel="noopener noreferrer">
+                        Jogar agora
+                    </a>
+                </p>
+
+                <!-- Storyboard -->
+                <div class="storyboard">
+                    <p class="storyboard-titulo">Storyboard <span>· clique para ampliar</span></p>
+
+                    <ul class="storyboard-lista">
+                        <li>
+                            <button type="button" class="storyboard-botao" data-legenda="Menu do jogo" data-rotulo="Menu">
+                                <img src="menuu.png" alt="Storyboard da tela de menu do jogo" loading="lazy">
+                            </button>
+                            <span class="storyboard-legenda">1. Menu</span>
+                        </li>
+                        <li>
+                            <button type="button" class="storyboard-botao" data-legenda="Fases do jogo" data-rotulo="Fases">
+                                <img src="fases.png" alt="Storyboard das fases do jogo" loading="lazy">
+                            </button>
+                            <span class="storyboard-legenda">2. Fases</span>
+                        </li>
+                        <li>
+                            <button type="button" class="storyboard-botao" data-legenda="Personagem principal" data-rotulo="Personagem">
+                                <img src="personagemp.png" alt="Storyboard da personagem principal" loading="lazy">
+                            </button>
+                            <span class="storyboard-legenda">3. Personagem principal</span>
+                        </li>
+                    </ul>
+
+                    <dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
+                        <div class="lightbox-conteudo">
+                            <button type="button" class="lightbox-fechar" aria-label="Fechar imagem">✕</button>
+                            <img src="" alt="">
+                            <p class="lightbox-legenda"></p>
+                        </div>
+                    </dialog>
+                </div>
+
             </div>
 
             <!-- Apresentação do vídeo -->
@@ -148,11 +183,7 @@
                         <span class="texto-destaque">AI</span> Attacks
                     </h2>
 
-                    <p>
-                        Descubra o jogo, conheça os desafios e prepare-se
-                        para enfrentar uma inteligência artificial
-                        que ameaça a escola.
-                    </p>
+                    <p>Veja o jogo em ação e os desafios que o protagonista enfrenta.</p>
 
                     <a href="#video" class="botao">
                         Assistir ao vídeo
@@ -167,7 +198,9 @@
                     aria-label="Espaço reservado para o vídeo do jogo"
                     tabindex="-1"
                 >
-                    <span>VÍDEO EM BREVE</span>
+                    <!-- Quando o vídeo estiver pronto, troque esta div inteira por:
+                     <video class="video-player" controls src="video/jogo.mp4"></video> -->
+                    <video class="video-player" controls src="videoo.mp4"></video>
                 </div>
 
             </div>
@@ -181,47 +214,36 @@
 
             <h2>Aprenda a jogar</h2>
 
-            <p class="descricao-tutorial">
-                Prepare-se para a missão. Siga os passos e descubra
-                como explorar o jogo e enfrentar os desafios.
-            </p>
+            <p class="descricao-tutorial">Três passos para começar a missão.</p>
 
             <ol class="lista-tutorial">
 
                 <li class="passo-tutorial">
-                    <h3>Controles Básicos</h3>
-                    <p>
-                <b>Movmentação horizontal:</b> Direcionais(setas) ou A e D.</p>
-                <p><b>Pular:</b> Pressione a barra de Espaço.</p>
-                <p><b>Acesse o Computador:</b> Em cada fase, haverá um computador. Acesse-o com Enter ou cursor
-                     do Mouse/Touchpad, assim acessando o quiz da fase.</p>
+                    <h3>Controles</h3>
+                    <ul class="lista-teclas">
+                        <li><kbd>←</kbd><kbd>→</kbd><span>ou</span><kbd>A</kbd><kbd>D</kbd><span>Mover</span></li>
+                        <li><kbd>Espaço</kbd><span>Pular</span></li>
+                        <li><kbd>Enter</kbd><span>Acessar o computador da fase (ou clique do mouse)</span></li>
+                    </ul>
                 </li>
 
                 <li class="passo-tutorial">
-                    <h3>Combate e Sobrevivência</h3>
-                    <p>
-                
-                        <b>Causar Dano nos Inimigos:</b> Pule exatamente em cima dos drones e alunos contaminados para derrotá-los.</p>
-                
-                        <p><b>Tomar Dano:</b> Encostar nos inimigos aplica um dano a peronagem.</p>
-                
-                        <p><b>Sistema de Vidas:</b> Você começa com 3 vidas . Se perder todas, a fase reinicia.</p>
-                        
+                    <h3>Combate</h3>
+                    <ul class="lista-teclas">
+                        <li><span class="icone" aria-hidden="true">-</span><span>Pule em cima dos drones e alunos infectados para derrotá-los</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Encostar neles tira vida</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>3 vidas. Sem elas, a fase reinicia</span></li>
+                    </ul>
                 </li>
 
                 <li class="passo-tutorial">
-                    <h3>Como Avançar e Vencer</h3>
-                    <p>
-                
-                <p><b>Quiz:</b> 4 alternativas, 1 resposta correta. Ao finalizar o quiz, o portão que, antes fechado, agora se abre,
-                permitindo passar para a próxima fase.</p>
-                <p><b>Checkpoint:</b> Finalizar o quiz garante um ponto de salvamento no computador da fase; Se perder, volta 
-                    com o progresso da fase salvo.</p>
-                <p><b>O Chefão Final:</b> Na última fase, enfrente o Boss 
-                    (ele possui 5 vidas representadas pelo contador de bateria).
-                    Colete todos os livros e derrote-o para libertar o o instituto do 
-                    ataque da IA.</p>
-                    
+                    <h3>Como vencer</h3>
+                    <ul class="lista-teclas">
+                        <li><span class="icone" aria-hidden="true">-</span><span>Quiz: 4 alternativas, 1 correta</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Acertar abre o portão e salva o checkpoint</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Boss final: 5 vidas (contador de bateria)</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Colete todos os livros para libertar o instituto</span></li>
+                    </ul>
                 </li>
 
             </ol>
@@ -231,80 +253,115 @@
         <!-- Bastidores: processo, código e sprites -->
         <section id="bastidores">
 
-            <span class="rotulo-secao">CÓDIGOS</span>
+            <span class="rotulo-secao">PROGRAMAÇÃO</span>
 
-            <h2>Códigos em destaques</h2>
-
-            </div>
+            <h2>Código em destaque</h2>
 
             <!-- Código em destaque -->
             <div class="bloco-bastidores" id="codigo-destaque">
 
-                <p>
-                    Trechos importantes da programação, com a linha-chave
-                    destacada. Os exemplos abaixo são modelos:
-                </p>
+                <p>Trechos reais do jogo (GDScript) e do site (JavaScript e CSS). A linha-chave está destacada.</p>
 
                 <div class="abas" data-abas>
 
                     <div class="abas-lista" role="tablist" aria-label="Trechos de código">
                         <button class="aba" type="button" role="tab"
                                 id="aba-mecanica" aria-controls="painel-mecanica"
-                                aria-selected="true">Sistema de Quiz - Fase 1</button>
+                                aria-selected="true">Jogo · Sistema de Quiz</button>
                         <button class="aba" type="button" role="tab"
-                                id="aba-ia" aria-controls="painel-ia"
-                                aria-selected="false" tabindex="-1">Game State (simplificado)</button>
+                                id="aba-state" aria-controls="painel-state"
+                                aria-selected="false" tabindex="-1">Game State</button>
+                        <button class="aba" type="button" role="tab"
+                                id="aba-tema" aria-controls="painel-tema"
+                                aria-selected="false" tabindex="-1">Site · Tema claro/escuro</button>
+                        <button class="aba" type="button" role="tab"
+                                id="aba-cores" aria-controls="painel-cores"
+                                aria-selected="false" tabindex="-1">Site · Cores (CSS)</button>
                     </div>
 
                     <div class="painel-codigo" role="tabpanel" id="painel-mecanica"
                          aria-labelledby="aba-mecanica" tabindex="0">
-<pre><code><span class="c-comentario"></span>
-func_sorteio() -> void:
-    var aleatorio:=randi_range(1,3)
-    if aleatorio == 1
+<pre><code>func sorteio() -> void:
+    <mark>var aleatorio := randi_range(1, 3)</mark>
+    if aleatorio == 1:
         call_deferred("carregar_quizHard1")
     elif aleatorio == 2:
         call_deferred("carregar_quizHard2")
-    elif aleatorio == 3
+    elif aleatorio == 3:
         call_deferred("carregar_quizHard3")
-func carregar_quizHard1():
-    get_tree().change_scene_to_file(cena_quizHard1)
-func carregar_quizHard2():
-    get_tree().change_scene_to_file(cena_quizHard2)
-func carregar_quizHard3():
-    get_tree().change_scene_to_file(cena_quizHard3)
 
-</code></pre>
+func carregar_quizHard1() -> void:
+    get_tree().change_scene_to_file(cena_quizHard1)
+
+func carregar_quizHard2() -> void:
+    get_tree().change_scene_to_file(cena_quizHard2)
+
+func carregar_quizHard3() -> void:
+    get_tree().change_scene_to_file(cena_quizHard3)</code></pre>
                         <p class="legenda-codigo">
                         Sorteio 
                         de 1 a 3 escolhe qual dos três quizzes do tema da fase será carregado.
                         </p>
                     </div>
 
-                    <div class="painel-codigo" role="tabpanel" id="painel-ia"
-                         aria-labelledby="aba-ia" tabindex="0" hidden>
-<pre><code><span class="c-comentario"></span>
-var quizzes := {
+                    <div class="painel-codigo" role="tabpanel" id="painel-state"
+                         aria-labelledby="aba-state" tabindex="0" hidden>
+<pre><code>var quizzes := {
     "fase1": {"hardware1": false, "hardware2": false, "hardware3": false},
-
     "fase2": {"software1": false, "software2": false, "software3": false},
-
     "fase3": {"redes1": false, "redes2": false, "redes3": false},
-    "
-    fase4": {"ti_verde1": false, "ti_verde2": false, "ti_verde3": false},
+    "fase4": {"ti_verde1": false, "ti_verde2": false, "ti_verde3": false},
 }
-var posicao_jogador: Vector2.ZERO
-var posicao_salva: false
-func marcar_correto (fase: String, quiz: String) void:
-    quizzes [fase] [quiz] = true
+var posicao_jogador := Vector2.ZERO
+var posicao_salva := false
+
+func marcar_correto(fase: String, quiz: String) -> void:
+    <mark>quizzes[fase][quiz] = true</mark>
 
 func algum_quiz_correto(fase: String) -> bool:
-    return quizzes [fase].values().has(true)
-</code></pre>
+    return quizzes[fase].values().has(true)</code></pre>
                         <p class="legenda-codigo">
                             O Game State guarda a posição 
                             do jogador e os quizzes acertados, para a fase
                              continuar de onde parou após o quiz.
+                        </p>
+                    </div>
+
+                    <div class="painel-codigo" role="tabpanel" id="painel-tema"
+                         aria-labelledby="aba-tema" tabindex="0" hidden>
+<pre><code>const botaoTema = document.querySelector('#tema-toggle');
+const elementoHTML = document.documentElement;
+
+botaoTema.addEventListener('click', () => {
+    const novoTema = elementoHTML.dataset.theme === 'dark' ? 'light' : 'dark';
+
+    <mark>elementoHTML.dataset.theme = novoTema;</mark>
+    localStorage.setItem('tema', novoTema);
+});</code></pre>
+                        <p class="legenda-codigo">
+                            Ao clicar no botão, o JavaScript troca o atributo
+                            <code>data-theme</code> da página e guarda a escolha
+                            no <code>localStorage</code> para a próxima visita.
+                        </p>
+                    </div>
+
+                    <div class="painel-codigo" role="tabpanel" id="painel-cores"
+                         aria-labelledby="aba-cores" tabindex="0" hidden>
+<pre><code>:root {
+    --cor-fundo: #1a1324;
+    --cor-bordo: #4b2a40;
+    --cor-verde: #0a5c3a;
+    --texto-principal: #f6f0f8;
+}
+
+<mark>:root[data-theme="light"] {
+    --texto-principal: #12121f;
+}</mark>
+
+body { color: var(--texto-principal); }</code></pre>
+                        <p class="legenda-codigo">
+                            As cores ficam em variáveis. No tema claro só
+                            redefinimos as que mudam, e o site inteiro acompanha.
                         </p>
                     </div>
 
@@ -315,20 +372,20 @@ func algum_quiz_correto(fase: String) -> bool:
             <!-- Evolução dos sprites -->
             <div class="bloco-bastidores" id="sprites">
 
-                <h2>Nossos Sprites</h2>
+                <h3>Nossos Sprites</h3>
+
+                <p>Os personagens e objetos do jogo. Use as setas ou os botões.</p>
 
                 <div class="carrossel" data-carrossel role="region"
                      aria-roledescription="carrossel"
-                     aria-label="Evolução da personagem principal" tabindex="0">
+                     aria-label="Personagem e inimigos do jogo" tabindex="0">
 
                     <div class="carrossel-janela">
                         <ul class="carrossel-faixa">
-
                             <li class="carrossel-slide">
                                 <figure>
-                                    <div class="carrossel-imagem" data-rotulo="Rascunho">
-                                        <img src="personagem principal.png"
-                                             alt="Rascunho inicial da personagem principal">
+                                    <div class="carrossel-imagem" data-rotulo="Personagem">
+                                        <img src="personagem principal.png" alt="Personagem principal do jogo">
                                     </div>
                                     <figcaption>
                                         <strong>1. Personagem Principal</strong>
@@ -339,9 +396,8 @@ func algum_quiz_correto(fase: String) -> bool:
 
                             <li class="carrossel-slide">
                                 <figure>
-                                    <div class="carrossel-imagem" data-rotulo="Primeiro sprite">
-                                        <img src="boss_final_andando.png"
-                                             alt="Primeira versão do sprite da personagem principal">
+                                    <div class="carrossel-imagem" data-rotulo="Boss">
+                                        <img src="boss_final_andando.png" alt="Boss, o chefão final do jogo">
                                     </div>
                                     <figcaption>
                                         <strong>2. Boss</strong>
@@ -352,9 +408,8 @@ func algum_quiz_correto(fase: String) -> bool:
 
                             <li class="carrossel-slide">
                                 <figure>
-                                    <div class="carrossel-imagem" data-rotulo="Animações">
-                                        <img src="Drone1.png"
-                                             alt="Quadros de animação da personagem principal">
+                                    <div class="carrossel-imagem" data-rotulo="Drone">
+                                        <img src="Drone1.png" alt="Drone maligno, inimigo 1">
                                     </div>
                                     <figcaption>
                                         <strong>3. Drone maligno</strong>
@@ -365,9 +420,8 @@ func algum_quiz_correto(fase: String) -> bool:
 
                             <li class="carrossel-slide">
                                 <figure>
-                                    <div class="carrossel-imagem" data-rotulo="Versão final">
-                                        <img src="Inimigo1_infectado.png"
-                                             alt="Versão final da personagem principal">
+                                    <div class="carrossel-imagem" data-rotulo="Aluno infectado">
+                                        <img src="Inimigo1_infectado.png" alt="Aluno infectado pela IA, inimigo 2">
                                     </div>
                                     <figcaption>
                                         <strong>4. Aluno infectado</strong>
@@ -409,18 +463,7 @@ func algum_quiz_correto(fase: String) -> bool:
 
                     <li class="card-recurso card-largo">
                         <h3>Documentação Completa do Projeto</h3>
-                        <p>
-                            Nesta seção, reunimos os registros e as informações referentes ao
-                            desenvolvimento do projeto. Aqui são apresentados o planejamento,
-                            as etapas de criação, as tecnologias utilizadas e as decisões tomadas
-                            ao longo do trabalho. O objetivo é documentar o processo de
-                            desenvolvimento do jogo, permitindo compreender como a proposta
-                            inicial foi transformada no resultado final.
-                        </p>
-                        <p>
-                            Baixe o manual, o relatório técnico e os requisitos do sistema
-                            reunidos em um único arquivo PDF para consulta completa.
-                        </p>
+                        <p>Planejamento, etapas de criação, tecnologias e decisões do projeto, reunidos em um único PDF.</p>
                         <a
                             class="botao"
                             href="docs/documentacao-completa.pdf"
@@ -494,90 +537,44 @@ func algum_quiz_correto(fase: String) -> bool:
             </p>
 
             <ul class="lista-integrantes">
-
                 <li class="card-integrante">
-                    <img
-                        src="aisha.jpeg"
-                        alt="Foto de Aisha, integrante da equipe de desenvolvimento"
-                        class="avatar-integrante"
-                        width="88"
-                        height="88"
-                    >
+                    <img src="aisha.jpeg" alt="Foto de Aisha, integrante da equipe de desenvolvimento" class="avatar-integrante" width="88" height="88">
 
                     <h3>Aisha</h3>
-                    <p class="funcao-integrante">Idealização do Tema & Desenvolvimento</p>
-                    <p>
-                        Idealizou o tema do projeto e participou ativamente
-                         da programação, construção e implementação das funcionalidades do jogo.
-                    </p>
+                    <p class="funcao-integrante">Idealização do Tema &amp; Desenvolvimento</p>
+                    <p>Idealizou o tema do projeto e participou ativamente da programação, construção e implementação das funcionalidades do jogo.</p>
                 </li>
 
                 <li class="card-integrante">
-                    <img
-                        src="enzo.jpeg"
-                        alt="Foto do Enzo, integrante da equipe de programação"
-                        class="avatar-integrante"
-                        width="88"
-                        height="88"
-                    >
+                    <img src="enzo.jpeg" alt="Foto do Enzo, integrante da equipe de design gráfico" class="avatar-integrante" width="88" height="88">
 
                     <h3>Enzo</h3>
                     <p class="funcao-integrante">Design Gráfico</p>
-                    <p>
-                        Responsável pela criação dos
-                         cenários e das artes/sprites que dão vida ao visual do jogo.
-                    </p>
+                    <p>Responsável pela criação dos cenários e das artes/sprites que dão vida ao visual do jogo.</p>
                 </li>
 
                 <li class="card-integrante">
-                    <img
-                        src="felipe.jpeg"
-                        alt="Foto do Felipe, integrante da equipe de programação"
-                        class="avatar-integrante"
-                        width="88"
-                        height="88"
-                    >
+                    <img src="felipe.jpeg" alt="Foto do Felipe, integrante da equipe de programação" class="avatar-integrante" width="88" height="88">
 
                     <h3>Felipe</h3>
                     <p class="funcao-integrante">Programação</p>
-                    <p>
-                        Responsável por estruturar 
-                        a lógica principal e dar vida ao funcionamento técnico da aplicação.
-                    </p>
+                    <p>Responsável por estruturar a lógica principal e dar vida ao funcionamento técnico da aplicação.</p>
                 </li>
 
                 <li class="card-integrante">
-                    <img
-                        src="ingrith.jpeg"
-                        alt="Foto de Gisselli, integrante da equipe de desenvolvimento web"
-                        class="avatar-integrante"
-                        width="88"
-                        height="88"
-                    >
+                    <img src="ingrith.jpeg" alt="Foto de Gisselli, integrante da equipe de desenvolvimento web" class="avatar-integrante" width="88" height="88">
 
                     <h3>Gisselli</h3>
                     <p class="funcao-integrante">Desenvolvimento web</p>
-                    <p>
-                         Responsável pelo visual e
-                          funcionamento do site, garantindo uma navegação moderna, intuitiva e atraente.
-                    </p>
+                    <p>Responsável pelo visual e funcionamento do site, garantindo uma navegação moderna, intuitiva e atraente.</p>
                 </li>
 
                 <li class="card-integrante">
-                    <img
-                        src="grazi.jpeg"
-                        alt="Foto da Grazi, integrante da equipe de design gráfico"
-                        class="avatar-integrante"
-                        width="88"
-                        height="88"
-                    >
+                    <img src="grazi.jpeg" alt="Foto da Grazi, integrante da equipe de documentação" class="avatar-integrante" width="88" height="88">
 
                     <h3>Grazielly</h3>
-                    <p class="funcao-integrante">Idealização do Tema & Documentação</p>
-                    <p>
-                        Coidealizou a proposta do jogo
-                         e liderou a estruturação da documentação e relatórios técnicos do projeto.
-                    </p>
+                    <p class="funcao-integrante">Idealização do Tema &amp; Documentação</p>
+                    <p>Coidealizou a proposta do jogo e liderou a estruturação da documentação e relatórios técnicos do projeto.</p>
                 </li>
 
             </ul>
@@ -588,10 +585,6 @@ func algum_quiz_correto(fase: String) -> bool:
 
     <!-- Rodapé -->
     <footer class="rodape">
-
-        <div class="rodape-conteudo">
-
-        </div>
 
         <!-- Linha divisória e créditos -->
         <div class="rodape-base">
