@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cs8c2plromd6j"]
-
-[ext_resource type="Script" uid="uid://cufxdhgnwbhdr" path="res://Scripts/musica_da_cena.gd" id="1_y0wea"]
-
-[node name="Node" type="Node" unique_id=135597576]
-script = ExtResource("1_y0wea")
