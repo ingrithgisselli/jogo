@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qldxbi6nqfmk" path="res://Sprites/Sprites livres/Computadores/IA/tela computador(apagado).jpg" id="2_s5n1w"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="3_kmgb2"]
 [ext_resource type="Script" uid="uid://cfmo870w22egn" path="res://Scripts/resetarGameState.gd" id="4_01dch"]
+[ext_resource type="FontFile" uid="uid://bkesdq1k0gl6o" path="res://Sprites/Sprites livres/Fontes/8bitoperator-faithful-bold-italic.ttf" id="4_s5n1w"]
 
 [node name="PanelContainer" type="PanelContainer" unique_id=892975516]
 anchors_preset = 15
@@ -31,6 +32,7 @@ offset_transform_scale = Vector2(0.8, 0.8)
 [node name="Som" type="Label" parent="VBoxContainer" unique_id=1427392955]
 layout_mode = 2
 theme = ExtResource("3_kmgb2")
+theme_override_fonts/font = ExtResource("4_s5n1w")
 theme_override_font_sizes/font_size = 20
 text = "Som"
 horizontal_alignment = 1
@@ -38,6 +40,7 @@ horizontal_alignment = 1
 [node name="Música de Fundo" type="Label" parent="VBoxContainer" unique_id=399181147]
 layout_mode = 2
 theme = ExtResource("3_kmgb2")
+theme_override_fonts/font = ExtResource("4_s5n1w")
 theme_override_font_sizes/font_size = 16
 text = "Música de Fundo"
 horizontal_alignment = 1
@@ -52,6 +55,7 @@ step = 0.05
 [node name="Sons" type="Label" parent="VBoxContainer" unique_id=1587318970]
 layout_mode = 2
 theme = ExtResource("3_kmgb2")
+theme_override_fonts/font = ExtResource("4_s5n1w")
 theme_override_font_sizes/font_size = 16
 text = "Efeitos sonoros"
 horizontal_alignment = 1
@@ -75,6 +79,7 @@ bus = &"Efeitos"
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_kmgb2")
+theme_override_fonts/font = ExtResource("4_s5n1w")
 theme_override_font_sizes/font_size = 16
 text = "Voltar"
 script = ExtResource("4_01dch")

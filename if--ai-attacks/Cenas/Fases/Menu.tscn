@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ep4dar5xcf4h" path="res://Cenas/Fases/menu.gd" id="1_u7eip"]
 [ext_resource type="Texture2D" uid="uid://6yru83hdshdv" path="res://Sprites/Autorais/Botão/botão.png" id="2_qif5a"]
-[ext_resource type="FontFile" uid="uid://bluqgeseptqwb" path="res://Sprites/Sprites livres/Fontes/Fonte Pixelada.ttf" id="3_c1dlh"]
-[ext_resource type="Texture2D" uid="uid://crsh01ru7yevj" path="res://Sprites/IA/titulo_letras_v2.png" id="4_qif5a"]
+[ext_resource type="FontFile" uid="uid://bkesdq1k0gl6o" path="res://Sprites/Sprites livres/Fontes/8bitoperator-faithful-bold-italic.ttf" id="3_mpp33"]
+[ext_resource type="Texture2D" uid="uid://w1blpmclsgoa" path="res://Sprites/IA/titulo_letras_v4.png" id="4_mpp33"]
 [ext_resource type="Texture2D" uid="uid://g1lymenj7pqi" path="res://Sprites/Autorais/Fases/fase_boss_fina_backl.png" id="5_c1dlh"]
 [ext_resource type="PackedScene" uid="uid://bd5ml5jpadjwf" path="res://Cenas/Fases/PainelSom.tscn" id="6_762mq"]
 [ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="7_mpp33"]
@@ -62,8 +62,8 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1291016, 1.1284043)
-theme_override_fonts/font = ExtResource("3_c1dlh")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_mpp33")
+theme_override_font_sizes/font_size = 10
 text = "Iniciar"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,7 +91,8 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1291016, 1.1284043)
-theme_override_fonts/font = ExtResource("3_c1dlh")
+theme_override_fonts/font = ExtResource("3_mpp33")
+theme_override_font_sizes/font_size = 10
 text = "Tutorial"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -112,14 +113,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = 8.999999
-offset_right = 5.0
-offset_bottom = 9.0
+offset_left = -14.0
+offset_top = 7.999999
+offset_right = 4.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1291016, 1.1284043)
-theme_override_fonts/font = ExtResource("3_c1dlh")
+theme_override_fonts/font = ExtResource("3_mpp33")
+theme_override_font_sizes/font_size = 12
 text = "Som"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -127,7 +129,7 @@ vertical_alignment = 1
 [node name="Título" type="Sprite2D" parent="." unique_id=1400952248]
 position = Vector2(195, 56)
 scale = Vector2(0.75, 0.76)
-texture = ExtResource("4_qif5a")
+texture = ExtResource("4_mpp33")
 
 [node name="Fundo" type="ParallaxBackground" parent="." unique_id=712428314]
 
@@ -146,6 +148,7 @@ texture = ExtResource("5_c1dlh")
 flip_h = true
 
 [node name="PanelContainer" parent="." unique_id=867842043 instance=ExtResource("6_762mq")]
+visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -162,8 +165,24 @@ offset_transform_enabled = true
 position = Vector2(70.00001, 81.75)
 scale = Vector2(0.12784591, 0.19019395)
 
+[node name="Som" parent="PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(867842043, 1322303789) index="0" unique_id=1389261596]
+theme_override_fonts/font = ExtResource("3_mpp33")
+theme_override_font_sizes/font_size = 14
+
+[node name="Música de Fundo" parent="PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(867842043, 1322303789) index="1" unique_id=1473326735]
+theme_override_fonts/font = ExtResource("3_mpp33")
+theme_override_font_sizes/font_size = 14
+
+[node name="Sons" parent="PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(867842043, 1322303789) index="3" unique_id=84566901]
+theme_override_fonts/font = ExtResource("3_mpp33")
+theme_override_font_sizes/font_size = 14
+
 [node name="Música" parent="PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(867842043, 1322303789) index="5" unique_id=79493572]
 volume_db = -80.0
+
+[node name="Voltar" parent="PanelContainer/VBoxContainer" parent_id_path=PackedInt32Array(867842043, 1322303789) index="7" unique_id=1169348521]
+theme_override_fonts/font = ExtResource("3_mpp33")
+theme_override_font_sizes/font_size = 14
 
 [node name="Node" parent="." unique_id=135597576 instance=ExtResource("7_mpp33")]
 musica = ExtResource("8_2yl6p")

@@ -20,11 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://62wc3gdg0y4w" path="res://Sprites/Autorais/Inimigos/boss_final_andando_4.png" id="12_cifgt"]
 [ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="15_4iunj"]
 [ext_resource type="Texture2D" uid="uid://g1lymenj7pqi" path="res://Sprites/Autorais/Fases/fase_boss_fina_backl.png" id="15_j4jos"]
-[ext_resource type="FontFile" uid="uid://bluqgeseptqwb" path="res://Sprites/Sprites livres/Fontes/Fonte Pixelada.ttf" id="15_tjf6b"]
 [ext_resource type="Texture2D" uid="uid://dip8gw8f4jyul" path="res://Sprites/Autorais/Fases/plataforma.png" id="16_cifgt"]
 [ext_resource type="Texture2D" uid="uid://bocx36ixvc72t" path="res://Sprites/Autorais/Fases/fase_boss_final_front.png" id="17_2snyo"]
 [ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="18_cifgt"]
 [ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="19_2snyo"]
+[ext_resource type="FontFile" uid="uid://bkesdq1k0gl6o" path="res://Sprites/Sprites livres/Fontes/8bitoperator-faithful-bold-italic.ttf" id="20_a2ihd"]
 [ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="25_jnf7k"]
 [ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="26_w17d5"]
 [ext_resource type="AudioStream" uid="uid://cm4qtayqlcjmq" path="res://Sons/música de fundo(chefão).mp3" id="27_a2ihd"]
@@ -242,8 +242,8 @@ offset_top = 200.0
 offset_right = 235.0
 offset_bottom = 223.0
 theme = ExtResource("15_4iunj")
-theme_override_fonts/font = ExtResource("15_tjf6b")
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("20_a2ihd")
+theme_override_font_sizes/font_size = 8
 text = "Colete os livros e derrote a máquina"
 
 [node name="Fundo" type="Sprite2D" parent="." unique_id=984217135]
