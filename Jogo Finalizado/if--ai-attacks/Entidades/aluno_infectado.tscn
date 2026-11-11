@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://vtpwe7fen6ka"]
+
+[ext_resource type="Script" uid="uid://ciqy5nq6sb1r3" path="res://Scripts/aluno_infectado.gd" id="1_mqddy"]
+[ext_resource type="Texture2D" uid="uid://bct6tosxa6jf2" path="res://Sprites/Autorais/Inimigos/IA/Aluno infectado/Inimigo1_andando.png" id="2_rjfp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh83d"]
+atlas = ExtResource("2_rjfp1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0o4l"]
+atlas = ExtResource("2_rjfp1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of7d1"]
+atlas = ExtResource("2_rjfp1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw2to"]
+atlas = ExtResource("2_rjfp1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6ysy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh83d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0o4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of7d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw2to")
+}],
+"loop": 1,
+"name": &"Movimentação2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cifgt"]
+size = Vector2(10, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdmgx"]
+size = Vector2(12.000004, 2.5000017)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6faqc"]
+size = Vector2(12, 33.000008)
+
+[node name="Aluno Infectado" type="CharacterBody2D" unique_id=1911551078]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_mqddy")
+
+[node name="DetectorChao" type="RayCast2D" parent="." unique_id=1095845786]
+position = Vector2(24, 19)
+target_position = Vector2(0, 12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1501245754]
+position = Vector2(13.084201, 0)
+scale = Vector2(0.625, 0.815)
+sprite_frames = SubResource("SpriteFrames_p6ysy")
+animation = &"Movimentação2"
+autoplay = "Movimentação2"
+frame_progress = 0.6024394
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444446193]
+position = Vector2(15, 1.5)
+shape = SubResource("RectangleShape2D_cifgt")
+
+[node name="Cabeca" type="Area2D" parent="." unique_id=17085440]
+position = Vector2(15, -19)
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabeca" unique_id=1325959417]
+position = Vector2(-9.536743e-07, 1.9073486e-06)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_vdmgx")
+
+[node name="Dano" type="Area2D" parent="." unique_id=571989358]
+collision_layer = 512
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dano" unique_id=1827740244]
+position = Vector2(15, 2.5)
+scale = Vector2(0.99999994, 0.9999999)
+shape = SubResource("RectangleShape2D_6faqc")

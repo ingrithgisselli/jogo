@@ -1,0 +1,437 @@
+[gd_scene format=3 uid="uid://c7lv5dilppbhk"]
+
+[ext_resource type="Script" uid="uid://b5ophb2ij8cgj" path="res://Cenas/Fases/script_fase_final.gd" id="1_eysbh"]
+[ext_resource type="Script" uid="uid://c4w418u4jlvbr" path="res://Scripts/chefão.gd" id="2_kkrjb"]
+[ext_resource type="PackedScene" uid="uid://bak2ec7ev1mg2" path="res://Entidades/jogador.tscn" id="2_ye3dl"]
+[ext_resource type="Script" uid="uid://dkrlfclkui7i3" path="res://Scripts/jogador(fase final).gd" id="3_0jpv8"]
+[ext_resource type="Script" uid="uid://36oabqspjlkd" path="res://Scripts/coletáveis.gd" id="3_lxw2d"]
+[ext_resource type="PackedScene" uid="uid://cj4vrwlgm7vfr" path="res://Entidades/camera.tscn" id="4_lxw2d"]
+[ext_resource type="AudioStream" uid="uid://bnhhoyny82yn7" path="res://Sons/pulo.mp3" id="4_otrbr"]
+[ext_resource type="AudioStream" uid="uid://dyn1xuxm8evl8" path="res://Sons/dano-jogador.mp3" id="5_jnf7k"]
+[ext_resource type="Texture2D" uid="uid://d338pqufjmegy" path="res://Sprites/Autorais/coletáveis/livro1 (1).png" id="6_cifgt"]
+[ext_resource type="AudioStream" uid="uid://df37y6yf42npk" path="res://Sons/certo.mp3" id="8_a2ihd"]
+[ext_resource type="Texture2D" uid="uid://dj1u5w6vk8so1" path="res://Sprites/Autorais/Inimigos/boss_final_comandante_damage.png" id="8_gogcb"]
+[ext_resource type="Texture2D" uid="uid://c7a6tq3pnr756" path="res://Sprites/Autorais/Inimigos/boss_final_andando.png" id="9_d0a46"]
+[ext_resource type="PackedScene" uid="uid://cbnb32k3gxco6" path="res://Interfaces/interface___vida_(chefão).tscn" id="9_fvglf"]
+[ext_resource type="PackedScene" uid="uid://dvas178njmq6l" path="res://Interfaces/interface___vida_(jogador).tscn" id="10_0jpv8"]
+[ext_resource type="Texture2D" uid="uid://dblf4cskflc1a" path="res://Sprites/Autorais/Inimigos/boss_final_andando_2 (2).png" id="10_0uiyp"]
+[ext_resource type="AudioStream" uid="uid://3ias4qupnrjy" path="res://Sons/dano-inimigos.mp3" id="10_n3rir"]
+[ext_resource type="Texture2D" uid="uid://n5kc8wrynk5i" path="res://Sprites/Autorais/Inimigos/boss_final_andando_3.png" id="11_j4jos"]
+[ext_resource type="Texture2D" uid="uid://62wc3gdg0y4w" path="res://Sprites/Autorais/Inimigos/boss_final_andando_4.png" id="12_cifgt"]
+[ext_resource type="Theme" uid="uid://cxq3l5sld4cgv" path="res://new_theme.tres" id="15_4iunj"]
+[ext_resource type="Texture2D" uid="uid://g1lymenj7pqi" path="res://Sprites/Autorais/Fases/fase_boss_fina_backl.png" id="15_j4jos"]
+[ext_resource type="FontFile" uid="uid://bluqgeseptqwb" path="res://Sprites/Sprites livres/Fontes/Fonte Pixelada.ttf" id="15_tjf6b"]
+[ext_resource type="Texture2D" uid="uid://dip8gw8f4jyul" path="res://Sprites/Autorais/Fases/plataforma.png" id="16_cifgt"]
+[ext_resource type="Texture2D" uid="uid://bocx36ixvc72t" path="res://Sprites/Autorais/Fases/fase_boss_final_front.png" id="17_2snyo"]
+[ext_resource type="PackedScene" uid="uid://1y1s74x2v2k6" path="res://Entidades/drone_2.tscn" id="18_cifgt"]
+[ext_resource type="PackedScene" uid="uid://vtpwe7fen6ka" path="res://Entidades/aluno_infectado.tscn" id="19_2snyo"]
+[ext_resource type="PackedScene" uid="uid://c61kpeahxe5of" path="res://Cenas/MenuPausa.tscn" id="25_jnf7k"]
+[ext_resource type="PackedScene" uid="uid://cs8c2plromd6j" path="res://Cenas/MusicaDaCena.tscn" id="26_w17d5"]
+[ext_resource type="AudioStream" uid="uid://cm4qtayqlcjmq" path="res://Sons/música de fundo(chefão).mp3" id="27_a2ihd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvglf"]
+size = Vector2(21.500008, 80.500015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57s0e"]
+size = Vector2(60, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wufts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_gogcb")
+}],
+"loop": 1,
+"name": &"Danificado",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_d0a46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0uiyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j4jos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cifgt")
+}],
+"loop": 1,
+"name": &"Máquina",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4omdq"]
+size = Vector2(75.33336, 139.08873)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jjfc"]
+size = Vector2(74.000046, 10.5231085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5uj0"]
+size = Vector2(88.00008, 125.16532)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
+size = Vector2(79.99999, 12.666653)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
+size = Vector2(288, 31.999994)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cifgt"]
+size = Vector2(13.333333, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjf6b"]
+size = Vector2(8.666665, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgijw"]
+size = Vector2(23.5, 17.359375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csfsk"]
+size = Vector2(2.006359, 27.998291)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dlp6"]
+size = Vector2(15.99995, 25.99992)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iunj"]
+size = Vector2(18.333351, 2.5)
+
+[node name="Fase Final" type="Node2D" unique_id=1657055100]
+script = ExtResource("1_eysbh")
+
+[node name="Jogador" parent="." unique_id=1296977925 instance=ExtResource("2_ye3dl")]
+unique_name_in_owner = true
+position = Vector2(39, 233)
+scale = Vector2(0.4, 0.4)
+collision_mask = 873
+script = ExtResource("3_0jpv8")
+som_pulo = ExtResource("4_otrbr")
+som_dano = ExtResource("5_jnf7k")
+
+[node name="Animação" parent="Jogador" index="0" unique_id=1463381569]
+scale = Vector2(1.5, 1.5)
+
+[node name="ColisãoJogador" parent="Jogador" index="1" unique_id=1651223342]
+position = Vector2(13.249985, 7.75)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_fvglf")
+
+[node name="Camera2D" parent="." unique_id=2032167798 instance=ExtResource("4_lxw2d")]
+position = Vector2(218, 156)
+zoom = Vector2(1, 1)
+limit_top = 0
+limit_right = 432
+limit_bottom = 312
+limit_smoothed = true
+
+[node name="coletavel1" type="Area2D" parent="." unique_id=796550405]
+z_index = 1
+position = Vector2(-7, 29)
+scale = Vector2(0.3, 0.3)
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("3_lxw2d")
+coleta = ExtResource("8_a2ihd")
+
+[node name="Sprite2D" type="Sprite2D" parent="coletavel1" unique_id=128325901]
+position = Vector2(679.25, 98.499985)
+scale = Vector2(0.33984372, 0.35156277)
+texture = ExtResource("6_cifgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel1" unique_id=1005889543]
+position = Vector2(685, 88)
+shape = SubResource("RectangleShape2D_57s0e")
+
+[node name="coletavel2" type="Area2D" parent="." unique_id=57648863]
+z_index = 1
+position = Vector2(182, 5)
+scale = Vector2(0.3, 0.3)
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("3_lxw2d")
+coleta = ExtResource("8_a2ihd")
+
+[node name="Sprite2D" type="Sprite2D" parent="coletavel2" unique_id=1508827194]
+position = Vector2(679.25, 197.5)
+scale = Vector2(0.33984372, 0.35156277)
+texture = ExtResource("6_cifgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel2" unique_id=1884356626]
+position = Vector2(685, 190.00002)
+shape = SubResource("RectangleShape2D_57s0e")
+
+[node name="coletavel3" type="Area2D" parent="." unique_id=2021711910]
+z_index = 1
+position = Vector2(-183, 37)
+scale = Vector2(0.3, 0.3)
+collision_layer = 128
+collision_mask = 2
+script = ExtResource("3_lxw2d")
+coleta = ExtResource("8_a2ihd")
+
+[node name="Sprite2D" type="Sprite2D" parent="coletavel3" unique_id=685258373]
+position = Vector2(747, 98)
+scale = Vector2(0.33984372, 0.35156277)
+texture = ExtResource("6_cifgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coletavel3" unique_id=391126571]
+position = Vector2(752, 88.5)
+shape = SubResource("RectangleShape2D_57s0e")
+
+[node name="Chefão" type="CharacterBody2D" parent="." unique_id=693359797]
+unique_name_in_owner = true
+light_mask = 0
+z_index = 1
+position = Vector2(386, 226.00002)
+scale = Vector2(0.5, 0.417)
+collision_layer = 64
+collision_mask = 3
+script = ExtResource("2_kkrjb")
+destruido = ExtResource("10_n3rir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chefão" unique_id=828148492]
+position = Vector2(4.1666603, 4.000001)
+scale = Vector2(0.8335433, 1.5234377)
+sprite_frames = SubResource("SpriteFrames_wufts")
+animation = &"Máquina"
+frame_progress = 0.41957155
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão" unique_id=1988320137]
+position = Vector2(0.333313, 16.78656)
+scale = Vector2(0.9999998, 0.99999976)
+shape = SubResource("RectangleShape2D_4omdq")
+
+[node name="Cabeca" type="Area2D" parent="Chefão" unique_id=71650224]
+position = Vector2(-0.83333445, -88)
+collision_layer = 256
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão/Cabeca" unique_id=478658782]
+position = Vector2(3.833313, 18.92102)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_4jjfc")
+
+[node name="Dano" type="Area2D" parent="Chefão" unique_id=366712447]
+position = Vector2(0, 4)
+collision_layer = 512
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chefão/Dano" unique_id=1212668937]
+position = Vector2(-6.1035156e-05, 15.417114)
+scale = Vector2(0.99999994, 0.99999976)
+shape = SubResource("RectangleShape2D_u5uj0")
+
+[node name="Interface - Vida (Chefão)" parent="." unique_id=1926878642 instance=ExtResource("9_fvglf")]
+
+[node name="TextureRect (Chefão)" parent="Interface - Vida (Chefão)" index="0" unique_id=850769749]
+offset_left = 296.0
+offset_top = 188.0
+offset_right = 296.0
+offset_bottom = 188.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.8, 0.8)
+
+[node name="Interface - Vida (Jogador)" parent="." unique_id=1408029044 instance=ExtResource("10_0jpv8")]
+
+[node name="Objetivo" type="CanvasLayer" parent="." unique_id=48791893]
+
+[node name="Label" type="Label" parent="Objetivo" unique_id=1177481290]
+z_index = 3
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 235.0
+offset_bottom = 223.0
+theme = ExtResource("15_4iunj")
+theme_override_fonts/font = ExtResource("15_tjf6b")
+theme_override_font_sizes/font_size = 10
+text = "Colete os livros e derrote a máquina"
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=984217135]
+position = Vector2(216, 156)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_j4jos")
+
+[node name="Plataforma" type="Sprite2D" parent="Fundo" unique_id=1166273456]
+position = Vector2(-16.666668, 24.66667)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_cifgt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fundo/Plataforma" unique_id=1424819967]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fundo/Plataforma/StaticBody2D" unique_id=581365427]
+position = Vector2(0, 22.333328)
+shape = SubResource("RectangleShape2D_4kxuq")
+one_way_collision = true
+
+[node name="Plataforma2" type="Sprite2D" parent="Fundo" unique_id=1903384212]
+position = Vector2(48, -18.666666)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_cifgt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fundo/Plataforma2" unique_id=1115033387]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fundo/Plataforma2/StaticBody2D" unique_id=1718222531]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="Plataforma3" type="Sprite2D" parent="Fundo" unique_id=1885636269]
+position = Vector2(-81.333336, -19.333332)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_cifgt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fundo/Plataforma3" unique_id=326396836]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fundo/Plataforma3/StaticBody2D" unique_id=740732520]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="Chão" type="Sprite2D" parent="Fundo" unique_id=1889609212]
+texture = ExtResource("17_2snyo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Fundo/Chão" unique_id=1953935577]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fundo/Chão/StaticBody2D" unique_id=1248539624]
+position = Vector2(0, 88)
+shape = SubResource("RectangleShape2D_mti6b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fundo/Chão/StaticBody2D" unique_id=953347080]
+position = Vector2(-136.66667, 0.66667175)
+shape = SubResource("RectangleShape2D_cifgt")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Fundo/Chão/StaticBody2D" unique_id=998774298]
+position = Vector2(139.66669, 0)
+shape = SubResource("RectangleShape2D_tjf6b")
+
+[node name="Drone2" parent="." unique_id=292160013 instance=ExtResource("18_cifgt")]
+position = Vector2(357, 125)
+velocidade_horizontal = 0.0
+velocidade_vertical = 0.0
+destruido = ExtResource("10_n3rir")
+
+[node name="AnimatedSprite2D" parent="Drone2" index="0" unique_id=775588090]
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="Drone2" index="1" unique_id=1497866238]
+position = Vector2(0, -8.3203125)
+shape = SubResource("RectangleShape2D_rgijw")
+
+[node name="Cabeca" parent="Drone2" index="2" unique_id=1330305859]
+position = Vector2(0, -17)
+rotation = 0.0008219984
+
+[node name="CollisionShape2D" parent="Drone2/Cabeca" index="0" unique_id=561217321]
+position = Vector2(0, 0.00831604)
+rotation = -1.5707964
+scale = Vector2(1.0000011, 1.0000011)
+shape = SubResource("RectangleShape2D_csfsk")
+
+[node name="Dano" parent="Drone2" index="3" unique_id=1362073846]
+position = Vector2(203, 12)
+
+[node name="CollisionShape2D2" parent="Drone2/Dano" index="0" unique_id=12869090]
+position = Vector2(-203, -18)
+shape = SubResource("RectangleShape2D_4dlp6")
+
+[node name="Drone4" parent="." unique_id=853893462 instance=ExtResource("18_cifgt")]
+position = Vector2(195, 111)
+velocidade_horizontal = 0.0
+velocidade_vertical = 0.0
+destruido = ExtResource("10_n3rir")
+
+[node name="AnimatedSprite2D" parent="Drone4" index="0" unique_id=775588090]
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="Drone4" index="1" unique_id=1497866238]
+position = Vector2(0, -8.3203125)
+shape = SubResource("RectangleShape2D_rgijw")
+
+[node name="Cabeca" parent="Drone4" index="2" unique_id=1330305859]
+position = Vector2(0, -17)
+rotation = 0.0008219984
+
+[node name="CollisionShape2D" parent="Drone4/Cabeca" index="0" unique_id=561217321]
+position = Vector2(0, 0.00831604)
+rotation = -1.5707964
+scale = Vector2(1.0000011, 1.0000011)
+shape = SubResource("RectangleShape2D_csfsk")
+
+[node name="Dano" parent="Drone4" index="3" unique_id=1362073846]
+position = Vector2(203, 12)
+
+[node name="CollisionShape2D2" parent="Drone4/Dano" index="0" unique_id=12869090]
+position = Vector2(-203, -18)
+shape = SubResource("RectangleShape2D_4dlp6")
+
+[node name="Drone3" parent="." unique_id=407698454 instance=ExtResource("18_cifgt")]
+position = Vector2(48, 196)
+velocidade_horizontal = 0.0
+velocidade_vertical = 0.0
+forca_quique = 400.0
+destruido = ExtResource("10_n3rir")
+
+[node name="AnimatedSprite2D" parent="Drone3" index="0" unique_id=775588090]
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="Drone3" index="1" unique_id=1497866238]
+position = Vector2(0, -8.3203125)
+shape = SubResource("RectangleShape2D_rgijw")
+
+[node name="Cabeca" parent="Drone3" index="2" unique_id=1330305859]
+position = Vector2(0, -17)
+rotation = 0.0008219984
+
+[node name="CollisionShape2D" parent="Drone3/Cabeca" index="0" unique_id=561217321]
+position = Vector2(0, 0.00831604)
+rotation = -1.5707964
+scale = Vector2(1.0000011, 1.0000011)
+shape = SubResource("RectangleShape2D_csfsk")
+
+[node name="Dano" parent="Drone3" index="3" unique_id=1362073846]
+position = Vector2(203, 12)
+
+[node name="CollisionShape2D2" parent="Drone3/Dano" index="0" unique_id=12869090]
+position = Vector2(-203, -17.999992)
+shape = SubResource("RectangleShape2D_4dlp6")
+
+[node name="Aluno Infectado2" parent="." unique_id=1911551078 instance=ExtResource("19_2snyo")]
+position = Vector2(54, 118)
+destruido = ExtResource("10_n3rir")
+
+[node name="DetectorChao" parent="Aluno Infectado2" index="0" unique_id=1095845786]
+position = Vector2(20, 20)
+
+[node name="CollisionShape2D" parent="Aluno Infectado2/Cabeca" parent_id_path=PackedInt32Array(1911551078, 17085440) index="0" unique_id=1325959417]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_4iunj")
+
+[node name="Aluno Infectado3" parent="." unique_id=1874493251 instance=ExtResource("19_2snyo")]
+position = Vector2(295, 119)
+destruido = ExtResource("10_n3rir")
+
+[node name="DetectorChao" parent="Aluno Infectado3" index="0" unique_id=1095845786]
+position = Vector2(20, 20)
+
+[node name="CollisionShape2D" parent="Aluno Infectado3/Cabeca" parent_id_path=PackedInt32Array(1874493251, 17085440) index="0" unique_id=1325959417]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_4iunj")
+
+[node name="MenuPausa" parent="." unique_id=59307149 instance=ExtResource("25_jnf7k")]
+visible = false
+
+[node name="Node" parent="." unique_id=135597576 instance=ExtResource("26_w17d5")]
+musica = ExtResource("27_a2ihd")
+
+[connection signal="body_entered" from="coletavel1" to="coletavel1" method="_on_body_entered"]
+[connection signal="body_entered" from="coletavel2" to="coletavel2" method="_on_body_entered"]
+[connection signal="body_entered" from="coletavel3" to="coletavel3" method="_on_body_entered"]
+[connection signal="body_entered" from="Chefão/Cabeca" to="." method="_on_cabeca_body_entered"]
+
+[editable path="Jogador"]
+[editable path="Camera2D"]
+[editable path="Interface - Vida (Chefão)"]
+[editable path="Interface - Vida (Jogador)"]
+[editable path="Drone2"]
+[editable path="Drone4"]
+[editable path="Drone3"]
+[editable path="Aluno Infectado2"]
+[editable path="Aluno Infectado3"]
