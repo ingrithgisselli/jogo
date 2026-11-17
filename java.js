@@ -39,7 +39,7 @@ if (botaoMenu && menuPrincipal) {
     });
 
     // Fecha o menu ao voltar para a tela desktop.
-    window.matchMedia('(min-width: 1101px)').addEventListener('change', (evento) => {
+    window.matchMedia('(min-width: 901px)').addEventListener('change', (evento) => {
         if (evento.matches) {
             fecharMenu();
         }
@@ -266,3 +266,4 @@ if (lightbox) {
         }
     });
 }
+
