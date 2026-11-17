@@ -1,113 +1,358 @@
-/* ========================================
-   1. MENU RESPONSIVO
-======================================== */
-const botaoMenu = document.querySelector('.menu-toggle');
-const menuPrincipal = document.querySelector('#menu-principal');
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-// Fecha o menu e restaura o botão.
-function fecharMenu() {
-    if (!botaoMenu || !menuPrincipal) return;
-
-    menuPrincipal.classList.remove('aberto');
-    botaoMenu.setAttribute('aria-expanded', 'false');
-    botaoMenu.setAttribute('aria-label', 'Abrir menu');
-    botaoMenu.textContent = '☰';
-}
-
-if (botaoMenu && menuPrincipal) {
-
-    // Abre ou fecha o menu ao clicar no botão.
-    botaoMenu.addEventListener('click', () => {
-        const estaAberto = menuPrincipal.classList.toggle('aberto');
-
-        botaoMenu.setAttribute('aria-expanded', String(estaAberto));
-        botaoMenu.setAttribute('aria-label', estaAberto ? 'Fechar menu' : 'Abrir menu');
-        botaoMenu.textContent = estaAberto ? '✕' : '☰';
-    });
-
-    // Fecha o menu quando um link é selecionado.
-    menuPrincipal.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', fecharMenu);
-    });
-
-    // Fecha o menu com Escape e devolve o foco ao botão.
-    document.addEventListener('keydown', (evento) => {
-        if (evento.key === 'Escape' && menuPrincipal.classList.contains('aberto')) {
-            fecharMenu();
-            botaoMenu.focus();
-        }
-    });
-
-    // Fecha o menu ao voltar para a tela desktop.
-    window.matchMedia('(min-width: 901px)').addEventListener('change', (evento) => {
-        if (evento.matches) {
-            fecharMenu();
-        }
-    });
-
-    // Fecha o menu ao clicar fora dele.
-    document.addEventListener('click', (evento) => {
-        const clicouNoMenu = menuPrincipal.contains(evento.target);
-        const clicouNoBotao = botaoMenu.contains(evento.target);
-
-        if (!clicouNoMenu && !clicouNoBotao) {
-            fecharMenu();
-        }
-    });
-}
-
-
-/* ========================================
-   2. MODO CLARO E ESCURO
-======================================== */
-
-const botaoTema = document.querySelector('#tema-toggle');
-const elementoHTML = document.documentElement;
-
-// Aplica o estado visual do botão com base no tema atual.
-function atualizarEstadoBotao(tema) {
-    const temaClaro = tema === 'light';
-
-    botaoTema.textContent = temaClaro ? '☾' : '☀';
-    botaoTema.setAttribute('aria-pressed', String(temaClaro));
-
-    // Atualiza a cor da barra do navegador no celular.
-    const metaTema = document.querySelector('meta[name="theme-color"]');
-
-    if (metaTema) {
-        metaTema.setAttribute('content', temaClaro ? '#e6e8f5' : '#080716');
-    }
-}
-
-if (botaoTema) {
-
-    // Garante que o tema seja sempre 'light' ou 'dark'.
-    const temaInicial = elementoHTML.dataset.theme === 'light' ? 'light' : 'dark';
-    elementoHTML.dataset.theme = temaInicial;
-    atualizarEstadoBotao(temaInicial);
-
-    // Alterna entre claro e escuro.
-    botaoTema.addEventListener('click', () => {
-        const novoTema = elementoHTML.dataset.theme === 'dark' ? 'light' : 'dark';
-
-        elementoHTML.dataset.theme = novoTema;
-        atualizarEstadoBotao(novoTema);
-
-        // Guarda a escolha para a próxima visita.
+    <!-- Mini script para evitar o piscar do tema claro -->
+    <script>
         try {
-            localStorage.setItem('tema', novoTema);
-        } catch (erro) {
-            // A troca de tema continua funcionando sem armazenamento.
-        }
-    });
+            const temaSalvo = localStorage.getItem('tema');
+            const temaValido = temaSalvo === 'light' || temaSalvo === 'dark';
+            const prefereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+            const tema = temaValido ? temaSalvo : (prefereClaro ? 'light' : 'dark');
+            document.documentElement.dataset.theme = tema;
+        } catch (e) {}
+    </script>
+
+    <meta
+        name="description"
+        content="Conheça IF: AI Attacks, um jogo sobre tecnologia, lógica e inteligência artificial."
+    >
+
+    <meta name="theme-color" content="#1a1324">
+
+    <title>IF: AI Attacks</title>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Special+Elite&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="jogo.css">
+    <script src="java.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho e navegação -->
+    <header>
+        <nav aria-label="Navegação principal">
+
+            <a href="#inicio" class="logo">
+                IF: <span class="texto-destaque">AI</span> ATTACKS
+            </a>
+
+            <ul id="menu-principal">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#jogo">O Jogo</a></li>
+                <li><a href="#tutorial">Tutorial</a></li>
+                <li><a href="#bastidores">Programação</a></li>
+                <li><a href="#evolucao-sprites">Evolução dos Sprites</a></li>
+                <li><a href="#sprites">Sprites</a></li>
+                <li><a href="#cenarios">Cenários</a></li>
+                <li><a href="#documentacao">Documentação</a></li>
+                <li><a href="#integrantes">Integrantes</a></li>
+            </ul>
+
+            <!-- Ações da navegação -->
+            <div class="nav-acoes">
+
+                <!-- Alternar entre tema claro e escuro -->
+                <button
+                    class="tema-toggle"
+                    id="tema-toggle"
+                    type="button"
+                    aria-label="Alternar tema claro e escuro"
+                    aria-pressed="false"
+                    title="Alternar tema"
+                >
+                    ☀
+                </button>
+
+                <!-- Menu para dispositivos móveis -->
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="menu-principal"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="inicio">
+
+            <h1>
+                IF: <span class="texto-destaque">AI</span> ATTACKS
+            </h1>
+
+            <p>
+                Uma aventura em um mundo onde a inteligência artificial
+                ameaça o funcionamento da escola.
+            </p>
+
+            <div class="hero-botoes">
+                <a href="#video" class="botao" data-assistir-video>
+                    Assistir ao vídeo
+                </a>
+
+                <a href="#jogo" class="botao botao-secundario">
+                    Conheça o jogo
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Seção do jogo -->
+        <section id="jogo">
+
+            <!-- Destaques -->
+            <div class="bloco-destaques">
+
+                <span class="rotulo-secao">SOBRE O JOGO</span>
+
+                <h2>A Invasão ao Instituto e o Ataque da IA</h2>
+
+                <p class="descricao-destaques">
+                    Após uma revolução global liderada pelas Inteligências Artificiais,
+                    o mundo passou a ser governado por máquinas. Nesse cenário de
+                    resistência, um protagonista decide invadir as ruínas do Instituto
+                    Federal e eliminar a ameaça digital. Para isso, é preciso responder
+                    perguntas de informática, desviar e enfrentar drones malignos e
+                    alunos infectados com a IA!
+                </p>
+
+                <p class="link-jogo">
+                    <a href="https://felipe-sampa.itch.io/if-ai-attacks" class="botao" target="_blank" rel="noopener noreferrer">
+                        Jogar agora
+                    </a>
+                </p>
+
+                <!-- Storyboard -->
+                <div class="storyboard">
+                    <p class="storyboard-titulo">Storyboard <span>· clique para ampliar</span></p>
+
+                    <ul class="storyboard-lista">
+                        <li>
+                            <button type="button" class="storyboard-botao" data-legenda="Menu do jogo" data-rotulo="Menu">
+                                <img src="menuu.png" alt="Storyboard da tela de menu do jogo" loading="lazy">
+                            </button>
+                            <span class="storyboard-legenda">1. Menu</span>
+                        </li>
+                        <li>
+                            <button type="button" class="storyboard-botao" data-legenda="Fases do jogo" data-rotulo="Fases">
+                                <img src="fases.png" alt="Storyboard das fases do jogo" loading="lazy">
+                            </button>
+                            <span class="storyboard-legenda">2. Fases</span>
+                        </li>
+                        <li>
+                            <button type="button" class="storyboard-botao" data-legenda="Personagem principal" data-rotulo="Personagem">
+                                <img src="personagemp.png" alt="Storyboard da personagem principal" loading="lazy">
+                            </button>
+                            <span class="storyboard-legenda">3. Personagem principal</span>
+                        </li>
+                    </ul>
+
+                    <dialog class="lightbox" id="lightbox" aria-label="Imagem ampliada">
+                        <div class="lightbox-conteudo">
+                            <button type="button" class="lightbox-fechar" aria-label="Fechar imagem">✕</button>
+                            <img src="" alt="">
+                            <p class="lightbox-legenda"></p>
+                        </div>
+                    </dialog>
+                </div>
+
+            </div>
+
+            <!-- Apresentação do vídeo -->
+            <div class="video-jogo">
+
+                <div class="video-texto">
+
+                    <span class="rotulo-secao">VEJA EM AÇÃO</span>
+
+                    <h2>
+                        Entre no universo de IF:
+                        <span class="texto-destaque">AI</span> Attacks
+                    </h2>
+
+                    <p>Veja o jogo em ação e os desafios que o protagonista enfrenta.</p>
+
+                    <a href="#video" class="botao" data-assistir-video>
+                        Assistir ao vídeo
+                    </a>
+
+                </div>
+
+                <video
+                    class="video-player"
+                    id="video"
+                    controls
+                    preload="metadata"
+                    playsinline
+                    aria-label="Vídeo de apresentação do jogo IF: AI Attacks"
+                    tabindex="-1"
+                >
+                    <source src="videoo.mp4" type="video/mp4">
+                    Seu navegador não conseguiu carregar o vídeo. Verifique o arquivo videoo.mp4.
+                </video>
+
+            </div>
+
+        </section>
+
+        <!-- Tutorial -->
+        <section id="tutorial">
+
+            <span class="rotulo-secao">TUTORIAL</span>
+
+            <h2>Aprenda a jogar</h2>
+
+            <p class="descricao-tutorial">Três passos para começar a missão.</p>
+
+            <ol class="lista-tutorial">
+
+                <li class="passo-tutorial">
+                    <h3>Controles</h3>
+                    <ul class="lista-teclas">
+                        <li><kbd>←</kbd><kbd>→</kbd><span>ou</span><kbd>A</kbd><kbd>D</kbd><span>Mover</span></li>
+                        <li><kbd>Espaço</kbd><span>Pular</span></li>
+                        <li><kbd>Enter</kbd><span>Acessar o computador da fase (ou clique do mouse)</span></li>
+                    </ul>
+                </li>
+
+                <li class="passo-tutorial">
+                    <h3>Combate</h3>
+                    <ul class="lista-teclas">
+                        <li><span class="icone" aria-hidden="true">-</span><span>Pule em cima dos drones e alunos infectados para derrotá-los</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Encostar neles tira vida</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>3 vidas. Sem elas, a fase reinicia</span></li>
+                    </ul>
+                </li>
+
+                <li class="passo-tutorial">
+                    <h3>Como vencer</h3>
+                    <ul class="lista-teclas">
+                        <li><span class="icone" aria-hidden="true">-</span><span>Quiz: 4 alternativas, 1 correta</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Acertar abre o portão e salva o checkpoint</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Boss final: 5 vidas (contador de bateria)</span></li>
+                        <li><span class="icone" aria-hidden="true">-</span><span>Colete todos os livros para libertar o instituto</span></li>
+                    </ul>
+                </li>
+
+            </ol>
+
+        </section>
+
+        <!-- Bastidores: processo, código e sprites -->
+        <section id="bastidores">
+
+            <span class="rotulo-secao">PROGRAMAÇÃO</span>
+
+            <h2>Código em destaque</h2>
+
+            <!-- Código em destaque -->
+            <div class="bloco-bastidores" id="codigo-destaque">
+
+                <p>Trechos reais do jogo (GDScript) e do site (JavaScript e CSS). A linha-chave está destacada.</p>
+
+                <div class="abas" data-abas>
+
+                    <div class="abas-lista" role="tablist" aria-label="Trechos de código">
+                        <button class="aba" type="button" role="tab"
+                                id="aba-mecanica" aria-controls="painel-mecanica"
+                                aria-selected="true">Jogo · Sistema de Quiz</button>
+                        <button class="aba" type="button" role="tab"
+                                id="aba-state" aria-controls="painel-state"
+                                aria-selected="false" tabindex="-1">Game State</button>
+                        <button class="aba" type="button" role="tab"
+                                id="aba-tema" aria-controls="painel-tema"
+                                aria-selected="false" tabindex="-1">Site · Anti-Piscar (HTML)</button>
+                        <button class="aba" type="button" role="tab"
+                                id="aba-cores" aria-controls="painel-cores"
+                                aria-selected="false" tabindex="-1">Site · Abas WAI-ARIA (JavaScript)</button>
+                    </div>
+
+                    <div class="painel-codigo" role="tabpanel" id="painel-mecanica"
+                         aria-labelledby="aba-mecanica" tabindex="0">
+<pre><code>func sorteio() -> void:
+    <mark>var aleatorio := randi_range(1, 3)</mark>
+    if aleatorio == 1:
+        call_deferred("carregar_quizHard1")
+    elif aleatorio == 2:
+        call_deferred("carregar_quizHard2")
+    elif aleatorio == 3:
+        call_deferred("carregar_quizHard3")
+
+func carregar_quizHard1():
+    get_tree().change_scene_to_file(cena_quizHard1)
+
+func carregar_quizHard2():
+    get_tree().change_scene_to_file(cena_quizHard2)
+
+func carregar_quizHard3():
+    get_tree().change_scene_to_file(cena_quizHard3)</code></pre>
+                        <p class="legenda-codigo">
+                        Sorteio 
+                        de 1 a 3 escolhe qual dos três quizzes do tema da fase será carregado.
+                        </p>
+                    </div>
+
+                    <div class="painel-codigo" role="tabpanel" id="painel-state"
+                         aria-labelledby="aba-state" tabindex="0" hidden>
+<pre><code>var quizzes := {
+    "fase1": {"hardware1": false, "hardware2": false, "hardware3": false},
+    "fase2": {"software1": false, "software2": false, "software3": false},
+    "fase3": {"redes1": false, "redes2": false, "redes3": false},
+    "fase4": {"ti_verde1": false, "ti_verde2": false, "ti_verde3": false},
 }
+var posicao_jogador := Vector2.ZERO
+var posicao_salva := false
 
+func marcar_correto(fase: String, quiz: String) -> void:
+    <mark>quizzes[fase][quiz] = true</mark>
 
-/* ========================================
-   3. ABAS DE CÓDIGO
-======================================== */
+func algum_quiz_correto(fase: String) -> bool:
+    return quizzes[fase].values().has(true)</code></pre>
+                        <p class="legenda-codigo">
+                            O Game State guarda a posição 
+                            do jogador e os quizzes acertados, para a fase
+                             continuar de onde parou após o quiz.
+                        </p>
+                    </div>
 
-document.querySelectorAll('[data-abas]').forEach((grupo) => {
+                    <div class="painel-codigo" role="tabpanel" id="painel-tema"
+                         aria-labelledby="aba-tema" tabindex="0" hidden>
+<pre><code> &lt;script&gt;
+    try {
+        const temaSalvo = localStorage.getItem('tema');
+        const temaValido = temaSalvo === 'light' || temaSalvo === 'dark';
+        const prefereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+        const tema = temaValido ? temaSalvo : (prefereClaro ? 'light' : 'dark');
+        <mark>document.documentElement.dataset.theme = tema;</mark>
+    } catch (e) {}
+    &gt;/script&gt;
+</code></pre>
+                        <p class="legenda-codigo">
+                            Ao clicar no botão, o JavaScript troca o atributo
+                            <code>data-theme</code> da página e guarda a escolha
+                            no <code>localStorage</code> para a próxima visita.
+                        </p>
+                    </div>
+
+                    <div class="painel-codigo" role="tabpanel" id="painel-cores"
+                         aria-labelledby="aba-cores" tabindex="0" hidden>
+<pre><code>document.querySelectorAll('[data-abas]').forEach((grupo) => {
     const abas = Array.from(grupo.querySelectorAll('[role="tab"]'));
     const paineis = Array.from(grupo.querySelectorAll('[role="tabpanel"]'));
 
@@ -117,7 +362,7 @@ document.querySelectorAll('[data-abas]').forEach((grupo) => {
             const ativa = i === indice;
 
             aba.setAttribute('aria-selected', String(ativa));
-            aba.setAttribute('tabindex', ativa ? '0' : '-1');
+            <mark>aba.setAttribute('tabindex', ativa ? '0' : '-1');</mark>
             paineis[i].hidden = !ativa;
         });
 
@@ -136,7 +381,7 @@ document.querySelectorAll('[data-abas]').forEach((grupo) => {
             if (evento.key === 'ArrowRight') {
                 novoIndice = (indice + 1) % abas.length;
             } else if (evento.key === 'ArrowLeft') {
-                novoIndice = (indice - 1 + abas.length) % abas.length;
+                <mark>novoIndice = (indice - 1 + abas.length) % abas.length;</mark>
             } else if (evento.key === 'Home') {
                 novoIndice = 0;
             } else if (evento.key === 'End') {
@@ -150,120 +395,418 @@ document.querySelectorAll('[data-abas]').forEach((grupo) => {
         });
     });
 });
+    
+</code></pre>
+                        <p class="legenda-codigo">
+                            As cores ficam em variáveis. No tema claro só
+                            redefinimos as que mudam, e o site inteiro acompanha.
+                        </p>
+                    </div>
 
+                </div>
 
-/* ========================================
-   4. CARROSSEL DE SPRITES
-======================================== */
+            </div>
 
-document.querySelectorAll('[data-carrossel]').forEach((carrossel) => {
-    const faixa = carrossel.querySelector('.carrossel-faixa');
-    const slides = Array.from(carrossel.querySelectorAll('.carrossel-slide'));
-    const botaoAnterior = carrossel.querySelector('[data-anterior]');
-    const botaoProximo = carrossel.querySelector('[data-proximo]');
-    const areaPontos = carrossel.querySelector('[data-pontos]');
+            <!-- Evolução dos sprites e dos cenários -->
+            <div class="bloco-bastidores bloco-galeria" id="evolucao-sprites">
 
-    let atual = 0;
+                <h3>Evolução dos Sprites</h3>
 
-    // Cria um ponto para cada slide.
-    const pontos = slides.map((slide, indice) => {
-        const ponto = document.createElement('button');
+                <p>Veja como a personagem principal e os cenários foram evoluindo durante o desenvolvimento do jogo.</p>
 
-        ponto.type = 'button';
-        ponto.className = 'ponto';
-        ponto.setAttribute('aria-label', 'Ir para a imagem ' + (indice + 1));
-        ponto.addEventListener('click', () => ir(indice));
+                <div class="evolucao-carrosseis">
 
-        areaPontos.appendChild(ponto);
-        return ponto;
-    });
+                    <!-- Carrossel da personagem principal -->
+                    <div class="evolucao-item">
+                        <h4>Personagem principal</h4>
 
-    // Vai para o slide indicado (volta ao início depois do último).
-    function ir(indice) {
-        atual = (indice + slides.length) % slides.length;
+                        <div class="carrossel carrossel-sprites" data-carrossel role="region"
+                             aria-roledescription="carrossel"
+                             aria-label="Evolução da personagem principal" tabindex="0">
 
-        faixa.style.transform = 'translateX(-' + (atual * 100) + '%)';
+                            <div class="carrossel-janela">
+                                <ul class="carrossel-faixa">
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Evolução 1">
+                                                <img src="evoprincipal.jpeg" alt="Primeira etapa da evolução da personagem principal">
+                                            </div>
+                                            <figcaption>
+                                                <strong>1. Primeira versão</strong>
+                                                Etapa inicial do desenvolvimento.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
 
-        slides.forEach((slide, i) => {
-            slide.setAttribute('aria-hidden', String(i !== atual));
-        });
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Evolução 2">
+                                                <img src="evoprincipal1.jpeg" alt="Segunda etapa da evolução da personagem principal">
+                                            </div>
+                                            <figcaption>
+                                                <strong>2. Versão intermediária</strong>
+                                                Ajustes na aparência e nos detalhes.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
 
-        pontos.forEach((ponto, i) => {
-            ponto.setAttribute('aria-current', String(i === atual));
-        });
-    }
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Evolução 3">
+                                                <img src="personagem principal.png" alt="Versão final da personagem principal">
+                                            </div>
+                                            <figcaption>
+                                                <strong>3. Versão final</strong>
+                                                Resultado após os ajustes.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
 
-    botaoAnterior.addEventListener('click', () => ir(atual - 1));
-    botaoProximo.addEventListener('click', () => ir(atual + 1));
+                            <div class="carrossel-controles">
+                                <button class="carrossel-botao" type="button" data-anterior aria-label="Imagem anterior da personagem">←</button>
+                                <div class="carrossel-pontos" data-pontos></div>
+                                <button class="carrossel-botao" type="button" data-proximo aria-label="Próxima imagem da personagem">→</button>
+                            </div>
+                        </div>
+                    </div>
 
-    // Setas do teclado quando o carrossel está em foco.
-    carrossel.addEventListener('keydown', (evento) => {
-        if (evento.key === 'ArrowLeft') {
-            ir(atual - 1);
-        } else if (evento.key === 'ArrowRight') {
-            ir(atual + 1);
-        }
-    });
+                    <!-- Novo carrossel da evolução dos cenários -->
+                    <div class="evolucao-item">
+                        <h4>Evolução dos cenários</h4>
 
-    // Se a imagem ainda não existe, mostra um rótulo no lugar.
-    carrossel.querySelectorAll('.carrossel-imagem img').forEach((imagem) => {
-        const caixa = imagem.closest('.carrossel-imagem');
-        const marcar = () => caixa.classList.add('sem-imagem');
+                        <div class="carrossel carrossel-cenarios" data-carrossel role="region"
+                             aria-roledescription="carrossel"
+                             aria-label="Evolução dos cenários do jogo" tabindex="0">
 
-        if (imagem.complete && imagem.naturalWidth === 0) {
-            marcar();
-        }
+                            <div class="carrossel-janela">
+                                <ul class="carrossel-faixa">
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Cenário 1">
+                                                <img src="evocenario.jpeg" alt="Primeira versão de um cenário do jogo">
+                                            </div>
+                                            <figcaption>
+                                                <strong>1. Primeira versão</strong>
+                                                Primeiros elementos visuais do cenário.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
 
-        imagem.addEventListener('error', marcar);
-    });
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Cenário 2">
+                                                <img src="evocenario2.jpeg" alt="Versão atualizada de um cenário do jogo">
+                                            </div>
+                                            <figcaption>
+                                                <strong>2. Versão atualizada</strong>
+                                                Cenário após os ajustes e melhorias.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
 
-    ir(0);
-});
+                            <div class="carrossel-controles">
+                                <button class="carrossel-botao" type="button" data-anterior aria-label="Cenário anterior">←</button>
+                                <div class="carrossel-pontos" data-pontos></div>
+                                <button class="carrossel-botao" type="button" data-proximo aria-label="Próximo cenário">→</button>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
 
-/* ========================================
-   5. STORYBOARD — IMAGEM AMPLIADA
-======================================== */
+            </div>
 
-const lightbox = document.querySelector('#lightbox');
+            <!-- Evolução dos sprites -->
+            <div class="bloco-bastidores" id="sprites">
 
-if (lightbox) {
-    const imagemGrande = lightbox.querySelector('img');
-    const legenda = lightbox.querySelector('.lightbox-legenda');
+                <h3>Nossos Sprites</h3>
 
-    document.querySelectorAll('.storyboard-botao').forEach((botao) => {
-        const miniatura = botao.querySelector('img');
+                <p>Os personagens e objetos do jogo. Use as setas ou os botões.</p>
 
-        // Se a imagem não existir, mostra o nome no lugar.
-        const marcar = () => botao.classList.add('sem-imagem');
+                <div class="carrossel" data-carrossel role="region"
+                     aria-roledescription="carrossel"
+                     aria-label="Personagem e inimigos do jogo" tabindex="0">
 
-        if (miniatura.complete && miniatura.naturalWidth === 0) {
-            marcar();
-        }
+                    <div class="carrossel-janela">
+                        <ul class="carrossel-faixa">
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Personagem">
+                                        <img src="personagem principal.png" alt="Personagem principal do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>1. Personagem Principal</strong>
+                                        Jogador
+                                    </figcaption>
+                                </figure>
+                            </li>
 
-        miniatura.addEventListener('error', marcar);
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Boss">
+                                        <img src="boss_final_andando.png" alt="Boss, o chefão final do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>2. Boss</strong>
+                                        O chefão final.
+                                    </figcaption>
+                                </figure>
+                            </li>
 
-        // Abre a imagem em tamanho grande.
-        botao.addEventListener('click', () => {
-            if (botao.classList.contains('sem-imagem')) return;
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Drone">
+                                        <img src="Drone1.png" alt="Drone maligno, inimigo 1">
+                                    </div>
+                                    <figcaption>
+                                        <strong>3. Drone maligno</strong>
+                                        Inimigo 1.
+                                    </figcaption>
+                                </figure>
+                            </li>
 
-            imagemGrande.src = miniatura.src;
-            imagemGrande.alt = miniatura.alt;
-            legenda.textContent = botao.dataset.legenda;
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Aluno infectado">
+                                        <img src="Inimigo1_infectado.png" alt="Aluno infectado pela IA, inimigo 2">
+                                    </div>
+                                    <figcaption>
+                                        <strong>4. Aluno infectado</strong>
+                                        Inimigo 2.
+                                    </figcaption>
+                                </figure>
+                            </li>
 
-            lightbox.showModal();
-        });
-    });
+                        </ul>
+                    </div>
 
-    lightbox.querySelector('.lightbox-fechar').addEventListener('click', () => {
-        lightbox.close();
-    });
+                    <div class="carrossel-controles">
+                        <button class="carrossel-botao" type="button" data-anterior
+                                aria-label="Imagem anterior">←</button>
 
-    // Clicar fora da imagem (no fundo escuro) também fecha.
-    lightbox.addEventListener('click', (evento) => {
-        if (evento.target === lightbox) {
-            lightbox.close();
-        }
-    });
-}
+                        <div class="carrossel-pontos" data-pontos></div>
 
+                        <button class="carrossel-botao" type="button" data-proximo
+                                aria-label="Próxima imagem">→</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Carrossel de cenários -->
+            <div class="bloco-bastidores bloco-galeria" id="cenarios">
+
+                <h3>Cenários</h3>
+
+                <p>Conheça alguns dos ambientes que compõem o universo de IF: AI Attacks.</p>
+
+                <div class="carrossel carrossel-cenarios" data-carrossel role="region"
+                     aria-roledescription="carrossel"
+                     aria-label="Cenários do jogo" tabindex="0">
+
+                    <div class="carrossel-janela">
+                        <ul class="carrossel-faixa">
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Cenário 1">
+                                        <img src="faseinicial.jpeg" alt="Primeiro cenário do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>1. Cenário inicial</strong>
+                                        Ambiente da primeira etapa.
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Cenário 2">
+                                        <img src="cenario principal.jpeg" alt="Segundo cenário do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>2. Segundo ambiente</strong>
+                                        Outro espaço explorado durante a aventura.
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Cenário 3">
+                                        <img src="fasefinal.jpeg" alt="Terceiro cenário do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>3. Ambiente final</strong>
+                                        Cenário de uma etapa avançada do jogo.
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="carrossel-controles">
+                        <button class="carrossel-botao" type="button" data-anterior
+                                aria-label="Imagem anterior">←</button>
+                        <div class="carrossel-pontos" data-pontos></div>
+                        <button class="carrossel-botao" type="button" data-proximo
+                                aria-label="Próxima imagem">→</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Documentação e códigos-fonte -->
+        <section id="recursos">
+
+            <!-- Documentação -->
+            <div id="documentacao" class="bloco-recursos">
+
+                <span class="rotulo-secao">CONHECIMENTO</span>
+
+                <h2>Documentação</h2>
+
+                <ul class="lista-recursos">
+
+                    <li class="card-recurso card-largo">
+                        <h3>Documentação Completa do Projeto</h3>
+                        <p>Planejamento, etapas de criação, tecnologias e decisões do projeto, reunidos em um único PDF.</p>
+                        <a
+                            class="botao"
+                            href="Modelo_Projeto de Pesquisa n.docx"
+                            download
+                        >
+                            Baixar PDF
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Códigos-fonte -->
+            <div id="codigos" class="bloco-recursos">
+
+                <span class="rotulo-secao">DESENVOLVIMENTO</span>
+
+                <h2>Códigos-fonte</h2>
+
+                <ul class="lista-recursos">
+
+                    <li class="card-recurso">
+                        <h3>Código do Jogo</h3>
+                        <p>
+                            Explore os arquivos e a lógica de programação
+                            que dão vida ao IF: AI Attacks.
+                        </p>
+                        <a
+                            class="botao"
+                            href="https://github.com/ingrithgisselli/jogo.git"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver no GitHub
+                        </a>
+                    </li>
+
+                    <li class="card-recurso">
+                        <h3>Código do Site</h3>
+                        <p>
+                            Consulte a estrutura HTML, os estilos CSS
+                            e os recursos JavaScript deste site.
+                        </p>
+                        <a
+                            class="botao"
+                            href="https://github.com/ingrithgisselli/jogo.git"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ver no GitHub
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- Integrantes do projeto -->
+        <section id="integrantes">
+
+            <span class="rotulo-secao">QUEM ESTÁ POR TRÁS</span>
+
+            <h2>Nossa equipe</h2>
+
+            <p class="descricao-integrantes">
+                Conheça as pessoas que transformaram essa ideia
+                em um projeto de tecnologia.
+            </p>
+
+            <ul class="lista-integrantes">
+                <li class="card-integrante">
+                    <img src="aisha.jpeg" alt="Foto de Aisha, integrante da equipe de desenvolvimento" class="avatar-integrante" width="88" height="88">
+
+                    <h3>Aisha</h3>
+                    <p class="funcao-integrante">Idealização do Tema &amp; Desenvolvimento</p>
+                    <p>Idealizou o tema do projeto e participou ativamente da programação, construção e implementação das funcionalidades do jogo.</p>
+                </li>
+
+                <li class="card-integrante">
+                    <img src="enzo.jpeg" alt="Foto do Enzo, integrante da equipe de design gráfico" class="avatar-integrante" width="88" height="88">
+
+                    <h3>Enzo</h3>
+                    <p class="funcao-integrante">Design Gráfico</p>
+                    <p>Responsável pela criação dos cenários e das artes/sprites que dão vida ao visual do jogo.</p>
+                </li>
+
+                <li class="card-integrante">
+                    <img src="felipe.jpeg" alt="Foto do Felipe, integrante da equipe de programação" class="avatar-integrante" width="88" height="88">
+
+                    <h3>Felipe</h3>
+                    <p class="funcao-integrante">Programação</p>
+                    <p>Responsável por estruturar a lógica principal e dar vida ao funcionamento técnico da aplicação.</p>
+                </li>
+
+                <li class="card-integrante">
+                    <img src="ingrith.jpeg" alt="Foto de Gisselli, integrante da equipe de desenvolvimento web" class="avatar-integrante" width="88" height="88">
+
+                    <h3>Gisselli</h3>
+                    <p class="funcao-integrante">Desenvolvimento web</p>
+                    <p>Responsável pelo visual e funcionamento do site, garantindo uma navegação moderna, intuitiva e atraente.</p>
+                </li>
+
+                <li class="card-integrante">
+                    <img src="grazi.jpeg" alt="Foto da Grazi, integrante da equipe de documentação" class="avatar-integrante" width="88" height="88">
+
+                    <h3>Grazielly</h3>
+                    <p class="funcao-integrante">Idealização do Tema &amp; Documentação</p>
+                    <p>Idealizou a proposta do jogo e liderou a estruturação da documentação e relatórios técnicos do projeto.</p>
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+
+        <!-- Linha divisória e créditos -->
+        <div class="rodape-base">
+            <p>© 2026 IF: AI Attacks | Projeto de Jogos | IFSP - Câmpus São Paulo</p>
+            <p>Todos os direitos reservados</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
