@@ -460,23 +460,17 @@ section h2 {
 }
 
 .video-player {
+    display: block;
     width: 100%;
     min-width: 0;
-    aspect-ratio: 16 / 12;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    padding: 0;
+    object-fit: contain;
 
     background-color: #140e1c;
     border: 1px solid rgba(236, 227, 238, 0.25);
     border-radius: 6px;
-
-    color: var(--cor-papel);
-    font-family: var(--fonte-titulo);
-    text-align: center;
 }
 
 .video-player span {
@@ -1508,4 +1502,115 @@ kbd {
 :root:not([data-theme="light"]) #inicio h1,
 :root:not([data-theme="light"]) #inicio p {
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+}
+
+/* ========================================
+   21. GALERIAS: EVOLUÇÃO DOS SPRITES E CENÁRIOS
+======================================== */
+
+/* Os carrosséis novos mantêm o mesmo tamanho e os mesmos controles.
+   Para o fundo realmente desaparecer, use arquivos PNG com transparência. */
+.bloco-galeria {
+    scroll-margin-top: calc(var(--altura-header) + 20px);
+}
+
+.carrossel-sprites .carrossel-imagem {
+    background:
+        radial-gradient(circle at center, rgba(76, 195, 138, 0.10), transparent 68%),
+        #1f1729;
+}
+
+.carrossel-sprites .carrossel-imagem img {
+    object-fit: contain;
+    padding: 22px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.35));
+}
+
+/* Os cenários preservam a imagem completa, sem o tratamento de sprite. */
+.carrossel-cenarios .carrossel-imagem {
+    aspect-ratio: 16 / 10;
+    background-color: #1f1729;
+}
+
+.carrossel-cenarios .carrossel-imagem img {
+    object-fit: contain;
+    image-rendering: auto;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .carrossel-sprites,
+    .carrossel-cenarios {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .carrossel-sprites .carrossel-imagem img {
+        padding: 14px;
+    }
+}
+
+
+/* ========================================
+   22. EVOLUÇÃO LADO A LADO
+======================================== */
+.evolucao-carrosseis {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+.evolucao-item {
+    min-width: 0;
+}
+
+.evolucao-item h4 {
+    margin: 0 0 16px;
+    color: var(--cor-papel);
+    font-family: var(--fonte-titulo);
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.evolucao-item .carrossel {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.evolucao-item .carrossel-imagem {
+    aspect-ratio: 1 / 1;
+}
+
+/* CARROSSEL DE EVOLUÇÃO DOS CENÁRIOS */
+.evolucao-item .carrossel-cenarios {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.evolucao-item .carrossel-cenarios .carrossel-imagem {
+    aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 900px) {
+    .evolucao-carrosseis {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .evolucao-item .carrossel {
+        max-width: 340px;
+        margin: 0 auto;
+    }
+}
+
+/* AUMENTAR O CARROSSEL DA SEÇÃO DE CENÁRIOS */
+.bloco-galeria:not(#evolucao-sprites) .carrossel {
+    width: 100%;
+    max-width: 480;
+    margin: 0 auto;
 }
