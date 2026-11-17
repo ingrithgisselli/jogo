@@ -49,6 +49,9 @@
                 <li><a href="#jogo">O Jogo</a></li>
                 <li><a href="#tutorial">Tutorial</a></li>
                 <li><a href="#bastidores">Programação</a></li>
+                <li><a href="#evolucao-sprites">Evolução dos Sprites</a></li>
+                <li><a href="#sprites">Sprites</a></li>
+                <li><a href="#cenarios">Cenários</a></li>
                 <li><a href="#documentacao">Documentação</a></li>
                 <li><a href="#integrantes">Integrantes</a></li>
             </ul>
@@ -99,7 +102,7 @@
             </p>
 
             <div class="hero-botoes">
-                <a href="#video" class="botao">
+                <a href="#video" class="botao" data-assistir-video>
                     Assistir ao vídeo
                 </a>
 
@@ -185,23 +188,24 @@
 
                     <p>Veja o jogo em ação e os desafios que o protagonista enfrenta.</p>
 
-                    <a href="#video" class="botao">
+                    <a href="#video" class="botao" data-assistir-video>
                         Assistir ao vídeo
                     </a>
 
                 </div>
 
-                <div
+                <video
                     class="video-player"
                     id="video"
-                    role="region"
-                    aria-label="Espaço reservado para o vídeo do jogo"
+                    controls
+                    preload="metadata"
+                    playsinline
+                    aria-label="Vídeo de apresentação do jogo IF: AI Attacks"
                     tabindex="-1"
                 >
-                    <!-- Quando o vídeo estiver pronto, troque esta div inteira por:
-                     <video class="video-player" controls src="video/jogo.mp4"></video> -->
-                    <video class="video-player" controls src="videoo.mp4"></video>
-                </div>
+                    <source src="videoo.mp4" type="video/mp4">
+                    Seu navegador não conseguiu carregar o vídeo. Verifique o arquivo videoo.mp4.
+                </video>
 
             </div>
 
@@ -273,10 +277,10 @@
                                 aria-selected="false" tabindex="-1">Game State</button>
                         <button class="aba" type="button" role="tab"
                                 id="aba-tema" aria-controls="painel-tema"
-                                aria-selected="false" tabindex="-1">Site · Tema claro/escuro</button>
+                                aria-selected="false" tabindex="-1">Site · Anti-Piscar (HTML)</button>
                         <button class="aba" type="button" role="tab"
                                 id="aba-cores" aria-controls="painel-cores"
-                                aria-selected="false" tabindex="-1">Site · Cores (CSS)</button>
+                                aria-selected="false" tabindex="-1">Site · Abas WAI-ARIA (JavaScript)</button>
                     </div>
 
                     <div class="painel-codigo" role="tabpanel" id="painel-mecanica"
@@ -290,13 +294,13 @@
     elif aleatorio == 3:
         call_deferred("carregar_quizHard3")
 
-func carregar_quizHard1() -> void:
+func carregar_quizHard1():
     get_tree().change_scene_to_file(cena_quizHard1)
 
-func carregar_quizHard2() -> void:
+func carregar_quizHard2():
     get_tree().change_scene_to_file(cena_quizHard2)
 
-func carregar_quizHard3() -> void:
+func carregar_quizHard3():
     get_tree().change_scene_to_file(cena_quizHard3)</code></pre>
                         <p class="legenda-codigo">
                         Sorteio 
@@ -329,15 +333,16 @@ func algum_quiz_correto(fase: String) -> bool:
 
                     <div class="painel-codigo" role="tabpanel" id="painel-tema"
                          aria-labelledby="aba-tema" tabindex="0" hidden>
-<pre><code>const botaoTema = document.querySelector('#tema-toggle');
-const elementoHTML = document.documentElement;
-
-botaoTema.addEventListener('click', () => {
-    const novoTema = elementoHTML.dataset.theme === 'dark' ? 'light' : 'dark';
-
-    <mark>elementoHTML.dataset.theme = novoTema;</mark>
-    localStorage.setItem('tema', novoTema);
-});</code></pre>
+<pre><code> &lt;script&gt;
+    try {
+        const temaSalvo = localStorage.getItem('tema');
+        const temaValido = temaSalvo === 'light' || temaSalvo === 'dark';
+        const prefereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+        const tema = temaValido ? temaSalvo : (prefereClaro ? 'light' : 'dark');
+        <mark>document.documentElement.dataset.theme = tema;</mark>
+    } catch (e) {}
+    &gt;/script&gt;
+</code></pre>
                         <p class="legenda-codigo">
                             Ao clicar no botão, o JavaScript troca o atributo
                             <code>data-theme</code> da página e guarda a escolha
@@ -347,22 +352,168 @@ botaoTema.addEventListener('click', () => {
 
                     <div class="painel-codigo" role="tabpanel" id="painel-cores"
                          aria-labelledby="aba-cores" tabindex="0" hidden>
-<pre><code>:root {
-    --cor-fundo: #1a1324;
-    --cor-bordo: #4b2a40;
-    --cor-verde: #0a5c3a;
-    --texto-principal: #f6f0f8;
-}
+<pre><code>document.querySelectorAll('[data-abas]').forEach((grupo) => {
+    const abas = Array.from(grupo.querySelectorAll('[role="tab"]'));
+    const paineis = Array.from(grupo.querySelectorAll('[role="tabpanel"]'));
 
-<mark>:root[data-theme="light"] {
-    --texto-principal: #12121f;
-}</mark>
+    // Mostra a aba escolhida e esconde as outras.
+    function selecionar(indice, moverFoco) {
+        abas.forEach((aba, i) => {
+            const ativa = i === indice;
 
-body { color: var(--texto-principal); }</code></pre>
+            aba.setAttribute('aria-selected', String(ativa));
+            <mark>aba.setAttribute('tabindex', ativa ? '0' : '-1');</mark>
+            paineis[i].hidden = !ativa;
+        });
+
+        if (moverFoco) {
+            abas[indice].focus();
+        }
+    }
+
+    abas.forEach((aba, indice) => {
+        aba.addEventListener('click', () => selecionar(indice, false));
+
+        // Setas, Home e End navegam entre as abas.
+        aba.addEventListener('keydown', (evento) => {
+            let novoIndice = null;
+
+            if (evento.key === 'ArrowRight') {
+                novoIndice = (indice + 1) % abas.length;
+            } else if (evento.key === 'ArrowLeft') {
+                <mark>novoIndice = (indice - 1 + abas.length) % abas.length;</mark>
+            } else if (evento.key === 'Home') {
+                novoIndice = 0;
+            } else if (evento.key === 'End') {
+                novoIndice = abas.length - 1;
+            }
+
+            if (novoIndice !== null) {
+                evento.preventDefault();
+                selecionar(novoIndice, true);
+            }
+        });
+    });
+});
+    
+</code></pre>
                         <p class="legenda-codigo">
                             As cores ficam em variáveis. No tema claro só
                             redefinimos as que mudam, e o site inteiro acompanha.
                         </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Evolução dos sprites e dos cenários -->
+            <div class="bloco-bastidores bloco-galeria" id="evolucao-sprites">
+
+                <h3>Evolução dos Sprites</h3>
+
+                <p>Veja como a personagem principal e os cenários foram evoluindo durante o desenvolvimento do jogo.</p>
+
+                <div class="evolucao-carrosseis">
+
+                    <!-- Carrossel da personagem principal -->
+                    <div class="evolucao-item">
+                        <h4>Personagem principal</h4>
+
+                        <div class="carrossel carrossel-sprites" data-carrossel role="region"
+                             aria-roledescription="carrossel"
+                             aria-label="Evolução da personagem principal" tabindex="0">
+
+                            <div class="carrossel-janela">
+                                <ul class="carrossel-faixa">
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Evolução 1">
+                                                <img src="evoprincipal.jpeg" alt="Primeira etapa da evolução da personagem principal">
+                                            </div>
+                                            <figcaption>
+                                                <strong>1. Primeira versão</strong>
+                                                Etapa inicial do desenvolvimento.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Evolução 2">
+                                                <img src="evoprincipal1.jpeg" alt="Segunda etapa da evolução da personagem principal">
+                                            </div>
+                                            <figcaption>
+                                                <strong>2. Versão intermediária</strong>
+                                                Ajustes na aparência e nos detalhes.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Evolução 3">
+                                                <img src="personagem principal.png" alt="Versão final da personagem principal">
+                                            </div>
+                                            <figcaption>
+                                                <strong>3. Versão final</strong>
+                                                Resultado após os ajustes.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="carrossel-controles">
+                                <button class="carrossel-botao" type="button" data-anterior aria-label="Imagem anterior da personagem">←</button>
+                                <div class="carrossel-pontos" data-pontos></div>
+                                <button class="carrossel-botao" type="button" data-proximo aria-label="Próxima imagem da personagem">→</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Novo carrossel da evolução dos cenários -->
+                    <div class="evolucao-item">
+                        <h4>Evolução dos cenários</h4>
+
+                        <div class="carrossel carrossel-cenarios" data-carrossel role="region"
+                             aria-roledescription="carrossel"
+                             aria-label="Evolução dos cenários do jogo" tabindex="0">
+
+                            <div class="carrossel-janela">
+                                <ul class="carrossel-faixa">
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Cenário 1">
+                                                <img src="evocenario.jpeg" alt="Primeira versão de um cenário do jogo">
+                                            </div>
+                                            <figcaption>
+                                                <strong>1. Primeira versão</strong>
+                                                Primeiros elementos visuais do cenário.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+
+                                    <li class="carrossel-slide">
+                                        <figure>
+                                            <div class="carrossel-imagem" data-rotulo="Cenário 2">
+                                                <img src="evocenario2.jpeg" alt="Versão atualizada de um cenário do jogo">
+                                            </div>
+                                            <figcaption>
+                                                <strong>2. Versão atualizada</strong>
+                                                Cenário após os ajustes e melhorias.
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="carrossel-controles">
+                                <button class="carrossel-botao" type="button" data-anterior aria-label="Cenário anterior">←</button>
+                                <div class="carrossel-pontos" data-pontos></div>
+                                <button class="carrossel-botao" type="button" data-proximo aria-label="Próximo cenário">→</button>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -409,11 +560,11 @@ body { color: var(--texto-principal); }</code></pre>
                             <li class="carrossel-slide">
                                 <figure>
                                     <div class="carrossel-imagem" data-rotulo="Drone">
-                                        <img src="fase1completa" alt="Drone maligno, inimigo 1">
+                                        <img src="Drone1.png" alt="Drone maligno, inimigo 1">
                                     </div>
                                     <figcaption>
-                                        <strong>3. Fase 1</strong>
-                                        Primeira fase.
+                                        <strong>3. Drone maligno</strong>
+                                        Inimigo 1.
                                     </figcaption>
                                 </figure>
                             </li>
@@ -421,11 +572,11 @@ body { color: var(--texto-principal); }</code></pre>
                             <li class="carrossel-slide">
                                 <figure>
                                     <div class="carrossel-imagem" data-rotulo="Aluno infectado">
-                                        <img src="fasefinalcompleta" alt="Aluno infectado pela IA, inimigo 2">
+                                        <img src="Inimigo1_infectado.png" alt="Aluno infectado pela IA, inimigo 2">
                                     </div>
                                     <figcaption>
-                                        <strong>4. Fase final</strong>
-                                        Fase final.
+                                        <strong>4. Aluno infectado</strong>
+                                        Inimigo 2.
                                     </figcaption>
                                 </figure>
                             </li>
@@ -439,6 +590,69 @@ body { color: var(--texto-principal); }</code></pre>
 
                         <div class="carrossel-pontos" data-pontos></div>
 
+                        <button class="carrossel-botao" type="button" data-proximo
+                                aria-label="Próxima imagem">→</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Carrossel de cenários -->
+            <div class="bloco-bastidores bloco-galeria" id="cenarios">
+
+                <h3>Cenários</h3>
+
+                <p>Conheça alguns dos ambientes que compõem o universo de IF: AI Attacks.</p>
+
+                <div class="carrossel carrossel-cenarios" data-carrossel role="region"
+                     aria-roledescription="carrossel"
+                     aria-label="Cenários do jogo" tabindex="0">
+
+                    <div class="carrossel-janela">
+                        <ul class="carrossel-faixa">
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Cenário 1">
+                                        <img src="faseinicial.jpeg" alt="Primeiro cenário do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>1. Cenário inicial</strong>
+                                        Ambiente da primeira etapa.
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Cenário 2">
+                                        <img src="cenario principal.jpeg" alt="Segundo cenário do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>2. Segundo ambiente</strong>
+                                        Outro espaço explorado durante a aventura.
+                                    </figcaption>
+                                </figure>
+                            </li>
+
+                            <li class="carrossel-slide">
+                                <figure>
+                                    <div class="carrossel-imagem" data-rotulo="Cenário 3">
+                                        <img src="fasefinal.jpeg" alt="Terceiro cenário do jogo">
+                                    </div>
+                                    <figcaption>
+                                        <strong>3. Ambiente final</strong>
+                                        Cenário de uma etapa avançada do jogo.
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="carrossel-controles">
+                        <button class="carrossel-botao" type="button" data-anterior
+                                aria-label="Imagem anterior">←</button>
+                        <div class="carrossel-pontos" data-pontos></div>
                         <button class="carrossel-botao" type="button" data-proximo
                                 aria-label="Próxima imagem">→</button>
                     </div>
@@ -510,7 +724,7 @@ body { color: var(--texto-principal); }</code></pre>
                         </p>
                         <a
                             class="botao"
-                            href="https://github.com/ingrithgisselli/jogo/tree/d2fe42743134c2f7a7e4ffc64c3bbf752d02f357/Sitejogo"
+                            href="https://github.com/ingrithgisselli/jogo.git"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
